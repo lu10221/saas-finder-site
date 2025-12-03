@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import tools from '../data/final_data_doubao.json';
+
+// 直接使用全部数据，不再切片
+const featuredTools = tools;
+---
+
+<Layout title="SaaS Finder - Best AI & Software Tools" description="Discover the best AI tools and software alternatives.">
+  <div class="text-center mb-12">
+    <h1 class="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+      Find the Perfect Tool
+    </h1>
+    <p class="text-xl text-slate-600 mb-8">Database of {tools.length} AI tools and software alternatives.</p>
+    
+    <div class="max-w-xl mx-auto">
+      <input 
+        type="text" 
+        id="search-input" 
+        placeholder="Search for tools (e.g. Jasper, Video)..." 
+        class="w-full px-6 py-4 rounded-full border border-slate-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-lg transition"
+      />
+    </div>
+  </div>
+
+  <div id="tools-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {featuredTools.map((tool) => (
+      // 给每个卡片加一个 data-name 属性，方便 JS 搜索
+      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/\s+/g, '-')}`} 
+         class="tool-card block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition group"
+         data-name={tool.name.toLowerCase()}
+         data-desc={tool.tagline?.toLowerCase() || ""}
+      >
+        <h2 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 mb-2">{tool.name}</h2>
+        <p class="text-sm text-slate-500 mb-4 line-clamp-2">{tool.tagline}</p>
+        <div class="flex flex-wrap gap-2">
+           <span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600">{tool.pricing_type}</span>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <div id="no-results" class="hidden text-center py-12 text-slate-500">
+    <p class="text-lg">No tools found matching your search.</p>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('search-input');
+    const toolCards = document.querySelectorAll('.tool-card');
+    const noResults = document.getElementById('no-results');
+
+    searchInput?.addEventListener('input', (e) => {
+      // @ts-ignore
+      const term = e.target.value.toLowerCase();
+      let visibleCount = 0;
+
+      toolCards.forEach((card) => {
+        // @ts-ignore
+        const name = card.dataset.name;
+        // @ts-ignore
+        const desc = card.dataset.desc;
+
+        if (name.includes(term) || desc.includes(term)) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // 控制无结果提示的显示
+      if (visibleCount === 0) {
+        noResults?.classList.remove('hidden');
+      } else {
+        noResults?.classList.add('hidden');
+      }
+    });
+  </script>
+</Layout>

@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import tools from '../../data/final_data_doubao.json';
+
+// 1. 告诉 Astro 我们要生成哪些页面
+export async function getStaticPaths() {
+  return tools.map((tool) => ({
+    params: { slug: tool.slug || tool.name.toLowerCase().replace(/\s+/g, '-') },
+    props: { tool },
+  }));
+}
+
+// 2. 获取当前页面的数据
+const { tool } = Astro.props;
+
+// 🔴 核心修复：创建一个 Set 用来快速查找哪些工具是真实存在的
+// 这样我们在渲染替代品时，就能判断是给它内部链接，还是外部搜索链接
+const existingSlugs = new Set(tools.map(t => t.slug || t.name.toLowerCase().replace(/\s+/g, '-')));
+
+// 3. 构建 SEO TDK
+const pageTitle = `${tool.name} Review & Best Alternatives (2025)`;
+const pageDesc = tool.description ? (tool.description.slice(0, 150) + "...") : `Check out ${tool.name} pricing, features and alternatives.`;
+---
+
+<Layout title={pageTitle} description={pageDesc}>
+  <div class="text-sm text-slate-500 mb-4">
+    <a href="/" class="hover:underline">Home</a> &gt; <span>{tool.name}</span>
+  </div>
+
+  <header class="mb-8">
+    <h1 class="text-4xl font-extrabold mb-2">{tool.name}</h1>
+    <p class="text-xl text-slate-600 mb-4">{tool.tagline}</p>
+    
+    <div class="flex gap-2 mb-6">
+      <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
+        {tool.pricing_type}
+      </span>
+      {tool.best_for && (
+        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+          Best for {tool.best_for}
+        </span>
+      )}
+    </div>
+
+    <a href={tool.website_url ? tool.website_url : `https://www.google.com/search?q=${encodeURIComponent(tool.name)}`} 
+       target="_blank" 
+       rel="nofollow noopener"
+       class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition">
+       {tool.website_url ? "Visit Official Website" : "Search on Google"} &rarr;
+    </a>
+  </header>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    
+    <div class="md:col-span-2 space-y-8">
+      <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+        <h2 class="text-2xl font-bold mb-4">What is {tool.name}?</h2>
+        <p class="text-slate-700 leading-relaxed">{tool.description}</p>
+      </section>
+
+      <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+        <h2 class="text-2xl font-bold mb-4">Key Features</h2>
+        <ul class="list-disc pl-5 space-y-2 text-slate-700">
+          {tool.key_features && tool.key_features.map((feature) => (
+            <li>{feature}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+        <h2 class="text-2xl font-bold mb-4">Top Alternatives to {tool.name}</h2>
+        <div class="space-y-3">
+            {tool.alternatives && tool.alternatives.map((alt) => {
+                // 1. 算出这个替代品的 slug
+                const altSlug = alt.toLowerCase().replace(/\s+/g, '-');
+                // 2. 检查它是否在我们的数据库里
+                const exists = existingSlugs.has(altSlug);
+
+                return (
+                    <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                        <span class="font-semibold text-slate-700">{alt}</span>
+                        
+                        {exists ? (
+                            // ✅ 情况A: 数据库里有，显示内部链接 "Compare"
+                            <a href={`/tool/${altSlug}`} class="text-blue-600 text-sm hover:underline font-medium">
+                                Compare &rarr;
+                            </a>
+                        ) : (
+                            // ❌ 情况B: 数据库里没有，显示 Google 搜索链接 (防止404)
+                            <a href={`https://www.google.com/search?q=${encodeURIComponent(alt + ' ' + tool.name + ' alternative')}`} 
+                               target="_blank" 
+                               rel="nofollow noopener"
+                               class="text-slate-400 text-sm hover:text-blue-500 flex items-center gap-1">
+                                Search <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                        )}
+                    </div>
+                );
+            })}
+        </div>
+      </section>
+    </div>
+
+    <div class="space-y-6">
+      <div class="bg-green-50 p-6 rounded-xl border border-green-100">
+        <h3 class="font-bold text-green-800 mb-3">Pros</h3>
+        <ul class="space-y-2 text-sm text-green-900">
+          {tool.pros && tool.pros.map((pro) => (
+            <li class="flex items-start">
+              <span class="mr-2">✅</span> {pro}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+        <h3 class="font-bold text-red-800 mb-3">Cons</h3>
+        <ul class="space-y-2 text-sm text-red-900">
+          {tool.cons && tool.cons.map((con) => (
+            <li class="flex items-start">
+              <span class="mr-2">❌</span> {con}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>
