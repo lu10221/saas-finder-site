@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import tools from '../data/final_data_doubao.json';
 
-// 直接使用全部数据，不再切片
+// 直接使用全部数据
 const featuredTools = tools;
 ---
 
@@ -25,7 +25,6 @@ const featuredTools = tools;
 
   <div id="tools-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
     {featuredTools.map((tool) => (
-      // 给每个卡片加一个 data-name 属性，方便 JS 搜索
       <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/\s+/g, '-')}`} 
          class="tool-card block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition group"
          data-name={tool.name.toLowerCase()}
@@ -68,7 +67,6 @@ const featuredTools = tools;
         }
       });
 
-      // 控制无结果提示的显示
       if (visibleCount === 0) {
         noResults?.classList.remove('hidden');
       } else {
