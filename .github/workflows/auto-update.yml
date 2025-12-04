@@ -1,0 +1,47 @@
+name: Manual Update Content
+
+# ⬇️ 修正点在这里：加上 {} 确保语法绝对正确
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Mac Script
+        env:
+          # 确保这里名字和你 Secrets 里的一模一样
+          VOLC_API_KEY: ${{ secrets.VOLC_API_KEY }}
+          ENDPOINT_ID: ${{ secrets.ENDPOINT_ID }}
+        run: |
+          node mac-script.js
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "action@github.com"
+          
+          if [[ -n $(git status -s) ]]; then
+            echo "发现新数据，正在提交..."
+            git add src/data/mac_tools.json
+            git commit -m "🤖 Auto-update: Added new Mac apps"
+            git push
+            echo "✅ 成功！"
+          else
+            echo "没有新数据。"
+          fi
