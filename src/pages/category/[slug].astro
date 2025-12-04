@@ -3,8 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 
 // 1. 生成所有分类的路径
 export async function getStaticPaths() {
-  // 🔴 关键修复：必须在这个函数内部重新导入数据
-  // 因为 getStaticPaths 是独立运行的，看不到外面的变量
   const aiData = (await import('../../data/ai_tools.json')).default;
   const macData = (await import('../../data/mac_tools.json')).default;
   const allTools = [...aiData, ...macData];
@@ -13,16 +11,23 @@ export async function getStaticPaths() {
   const uniqueCategories = [...new Set(allTools.map(tool => tool.category).filter(Boolean))];
   
   return uniqueCategories.map((category) => {
-    // 过滤出属于当前分类的工具
     const categoryTools = allTools.filter((tool) => tool.category === category);
+    
+    // 🔴 核心修复：强力清洗 Slug
+    // 1. 转小写
+    // 2. 把所有非字母数字的字符 (包括空格、斜杠、&) 都替换成 '-'
+    // 3. 去掉头尾多余的 '-'
+    const safeSlug = category.toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-') 
+        .replace(/^-+|-+$/g, '');
+
     return {
-      params: { slug: category.toLowerCase().replace(/\s+/g, '-') },
+      params: { slug: safeSlug },
       props: { categoryName: category, tools: categoryTools },
     };
   });
 }
 
-// 2. 获取页面传递的参数
 const { categoryName, tools } = Astro.props;
 ---
 
@@ -38,7 +43,7 @@ const { categoryName, tools } = Astro.props;
 
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
     {tools.map((tool) => (
-      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/\s+/g, '-')}`} 
+      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} 
          class={`block bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition group ${tool.collection === 'mac' ? 'border-slate-200 hover:border-purple-300' : 'border-slate-200 hover:border-blue-300'}`}>
         <div class="flex justify-between items-start mb-2">
             <h2 class={`text-xl font-bold text-slate-900 ${tool.collection === 'mac' ? 'group-hover:text-purple-600' : 'group-hover:text-blue-600'}`}>{tool.name}</h2>
