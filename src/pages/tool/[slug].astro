@@ -1,98 +1,110 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import tools from '../../data/final_data_doubao.json';
+import aiData from '../../data/ai_tools.json';
+import macData from '../../data/mac_tools.json';
 
-// 1. 告诉 Astro 我们要生成哪些页面
+// 1. 合并两个数据源
+const allTools = [...aiData, ...macData];
+
+// 2. 生成所有页面的路径
 export async function getStaticPaths() {
-  return tools.map((tool) => ({
+  // 重新引入数据以确保作用域
+  const aiData = (await import('../../data/ai_tools.json')).default;
+  const macData = (await import('../../data/mac_tools.json')).default;
+  const all = [...aiData, ...macData];
+
+  return all.map((tool) => ({
     params: { slug: tool.slug || tool.name.toLowerCase().replace(/\s+/g, '-') },
     props: { tool },
   }));
 }
 
-// 2. 获取当前页面的数据
 const { tool } = Astro.props;
 
-// 🔴 核心修复：创建一个 Set 用来快速查找哪些工具是真实存在的
-// 这样我们在渲染替代品时，就能判断是给它内部链接，还是外部搜索链接
-const existingSlugs = new Set(tools.map(t => t.slug || t.name.toLowerCase().replace(/\s+/g, '-')));
+// 3. 准备 Slug 集合用于检查替代品链接是否有效
+const existingSlugs = new Set(allTools.map(t => t.slug || t.name.toLowerCase().replace(/\s+/g, '-')));
 
-// 3. 构建 SEO TDK
-const pageTitle = `${tool.name} Review & Best Alternatives (2025)`;
-const pageDesc = tool.description ? (tool.description.slice(0, 150) + "...") : `Check out ${tool.name} pricing, features and alternatives.`;
+// 页面标题
+const pageTitle = `${tool.name} Review - Best ${tool.collection === 'mac' ? 'Mac App' : 'AI Tool'} (2025)`;
+const pageDesc = tool.description ? tool.description.slice(0, 150) + "..." : "";
 ---
 
 <Layout title={pageTitle} description={pageDesc}>
-  <div class="text-sm text-slate-500 mb-4">
-    <a href="/" class="hover:underline">Home</a> &gt; <span>{tool.name}</span>
+  <div class="text-sm text-slate-500 mb-4 flex items-center gap-2">
+    <a href="/" class="hover:underline">Home</a> 
+    <span>&rsaquo;</span>
+    <span class="capitalize">{tool.collection === 'mac' ? 'Mac Apps' : 'AI Tools'}</span>
+    <span>&rsaquo;</span>
+    <span class="text-slate-800 font-medium">{tool.name}</span>
   </div>
 
   <header class="mb-8">
-    <h1 class="text-4xl font-extrabold mb-2">{tool.name}</h1>
-    <p class="text-xl text-slate-600 mb-4">{tool.tagline}</p>
+    <div class="flex items-center gap-3 mb-2">
+        <h1 class="text-4xl font-extrabold">{tool.name}</h1>
+        {tool.collection === 'mac' ? (
+            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-bold uppercase tracking-wider">Mac App</span>
+        ) : (
+            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-bold uppercase tracking-wider">AI Tool</span>
+        )}
+    </div>
     
-    <div class="flex gap-2 mb-6">
-      <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
-        {tool.pricing_type}
+    <p class="text-xl text-slate-600 mb-6 max-w-2xl">{tool.tagline}</p>
+    
+    <div class="flex flex-wrap gap-3 mb-8">
+      <span class="px-3 py-1 border border-slate-200 rounded-full text-sm text-slate-600">
+        💰 {tool.pricing_type}
       </span>
-      {tool.best_for && (
-        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
-          Best for {tool.best_for}
-        </span>
+      {tool.category && (
+        <a href={`/category/${tool.category.toLowerCase().replace(/\s+/g, '-')}`} class="px-3 py-1 border border-slate-200 rounded-full text-sm text-blue-600 hover:bg-blue-50 transition">
+          📂 {tool.category}
+        </a>
       )}
     </div>
 
-    <a href={tool.website_url ? tool.website_url : `https://www.google.com/search?q=${encodeURIComponent(tool.name)}`} 
+    <a href={tool.website_url || `https://www.google.com/search?q=${encodeURIComponent(tool.name)}`} 
        target="_blank" 
        rel="nofollow noopener"
-       class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition">
-       {tool.website_url ? "Visit Official Website" : "Search on Google"} &rarr;
+       onclick={`gtag('event', 'click_affiliate', { 'tool_name': '${tool.name}', 'url': '${tool.website_url || "google_search"}', 'category': '${tool.collection}' });`}
+       class={`inline-flex items-center gap-2 px-8 py-3 rounded-lg font-bold text-white transition shadow-lg shadow-blue-500/20 ${tool.collection === 'mac' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-blue-600 hover:bg-blue-700'}`}>
+       Visit Official Website 
+       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
     </a>
   </header>
 
   <div class="grid md:grid-cols-3 gap-8">
-    
     <div class="md:col-span-2 space-y-8">
       <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-        <h2 class="text-2xl font-bold mb-4">What is {tool.name}?</h2>
-        <p class="text-slate-700 leading-relaxed">{tool.description}</p>
+        <h2 class="text-2xl font-bold mb-4">Overview</h2>
+        <p class="text-slate-700 leading-relaxed text-lg">{tool.description}</p>
       </section>
 
-      <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-        <h2 class="text-2xl font-bold mb-4">Key Features</h2>
-        <ul class="list-disc pl-5 space-y-2 text-slate-700">
-          {tool.key_features && tool.key_features.map((feature) => (
-            <li>{feature}</li>
-          ))}
-        </ul>
-      </section>
+      {tool.key_features && (
+          <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold mb-4">Key Features</h2>
+            <ul class="grid sm:grid-cols-2 gap-3">
+              {tool.key_features.map((feature) => (
+                <li class="flex items-start gap-2 text-slate-700">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+      )}
 
       <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-        <h2 class="text-2xl font-bold mb-4">Top Alternatives to {tool.name}</h2>
+        <h2 class="text-2xl font-bold mb-4">Alternatives to {tool.name}</h2>
         <div class="space-y-3">
             {tool.alternatives && tool.alternatives.map((alt) => {
-                // 1. 算出这个替代品的 slug
                 const altSlug = alt.toLowerCase().replace(/\s+/g, '-');
-                // 2. 检查它是否在我们的数据库里
                 const exists = existingSlugs.has(altSlug);
-
                 return (
-                    <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                        <span class="font-semibold text-slate-700">{alt}</span>
-                        
+                    <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg group hover:bg-slate-100 transition">
+                        <span class="font-medium text-slate-700">{alt}</span>
                         {exists ? (
-                            // ✅ 情况A: 数据库里有，显示内部链接 "Compare"
-                            <a href={`/tool/${altSlug}`} class="text-blue-600 text-sm hover:underline font-medium">
-                                Compare &rarr;
-                            </a>
+                            <a href={`/tool/${altSlug}`} class="text-sm font-bold text-blue-600 hover:underline">Compare &rarr;</a>
                         ) : (
-                            // ❌ 情况B: 数据库里没有，显示 Google 搜索链接 (防止404)
-                            <a href={`https://www.google.com/search?q=${encodeURIComponent(alt + ' ' + tool.name + ' alternative')}`} 
-                               target="_blank" 
-                               rel="nofollow noopener"
-                               class="text-slate-400 text-sm hover:text-blue-500 flex items-center gap-1">
-                                Search <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                            </a>
+                            <a href={`https://www.google.com/search?q=${encodeURIComponent(alt + ' ' + tool.name + ' alternative')}`} target="_blank" rel="nofollow noopener" class="text-xs text-slate-400 hover:text-slate-600 flex items-center gap-1">Search <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
                         )}
                     </div>
                 );
@@ -103,22 +115,28 @@ const pageDesc = tool.description ? (tool.description.slice(0, 150) + "...") : `
 
     <div class="space-y-6">
       <div class="bg-green-50 p-6 rounded-xl border border-green-100">
-        <h3 class="font-bold text-green-800 mb-3">Pros</h3>
-        <ul class="space-y-2 text-sm text-green-900">
+        <h3 class="font-bold text-green-800 mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg>
+            Pros
+        </h3>
+        <ul class="space-y-3">
           {tool.pros && tool.pros.map((pro) => (
-            <li class="flex items-start">
-              <span class="mr-2">✅</span> {pro}
+            <li class="flex items-start gap-2 text-sm text-green-900">
+              <span class="text-green-500 mt-0.5">✓</span> {pro}
             </li>
           ))}
         </ul>
       </div>
 
       <div class="bg-red-50 p-6 rounded-xl border border-red-100">
-        <h3 class="font-bold text-red-800 mb-3">Cons</h3>
-        <ul class="space-y-2 text-sm text-red-900">
+        <h3 class="font-bold text-red-800 mb-4 flex items-center gap-2">
+             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.095c.5 0 .905-.405.905-.905 0-.714.211-1.412.608-2.006L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5"></path></svg>
+            Cons
+        </h3>
+        <ul class="space-y-3">
           {tool.cons && tool.cons.map((con) => (
-            <li class="flex items-start">
-              <span class="mr-2">❌</span> {con}
+            <li class="flex items-start gap-2 text-sm text-red-900">
+              <span class="text-red-500 mt-0.5">×</span> {con}
             </li>
           ))}
         </ul>

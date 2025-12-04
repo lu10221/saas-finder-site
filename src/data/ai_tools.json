@@ -26,7 +26,8 @@
     "cons": [
       "Steep learning curve for beginners",
       "No built-in graphical configuration tools"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "altern.ai",
@@ -55,7 +56,8 @@
     "cons": [
       "Higher pricing tiers may be costly for small businesses",
       "Limited advanced customization vs enterprise-grade tools like Adobe Target"
-    ]
+    ],
+    "category": "Marketing"
   },
   {
     "name": "Notion AI",
@@ -84,7 +86,8 @@
     "cons": [
       "Limited access for free Notion users",
       "Requires familiarity with Notion’s interface to maximize utility"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Murf AI",
@@ -113,7 +116,8 @@
     "cons": [
       "Free plan has limited voice options and usage",
       "Advanced features require premium subscriptions"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "MeetGeek",
@@ -142,7 +146,8 @@
     "cons": [
       "Free tier has limited transcription minutes",
       "Advanced insights locked behind paid plans"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "OpenAI API",
@@ -171,7 +176,8 @@
     "cons": [
       "Costs can scale quickly for large-scale usage",
       "Rate limits may restrict high-throughput workflows initially"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Gopher",
@@ -200,7 +206,8 @@
     "cons": [
       "Limited to text-based content only",
       "Steeper learning curve for new users"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "Open Pre-trained Transformer (OPT)",
@@ -229,7 +236,8 @@
     "cons": [
       "Larger models require high-end hardware (GPUs/TPUs)",
       "Needs fine-tuning for specialized use cases"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "OPT-175B (Open Pre-trained Transformer 175B)",
@@ -258,7 +266,8 @@
     "cons": [
       "Requires heavy computational resources",
       "Non-commercial license limits commercial use"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Bloom",
@@ -287,7 +296,8 @@
     "cons": [
       "Requires significant computational resources to run locally",
       "May lack niche task fine-tuning compared to proprietary models"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "LLaMA",
@@ -316,7 +326,8 @@
     "cons": [
       "Larger models demand significant computational resources",
       "Access approval required from Meta for certain use cases"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Meta Llama 2",
@@ -345,7 +356,8 @@
     "cons": [
       "Requires technical expertise to deploy/fine-tune",
       "Eligibility limits for large-scale commercial use"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Claude 3",
@@ -374,7 +386,8 @@
     "cons": [
       "Premium API access can be costly for heavy users",
       "Cloud-based only with no offline functionality"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Vicuna-13B",
@@ -403,7 +416,8 @@
     "cons": [
       "Requires Meta’s LLaMA license",
       "Restricted to non-commercial use"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Stable Beluga",
@@ -432,7 +446,8 @@
     "cons": [
       "Requires technical expertise to deploy and optimize",
       "Less polished than proprietary models like GPT-4"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Stable Beluga 2",
@@ -461,7 +476,8 @@
     "cons": [
       "Requires technical expertise to deploy and host",
       "Larger size may demand significant compute resources"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "GPT-4o Mini",
@@ -490,7 +506,8 @@
     "cons": [
       "Less capable than premium LLMs",
       "Limited advanced reasoning abilities"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "ChatGPT",
@@ -519,7 +536,8 @@
     "cons": [
       "Risk of outdated or inaccurate information",
       "Limited real-time data access (free tier)"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Bing Chat",
@@ -548,7 +566,8 @@
     "cons": [
       "Limited conversation turns per session",
       "Regional availability restrictions"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Google Gemini",
@@ -577,7 +596,8 @@
     "cons": [
       "Free tier has limited advanced features",
       "Occasional errors in complex reasoning"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "Character.AI",
@@ -606,7 +626,8 @@
     "cons": [
       "Free version has message limits and slower responses",
       "Some long conversations lack consistency in character tone"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "ChatPDF",
@@ -635,7 +656,8 @@
     "cons": [
       "Free tier has limits on document size and page count",
       "May struggle with highly scanned or image-heavy PDFs"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Phind",
@@ -664,7 +686,8 @@
     "cons": [
       "Free tier has usage restrictions",
       "Occasional over-simplification of complex tasks"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Tiledesk",
@@ -693,7 +716,8 @@
     "cons": [
       "Steeper learning curve for advanced customization",
       "Limited analytics in free tier"
-    ]
+    ],
+    "category": "Customer Support"
   },
   {
     "name": "AICamp",
@@ -722,7 +746,8 @@
     "cons": [
       "Limited free content vs premium plans",
       "Smaller course library than larger platforms"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "Gali Chat",
@@ -751,7 +776,8 @@
     "cons": [
       "Limited advanced features in free tier",
       "Occasional inaccuracies in complex topic responses"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "DeepSeek-R1",
@@ -780,7 +806,8 @@
     "cons": [
       "Requires technical expertise for optimal deployment",
       "Larger size may demand more computational resources"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "dmwithme",
@@ -809,7 +836,8 @@
     "cons": [
       "Limited to Instagram only",
       "Free plan has strict feature restrictions"
-    ]
+    ],
+    "category": "Social Media"
   },
   {
     "name": "Kazimir.ai",
@@ -838,7 +866,8 @@
     "cons": [
       "Free tier has limited generation credits",
       "Complex prompts may yield inconsistent outputs"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Perplexity AI",
@@ -867,7 +896,8 @@
     "cons": [
       "Free tier limits advanced features access",
       "Occasional outdated external links in citations"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Metaphor",
@@ -896,7 +926,8 @@
     "cons": [
       "Limited free tier with search quotas",
       "Less effective for short factual queries than Google"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "You.com",
@@ -925,7 +956,8 @@
     "cons": [
       "Smaller index than Google, missing some niche results",
       "Free tier has limited AI tool usage credits"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "Komo AI",
@@ -954,7 +986,8 @@
     "cons": [
       "Limited features in free plan",
       "Occasional generic content output"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "MemFree",
@@ -983,7 +1016,8 @@
     "cons": [
       "Intrusive ads in free version",
       "Limited advanced features"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "Refinder AI",
@@ -1012,7 +1046,8 @@
     "cons": [
       "Limited advanced features in free plan",
       "Occasional tagging inaccuracies for niche content"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Agentset.ai",
@@ -1042,7 +1077,8 @@
     "cons": [
       "Limited advanced customization for power users",
       "Free tier may restrict agent usage or features"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "privateGPT",
@@ -1071,7 +1107,8 @@
     "cons": [
       "Requires technical setup",
       "Limited performance vs cloud models"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Quivr",
@@ -1100,7 +1137,8 @@
     "cons": [
       "Steeper learning curve for self-hosting setup",
       "Limited official support compared to paid tools"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Jasper",
@@ -1129,7 +1167,8 @@
     "cons": [
       "No Permanent Free Plan",
       "Higher Pricing Than Competitors"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Compose AI",
@@ -1158,7 +1197,8 @@
     "cons": [
       "Free plan has limited monthly usage limits",
       "Advanced features require a paid Pro subscription"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Rytr",
@@ -1188,7 +1228,8 @@
     "cons": [
       "Limited advanced features vs premium tools",
       "Occasional inconsistencies in long-form content"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "HyperWrite",
@@ -1217,7 +1258,8 @@
     "cons": [
       "Free plan has strict word limits",
       "Over-reliance risk for original writing practice"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Nexus AI",
@@ -1246,7 +1288,8 @@
     "cons": [
       "Premium plans may be costly for small teams",
       "Limited advanced customization for power users"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Moonbeam",
@@ -1275,7 +1318,8 @@
     "cons": [
       "Relies on Polkadot’s governance and network stability",
       "Gas fees may vary with network congestion"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Copy.ai",
@@ -1304,7 +1348,8 @@
     "cons": [
       "Free plan has strict word limit restrictions",
       "Occasional need for manual editing to refine output"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Anyword",
@@ -1333,7 +1378,8 @@
     "cons": [
       "Higher tiers may be costly for small teams",
       "Advanced features locked behind premium plans"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Contenda",
@@ -1363,7 +1409,8 @@
     "cons": [
       "Free plan has limited monthly outputs",
       "AI-generated content may need minor edits"
-    ]
+    ],
+    "category": "Marketing"
   },
   {
     "name": "Hypotenuse AI",
@@ -1392,7 +1439,8 @@
     "cons": [
       "Limited free plan functionality",
       "Occasional generic content outputs"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Lavender",
@@ -1421,7 +1469,8 @@
     "cons": [
       "Limited to sales-focused content only",
       "Premium plans may be pricey for small teams"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Amazon Lex",
@@ -1450,7 +1499,8 @@
     "cons": [
       "Steeper learning curve for non-AWS familiar users",
       "Higher costs for large-scale voice interactions"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Jenni AI",
@@ -1479,7 +1529,8 @@
     "cons": [
       "Free plan has limited monthly word allowance",
       "Advanced features locked behind paid tiers"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "LAIKA",
@@ -1508,7 +1559,8 @@
     "cons": [
       "Free plan has limited usage quotas",
       "Advanced features locked behind paid tiers"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "QuillBot",
@@ -1537,7 +1589,8 @@
     "cons": [
       "Free version has word limits and restricted features",
       "Premium subscription may be costly for casual users"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Postwise",
@@ -1566,7 +1619,8 @@
     "cons": [
       "Limited to Twitter (X) platform only",
       "Free plan has restrictive usage limits"
-    ]
+    ],
+    "category": "Social Media"
   },
   {
     "name": "RapidTextAI",
@@ -1595,7 +1649,8 @@
     "cons": [
       "Free version has limited word count",
       "Advanced features locked behind premium"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Copysmith",
@@ -1624,7 +1679,8 @@
     "cons": [
       "Higher pricing than entry-level AI writing tools",
       "Occasional need for manual edits to polish output"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Yomu",
@@ -1655,7 +1711,8 @@
       "Premium features require subscription",
       "Free tier includes ads",
       "Limited cloud storage in free version"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "Listomatic",
@@ -1684,7 +1741,8 @@
     "cons": [
       "Free plan limits advanced collaboration tools",
       "Few third-party integration options"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Quick Creator",
@@ -1713,7 +1771,8 @@
     "cons": [
       "Free plan has limited output credits",
       "Occasional need for manual edits to polish results"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Trolly.ai",
@@ -1742,7 +1801,8 @@
     "cons": [
       "Limited recipe database in free version",
       "Occasional cross-device sync issues reported"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Dittto.ai",
@@ -1771,7 +1831,8 @@
     "cons": [
       "Free plan has limited word count",
       "Advanced features locked behind premium tiers"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "PulsePost",
@@ -1801,7 +1862,8 @@
     "cons": [
       "Free plan has limited post slots",
       "Advanced analytics locked behind premium tiers"
-    ]
+    ],
+    "category": "Social Media"
   },
   {
     "name": "DeepL Write",
@@ -1830,7 +1892,8 @@
     "cons": [
       "Free version has daily usage limits",
       "Fewer advanced features than Grammarly Premium"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "HeadlinesAI.pro",
@@ -1859,7 +1922,8 @@
     "cons": [
       "Free tier limits daily generations",
       "Some outputs require manual tweaks"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "GPTLocalhost",
@@ -1888,7 +1952,8 @@
     "cons": [
       "Limited model selection vs cloud tools",
       "Moderate hardware needed for larger models"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Gist AI",
@@ -1917,7 +1982,8 @@
     "cons": [
       "Free plan has monthly summary limits",
       "Advanced features require paid subscription"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "WebChatGPT",
@@ -1947,7 +2013,8 @@
     "cons": [
       "Premium features require a subscription",
       "Occasional delays in response time due to web fetching"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "GPT for Sheets and Docs",
@@ -1976,7 +2043,8 @@
     "cons": [
       "Limited free tier (restricted AI requests)",
       "Dependent on Google Workspace access"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "ChatGPT Prompt Genius",
@@ -2005,7 +2073,8 @@
     "cons": [
       "Limited advanced features in the free tier",
       "Only available as a browser extension (no standalone app)"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "ChatGPT for Search Engines",
@@ -2034,7 +2103,8 @@
     "cons": [
       "Limited free queries in basic tier",
       "Dependent on ChatGPT’s accuracy"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "ShareGPT",
@@ -2063,7 +2133,8 @@
     "cons": [
       "Free tier has feature/storage limitations",
       "Occasional slow loading of community feed"
-    ]
+    ],
+    "category": "Social Media"
   },
   {
     "name": "Merlin",
@@ -2092,7 +2163,8 @@
     "cons": [
       "Free plan has daily usage limits",
       "Advanced features require paid subscription"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "ChatGPT Writer",
@@ -2121,7 +2193,8 @@
     "cons": [
       "Free tier requires OpenAI API key setup",
       "Premium subscription for unlimited access"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "ChatGPT for Jupyter",
@@ -2150,7 +2223,8 @@
     "cons": [
       "Requires OpenAI API key (additional usage costs)",
       "No offline access to AI assistance"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "editGPT",
@@ -2179,7 +2253,8 @@
     "cons": [
       "Limited free features (subscription required for full access)",
       "Over-reliance risk may reduce manual editing skills"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Chatbot UI",
@@ -2209,7 +2284,8 @@
     "cons": [
       "Requires basic coding for advanced modifications",
       "No official hosted version (self-deployment needed)"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Forefront AI",
@@ -2238,7 +2314,8 @@
     "cons": [
       "Free tier has strict usage limits",
       "Advanced features require paid plans"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Mem",
@@ -2267,7 +2344,8 @@
     "cons": [
       "Limited features in the free plan",
       "Steeper learning curve for advanced AI tools"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Taskade",
@@ -2296,7 +2374,8 @@
     "cons": [
       "Advanced features locked behind paid plans",
       "Video conferencing less robust than dedicated tools"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Nekton AI",
@@ -2325,7 +2404,8 @@
     "cons": [
       "Free plan has limited workflow runs monthly",
       "Advanced features require costly higher-tier subscriptions"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Elephas",
@@ -2354,7 +2434,8 @@
     "cons": [
       "Exclusive to Apple devices only",
       "Free tier has limited feature access"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Lemmy",
@@ -2383,7 +2464,8 @@
     "cons": [
       "Steeper learning curve for new users",
       "Smaller user base compared to centralized platforms like Reddit"
-    ]
+    ],
+    "category": "Social Media"
   },
   {
     "name": "Google Sheets Formula Generator",
@@ -2413,7 +2495,8 @@
     "cons": [
       "Limited advanced functions in free tiers",
       "Requires internet connection to use"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "CreateEasily",
@@ -2442,7 +2525,8 @@
     "cons": [
       "Limited advanced editing in free plan",
       "Occasional generic outputs needing manual tweaks"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Azure Cosmos DB",
@@ -2471,7 +2555,8 @@
     "cons": [
       "Higher cost vs self-managed NoSQL options",
       "Steep learning curve for multi-region optimization"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "aiPDF",
@@ -2500,7 +2585,8 @@
     "cons": [
       "Free tier has limited document size/usage",
       "Occasional inaccuracies with complex technical PDFs"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Summary With AI",
@@ -2529,7 +2615,8 @@
     "cons": [
       "Free version has text length limits",
       "Premium subscription can be pricey for heavy users"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Emilio AI",
@@ -2558,7 +2645,8 @@
     "cons": [
       "Free plan has limited feature access",
       "May need adjustments for highly niche contexts"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Pieces",
@@ -2587,7 +2675,8 @@
     "cons": [
       "Limited advanced features in the free tier",
       "Occasional sync delays across devices"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Huntr AI Resume Builder",
@@ -2616,7 +2705,8 @@
     "cons": [
       "Limited advanced features in free plan",
       "Occasional generic AI content suggestions"
-    ]
+    ],
+    "category": "HR & Recruiting"
   },
   {
     "name": "Recall.ai",
@@ -2645,7 +2735,8 @@
     "cons": [
       "Requires technical expertise for setup",
       "Free tier has usage limits"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Talently AI",
@@ -2674,7 +2765,8 @@
     "cons": [
       "Limited customization for niche industry roles",
       "Higher subscription costs for enterprise features"
-    ]
+    ],
+    "category": "HR & Recruiting"
   },
   {
     "name": "TailorTask",
@@ -2703,7 +2795,8 @@
     "cons": [
       "Limited advanced reporting in free tier",
       "Narrower integration library than top competitors"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "AnkiDecks AI",
@@ -2732,7 +2825,8 @@
     "cons": [
       "Free tier has limited card generation",
       "Occasional AI content inaccuracies"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Magic Slides AI",
@@ -2761,7 +2855,8 @@
     "cons": [
       "Free tier has slide count limits",
       "Occasional irrelevant image suggestions"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "FARSITE",
@@ -2790,7 +2885,8 @@
     "cons": [
       "Steeper learning curve for beginners",
       "Variable performance based on node availability"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "BrainSoup",
@@ -2819,7 +2915,8 @@
     "cons": [
       "Free plan has limited word count per month",
       "Some outputs need manual editing for brand alignment"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "MindPal",
@@ -2848,7 +2945,8 @@
     "cons": [
       "Limited advanced features in the free plan",
       "Occasional AI response inaccuracies"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Fabric (Meta AR Creation Platform)",
@@ -2877,7 +2975,8 @@
     "cons": [
       "Limited to Meta’s platform ecosystem",
       "Advanced features require premium access"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Riffo",
@@ -2907,7 +3006,8 @@
     "cons": [
       "Limited advanced editing options",
       "Free plan includes watermarks and usage caps"
-    ]
+    ],
+    "category": "Video Editing"
   },
   {
     "name": "SlidesWizard",
@@ -2936,7 +3036,8 @@
     "cons": [
       "Free plan has limited template access",
       "Advanced AI features locked behind paid tiers"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Transgate",
@@ -2965,7 +3066,8 @@
     "cons": [
       "Limited free trial options for new users",
       "Steeper learning curve for advanced features"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "RabbitHoles AI",
@@ -2994,7 +3096,8 @@
     "cons": [
       "Limited free tier features (e.g., path count)",
       "May lack real-time updates for fast-changing topics"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Rember",
@@ -3023,7 +3126,8 @@
     "cons": [
       "macOS-exclusive (no cross-platform support)",
       "Fewer advanced features than Anki"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Qurate",
@@ -3052,7 +3156,8 @@
     "cons": [
       "Higher cost for enterprise features",
       "Steeper learning curve for advanced analytics"
-    ]
+    ],
+    "category": "Marketing"
   },
   {
     "name": "FirmOS",
@@ -3081,7 +3186,8 @@
     "cons": [
       "Limited features in free tier",
       "Advanced integrations require technical expertise"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Whisper API",
@@ -3110,7 +3216,8 @@
     "cons": [
       "Usage-based pricing can get costly for large volumes",
       "No permanent free tier for small-scale use"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Smmry",
@@ -3139,7 +3246,8 @@
     "cons": [
       "Free plan has word count and usage limits",
       "May lack nuance in technical or creative texts"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Nudge AI",
@@ -3168,7 +3276,8 @@
     "cons": [
       "Higher cost may not fit small teams",
       "Steeper learning curve for AI tool newcomers"
-    ]
+    ],
+    "category": "Marketing"
   },
   {
     "name": "Summara",
@@ -3197,7 +3306,8 @@
     "cons": [
       "Free tier has word count limitations",
       "Technical documents may need manual tweaks"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Mocha",
@@ -3226,7 +3336,8 @@
     "cons": [
       "Requires separate assertion libraries",
       "Less out-of-the-box tools than Jest"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Marblism",
@@ -3255,7 +3366,8 @@
     "cons": [
       "Limited advanced analysis vs enterprise tools",
       "Free plan restricts data sources and exports"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Spell",
@@ -3284,7 +3396,8 @@
     "cons": [
       "Limited free tier resources for large-scale experiments",
       "Less customization than self-hosted ML platforms"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Kosmik",
@@ -3313,7 +3426,8 @@
     "cons": [
       "Limited advanced features in free plan",
       "Smaller community compared to established tools"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "MinusX",
@@ -3342,7 +3456,8 @@
     "cons": [
       "Free tier has file limits",
       "Advanced features locked behind paid plans"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "Excelmatic",
@@ -3371,7 +3486,8 @@
     "cons": [
       "Free plan lacks advanced function support",
       "Occasional inaccuracies with complex queries"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "LangFast",
@@ -3400,7 +3516,8 @@
     "cons": [
       "Limited support for niche programming languages",
       "Free tier has usage line restrictions"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "SalesAgent Chat",
@@ -3429,7 +3546,8 @@
     "cons": [
       "Free plan lacks advanced NLP features",
       "Complex chat flows require initial setup time"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Perch Reader",
@@ -3458,7 +3576,8 @@
     "cons": [
       "Free plan has limited data access",
       "Learning curve for advanced features"
-    ]
+    ],
+    "category": "SEO"
   },
   {
     "name": "X-doc AI",
@@ -3487,7 +3606,8 @@
     "cons": [
       "Steeper learning curve for custom workflow setup",
       "Limited free tier for enterprise-scale tasks"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Otter.ai",
@@ -3516,7 +3636,8 @@
     "cons": [
       "Free plan has limited transcription minutes",
       "Occasional errors with technical jargon/accented speech"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Cogram",
@@ -3545,7 +3666,8 @@
     "cons": [
       "Limited functionality in the free plan",
       "Occasional inaccuracies with technical jargon"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Sybill",
@@ -3574,7 +3696,8 @@
     "cons": [
       "Requires initial setup to align with team workflows",
       "Subscription costs may be high for small teams"
-    ]
+    ],
+    "category": "Marketing"
   },
   {
     "name": "Loopin AI",
@@ -3603,7 +3726,8 @@
     "cons": [
       "Free plan has limited monthly transcription minutes",
       "Occasional jargon inaccuracies in technical meetings"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Scribbl.io",
@@ -3632,7 +3756,8 @@
     "cons": [
       "Ad interruptions during sessions",
       "Limited advanced drawing features"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "Elicit",
@@ -3661,7 +3786,8 @@
     "cons": [
       "Free tier has limited monthly searches",
       "May struggle with niche or non-English papers"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "genei",
@@ -3690,7 +3816,8 @@
     "cons": [
       "Free tier has limited document processing capacity",
       "Advanced AI features locked behind paid subscriptions"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Explainpaper",
@@ -3719,7 +3846,8 @@
     "cons": [
       "Free tier has limited monthly usage",
       "May struggle with extremely niche technical content"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Galactica",
@@ -3748,7 +3876,8 @@
     "cons": [
       "Discontinued due to misinformation concerns",
       "Limited post-launch access"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Consensus",
@@ -3777,7 +3906,8 @@
     "cons": [
       "Limited free tier access to advanced features",
       "May lack coverage of very niche or recent papers"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Sourcely",
@@ -3806,7 +3936,8 @@
     "cons": [
       "Free plan has limited search queries",
       "May miss niche or less-indexed sources"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "NotebookLM",
@@ -3835,7 +3966,8 @@
     "cons": [
       "Limited to Google ecosystem (no Word/Excel support)",
       "Beta version has occasional feature gaps"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Mathos AI",
@@ -3864,7 +3996,8 @@
     "cons": [
       "Free version has daily usage limits",
       "Advanced math topics require premium access"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "SiteGPT",
@@ -3893,7 +4026,8 @@
     "cons": [
       "Free plan has interaction limits",
       "Advanced features need paid tiers"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "GPTHelp.ai",
@@ -3922,7 +4056,8 @@
     "cons": [
       "Limited free tier features (full access requires upgrade)",
       "Occasional inaccuracies in complex technical queries"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Inline Help",
@@ -3951,7 +4086,8 @@
     "cons": [
       "Limited advanced features in free tier",
       "Requires design alignment for brand consistency"
-    ]
+    ],
+    "category": "Customer Support"
   },
   {
     "name": "Aidbase",
@@ -3980,7 +4116,8 @@
     "cons": [
       "Limited advanced customization in free plan",
       "Higher tiers may be costly for large-scale use"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Twig",
@@ -4009,7 +4146,8 @@
     "cons": [
       "Limited to PHP environments",
       "Steeper learning curve for templating beginners"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "EmailTriager",
@@ -4038,7 +4176,8 @@
     "cons": [
       "Limited advanced features in the free plan",
       "Requires initial setup for custom triage rules"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "AI Poem Generator",
@@ -4067,7 +4206,8 @@
     "cons": [
       "Free version may limit poem length",
       "Some outputs lack deep human emotional nuance"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Ollama",
@@ -4096,7 +4236,8 @@
     "cons": [
       "Requires sufficient hardware resources",
       "No native graphical interface"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Haystack",
@@ -4125,7 +4266,8 @@
     "cons": [
       "Steeper learning curve for LLM pipeline beginners",
       "Requires manual setup for complex use cases"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Keploy",
@@ -4154,7 +4296,8 @@
     "cons": [
       "Limited to API testing (no UI test coverage)",
       "Initial setup may take time for complex systems"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "LangChain",
@@ -4183,7 +4326,8 @@
     "cons": [
       "Steeper learning curve for complex workflows",
       "Documentation can overwhelm beginners"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Portia AI",
@@ -4212,7 +4356,8 @@
     "cons": [
       "Limited advanced customization vs. code-based tools",
       "Free tier has restrictions on data volume or scrapers"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "GPT4All",
@@ -4241,7 +4386,8 @@
     "cons": [
       "Premium models require GPT4All Plus subscription",
       "Slower performance on low-spec PCs for large models"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "LMQL",
@@ -4270,7 +4416,8 @@
     "cons": [
       "Steeper learning curve for complex constraints",
       "Limited community support vs. larger frameworks like LangChain"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "LlamaIndex",
@@ -4299,7 +4446,8 @@
     "cons": [
       "Steeper learning curve for complex workflows",
       "Limited enterprise-level support compared to paid tools"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Langfuse",
@@ -4328,7 +4476,8 @@
     "cons": [
       "Cloud plan pricing may be expensive for small teams",
       "Advanced features have a steeper learning curve"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Phoenix Framework",
@@ -4357,7 +4506,8 @@
     "cons": [
       "Smaller community than mainstream frameworks",
       "Steeper learning curve for Elixir beginners"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Prediction Guard",
@@ -4386,7 +4536,8 @@
     "cons": [
       "Limited advanced features in the free tier",
       "Steeper learning curve for AI monitoring newcomers"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Portkey AI Gateway",
@@ -4415,7 +4566,8 @@
     "cons": [
       "Limited to LLM-specific use cases (not general APIs)",
       "Advanced features require technical expertise to configure"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "OpenAI Downtime Monitor",
@@ -4444,7 +4596,8 @@
     "cons": [
       "Third-party tool with no official OpenAI support",
       "Limited free tier features (e.g., fewer alerts)"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "SinglebaseCloud",
@@ -4473,7 +4626,8 @@
     "cons": [
       "Limited advanced customization vs self-hosted backends",
       "Smaller community support than established BaaS providers"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Maxim AI",
@@ -4502,7 +4656,8 @@
     "cons": [
       "Free plan has limited word count",
       "Generated content may need human editing for nuance"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "CodeRabbit",
@@ -4531,7 +4686,8 @@
     "cons": [
       "Limited features in the free tier",
       "May miss context-specific edge cases"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Pagerly",
@@ -4560,7 +4716,8 @@
     "cons": [
       "Limited advanced customization in free plan",
       "Fewer integrations than enterprise tools"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Hexabot",
@@ -4589,7 +4746,8 @@
     "cons": [
       "Limited advanced AI in free plan",
       "Higher cost for enterprise features"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Plandex",
@@ -4618,7 +4776,8 @@
     "cons": [
       "Limited advanced customization for complex cases",
       "Smaller user community compared to established tools"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "AIML API",
@@ -4647,7 +4806,8 @@
     "cons": [
       "Limited NLP vs modern LLMs",
       "Requires AIML syntax knowledge"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Callstack.ai PR Reviewer",
@@ -4676,7 +4836,8 @@
     "cons": [
       "Free tier has limited review capacity",
       "May miss context-specific edge cases in complex codebases"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Opik",
@@ -4705,7 +4866,8 @@
     "cons": [
       "Free plan has limited content generation credits",
       "Advanced features locked behind premium tiers"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Kiln",
@@ -4734,7 +4896,8 @@
     "cons": [
       "Limited third-party integrations vs. top competitors",
       "Smaller community support compared to GitHub or GitLab"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Calmo",
@@ -4763,7 +4926,8 @@
     "cons": [
       "Limited free content requires subscription for full access",
       "Occasional audio sync issues reported by users"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "Cleanlab",
@@ -4792,7 +4956,8 @@
     "cons": [
       "Enterprise features require paid subscription",
       "Steeper learning curve for advanced workflows"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Amazon Q Developer CLI",
@@ -4821,7 +4986,8 @@
     "cons": [
       "Primarily optimized for AWS (less ideal for non-AWS projects)",
       "Limited free usage before paid tiers apply"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Agentic Radar",
@@ -4850,7 +5016,8 @@
     "cons": [
       "Limited advanced features in free tier",
       "Steeper learning curve for custom dashboards"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "VoltAgent",
@@ -4879,7 +5046,8 @@
     "cons": [
       "Limited advanced features in free tier",
       "Requires training for complex use cases"
-    ]
+    ],
+    "category": "Customer Support"
   },
   {
     "name": "Notte",
@@ -4908,7 +5076,8 @@
     "cons": [
       "Premium features require a paid subscription",
       "Limited customization options vs competitors"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "TensorZero",
@@ -4937,7 +5106,8 @@
     "cons": [
       "Limited advanced customization options",
       "Less control for expert ML practitioners"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "ToolHive",
@@ -4966,7 +5136,8 @@
     "cons": [
       "Limited advanced features in free plan",
       "Smaller integration library vs top competitors"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "StarOps",
@@ -4995,7 +5166,8 @@
     "cons": [
       "Lacks enterprise-grade support options",
       "Requires basic AI knowledge for effective use"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "AgentDock",
@@ -5024,7 +5196,8 @@
     "cons": [
       "Free tier limits custom agent templates",
       "Advanced workflows have a learning curve"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Codeflash",
@@ -5053,7 +5226,8 @@
     "cons": [
       "Free tier has storage and sync limitations",
       "Limited advanced team collaboration tools compared to enterprise solutions"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Rysa AI",
@@ -5082,7 +5256,8 @@
     "cons": [
       "Free plan has limited word count",
       "Generated content may need manual edits"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Agenta",
@@ -5111,7 +5286,8 @@
     "cons": [
       "Relatively new with smaller user community",
       "Cloud advanced features require paid subscription"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "GitHub Copilot",
@@ -5140,7 +5316,8 @@
     "cons": [
       "May suggest insecure or non-optimal code",
       "Subscription cost for non-eligible users"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "OpenAI Codex",
@@ -5169,7 +5346,8 @@
     "cons": [
       "May generate insecure or incorrect code",
       "Requires API access (no standalone tool)"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Ghostwriter",
@@ -5198,7 +5376,8 @@
     "cons": [
       "Free tier has limited token usage",
       "Only accessible within Replit platform"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "GoCodeo",
@@ -5227,7 +5406,8 @@
     "cons": [
       "Limited to Go (no multi-language support)",
       "Advanced features require paid plans"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "AWS CodeWhisperer",
@@ -5257,7 +5437,8 @@
     "cons": [
       "Limited advanced features in free tier",
       "Occasional irrelevant code recommendations"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Amazon CodeWhisperer",
@@ -5286,7 +5467,8 @@
     "cons": [
       "Limited advanced features in free tier",
       "Occasional irrelevant code suggestions"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Tabnine",
@@ -5315,7 +5497,8 @@
     "cons": [
       "Free plan has limited advanced features",
       "Higher-tier subscriptions required for team tools"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Stenography",
@@ -5344,7 +5527,8 @@
     "cons": [
       "Occasional need for manual edits on complex code",
       "Free tier has usage limits"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Mintlify",
@@ -5373,7 +5557,8 @@
     "cons": [
       "Free tier lacks advanced customization",
       "Limited offline editing capabilities"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Debuild",
@@ -5402,7 +5587,8 @@
     "cons": [
       "Limited advanced features for complex apps",
       "Free tier has usage restrictions (e.g., project limits)"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "AI2sql",
@@ -5431,7 +5617,8 @@
     "cons": [
       "Free plan has limited query generations",
       "May struggle with complex nested queries"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "CodiumAI",
@@ -5460,7 +5647,8 @@
     "cons": [
       "Free tier has limited test generation quota",
       "Generated tests may need manual refinement for complex edge cases"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "PR-Agent",
@@ -5489,7 +5677,8 @@
     "cons": [
       "Occasional LLM-generated inaccuracies",
       "Limited advanced customization vs paid tools"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "MutableAI",
@@ -5518,7 +5707,8 @@
     "cons": [
       "Free tier has usage limits",
       "Occasional inaccuracies in complex code"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "TurboPilot",
@@ -5548,7 +5738,8 @@
     "cons": [
       "Requires technical setup for self-hosting",
       "Limited features vs proprietary tools"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "GPT-Code UI",
@@ -5577,7 +5768,8 @@
     "cons": [
       "Requires technical setup for self-hosting",
       "Dependent on user-provided OpenAI API key"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "MetaGPT",
@@ -5606,7 +5798,8 @@
     "cons": [
       "Requires basic LLM setup and configuration knowledge",
       "May need fine-tuning for highly complex project needs"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "WhoDB",
@@ -5635,7 +5828,8 @@
     "cons": [
       "Limited advanced features (no transactions/stored procedures)",
       "Not optimized for large-scale high-traffic apps"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "FlexApp",
@@ -5664,7 +5858,8 @@
     "cons": [
       "Steeper learning curve for new users",
       "Limited non-Windows OS support"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Kilo Code",
@@ -5693,7 +5888,8 @@
     "cons": [
       "Lacks advanced GUI editor features",
       "Steeper curve for non-terminal users"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Capacity",
@@ -5723,7 +5919,8 @@
     "cons": [
       "Advanced workflows have a learning curve",
       "Basic plans limit chatbot customization"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Runcell",
@@ -5752,7 +5949,8 @@
     "cons": [
       "Limited customization options for reports",
       "No dedicated mobile app for on-the-go access"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Manifest AI",
@@ -5781,7 +5979,8 @@
     "cons": [
       "Advanced features locked behind paid tiers",
       "Limited customization in the free plan"
-    ]
+    ],
+    "category": "Customer Support"
   },
   {
     "name": "DataPup",
@@ -5810,7 +6009,8 @@
     "cons": [
       "Limited advanced analytics features",
       "Premium plans may be pricey for large teams"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Gito",
@@ -5839,7 +6039,8 @@
     "cons": [
       "Limited advanced features vs enterprise tools",
       "Smaller community support than established clients"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "DALL-E 2",
@@ -5868,7 +6069,8 @@
     "cons": [
       "Limited free credits (requires payment post initial use)",
       "Content restrictions on sensitive or copyrighted material"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Stable Diffusion",
@@ -5897,7 +6099,8 @@
     "cons": [
       "Steeper learning curve for advanced customization",
       "Requires significant computing power for local deployment"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Midjourney",
@@ -5926,7 +6129,8 @@
     "cons": [
       "Requires Discord account to access",
       "Limited fine-tuning control over details"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Make-A-Scene",
@@ -5955,7 +6159,8 @@
     "cons": [
       "Limited advanced features vs top-tier tools",
       "Occasional inconsistent image quality"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "DragGAN",
@@ -5984,7 +6189,8 @@
     "cons": [
       "Requires technical setup for local use",
       "Limited performance on low-res non-GAN images"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "Craiyon",
@@ -6013,7 +6219,8 @@
     "cons": [
       "Lower image detail vs premium tools",
       "Peak-time usage delays"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "DreamStudio",
@@ -6042,7 +6249,8 @@
     "cons": [
       "Limited free credits for heavy usage",
       "Steeper learning curve for beginners"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Artbreeder",
@@ -6071,7 +6279,8 @@
     "cons": [
       "Free tier has limited credits and features",
       "High-res outputs require paid subscriptions"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "GauGAN2",
@@ -6100,7 +6309,8 @@
     "cons": [
       "Requires NVIDIA GPU for optimal performance",
       "Advanced features locked behind paid Omniverse tiers"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Magic Eraser",
@@ -6129,7 +6339,8 @@
     "cons": [
       "Free tiers have resolution limits",
       "Premium features require paid subscriptions"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "Imagine by Magic Studio",
@@ -6158,7 +6369,8 @@
     "cons": [
       "Free tier has limited image generation credits",
       "Complex prompts may yield inconsistent results"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Alpaca",
@@ -6187,7 +6399,8 @@
     "cons": [
       "Less powerful than large commercial models",
       "Dependent on Meta’s LLaMA license restrictions"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Patience.ai",
@@ -6216,7 +6429,8 @@
     "cons": [
       "Premium features require subscription",
       "Limited free content vs. top competitors"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "Playground AI",
@@ -6245,7 +6459,8 @@
     "cons": [
       "Free tier has limited monthly credits",
       "Advanced features locked in paid plans"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Pixelz AI Art Generator",
@@ -6274,7 +6489,8 @@
     "cons": [
       "Free tier has limited daily generation credits",
       "Advanced features require a paid subscription"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Modyfi",
@@ -6303,7 +6519,8 @@
     "cons": [
       "Limited third-party plugin ecosystem",
       "Fewer advanced vector tools than specialized software"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "Ponzu",
@@ -6332,7 +6549,8 @@
     "cons": [
       "Smaller community than mainstream CMS",
       "Limited third-party integrations"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "PhotoRoom",
@@ -6361,7 +6579,8 @@
     "cons": [
       "Free version has watermarked exports",
       "Advanced features locked behind premium"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "Avatar AI",
@@ -6390,7 +6609,8 @@
     "cons": [
       "Free plan has limited features/resolution",
       "Requires multiple input photos for best results"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "ClipDrop",
@@ -6419,7 +6639,8 @@
     "cons": [
       "Free tier has limited usage and features",
       "Advanced tools require a paid subscription"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "Stability AI",
@@ -6448,7 +6669,8 @@
     "cons": [
       "Steeper learning curve for advanced customization",
       "High API costs for large-scale usage"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Lensa",
@@ -6477,7 +6699,8 @@
     "cons": [
       "Premium tools require paid subscriptions/in-app purchases",
       "Some AI avatars lack style diversity for all users"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "RunDiffusion",
@@ -6506,7 +6729,8 @@
     "cons": [
       "Costs increase with high GPU usage",
       "Dependent on stable internet connection"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Human Generator",
@@ -6535,7 +6759,8 @@
     "cons": [
       "Premium assets require subscription",
       "Limited advanced rigging for complex animations"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "VectorArt.ai",
@@ -6564,7 +6789,8 @@
     "cons": [
       "Limited advanced editing vs professional design tools",
       "Free tier has usage and download restrictions"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "StockPhotoAI.net",
@@ -6593,7 +6819,8 @@
     "cons": [
       "Free tier may have limited credits/resolution",
       "Rare cases of AI-generated visual inconsistencies"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Gensbot",
@@ -6622,7 +6849,8 @@
     "cons": [
       "Limited advanced AI features in free tier",
       "Occasional response latency during high traffic"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "PlantPhotoAI",
@@ -6651,7 +6879,8 @@
     "cons": [
       "Limited free scans before subscription",
       "Occasional inaccuracies with rare plant species"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "Black Headshots",
@@ -6680,7 +6909,8 @@
     "cons": [
       "Output quality depends on input photo quality",
       "Limited advanced customization vs manual editing"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Pixvify AI",
@@ -6710,7 +6940,8 @@
     "cons": [
       "Free plan has limited monthly credits",
       "Advanced features require paid subscription tiers"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Pawtrait",
@@ -6739,7 +6970,8 @@
     "cons": [
       "Free version may have resolution restrictions",
       "Some styles might not capture pet’s unique traits accurately"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "iColoring",
@@ -6768,7 +7000,8 @@
     "cons": [
       "Free version includes ads",
       "Premium content locked behind subscription"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "AI Photo Forge",
@@ -6797,7 +7030,8 @@
     "cons": [
       "Premium features require paid subscription",
       "Limited advanced manual editing tools"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Brandmark",
@@ -6826,7 +7060,8 @@
     "cons": [
       "Limited customization in free tier",
       "Premium plans can be pricey for small budgets"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "Gamma",
@@ -6855,7 +7090,8 @@
     "cons": [
       "Limited advanced design controls",
       "Free plan has storage/feature restrictions"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Microsoft Designer",
@@ -6884,7 +7120,8 @@
     "cons": [
       "Limited advanced design features vs. professional tools",
       "Free tier has restrictions on exports and AI usage"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "SVGStud.io",
@@ -6913,7 +7150,8 @@
     "cons": [
       "Limited advanced features vs desktop tools",
       "No offline functionality"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "Text2Infographic",
@@ -6942,7 +7180,8 @@
     "cons": [
       "Limited customization options in free plans",
       "AI-generated layouts may need manual adjustments"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "Seede.ai",
@@ -6971,7 +7210,8 @@
     "cons": [
       "Free plan has limited word count per month",
       "Advanced features locked behind premium subscriptions"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Magic Patterns",
@@ -7000,7 +7240,8 @@
     "cons": [
       "Limited features in the free plan",
       "Some patterns need tweaking for unique use cases"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "Lexica",
@@ -7029,7 +7270,8 @@
     "cons": [
       "Limited Advanced Features in Free Tier",
       "Focus Exclusively on Stable Diffusion Models"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Libraire",
@@ -7058,7 +7300,8 @@
     "cons": [
       "Free tier lacks advanced analytics features",
       "Custom integration options are limited"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "KREA",
@@ -7087,7 +7330,8 @@
     "cons": [
       "Free tier has limited credits and advanced features",
       "Some high-resolution outputs require paid plans"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "OpenArt",
@@ -7116,7 +7360,8 @@
     "cons": [
       "Free tier has limited credits",
       "Advanced features require paid subscriptions"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Civitai",
@@ -7145,7 +7390,8 @@
     "cons": [
       "Premium features require subscription (Civitai Plus)",
       "Inconsistent quality in user-uploaded models"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Stable Diffusion Models",
@@ -7174,7 +7420,8 @@
     "cons": [
       "Steeper learning curve for local setup",
       "Requires significant computational resources"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Stable Horde",
@@ -7203,7 +7450,8 @@
     "cons": [
       "Slower speeds during peak usage times",
       "Limited advanced settings vs local setups"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "PublicPrompts",
@@ -7232,7 +7480,8 @@
     "cons": [
       "Minimal moderation may lead to low-quality prompts",
       "Limited advanced search filters for niche needs"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Hugging Face Diffusion Models Course",
@@ -7261,7 +7510,8 @@
     "cons": [
       "Requires basic ML/Python knowledge to follow",
       "Limited interactive support compared to paid courses"
-    ]
+    ],
+    "category": "Image Generation"
   },
   {
     "name": "Hugging Face",
@@ -7290,7 +7540,8 @@
     "cons": [
       "Advanced features require paid subscriptions",
       "Some models have high resource demands for local use"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "RunwayML",
@@ -7319,7 +7570,8 @@
     "cons": [
       "Free tier has limited credits/tools",
       "Advanced features need learning curve"
-    ]
+    ],
+    "category": "Design"
   },
   {
     "name": "Synthesia",
@@ -7348,7 +7600,8 @@
     "cons": [
       "Limited avatar naturalness in some cases",
       "Premium plans may be expensive for small teams"
-    ]
+    ],
+    "category": "Video Editing"
   },
   {
     "name": "Rephrase AI",
@@ -7378,7 +7631,8 @@
     "cons": [
       "Limited avatar options in free plan",
       "Higher-tier plans may be costly for small users"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "Hour One",
@@ -7407,7 +7661,8 @@
     "cons": [
       "Limited advanced customization options",
       "Higher costs for enterprise-tier features"
-    ]
+    ],
+    "category": "Video Editing"
   },
   {
     "name": "D-ID",
@@ -7436,7 +7691,8 @@
     "cons": [
       "Free plan has limited video length and features",
       "Advanced customization requires premium subscriptions"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "Clipwing",
@@ -7465,7 +7721,8 @@
     "cons": [
       "Free plan has limited template options",
       "Advanced editing tools locked behind premium tiers"
-    ]
+    ],
+    "category": "Video Editing"
   },
   {
     "name": "Recast Studio",
@@ -7494,7 +7751,8 @@
     "cons": [
       "Free plan has limited features & video length",
       "Advanced tools locked behind paid subscriptions"
-    ]
+    ],
+    "category": "Marketing"
   },
   {
     "name": "KlingAI",
@@ -7523,7 +7781,8 @@
     "cons": [
       "Free plan has strict usage limits",
       "Advanced features only available in premium tiers"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Sisif",
@@ -7552,7 +7811,8 @@
     "cons": [
       "Limited enterprise-level support compared to paid tools",
       "Smaller community than mainstream ETL alternatives like NiFi"
-    ]
+    ],
+    "category": "Development"
   },
   {
     "name": "Descript Overdub",
@@ -7581,7 +7841,8 @@
     "cons": [
       "Custom cloning requires training data (time-consuming)",
       "Limited access in Descript’s free tier"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Respeecher",
@@ -7610,7 +7871,8 @@
     "cons": [
       "No public pricing (custom quotes only)",
       "Steeper learning curve for advanced features"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "ElevenLabs",
@@ -7639,7 +7901,8 @@
     "cons": [
       "Free plan has limited characters and voice options",
       "Voice cloning requires strict compliance with usage policies"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Resemble AI",
@@ -7668,7 +7931,8 @@
     "cons": [
       "Free tier has strict limits",
       "Accuracy depends on input audio quality"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "iSpeech",
@@ -7697,7 +7961,8 @@
     "cons": [
       "Free tier has usage limitations",
       "Advanced features require premium plans"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Veritone Voice",
@@ -7726,7 +7991,8 @@
     "cons": [
       "Enterprise pricing may be costly for small businesses",
       "Steeper learning curve for advanced features"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Microsoft Azure Neural Text-to-Speech",
@@ -7755,7 +8021,8 @@
     "cons": [
       "Costly for high-volume usage",
       "Steeper learning curve for custom voice setup"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "WellSaid Labs",
@@ -7784,7 +8051,8 @@
     "cons": [
       "Limited voice options in the free plan",
       "Higher subscription costs vs basic TTS tools"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Lovo.ai",
@@ -7813,7 +8081,8 @@
     "cons": [
       "Free tier has limited voice options and usage",
       "Advanced features require higher-priced subscription plans"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Zenmic",
@@ -7842,7 +8111,8 @@
     "cons": [
       "Free plan has limited AI capabilities",
       "Initial setup may need a slight learning curve"
-    ]
+    ],
+    "category": "Customer Support"
   },
   {
     "name": "Audify AI",
@@ -7871,7 +8141,8 @@
     "cons": [
       "Limited voice options in the free plan",
       "Premium tiers may be costly for small creators"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "TTS WebUI",
@@ -7900,7 +8171,8 @@
     "cons": [
       "Requires local setup (large model downloads)",
       "Limited to local use (no cloud sharing)"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "AInterview.space",
@@ -7929,7 +8201,8 @@
     "cons": [
       "Limited free tier features",
       "Lacks human interviewer interaction options"
-    ]
+    ],
+    "category": "HR & Recruiting"
   },
   {
     "name": "Splash Pro",
@@ -7958,7 +8231,8 @@
     "cons": [
       "Limited format support compared to VLC Media Player",
       "Requires a paid license for full feature access"
-    ]
+    ],
+    "category": "Other"
   },
   {
     "name": "AIVA",
@@ -7987,7 +8261,8 @@
     "cons": [
       "Limited customization in free plan",
       "Some compositions lack unique human flair"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Mubert",
@@ -8016,7 +8291,8 @@
     "cons": [
       "Free tier has limited track length and usage rights",
       "Some tracks lack human-composed organic feel"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Soundraw",
@@ -8046,7 +8322,8 @@
     "cons": [
       "Free plan limits access to full features (watermarks)",
       "Some tracks may lack human-composed uniqueness"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Beatoven.ai",
@@ -8075,7 +8352,8 @@
     "cons": [
       "Free plan has download and length limits",
       "Fewer genres than premium music libraries"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Boomy",
@@ -8104,7 +8382,8 @@
     "cons": [
       "Limited advanced editing depth",
       "Some tracks may feel generic"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Ecrett Music",
@@ -8133,7 +8412,8 @@
     "cons": [
       "Limited advanced customization",
       "Some tracks lack uniqueness"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Loudly",
@@ -8162,7 +8442,8 @@
     "cons": [
       "Limited advanced customization vs professional tools",
       "Free tier has restrictions on downloads/track length"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Soundful",
@@ -8191,7 +8472,8 @@
     "cons": [
       "Limited customization in free plan",
       "Some tracks lack unique human touch"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "AI Music Generator",
@@ -8220,7 +8502,8 @@
     "cons": [
       "Free tier has limited track length",
       "Advanced customization may be restricted in basic plans"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Jasper AI",
@@ -8249,7 +8532,8 @@
     "cons": [
       "Higher subscription cost vs basic AI writing tools",
       "Learning curve for advanced brand voice setup"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Mutiny",
@@ -8278,7 +8562,8 @@
     "cons": [
       "Higher cost for advanced enterprise features",
       "Limited customization vs. fully coded solutions"
-    ]
+    ],
+    "category": "Marketing"
   },
   {
     "name": "Clearbit",
@@ -8307,7 +8592,8 @@
     "cons": [
       "Premium plans can be costly for small businesses",
       "Advanced features need API expertise"
-    ]
+    ],
+    "category": "Marketing"
   },
   {
     "name": "Seventh Sense",
@@ -8336,7 +8622,8 @@
     "cons": [
       "Specialized tool (lacks full email creation features)",
       "Higher cost for small marketing teams"
-    ]
+    ],
+    "category": "Marketing"
   },
   {
     "name": "Smartly.io",
@@ -8365,7 +8652,8 @@
     "cons": [
       "Steeper learning curve for new users",
       "Custom pricing may exclude small businesses"
-    ]
+    ],
+    "category": "Social Media"
   },
   {
     "name": "Adzooma",
@@ -8394,7 +8682,8 @@
     "cons": [
       "Limited support for niche ad platforms like TikTok Ads",
       "Advanced features require paid subscription tiers"
-    ]
+    ],
+    "category": "Marketing"
   },
   {
     "name": "Phrasee",
@@ -8423,7 +8712,8 @@
     "cons": [
       "No free plan available",
       "Higher pricing may not suit small businesses"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "Crimson Hexagon",
@@ -8452,7 +8742,8 @@
     "cons": [
       "Higher enterprise-focused pricing",
       "Steeper learning curve for new users"
-    ]
+    ],
+    "category": "Social Media"
   },
   {
     "name": "MarketMuse",
@@ -8481,7 +8772,8 @@
     "cons": [
       "Higher pricing than some competitors",
       "Steeper learning curve for advanced tools"
-    ]
+    ],
+    "category": "SEO"
   },
   {
     "name": "Chatfuel",
@@ -8510,7 +8802,8 @@
     "cons": [
       "Free plan lacks advanced AI features",
       "Complex bot flows may need technical tweaks"
-    ]
+    ],
+    "category": "Chatbot"
   },
   {
     "name": "Rupert AI",
@@ -8539,7 +8832,8 @@
     "cons": [
       "Free plan has limited word count per output",
       "Advanced features require a paid subscription"
-    ]
+    ],
+    "category": "Copywriting"
   },
   {
     "name": "PersonaForce",
@@ -8568,7 +8862,8 @@
     "cons": [
       "Free plan lacks advanced features like team collaboration",
       "New users may need time to learn data integration workflows"
-    ]
+    ],
+    "category": "Marketing"
   },
   {
     "name": "AICaller.io",
@@ -8597,7 +8892,8 @@
     "cons": [
       "Limited customization in free plan",
       "Lacks advanced industry-specific script templates"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Cald.ai",
@@ -8626,7 +8922,8 @@
     "cons": [
       "Limited advanced features in free plan",
       "Less customization than enterprise-grade tools"
-    ]
+    ],
+    "category": "Productivity"
   },
   {
     "name": "Rosie",
@@ -8655,7 +8952,8 @@
     "cons": [
       "Limited advanced features in free tier",
       "Requires fine-tuning for niche industry queries"
-    ]
+    ],
+    "category": "Customer Support"
   },
   {
     "name": "Eleven Labs",
@@ -8684,7 +8982,8 @@
     "cons": [
       "Free tier has limited character usage",
       "Voice cloning requires high-quality audio samples"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "WellSaid AI",
@@ -8713,7 +9012,8 @@
     "cons": [
       "Higher pricing vs basic TTS tools",
       "Limited free trial audio duration"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Play.ht",
@@ -8742,7 +9042,8 @@
     "cons": [
       "Free plan has limited usage and voice access",
       "Advanced features require premium subscription tiers"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "Coqui AI",
@@ -8772,7 +9073,8 @@
     "cons": [
       "Steeper learning curve for non-technical users",
       "Limited official support for free tier users"
-    ]
+    ],
+    "category": "Audio & Voice"
   },
   {
     "name": "podcast.ai",
@@ -8801,6 +9103,7 @@
     "cons": [
       "Voice synthesis lacks human nuance at times",
       "Free tier has limited customization"
-    ]
+    ],
+    "category": "Audio & Voice"
   }
 ]
