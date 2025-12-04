@@ -1,6 +1,5 @@
 name: Manual Update Content
 
-# ⬇️ 修正点在这里：加上 {} 确保语法绝对正确
 on:
   workflow_dispatch: {}
 
@@ -20,12 +19,14 @@ jobs:
         with:
           node-version: '18'
 
+      # 🔴 核心修复点：强行安装 openai 库，不管 package.json 里有没有
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          npm install openai
 
       - name: Run Mac Script
         env:
-          # 确保这里名字和你 Secrets 里的一模一样
           VOLC_API_KEY: ${{ secrets.VOLC_API_KEY }}
           ENDPOINT_ID: ${{ secrets.ENDPOINT_ID }}
         run: |
