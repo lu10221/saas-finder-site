@@ -1,22 +1,38 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
 
-// 1. 生成所有分类的路径
+// 1. Get all static paths
 export async function getStaticPaths() {
-  const aiData = (await import('../../data/ai_tools.json')).default;
-  const macData = (await import('../../data/mac_tools.json')).default;
-  const allTools = [...aiData, ...macData];
+  const getJson = (filename) => {
+    try {
+        const publicPath = path.join(process.cwd(), 'public', 'data', filename);
+        if (fs.existsSync(publicPath)) {
+            return JSON.parse(fs.readFileSync(publicPath, 'utf-8'));
+        }
+        const srcPath = path.join(process.cwd(), 'src', 'data', filename);
+        if (fs.existsSync(srcPath)) {
+            return JSON.parse(fs.readFileSync(srcPath, 'utf-8'));
+        }
+        return [];
+    } catch (e) { return []; }
+  };
 
-  // 提取分类
+  const aiData = getJson('ai_tools.json');
+  const macData = getJson('mac_tools.json');
+  
+  const aiTools = aiData.map(t => ({ ...t, collection: 'ai' }));
+  const macTools = macData.map(t => ({ ...t, collection: 'mac' }));
+  const allTools = [...aiTools, ...macTools];
+
+  // Extract categories
   const uniqueCategories = [...new Set(allTools.map(tool => tool.category).filter(Boolean))];
   
   return uniqueCategories.map((category) => {
     const categoryTools = allTools.filter((tool) => tool.category === category);
     
-    // 🔴 核心修复：强力清洗 Slug
-    // 1. 转小写
-    // 2. 把所有非字母数字的字符 (包括空格、斜杠、&) 都替换成 '-'
-    // 3. 去掉头尾多余的 '-'
+    // Clean Slug
     const safeSlug = category.toLowerCase()
         .replace(/[^a-z0-9]+/g, '-') 
         .replace(/^-+|-+$/g, '');

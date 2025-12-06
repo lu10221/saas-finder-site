@@ -3,40 +3,57 @@ import Layout from '../../layouts/Layout.astro';
 import fs from 'node:fs';
 import path from 'node:path';
 
-// 1. 生成所有页面的路径 (使用 fs 读取 public/data 下的数据，兼容之前的性能优化)
+// Helper to read JSON data safely
+const getJson = (filename) => {
+  try {
+      const publicPath = path.join(process.cwd(), 'public', 'data', filename);
+      if (fs.existsSync(publicPath)) {
+          return JSON.parse(fs.readFileSync(publicPath, 'utf-8'));
+      }
+      // Fallback for dev environment
+      const srcPath = path.join(process.cwd(), 'src', 'data', filename);
+      if (fs.existsSync(srcPath)) {
+          return JSON.parse(fs.readFileSync(srcPath, 'utf-8'));
+      }
+      return [];
+  } catch (e) { return []; }
+};
+
 export async function getStaticPaths() {
   const getJson = (filename) => {
     try {
-        const filePath = path.join(process.cwd(), 'public', 'data', filename);
-        return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+        const publicPath = path.join(process.cwd(), 'public', 'data', filename);
+        if (fs.existsSync(publicPath)) {
+            return JSON.parse(fs.readFileSync(publicPath, 'utf-8'));
+        }
+        const srcPath = path.join(process.cwd(), 'src', 'data', filename);
+        if (fs.existsSync(srcPath)) {
+            return JSON.parse(fs.readFileSync(srcPath, 'utf-8'));
+        }
+        return [];
     } catch (e) { return []; }
   };
 
   const aiData = getJson('ai_tools.json');
   const macData = getJson('mac_tools.json');
   
-  // 加上 collection 标记，防止数据源里缺失
   const aiTools = aiData.map(t => ({ ...t, collection: 'ai' }));
   const macTools = macData.map(t => ({ ...t, collection: 'mac' }));
   const all = [...aiTools, ...macTools];
 
   return all.map((tool) => ({
     params: { slug: tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') },
-    props: { tool, allTools: all }, // 把全量数据传给 props 方便生成内链
+    props: { tool, allTools: all },
   }));
 }
 
 const { tool, allTools } = Astro.props;
 const existingSlugs = new Set(allTools.map(t => t.slug || t.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')));
 
-// ==========================================
-// 🚀 SEO 增强逻辑区域
-// ==========================================
-
+// ... (Rest of the SEO logic remains exactly the same as before) ...
 const currentYear = new Date().getFullYear();
 let pageTitle = "";
 
-// 1. 标题诱饵化 (Clickbait Titles)
 if (tool.collection === 'mac') {
     pageTitle = `${tool.name} for Mac: Free Download & Best Alternatives (${currentYear})`;
 } else if (tool.pricing_type && tool.pricing_type.toLowerCase().includes('free')) {
@@ -48,41 +65,27 @@ if (tool.collection === 'mac') {
 
 const pageDesc = tool.description ? tool.description.slice(0, 150) + "..." : `Check out ${tool.name} pricing, features and alternatives.`;
 
-// 2. 软件结构化数据 (Software Schema)
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": tool.name,
   "applicationCategory": tool.category || "BusinessApplication",
   "operatingSystem": tool.collection === 'mac' ? "macOS" : "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0", 
-    "priceCurrency": "USD"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": (4 + Math.random()).toFixed(1), 
-    "ratingCount": Math.floor(Math.random() * 100) + 10
-  },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": (4 + Math.random()).toFixed(1), "ratingCount": Math.floor(Math.random() * 100) + 10 },
   "description": tool.description
 };
 
-// 3. FAQ 结构化数据 (FAQ Schema) - 只有当数据里有 faqs 时才生成
 const faqSchema = tool.faqs && tool.faqs.length > 0 ? {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": tool.faqs.map(faq => ({
     "@type": "Question",
     "name": faq.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.answer
-    }
+    "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
   }))
 } : null;
 
-// 4. 增强内链：随机推荐 3 个同类工具
 const relatedTools = allTools
     .filter(t => t.category === tool.category && t.name !== tool.name)
     .sort(() => 0.5 - Math.random())
@@ -91,7 +94,6 @@ const relatedTools = allTools
 
 <Layout title={pageTitle} description={pageDesc} type="article">
   <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
-  
   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
   <nav class="text-sm text-slate-500 mb-6 flex items-center flex-wrap gap-2">
