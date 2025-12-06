@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '18'
 
-      # 🔴 核心修复点：强行安装 openai 库，不管 package.json 里有没有
+      # 强行安装依赖，防止环境缺失
       - name: Install dependencies
         run: |
           npm install
@@ -32,17 +32,25 @@ jobs:
         run: |
           node mac-script.js
 
+      # 👇 修复了缩进，并包含了解决冲突的逻辑
       - name: Commit and Push changes
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
           
+          # 检查文件是否有变化
           if [[ -n $(git status -s) ]]; then
             echo "发现新数据，正在提交..."
-            git add src/data/mac_tools.json
+            
+            # 确保路径正确 (public/data/mac_tools.json)
+            git add public/data/mac_tools.json
             git commit -m "🤖 Auto-update: Added new Mac apps"
+            
+            # 🔴 核心：先拉取远程最新代码，解决冲突，再推送
+            git pull --rebase origin main
+            
             git push
-            echo "✅ 成功！"
+            echo "✅ 成功推送！"
           else
             echo "没有新数据。"
           fi
