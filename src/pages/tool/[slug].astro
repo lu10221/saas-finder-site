@@ -3,12 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import aiData from '../../data/ai_tools.json';
 import macData from '../../data/mac_tools.json';
 
-// 1. 合并两个数据源
+// 合并数据
 const allTools = [...aiData, ...macData];
 
-// 2. 生成所有页面的路径
 export async function getStaticPaths() {
-  // 重新引入数据以确保作用域
   const aiData = (await import('../../data/ai_tools.json')).default;
   const macData = (await import('../../data/mac_tools.json')).default;
   const all = [...aiData, ...macData];
@@ -20,35 +18,31 @@ export async function getStaticPaths() {
 }
 
 const { tool } = Astro.props;
-
-// 3. 准备 Slug 集合用于检查替代品链接是否有效
 const existingSlugs = new Set(allTools.map(t => t.slug || t.name.toLowerCase().replace(/\s+/g, '-')));
 
 // ==========================================
-// 🚀 SEO 优化核心区域
+// 🚀 SEO 增强逻辑区域
 // ==========================================
 
 const currentYear = new Date().getFullYear();
 let pageTitle = "";
 
-// 1. 动态生成诱饵标题 (Clickbait Titles)
+// 1. 标题诱饵化 (Clickbait Titles)
 if (tool.collection === 'mac') {
-    // Mac 用户喜欢搜 "Download"
+    // Mac 用户偏好下载词汇
     pageTitle = `${tool.name} for Mac: Free Download & Best Alternatives (${currentYear})`;
 } else if (tool.pricing_type && tool.pricing_type.toLowerCase().includes('free')) {
-    // 免费用户喜欢搜 "Is it really free?"
+    // 免费用户偏好确认免费信息
     pageTitle = `Is ${tool.name} Really Free? Review & Best Alternatives (${currentYear})`;
 } else {
-    // 商务用户关心价格和竞品
-    // 提取第一个替代品作为对比词，如果没有就写 "Others"
+    // 商务用户偏好价格对比
     const firstCompetitor = tool.alternatives?.[0] || 'Others';
     pageTitle = `${tool.name} Pricing, Features & Top Competitors vs. ${firstCompetitor}`;
 }
 
 const pageDesc = tool.description ? tool.description.slice(0, 150) + "..." : `Check out ${tool.name} pricing, features and alternatives.`;
 
-// 2. 结构化数据对象 (Schema Markup)
-// 这会让 Google 在搜索结果里显示星星和价格
+// 2. 结构化数据 (Schema Markup) - 这就是让 Google 显示星星的关键
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -62,74 +56,77 @@ const schemaData = {
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": (4 + Math.random()).toFixed(1), // 随机评分 (4.0-5.0 之间，增加点击率技巧)
+    "ratingValue": (4 + Math.random()).toFixed(1), // 技巧：随机生成 4.0-5.0 的高分
     "ratingCount": Math.floor(Math.random() * 100) + 10
   },
   "description": tool.description
 };
+
+// 3. 增强内链：随机推荐 3 个同类工具
+const relatedTools = allTools
+    .filter(t => t.category === tool.category && t.name !== tool.name)
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 3);
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
-  
-  <!-- 🔴 注入结构化数据 (JSON-LD) -->
+<Layout title={pageTitle} description={pageDesc} type="article">
   <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
-  <div class="text-sm text-slate-500 mb-4 flex items-center gap-2">
-    <a href="/" class="hover:underline">Home</a> 
-    <span>&rsaquo;</span>
+  <nav class="text-sm text-slate-500 mb-6 flex items-center flex-wrap gap-2">
+    <a href="/" class="hover:underline hover:text-blue-600">Home</a> 
+    <span>/</span>
     <span class="capitalize">{tool.collection === 'mac' ? 'Mac Apps' : 'AI Tools'}</span>
-    <span>&rsaquo;</span>
-    <span class="text-slate-800 font-medium">{tool.name}</span>
-  </div>
+    {tool.category && (
+        <>
+            <span>/</span>
+            <a href={`/category/${tool.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="hover:underline hover:text-blue-600">{tool.category}</a>
+        </>
+    )}
+    <span>/</span>
+    <span class="text-slate-800 font-medium truncate max-w-[200px]">{tool.name}</span>
+  </nav>
 
-  <header class="mb-8">
-    <div class="flex items-center gap-3 mb-2">
-        <h1 class="text-4xl font-extrabold">{tool.name}</h1>
-        {tool.collection === 'mac' ? (
-            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-bold uppercase tracking-wider">Mac App</span>
-        ) : (
-            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-bold uppercase tracking-wider">AI Tool</span>
-        )}
-    </div>
-    
-    <p class="text-xl text-slate-600 mb-6 max-w-2xl">{tool.tagline}</p>
-    
-    <div class="flex flex-wrap gap-3 mb-8">
-      <span class="px-3 py-1 border border-slate-200 rounded-full text-sm text-slate-600">
-        💰 {tool.pricing_type}
-      </span>
-      {tool.category && (
-        // 这里的链接也加上了强力清洗逻辑，防止斜杠报错
-        <a href={`/category/${tool.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 border border-slate-200 rounded-full text-sm text-blue-600 hover:bg-blue-50 transition">
-          📂 {tool.category}
+  <header class="mb-10 bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center md:text-left">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+            <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
+                <h1 class="text-4xl font-extrabold text-slate-900">{tool.name}</h1>
+                {tool.collection === 'mac' ? (
+                    <span class="px-2.5 py-0.5 bg-purple-100 text-purple-700 rounded-full text-xs font-bold uppercase tracking-wider">Mac</span>
+                ) : (
+                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wider">AI</span>
+                )}
+            </div>
+            <p class="text-xl text-slate-600 max-w-2xl leading-relaxed">{tool.tagline}</p>
+        </div>
+        
+        <a href={tool.website_url || `https://www.google.com/search?q=${encodeURIComponent(tool.name)}`} 
+           target="_blank" 
+           rel="nofollow noopener"
+           onclick={`gtag('event', 'click_affiliate', { 'tool_name': '${tool.name}', 'url': '${tool.website_url || "google_search"}', 'category': '${tool.collection}' });`}
+           class={`shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white transition transform hover:-translate-y-1 shadow-lg ${tool.collection === 'mac' ? 'bg-purple-600 hover:bg-purple-700 shadow-purple-200' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-200'}`}>
+           Visit Website 
+           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
-      )}
     </div>
-
-    <a href={tool.website_url || `https://www.google.com/search?q=${encodeURIComponent(tool.name)}`} 
-       target="_blank" 
-       rel="nofollow noopener"
-       onclick={`gtag('event', 'click_affiliate', { 'tool_name': '${tool.name}', 'url': '${tool.website_url || "google_search"}', 'category': '${tool.collection}' });`}
-       class={`inline-flex items-center gap-2 px-8 py-3 rounded-lg font-bold text-white transition shadow-lg shadow-blue-500/20 ${tool.collection === 'mac' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-blue-600 hover:bg-blue-700'}`}>
-       Visit Official Website 
-       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-    </a>
   </header>
 
   <div class="grid md:grid-cols-3 gap-8">
     <div class="md:col-span-2 space-y-8">
-      <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-        <h2 class="text-2xl font-bold mb-4">Overview</h2>
-        <p class="text-slate-700 leading-relaxed text-lg">{tool.description}</p>
+      <section>
+        <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">Overview</h2>
+        <div class="prose prose-slate max-w-none text-slate-700 leading-7">
+            <p>{tool.description}</p>
+        </div>
       </section>
 
       {tool.key_features && (
-          <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-            <h2 class="text-2xl font-bold mb-4">Key Features</h2>
-            <ul class="grid sm:grid-cols-2 gap-3">
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">Key Features</h2>
+            <ul class="grid sm:grid-cols-2 gap-x-4 gap-y-3">
               {tool.key_features.map((feature) => (
-                <li class="flex items-start gap-2 text-slate-700">
-                  <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <li class="flex items-start gap-2.5 text-slate-700">
+                  <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                   <span>{feature}</span>
                 </li>
               ))}
@@ -137,19 +134,23 @@ const schemaData = {
           </section>
       )}
 
-      <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-        <h2 class="text-2xl font-bold mb-4">Alternatives to {tool.name}</h2>
-        <div class="space-y-3">
+      <section>
+        <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">Top Alternatives</h2>
+        <div class="grid gap-3">
             {tool.alternatives && tool.alternatives.map((alt) => {
-                const altSlug = alt.toLowerCase().replace(/\s+/g, '-');
+                const altSlug = alt.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
                 const exists = existingSlugs.has(altSlug);
                 return (
-                    <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg group hover:bg-slate-100 transition">
-                        <span class="font-medium text-slate-700">{alt}</span>
+                    <div class="flex items-center justify-between p-4 bg-white border border-slate-100 rounded-xl shadow-sm hover:border-blue-200 transition">
+                        <span class="font-semibold text-slate-800">{alt}</span>
                         {exists ? (
-                            <a href={`/tool/${altSlug}`} class="text-sm font-bold text-blue-600 hover:underline">Compare &rarr;</a>
+                            <a href={`/tool/${altSlug}`} class="text-sm font-bold text-blue-600 hover:underline flex items-center gap-1">
+                                Compare <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </a>
                         ) : (
-                            <a href={`https://www.google.com/search?q=${encodeURIComponent(alt + ' ' + tool.name + ' alternative')}`} target="_blank" rel="nofollow noopener" class="text-xs text-slate-400 hover:text-slate-600 flex items-center gap-1">Search <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
+                            <a href={`https://www.google.com/search?q=${encodeURIComponent(alt + ' ' + tool.name + ' alternative')}`} target="_blank" rel="nofollow noopener" class="text-xs text-slate-400 hover:text-slate-600 flex items-center gap-1">
+                                Search Google <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </a>
                         )}
                     </div>
                 );
@@ -158,34 +159,55 @@ const schemaData = {
       </section>
     </div>
 
-    <div class="space-y-6">
-      <div class="bg-green-50 p-6 rounded-xl border border-green-100">
-        <h3 class="font-bold text-green-800 mb-4 flex items-center gap-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg>
-            Pros
-        </h3>
-        <ul class="space-y-3">
-          {tool.pros && tool.pros.map((pro) => (
-            <li class="flex items-start gap-2 text-sm text-green-900">
-              <span class="text-green-500 mt-0.5">✓</span> {pro}
-            </li>
-          ))}
-        </ul>
+    <div class="space-y-8">
+      <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+        <h3 class="font-bold text-slate-900 mb-4">Tool Info</h3>
+        <div class="space-y-4 text-sm">
+            <div class="flex justify-between border-b border-slate-200 pb-2">
+                <span class="text-slate-500">Pricing</span>
+                <span class="font-medium text-slate-900">{tool.pricing_type}</span>
+            </div>
+            {tool.category && (
+                <div class="flex justify-between border-b border-slate-200 pb-2">
+                    <span class="text-slate-500">Category</span>
+                    <a href={`/category/${tool.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="font-medium text-blue-600 hover:underline">{tool.category}</a>
+                </div>
+            )}
+            <div class="flex justify-between border-b border-slate-200 pb-2">
+                <span class="text-slate-500">OS</span>
+                <span class="font-medium text-slate-900">{tool.collection === 'mac' ? 'macOS' : 'Web / Cloud'}</span>
+            </div>
+        </div>
       </div>
 
-      <div class="bg-red-50 p-6 rounded-xl border border-red-100">
-        <h3 class="font-bold text-red-800 mb-4 flex items-center gap-2">
-             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.095c.5 0 .905-.405.905-.905 0-.714.211-1.412.608-2.006L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5"></path></svg>
-            Cons
-        </h3>
-        <ul class="space-y-3">
-          {tool.cons && tool.cons.map((con) => (
-            <li class="flex items-start gap-2 text-sm text-red-900">
-              <span class="text-red-500 mt-0.5">×</span> {con}
-            </li>
-          ))}
-        </ul>
+      <div class="space-y-4">
+        <div class="bg-green-50 p-5 rounded-xl border border-green-100">
+            <h4 class="font-bold text-green-800 mb-3 flex items-center gap-2">Pros</h4>
+            <ul class="space-y-2 text-sm text-green-900">
+                {tool.pros && tool.pros.map(pro => <li class="flex gap-2"><span class="font-bold">⊕</span> {pro}</li>)}
+            </ul>
+        </div>
+        <div class="bg-red-50 p-5 rounded-xl border border-red-100">
+            <h4 class="font-bold text-red-800 mb-3 flex items-center gap-2">Cons</h4>
+            <ul class="space-y-2 text-sm text-red-900">
+                {tool.cons && tool.cons.map(con => <li class="flex gap-2"><span class="font-bold">⊖</span> {con}</li>)}
+            </ul>
+        </div>
       </div>
     </div>
   </div>
+
+  {relatedTools.length > 0 && (
+      <section class="mt-16 pt-10 border-t border-slate-200">
+        <h2 class="text-2xl font-bold mb-6">More {tool.category} Tools</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            {relatedTools.map(t => (
+                <a href={`/tool/${t.slug || t.name.toLowerCase().replace(/\s+/g, '-')}`} class="block p-5 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition bg-white">
+                    <h3 class="font-bold text-slate-900 mb-1">{t.name}</h3>
+                    <p class="text-xs text-slate-500 line-clamp-2">{t.tagline}</p>
+                </a>
+            ))}
+        </div>
+      </section>
+  )}
 </Layout>
