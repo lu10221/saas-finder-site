@@ -1,4 +1,4 @@
-name: Manual Update Content
+name: Update All Data
 
 on:
   workflow_dispatch: {}
@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 jobs:
-  run-scraper:
+  run-scrapers:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,33 +24,39 @@ jobs:
           npm install
           npm install openai
 
-      - name: Run Mac Script
+      - name: Run All Scripts
         env:
           VOLC_API_KEY: ${{ secrets.VOLC_API_KEY }}
           ENDPOINT_ID: ${{ secrets.ENDPOINT_ID }}
         run: |
+          echo "🚀 Starting Mac Script..."
           node mac-script.js
+          
+          echo "🚀 Starting Self-Hosted Script..."
+          node selfhosted-script.js
+          
+          # 如果你的 ai 脚本也改好了支持环境变量，也可以取消下面这行的注释
+          # echo "🚀 Starting AI Script..."
+          # node 2-generate-doubao.js
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
           
-          # 检查是否有任何文件发生变化
           if [[ -n $(git status -s) ]]; then
-            echo "发现变动，准备提交..."
+            echo "发现新数据，准备提交..."
             
-            # 🔴 核心修复 1：使用 git add . 包含所有变动文件 (包括 package-lock.json)
+            # 把所有新生成的 JSON 文件都加进去
             git add .
             
-            git commit -m "🤖 Auto-update: Added new Mac apps"
+            git commit -m "🤖 Auto-update: Content refreshed"
             
-            # 🔴 核心修复 2：先拉取远程最新代码 (rebase)，解决冲突
-            # 使用 --rebase --autostash 可以自动暂存脏数据，防止报错
+            # 自动处理冲突
             git pull --rebase --autostash origin main
             
             git push
-            echo "✅ 成功推送！"
+            echo "✅ 所有数据更新完成！"
           else
-            echo "没有新数据。"
+            echo "没有发现新数据。"
           fi
