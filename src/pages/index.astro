@@ -1,22 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import aiData from '../data/ai_tools.json';
-import macData from '../data/mac_tools.json';
+import fs from 'node:fs';
+import path from 'node:path';
 
-// 准备数据
-const aiTools = aiData.map(t => ({ ...t, collection: 'ai' }));
-const safeMacData = macData || [];
-const macTools = safeMacData.map(t => ({ ...t, collection: 'mac' }));
+// 读取前 36 个数据用于首屏直出 (服务端渲染)
+function getInitialData(filename) {
+  try {
+    const filePath = path.join(process.cwd(), 'public', 'data', filename);
+    const content = fs.readFileSync(filePath, 'utf-8');
+    const data = JSON.parse(content);
+    const type = filename.includes('ai') ? 'ai' : 'mac';
+    return data.slice(0, 36).map(t => ({ ...t, collection: type }));
+  } catch (e) { return []; }
+}
 
-// 提取所有分类
-const allTools = [...aiTools, ...macTools];
-const aiCategories = [...new Set(aiTools.map(t => t.category).filter(Boolean))].sort();
-const macCategories = [...new Set(macTools.map(t => t.category).filter(Boolean))].sort();
+const initialAi = getInitialData('ai_tools.json');
+const initialMac = getInitialData('mac_tools.json');
 
-// 🚀 性能优化：首屏只渲染前 36 个工具，剩下的交给 JS 处理
-const INITIAL_COUNT = 36;
-const initialAiTools = aiTools.slice(0, INITIAL_COUNT);
-const initialMacTools = macTools.slice(0, INITIAL_COUNT);
+// 读取分类 (服务端)
+const fullAiContent = fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'ai_tools.json'), 'utf-8');
+const fullMacContent = fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'mac_tools.json'), 'utf-8');
+const aiCategories = [...new Set(JSON.parse(fullAiContent).map(t => t.category).filter(Boolean))].sort();
+const macCategories = [...new Set(JSON.parse(fullMacContent).map(t => t.category).filter(Boolean))].sort();
 ---
 
 <Layout title="ToolStock - Best AI & Mac Tools Directory" description="Discover the best AI tools and Mac software alternatives.">
@@ -25,16 +30,12 @@ const initialMacTools = macTools.slice(0, INITIAL_COUNT);
       Find the Perfect Tool
     </h1>
     <p class="text-xl text-slate-600 mb-8">
-      Curated database of <span class="font-bold">{aiTools.length}</span> AI tools and <span class="font-bold">{macTools.length}</span> Mac apps.
+      Curated directory of best software alternatives.
     </p>
 
     <div class="flex justify-center gap-2 mb-8 bg-slate-100 p-1 rounded-full w-fit mx-auto">
-      <button class="tab-btn active px-8 py-2.5 rounded-full font-bold text-sm transition-all duration-200 bg-white text-blue-600 shadow-sm ring-1 ring-slate-200" data-target="ai">
-        🤖 AI Tools
-      </button>
-      <button class="tab-btn px-8 py-2.5 rounded-full font-bold text-sm transition-all duration-200 text-slate-500 hover:text-slate-700" data-target="mac">
-        🍎 Mac Apps
-      </button>
+      <button class="tab-btn active px-8 py-2.5 rounded-full font-bold text-sm transition-all duration-200 bg-white text-blue-600 shadow-sm ring-1 ring-slate-200" data-target="ai">🤖 AI Tools</button>
+      <button class="tab-btn px-8 py-2.5 rounded-full font-bold text-sm transition-all duration-200 text-slate-500 hover:text-slate-700" data-target="mac">🍎 Mac Apps</button>
     </div>
     
     <div class="max-w-xl mx-auto mb-8 relative">
@@ -42,24 +43,21 @@ const initialMacTools = macTools.slice(0, INITIAL_COUNT);
       <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
     </div>
 
-    <div id="cat-ai" class="cat-container flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto animate-fade-in">
+    <div id="cat-ai" class="cat-container flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
       {aiCategories.map((cat) => (
-        <a href={`/category/${cat.toLowerCase().replace(/\s+/g, '-')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-blue-600 hover:border-blue-300 transition">{cat}</a>
+        <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-blue-600 hover:border-blue-300 transition">{cat}</a>
       ))}
     </div>
-
-    <div id="cat-mac" class="cat-container hidden flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto animate-fade-in">
+    <div id="cat-mac" class="cat-container hidden flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
       {macCategories.map((cat) => (
-        <a href={`/category/${cat.toLowerCase().replace(/\s+/g, '-')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-purple-600 hover:border-purple-300 transition">{cat}</a>
+        <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-purple-600 hover:border-purple-300 transition">{cat}</a>
       ))}
     </div>
   </div>
 
-  <div id="grid-ai" class="tool-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
-    {/* 只渲染前 36 个，其他的由 JS 动态加载 */}
-    {initialAiTools.map((tool) => (
-      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/\s+/g, '-')}`} 
-         class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition">
+  <div id="grid-ai" class="tool-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {initialAi.map((tool) => (
+      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/\s+/g, '-')}`} class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition">
         <div class="flex justify-between items-start mb-3">
             <h2 class="text-xl font-bold text-slate-900 group-hover:text-blue-600">{tool.name}</h2>
             <span class="text-[10px] uppercase font-bold px-2 py-1 bg-blue-50 text-blue-600 rounded">AI</span>
@@ -67,16 +65,14 @@ const initialMacTools = macTools.slice(0, INITIAL_COUNT);
         <p class="text-sm text-slate-500 mb-4 line-clamp-2">{tool.tagline}</p>
         <div class="flex flex-wrap gap-2">
            <span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600">{tool.pricing_type}</span>
-           {tool.category && <span class="text-xs px-2 py-1 border border-slate-200 rounded text-slate-500">{tool.category}</span>}
         </div>
       </a>
     ))}
   </div>
 
-  <div id="grid-mac" class="tool-grid hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
-    {initialMacTools.map((tool) => (
-      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/\s+/g, '-')}`} 
-         class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-purple-300 transition">
+  <div id="grid-mac" class="tool-grid hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {initialMac.map((tool) => (
+      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/\s+/g, '-')}`} class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-purple-300 transition">
         <div class="flex justify-between items-start mb-3">
             <h2 class="text-xl font-bold text-slate-900 group-hover:text-purple-600">{tool.name}</h2>
             <span class="text-[10px] uppercase font-bold px-2 py-1 bg-purple-50 text-purple-600 rounded">Mac</span>
@@ -84,48 +80,60 @@ const initialMacTools = macTools.slice(0, INITIAL_COUNT);
         <p class="text-sm text-slate-500 mb-4 line-clamp-2">{tool.tagline}</p>
         <div class="flex flex-wrap gap-2">
            <span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600">{tool.pricing_type}</span>
-           {tool.category && <span class="text-xs px-2 py-1 border border-slate-200 rounded text-slate-500">{tool.category}</span>}
         </div>
       </a>
     ))}
   </div>
 
   <div class="text-center mt-12">
-    <button id="load-more-btn" class="px-8 py-3 bg-white border border-slate-300 rounded-full font-semibold text-slate-600 hover:bg-slate-50 transition shadow-sm">
-      Load More Tools
-    </button>
+    <button id="load-more-btn" class="px-8 py-3 bg-white border border-slate-300 rounded-full font-semibold text-slate-600 hover:bg-slate-50 transition shadow-sm">Load More Tools</button>
   </div>
+  <div id="no-results" class="hidden text-center py-12"><p class="text-lg text-slate-500">No tools found matching your search.</p></div>
 
-  <div id="no-results" class="hidden text-center py-12">
-    <p class="text-lg text-slate-500">No tools found matching your search.</p>
-  </div>
-
-  <script is:inline define:vars={{ aiTools, macTools }}>
-    // 将服务器端数据传给浏览器内存
-    const allAiData = aiTools;
-    const allMacData = macTools;
+  <script is:inline defer>
+    // 变量初始化
+    let allAiData = [];
+    let allMacData = [];
+    let isDataLoaded = false;
     let currentTab = 'ai';
-    let isSearching = false;
 
-    // 获取 DOM 元素
-    const gridAi = document.getElementById('grid-ai');
-    const gridMac = document.getElementById('grid-mac');
+    // 缓存 DOM 元素
     const loadMoreBtn = document.getElementById('load-more-btn');
     const searchInput = document.getElementById('search-input');
+    const gridAi = document.getElementById('grid-ai');
+    const gridMac = document.getElementById('grid-mac');
     const noResults = document.getElementById('no-results');
-    const tabs = document.querySelectorAll('.tab-btn');
-    const catContainers = document.querySelectorAll('.cat-container');
 
-    // 生成卡片 HTML 的函数 (JS 渲染用)
+    // 异步下载数据
+    async function loadAllData() {
+        if (isDataLoaded) return;
+        loadMoreBtn.textContent = "Loading...";
+        try {
+            const [resAi, resMac] = await Promise.all([
+                fetch('/data/ai_tools.json'),
+                fetch('/data/mac_tools.json')
+            ]);
+            const rawAi = await resAi.json();
+            const rawMac = await resMac.json();
+            
+            allAiData = rawAi.map(t => ({...t, collection: 'ai'}));
+            allMacData = rawMac.map(t => ({...t, collection: 'mac'}));
+            
+            isDataLoaded = true;
+            loadMoreBtn.textContent = "Load More Tools";
+        } catch (e) {
+            loadMoreBtn.textContent = "Error";
+        }
+    }
+
     function createCardHtml(tool) {
         const isMac = tool.collection === 'mac';
         const colorClass = isMac ? 'text-purple-600' : 'text-blue-600';
         const hoverClass = isMac ? 'hover:border-purple-300' : 'hover:border-blue-300';
         const badgeBg = isMac ? 'bg-purple-50' : 'bg-blue-50';
         const slug = tool.slug || tool.name.toLowerCase().replace(/\s+/g, '-');
-        
-        return `
-        <a href="/tool/${slug}" class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md ${hoverClass} transition">
+        // 注意：这里没有图片，如果有图片记得加 loading="lazy"
+        return `<a href="/tool/${slug}" class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md ${hoverClass} transition">
             <div class="flex justify-between items-start mb-3">
                 <h2 class="text-xl font-bold text-slate-900 group-hover:${colorClass}">${tool.name}</h2>
                 <span class="text-[10px] uppercase font-bold px-2 py-1 ${badgeBg} ${colorClass} rounded">${isMac ? 'Mac' : 'AI'}</span>
@@ -133,90 +141,69 @@ const initialMacTools = macTools.slice(0, INITIAL_COUNT);
             <p class="text-sm text-slate-500 mb-4 line-clamp-2">${tool.tagline || ''}</p>
             <div class="flex flex-wrap gap-2">
                 <span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600">${tool.pricing_type}</span>
-                ${tool.category ? `<span class="text-xs px-2 py-1 border border-slate-200 rounded text-slate-500">${tool.category}</span>` : ''}
             </div>
-        </a>
-        `;
+        </a>`;
     }
 
-    // "加载更多" 逻辑：把剩下的数据一次性渲染出来 (为了简单，暂不做无限滚动)
-    // 实际项目中可以每次加 30 个，这里为了搜索方便，点击后加载当前 Tab 的全部
-    loadMoreBtn.addEventListener('click', () => {
+    // 事件监听
+    searchInput.addEventListener('focus', loadAllData);
+    loadMoreBtn.addEventListener('mouseenter', loadAllData);
+
+    loadMoreBtn.addEventListener('click', async () => {
+        await loadAllData();
         const targetData = currentTab === 'ai' ? allAiData : allMacData;
         const targetGrid = currentTab === 'ai' ? gridAi : gridMac;
-        
-        // 从第 36 个开始渲染
-        const remaining = targetData.slice(36);
-        const html = remaining.map(createCardHtml).join('');
-        targetGrid.insertAdjacentHTML('beforeend', html);
-        
-        loadMoreBtn.classList.add('hidden'); // 加载完就隐藏按钮
-    });
-
-    // Tab 切换逻辑
-    tabs.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabs.forEach(t => {
-            t.classList.remove('bg-white', 'text-blue-600', 'shadow-sm', 'ring-1', 'ring-slate-200');
-            t.classList.add('text-slate-500');
-        });
-        btn.classList.remove('text-slate-500');
-        btn.classList.add('bg-white', 'text-blue-600', 'shadow-sm', 'ring-1', 'ring-slate-200');
-
-        currentTab = btn.dataset.target;
-        
-        // 切换 Grid 和 分类
-        document.querySelectorAll('.tool-grid').forEach(g => g.classList.add('hidden'));
-        document.getElementById(`grid-${currentTab}`).classList.remove('hidden');
-        
-        document.querySelectorAll('.cat-container').forEach(c => c.classList.add('hidden'));
-        document.getElementById(`cat-${currentTab}`).classList.remove('hidden');
-
-        // 切换 Tab 时重置“加载更多”按钮状态
-        // 如果当前 Tab 还没加载完，就显示按钮
-        const targetData = currentTab === 'ai' ? allAiData : allMacData;
-        const currentCount = document.getElementById(`grid-${currentTab}`).children.length;
-        if (currentCount < targetData.length && !isSearching) {
-            loadMoreBtn.classList.remove('hidden');
-        } else {
-            loadMoreBtn.classList.add('hidden');
+        const currentCount = targetGrid.children.length;
+        if (currentCount < targetData.length) {
+            const remaining = targetData.slice(currentCount);
+            // 使用 requestAnimationFrame 避免卡顿
+            requestAnimationFrame(() => {
+                targetGrid.insertAdjacentHTML('beforeend', remaining.map(createCardHtml).join(''));
+            });
         }
-      });
+        loadMoreBtn.classList.add('hidden');
     });
 
-    // 搜索逻辑 (极速版 - 直接操作内存数据)
-    searchInput.addEventListener('input', (e) => {
+    searchInput.addEventListener('input', async (e) => {
         const term = e.target.value.toLowerCase();
-        isSearching = term.length > 0;
+        if (!isDataLoaded && term.length > 0) await loadAllData();
 
-        if (isSearching) {
-            loadMoreBtn.classList.add('hidden'); // 搜索时不显示加载更多
-            
-            // 搜索全部数据 (AI + Mac)
-            const aiMatches = allAiData.filter(t => t.name.toLowerCase().includes(term) || (t.tagline && t.tagline.toLowerCase().includes(term)));
-            const macMatches = allMacData.filter(t => t.name.toLowerCase().includes(term) || (t.tagline && t.tagline.toLowerCase().includes(term)));
-
-            // 重新渲染 AI Grid
-            gridAi.innerHTML = aiMatches.map(createCardHtml).join('');
-            gridAi.classList.remove('hidden'); // 搜索时强制显示，方便跨类别查找
-            
-            // 重新渲染 Mac Grid
-            gridMac.innerHTML = macMatches.map(createCardHtml).join('');
+        if (term.length > 0) {
+            loadMoreBtn.classList.add('hidden');
+            gridAi.classList.remove('hidden');
             gridMac.classList.remove('hidden');
 
-            // 结果判断
-            if (aiMatches.length === 0 && macMatches.length === 0) {
-                noResults.classList.remove('hidden');
-            } else {
-                noResults.classList.add('hidden');
-            }
+            const aiMatches = allAiData.filter(t => t.name.toLowerCase().includes(term));
+            const macMatches = allMacData.filter(t => t.name.toLowerCase().includes(term));
+
+            gridAi.innerHTML = aiMatches.map(createCardHtml).join('');
+            gridMac.innerHTML = macMatches.map(createCardHtml).join('');
+
+            if (aiMatches.length === 0 && macMatches.length === 0) noResults.classList.remove('hidden');
+            else noResults.classList.add('hidden');
         } else {
-            // 清空搜索时，恢复页面初始状态
-            // 简单处理：重新加载页面，或者复杂的 DOM 恢复。
-            // 为了体验流畅，建议简单 reload 或者保留当前的渲染状态（但不完美）。
-            // 最简单的方案：直接刷新页面恢复状态
             window.location.reload();
         }
+    });
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(t => {
+                t.classList.remove('bg-white', 'text-blue-600', 'shadow-sm', 'ring-1', 'ring-slate-200');
+                t.classList.add('text-slate-500');
+            });
+            btn.classList.remove('text-slate-500');
+            btn.classList.add('bg-white', 'text-blue-600', 'shadow-sm', 'ring-1', 'ring-slate-200');
+
+            currentTab = btn.dataset.target;
+            document.querySelectorAll('.tool-grid').forEach(g => g.classList.add('hidden'));
+            document.getElementById(`grid-${currentTab}`).classList.remove('hidden');
+            document.querySelectorAll('.cat-container').forEach(c => c.classList.add('hidden'));
+            document.getElementById(`cat-${currentTab}`).classList.remove('hidden');
+            
+            // 切换 Tab 时重置按钮状态
+            loadMoreBtn.classList.remove('hidden');
+        });
     });
   </script>
 </Layout>
