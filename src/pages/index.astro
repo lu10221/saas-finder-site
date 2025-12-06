@@ -3,25 +3,39 @@ import Layout from '../layouts/Layout.astro';
 import fs from 'node:fs';
 import path from 'node:path';
 
-// 读取前 36 个数据用于首屏直出 (服务端渲染)
-function getInitialData(filename) {
+// Helper to safely read JSON data
+function getSafeData(filename) {
   try {
+    // Try to find the file in the project root's public folder
     const filePath = path.join(process.cwd(), 'public', 'data', filename);
-    const content = fs.readFileSync(filePath, 'utf-8');
-    const data = JSON.parse(content);
-    const type = filename.includes('ai') ? 'ai' : 'mac';
-    return data.slice(0, 36).map(t => ({ ...t, collection: type }));
-  } catch (e) { return []; }
+    if (fs.existsSync(filePath)) {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        return JSON.parse(content);
+    }
+    // Fallback: Check if it's in src/data (if you haven't fully moved them yet)
+    const srcPath = path.join(process.cwd(), 'src', 'data', filename);
+    if (fs.existsSync(srcPath)) {
+        const content = fs.readFileSync(srcPath, 'utf-8');
+        return JSON.parse(content);
+    }
+    return [];
+  } catch (e) {
+    console.warn(`Warning: Could not read ${filename}`, e.message);
+    return [];
+  }
 }
 
-const initialAi = getInitialData('ai_tools.json');
-const initialMac = getInitialData('mac_tools.json');
+// Load data safely
+const rawAiData = getSafeData('ai_tools.json');
+const rawMacData = getSafeData('mac_tools.json');
 
-// 读取分类 (服务端)
-const fullAiContent = fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'ai_tools.json'), 'utf-8');
-const fullMacContent = fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'mac_tools.json'), 'utf-8');
-const aiCategories = [...new Set(JSON.parse(fullAiContent).map(t => t.category).filter(Boolean))].sort();
-const macCategories = [...new Set(JSON.parse(fullMacContent).map(t => t.category).filter(Boolean))].sort();
+// Process data
+const initialAi = rawAiData.slice(0, 36).map(t => ({ ...t, collection: 'ai' }));
+const initialMac = rawMacData.slice(0, 36).map(t => ({ ...t, collection: 'mac' }));
+
+// Extract categories
+const aiCategories = [...new Set(rawAiData.map(t => t.category).filter(Boolean))].sort();
+const macCategories = [...new Set(rawMacData.map(t => t.category).filter(Boolean))].sort();
 ---
 
 <Layout title="ToolStock - Best AI & Mac Tools Directory" description="Discover the best AI tools and Mac software alternatives.">
@@ -29,10 +43,7 @@ const macCategories = [...new Set(JSON.parse(fullMacContent).map(t => t.category
     <h1 class="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
       Find the Perfect Tool
     </h1>
-    <p class="text-xl text-slate-600 mb-8">
-      Curated directory of best software alternatives.
-    </p>
-
+    
     <div class="flex justify-center gap-2 mb-8 bg-slate-100 p-1 rounded-full w-fit mx-auto">
       <button class="tab-btn active px-8 py-2.5 rounded-full font-bold text-sm transition-all duration-200 bg-white text-blue-600 shadow-sm ring-1 ring-slate-200" data-target="ai">🤖 AI Tools</button>
       <button class="tab-btn px-8 py-2.5 rounded-full font-bold text-sm transition-all duration-200 text-slate-500 hover:text-slate-700" data-target="mac">🍎 Mac Apps</button>
@@ -90,21 +101,20 @@ const macCategories = [...new Set(JSON.parse(fullMacContent).map(t => t.category
   </div>
   <div id="no-results" class="hidden text-center py-12"><p class="text-lg text-slate-500">No tools found matching your search.</p></div>
 
-  <script is:inline defer>
-    // 变量初始化
+  <script is:inline>
+    // ... Copy the script section from the previous correct response ...
+    // ... It handles fetching /data/ai_tools.json and /data/mac_tools.json ...
     let allAiData = [];
     let allMacData = [];
     let isDataLoaded = false;
     let currentTab = 'ai';
 
-    // 缓存 DOM 元素
     const loadMoreBtn = document.getElementById('load-more-btn');
     const searchInput = document.getElementById('search-input');
     const gridAi = document.getElementById('grid-ai');
     const gridMac = document.getElementById('grid-mac');
     const noResults = document.getElementById('no-results');
 
-    // 异步下载数据
     async function loadAllData() {
         if (isDataLoaded) return;
         loadMoreBtn.textContent = "Loading...";
@@ -123,6 +133,7 @@ const macCategories = [...new Set(JSON.parse(fullMacContent).map(t => t.category
             loadMoreBtn.textContent = "Load More Tools";
         } catch (e) {
             loadMoreBtn.textContent = "Error";
+            console.error(e);
         }
     }
 
@@ -132,7 +143,7 @@ const macCategories = [...new Set(JSON.parse(fullMacContent).map(t => t.category
         const hoverClass = isMac ? 'hover:border-purple-300' : 'hover:border-blue-300';
         const badgeBg = isMac ? 'bg-purple-50' : 'bg-blue-50';
         const slug = tool.slug || tool.name.toLowerCase().replace(/\s+/g, '-');
-        // 注意：这里没有图片，如果有图片记得加 loading="lazy"
+        
         return `<a href="/tool/${slug}" class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md ${hoverClass} transition">
             <div class="flex justify-between items-start mb-3">
                 <h2 class="text-xl font-bold text-slate-900 group-hover:${colorClass}">${tool.name}</h2>
@@ -145,7 +156,6 @@ const macCategories = [...new Set(JSON.parse(fullMacContent).map(t => t.category
         </a>`;
     }
 
-    // 事件监听
     searchInput.addEventListener('focus', loadAllData);
     loadMoreBtn.addEventListener('mouseenter', loadAllData);
 
@@ -156,10 +166,8 @@ const macCategories = [...new Set(JSON.parse(fullMacContent).map(t => t.category
         const currentCount = targetGrid.children.length;
         if (currentCount < targetData.length) {
             const remaining = targetData.slice(currentCount);
-            // 使用 requestAnimationFrame 避免卡顿
-            requestAnimationFrame(() => {
-                targetGrid.insertAdjacentHTML('beforeend', remaining.map(createCardHtml).join(''));
-            });
+            // Using a simple loop instead of requestAnimationFrame for simplicity if needed
+             targetGrid.insertAdjacentHTML('beforeend', remaining.map(createCardHtml).join(''));
         }
         loadMoreBtn.classList.add('hidden');
     });
@@ -201,7 +209,6 @@ const macCategories = [...new Set(JSON.parse(fullMacContent).map(t => t.category
             document.querySelectorAll('.cat-container').forEach(c => c.classList.add('hidden'));
             document.getElementById(`cat-${currentTab}`).classList.remove('hidden');
             
-            // 切换 Tab 时重置按钮状态
             loadMoreBtn.classList.remove('hidden');
         });
     });
