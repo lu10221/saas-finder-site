@@ -19,7 +19,6 @@ jobs:
         with:
           node-version: '18'
 
-      # 强行安装依赖，防止环境缺失
       - name: Install dependencies
         run: |
           npm install
@@ -32,22 +31,23 @@ jobs:
         run: |
           node mac-script.js
 
-      # 👇 修复了缩进，并包含了解决冲突的逻辑
       - name: Commit and Push changes
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
           
-          # 检查文件是否有变化
+          # 检查是否有任何文件发生变化
           if [[ -n $(git status -s) ]]; then
-            echo "发现新数据，正在提交..."
+            echo "发现变动，准备提交..."
             
-            # 确保路径正确 (public/data/mac_tools.json)
-            git add public/data/mac_tools.json
+            # 🔴 核心修复 1：使用 git add . 包含所有变动文件 (包括 package-lock.json)
+            git add .
+            
             git commit -m "🤖 Auto-update: Added new Mac apps"
             
-            # 🔴 核心：先拉取远程最新代码，解决冲突，再推送
-            git pull --rebase origin main
+            # 🔴 核心修复 2：先拉取远程最新代码 (rebase)，解决冲突
+            # 使用 --rebase --autostash 可以自动暂存脏数据，防止报错
+            git pull --rebase --autostash origin main
             
             git push
             echo "✅ 成功推送！"
