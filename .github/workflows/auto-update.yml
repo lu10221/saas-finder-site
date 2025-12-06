@@ -1,18 +1,25 @@
-name: Update All Data
+name: Auto Loop Update
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch: {} # 允许手动点击启动
 
 permissions:
   contents: write
+  actions: write # 🔴 关键权限：允许触发下一个 Workflow
 
 jobs:
   run-scrapers:
     runs-on: ubuntu-latest
+    timeout-minutes: 360 # 设置超时防止卡死
 
     steps:
+      # 1. 检出代码
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          # 🔴 关键：使用 PAT (Personal Access Token) 检出
+          # 这样提交的代码才能触发后续事件，或者你有其他 Workflow 依赖它
+          token: ${{ secrets.GH_PAT }} 
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -24,39 +31,54 @@ jobs:
           npm install
           npm install openai
 
+      # 2. 运行所有脚本
       - name: Run All Scripts
         env:
           VOLC_API_KEY: ${{ secrets.VOLC_API_KEY }}
           ENDPOINT_ID: ${{ secrets.ENDPOINT_ID }}
         run: |
-          echo "🚀 Starting Mac Script..."
+          echo "🚀 Starting Mac Script (Batch Limit: 200)..."
           node mac-script.js
           
-          echo "🚀 Starting Self-Hosted Script..."
+          echo "🚀 Starting Self-Hosted Script (Batch Limit: 200)..."
           node selfhosted-script.js
-          
-          # 如果你的 ai 脚本也改好了支持环境变量，也可以取消下面这行的注释
-          # echo "🚀 Starting AI Script..."
-          # node 2-generate-doubao.js
 
-      - name: Commit and Push changes
+      # 3. 提交代码并设置状态变量
+      - name: Check and Commit
+        id: check_changes # 🔴 给这一步起个ID，方便下一步读取它的结果
         run: |
-          git config --global user.name "GitHub Action Bot"
-          git config --global user.email "action@github.com"
+          git config --global user.name "Loop Bot"
+          git config --global user.email "bot@toolstock.net"
           
+          # 检查是否有任何文件发生变化
           if [[ -n $(git status -s) ]]; then
-            echo "发现新数据，准备提交..."
+            # 设置输出变量为 true
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "🎉 发现新数据，正在提交..."
             
-            # 把所有新生成的 JSON 文件都加进去
             git add .
+            git commit -m "🤖 Batch update: Added new tools"
             
-            git commit -m "🤖 Auto-update: Content refreshed"
-            
-            # 自动处理冲突
+            # 解决冲突：先拉后推
             git pull --rebase --autostash origin main
             
             git push
-            echo "✅ 所有数据更新完成！"
+            echo "✅ 成功推送！"
           else
-            echo "没有发现新数据。"
+            # 设置输出变量为 false
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "💤 没有新数据生成 (任务可能已全部完成)。"
           fi
+
+      # 4. 核心循环逻辑：只有在“刚才有更新”时才执行
+      - name: Wait and Trigger Next Loop
+        if: steps.check_changes.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }} # 必须使用 PAT 才有权限触发
+        run: |
+          echo "⏳ 本批次完成。正在冷却 30 分钟以避开限制..."
+          sleep 1800  # 暂停 1800 秒 (30分钟)
+          
+          echo "🔄 冷却结束，触发下一轮循环..."
+          # 重新运行当前这个 Workflow文件 (manual-update.yml)
+          gh workflow run manual-update.yml

@@ -9,7 +9,10 @@ import OpenAI from 'openai';
 const API_KEY = process.env.VOLC_API_KEY; 
 const MODEL_ID = process.env.ENDPOINT_ID || 'ep-m-20251202215624-jz6sj'; // Endpoint ID
 
-// 2. 文件路径
+// 2. 核心修改：每次运行只生成 200 个新软件，然后停止
+const MAX_NEW_APPS = 200; 
+
+// 3. 文件路径
 const SOURCE_URL = 'https://raw.githubusercontent.com/jaywcjlove/awesome-mac/master/README.md';
 const SAVE_FILE = 'public/data/mac_tools.json';
 
@@ -18,13 +21,6 @@ const SAVE_FILE = 'public/data/mac_tools.json';
 // ==========================================
 if (!API_KEY) {
     console.error("\n❌ 错误：未找到 API Key！");
-    console.error("------------------------------------------------");
-    console.error("请不要在代码里直接写 Key。请使用环境变量运行：");
-    console.error("👉 Windows (PowerShell):");
-    console.error('   $env:VOLC_API_KEY="你的真实Key"; node mac-script.js');
-    console.error("\n👉 Mac / Linux:");
-    console.error('   VOLC_API_KEY=你的真实Key node mac-script.js');
-    console.error("------------------------------------------------\n");
     process.exit(1);
 }
 
@@ -51,33 +47,26 @@ async function fetchMacApps() {
         for (const line of lines) {
             const trimmed = line.trim();
 
-            // 识别分类标题
             if (trimmed.startsWith('##') && !trimmed.includes('Contents')) {
                 currentCategory = trimmed.replace(/^#+\s+/, '').trim();
                 continue;
             }
 
-            // 识别软件列表项
             const match = trimmed.match(/^[\-\*]\s+\[([^\]]+)\]\((http[^)]+)\)/);
             if (match) {
                 let name = match[1].trim();
-                const link = match[2];
-
+                
                 if (blackList.some(bad => name.toLowerCase().includes(bad))) continue;
                 if (name.length < 2 || name.length > 40) continue;
-                if (link.includes('/issues') || link.includes('/pulls')) continue;
+                if (match[2].includes('/issues') || match[2].includes('/pulls')) continue;
                 if (name.includes('![')) continue;
 
                 if (seenNames.has(name.toLowerCase())) continue;
                 seenNames.add(name.toLowerCase());
                 
-                apps.push({
-                    name: name,
-                    source_category: currentCategory
-                });
+                apps.push({ name: name, source_category: currentCategory });
             }
         }
-
         console.log(`✅ 解析完成！源列表共包含 ${apps.length} 个软件。`);
         return apps; 
 
@@ -98,7 +87,6 @@ async function generate() {
         return;
     }
 
-    // 读取本地已有的数据
     let database = [];
     if (fs.existsSync(SAVE_FILE)) {
         try {
@@ -108,7 +96,7 @@ async function generate() {
     }
     console.log(`📂 本地已有数据: ${database.length} 条`);
 
-const SYSTEM_PROMPT = `
+    const SYSTEM_PROMPT = `
     You are a Mac Software expert. 
     I will give you an app name and its source category. 
     Return a valid JSON object in ENGLISH.
@@ -127,7 +115,6 @@ const SYSTEM_PROMPT = `
       "pros": ["Pro 1"],
       "cons": ["Con 1"],
       "alternatives": ["Alt 1"],
-      // 🔴 新增：FAQ 数组
       "faqs": [
         { "question": "Is [App Name] completely free?", "answer": "Detailed answer..." },
         { "question": "Is [App Name] safe to use on Mac?", "answer": "Detailed answer..." },
@@ -139,19 +126,22 @@ const SYSTEM_PROMPT = `
     let newCount = 0;
     let skipCount = 0;
 
-    // 遍历所有抓到的软件
     for (const app of appsList) {
-        // 1. 检查数据库是否已存在 (去重)
+        // 🔴 1. 检查是否达到单次上限 (比如 200 个)
+        if (newCount >= MAX_NEW_APPS) {
+            console.log(`\n🛑 已达到单次运行上限 (${MAX_NEW_APPS} 个)，停止运行以保存进度。`);
+            break; // 跳出循环，自动去执行下面的 finish log
+        }
+
+        // 2. 去重
         if (database.find(t => t.name.toLowerCase() === app.name.toLowerCase())) {
             skipCount++;
-            // 每跳过 100 个打印一次日志，避免刷屏太快
             if (skipCount % 100 === 0) process.stdout.write(`.`); 
             continue;
         }
 
-        // 2. 开始生成新数据 (无限制，一直跑到底)
+        // 3. 生成
         try {
-            // 计算当前总进度
             const currentTotal = skipCount + newCount + 1;
             console.log(`\n[进度 ${currentTotal}/${appsList.length}] 正在生成: ${app.name} (${app.source_category})...`);
             
@@ -171,7 +161,6 @@ const SYSTEM_PROMPT = `
             data.collection = 'mac'; 
             database.push(data);
             
-            // 实时保存，跑一个存一个，断电也不怕
             fs.writeFileSync(SAVE_FILE, JSON.stringify(database, null, 2));
             newCount++;
             
@@ -180,7 +169,8 @@ const SYSTEM_PROMPT = `
         }
     }
 
-    console.log(`\n🎉 所有任务全部完成！`);
+    console.log(`\n🎉 本次批次任务完成！`);
+    console.log(`- 跳过已存在: ${skipCount} 个`);
     console.log(`- 本次新增: ${newCount} 个`);
     console.log(`- 最终总数: ${database.length} 个`);
 }

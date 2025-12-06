@@ -5,14 +5,15 @@ import OpenAI from 'openai';
 // 🔴 配置区域
 // ==========================================
 
-// 1. 安全验证：从环境变量读取 Key
+// 1. 安全验证
 const API_KEY = process.env.VOLC_API_KEY; 
 const MODEL_ID = process.env.ENDPOINT_ID || 'ep-m-20251202215624-jz6sj';
 
-// 2. 文件路径
-// 源：Awesome Self-Hosted (非常庞大且高质量的列表)
+// 2. 核心修改：每次运行只生成 200 个新软件，然后停止
+const MAX_NEW_APPS = 200;
+
+// 3. 文件路径
 const SOURCE_URL = 'https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md';
-// 存：保存到 public/data 方便前端读取
 const SAVE_FILE = 'public/data/selfhosted_tools.json';
 
 // ==========================================
@@ -20,8 +21,6 @@ const SAVE_FILE = 'public/data/selfhosted_tools.json';
 // ==========================================
 if (!API_KEY) {
     console.error("\n❌ 错误：未找到 API Key！");
-    console.error("请使用环境变量运行：");
-    console.error("👉 Windows: $env:VOLC_API_KEY='你的Key'; node selfhosted-script.js");
     process.exit(1);
 }
 
@@ -44,40 +43,29 @@ async function fetchApps() {
         const apps = [];
         const seenNames = new Set();
         
-        // 关键词过滤：排除非软件链接
         const blackList = ['license', 'contributing', 'contents', 'analytics', 'sponsors', 'source code', 'demo', 'official'];
 
         for (const line of lines) {
             const trimmed = line.trim();
 
-            // 1. 识别分类标题 (## 或 ###)
             if (trimmed.startsWith('##') && !trimmed.toLowerCase().includes('content')) {
                 currentCategory = trimmed.replace(/^#+\s+/, '').trim();
                 continue;
             }
 
-            // 2. 识别软件列表项
-            // Awesome Self-Hosted 的格式通常是: - [Name](Link) - Description
             const match = trimmed.match(/^-\s+\[([^\]]+)\]\((http[^)]+)\)/);
-            
             if (match) {
                 let name = match[1].trim();
                 
-                // 过滤逻辑
                 if (blackList.some(bad => name.toLowerCase().includes(bad))) continue;
                 if (name.length < 2 || name.length > 50) continue;
                 
-                // 去重
                 if (seenNames.has(name.toLowerCase())) continue;
                 seenNames.add(name.toLowerCase());
                 
-                apps.push({
-                    name: name,
-                    source_category: currentCategory
-                });
+                apps.push({ name: name, source_category: currentCategory });
             }
         }
-
         console.log(`✅ 解析完成！共找到 ${apps.length} 个自托管软件。`);
         return apps;
 
@@ -98,7 +86,6 @@ async function generate() {
         return;
     }
 
-    // 初始化或读取本地数据
     let database = [];
     if (fs.existsSync(SAVE_FILE)) {
         try {
@@ -108,7 +95,6 @@ async function generate() {
     }
     console.log(`📂 本地已有数据: ${database.length} 条`);
 
-    // 🔴 核心 Prompt：针对自托管软件定制
     const SYSTEM_PROMPT = `
     You are an expert in Self-Hosted Software and System Administration. 
     I will give you a software name and its category. 
@@ -121,8 +107,8 @@ async function generate() {
       "tagline": "Short tagline (e.g. Open-source alternative to Notion)",
       "description": "Description focusing on features and deployment (100 words)",
       "pricing_type": "Free/Open Source/Paid", 
-      "category": "String", // Use the source category provided
-      "collection": "selfhosted", // 🔴 必须固定为 selfhosted
+      "category": "String", 
+      "collection": "selfhosted", 
       "website_url": "Official URL or GitHub Repo",
       "key_features": ["Feature 1", "Feature 2", "Feature 3"],
       "pros": ["Privacy focused", "No subscription"],
@@ -140,13 +126,20 @@ async function generate() {
     let skipCount = 0;
 
     for (const app of appsList) {
-        // 去重检查
+        // 🔴 1. 检查上限
+        if (newCount >= MAX_NEW_APPS) {
+            console.log(`\n🛑 已达到单次运行上限 (${MAX_NEW_APPS} 个)，停止运行以保存进度。`);
+            break; // 跳出循环，执行保存
+        }
+
+        // 2. 去重
         if (database.find(t => t.name.toLowerCase() === app.name.toLowerCase())) {
             skipCount++;
             if (skipCount % 100 === 0) process.stdout.write(`.`); 
             continue;
         }
 
+        // 3. 生成
         try {
             const currentTotal = skipCount + newCount + 1;
             console.log(`\n[进度 ${currentTotal}/${appsList.length}] 正在生成: ${app.name} (${app.source_category})...`);
@@ -164,13 +157,9 @@ async function generate() {
             content = content.replace(/^```json/, '').replace(/```$/, '');
             
             const data = JSON.parse(content);
-            
-            // 再次强制确保 collection 正确
             data.collection = 'selfhosted'; 
-            
             database.push(data);
             
-            // 实时保存
             fs.writeFileSync(SAVE_FILE, JSON.stringify(database, null, 2));
             newCount++;
             
@@ -180,6 +169,7 @@ async function generate() {
     }
 
     console.log(`\n🎉 Self-Hosted 数据更新完成！`);
+    console.log(`- 跳过已存在: ${skipCount} 个`);
     console.log(`- 本次新增: ${newCount} 个`);
     console.log(`- 最终总数: ${database.length} 个`);
 }
