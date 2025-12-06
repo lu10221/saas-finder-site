@@ -136,7 +136,7 @@ const relatedTools = allTools
            target="_blank" 
            rel="nofollow noopener"
            onclick={`gtag('event', 'click_affiliate', { 'tool_name': '${tool.name}', 'url': '${tool.website_url || "google_search"}', 'category': '${tool.collection}' });`}
-           class={`shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white transition transform hover:-translate-y-1 shadow-lg bg-${themeColor}-600 hover:bg-${themeColor}-700 shadow-${themeColor}-200`}>
+           class={`inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-bold text-white transition shadow-lg shadow-blue-500/20 transform hover:-translate-y-0.5 active:translate-y-0 ${tool.collection === 'mac' ? 'bg-purple-600 hover:bg-purple-700' : (tool.collection === 'selfhosted' ? 'bg-orange-600 hover:bg-orange-700' : 'bg-blue-600 hover:bg-blue-700')}`}>
            Visit Website 
            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
