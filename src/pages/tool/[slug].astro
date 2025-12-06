@@ -1,24 +1,33 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import aiData from '../../data/ai_tools.json';
-import macData from '../../data/mac_tools.json';
+import fs from 'node:fs';
+import path from 'node:path';
 
-// 合并数据
-const allTools = [...aiData, ...macData];
-
+// 1. 生成所有页面的路径 (使用 fs 读取 public/data 下的数据，兼容之前的性能优化)
 export async function getStaticPaths() {
-  const aiData = (await import('../../data/ai_tools.json')).default;
-  const macData = (await import('../../data/mac_tools.json')).default;
-  const all = [...aiData, ...macData];
+  const getJson = (filename) => {
+    try {
+        const filePath = path.join(process.cwd(), 'public', 'data', filename);
+        return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    } catch (e) { return []; }
+  };
+
+  const aiData = getJson('ai_tools.json');
+  const macData = getJson('mac_tools.json');
+  
+  // 加上 collection 标记，防止数据源里缺失
+  const aiTools = aiData.map(t => ({ ...t, collection: 'ai' }));
+  const macTools = macData.map(t => ({ ...t, collection: 'mac' }));
+  const all = [...aiTools, ...macTools];
 
   return all.map((tool) => ({
-    params: { slug: tool.slug || tool.name.toLowerCase().replace(/\s+/g, '-') },
-    props: { tool },
+    params: { slug: tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') },
+    props: { tool, allTools: all }, // 把全量数据传给 props 方便生成内链
   }));
 }
 
-const { tool } = Astro.props;
-const existingSlugs = new Set(allTools.map(t => t.slug || t.name.toLowerCase().replace(/\s+/g, '-')));
+const { tool, allTools } = Astro.props;
+const existingSlugs = new Set(allTools.map(t => t.slug || t.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')));
 
 // ==========================================
 // 🚀 SEO 增强逻辑区域
@@ -29,21 +38,18 @@ let pageTitle = "";
 
 // 1. 标题诱饵化 (Clickbait Titles)
 if (tool.collection === 'mac') {
-    // Mac 用户偏好下载词汇
     pageTitle = `${tool.name} for Mac: Free Download & Best Alternatives (${currentYear})`;
 } else if (tool.pricing_type && tool.pricing_type.toLowerCase().includes('free')) {
-    // 免费用户偏好确认免费信息
     pageTitle = `Is ${tool.name} Really Free? Review & Best Alternatives (${currentYear})`;
 } else {
-    // 商务用户偏好价格对比
     const firstCompetitor = tool.alternatives?.[0] || 'Others';
     pageTitle = `${tool.name} Pricing, Features & Top Competitors vs. ${firstCompetitor}`;
 }
 
 const pageDesc = tool.description ? tool.description.slice(0, 150) + "..." : `Check out ${tool.name} pricing, features and alternatives.`;
 
-// 2. 结构化数据 (Schema Markup) - 这就是让 Google 显示星星的关键
-const schemaData = {
+// 2. 软件结构化数据 (Software Schema)
+const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": tool.name,
@@ -56,13 +62,27 @@ const schemaData = {
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": (4 + Math.random()).toFixed(1), // 技巧：随机生成 4.0-5.0 的高分
+    "ratingValue": (4 + Math.random()).toFixed(1), 
     "ratingCount": Math.floor(Math.random() * 100) + 10
   },
   "description": tool.description
 };
 
-// 3. 增强内链：随机推荐 3 个同类工具
+// 3. FAQ 结构化数据 (FAQ Schema) - 只有当数据里有 faqs 时才生成
+const faqSchema = tool.faqs && tool.faqs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": tool.faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+} : null;
+
+// 4. 增强内链：随机推荐 3 个同类工具
 const relatedTools = allTools
     .filter(t => t.category === tool.category && t.name !== tool.name)
     .sort(() => 0.5 - Math.random())
@@ -70,7 +90,9 @@ const relatedTools = allTools
 ---
 
 <Layout title={pageTitle} description={pageDesc} type="article">
-  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+  
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
   <nav class="text-sm text-slate-500 mb-6 flex items-center flex-wrap gap-2">
     <a href="/" class="hover:underline hover:text-blue-600">Home</a> 
@@ -112,7 +134,7 @@ const relatedTools = allTools
   </header>
 
   <div class="grid md:grid-cols-3 gap-8">
-    <div class="md:col-span-2 space-y-8">
+    <div class="md:col-span-2 space-y-12">
       <section>
         <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">Overview</h2>
         <div class="prose prose-slate max-w-none text-slate-700 leading-7">
@@ -131,6 +153,23 @@ const relatedTools = allTools
                 </li>
               ))}
             </ul>
+          </section>
+      )}
+
+      {tool.faqs && tool.faqs.length > 0 && (
+          <section>
+            <h2 class="text-2xl font-bold mb-6 text-slate-800 border-b pb-2">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                {tool.faqs.map((faq) => (
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 transition hover:shadow-sm">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 flex items-start gap-3">
+                            <span class="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-xs shrink-0 mt-0.5 font-bold">?</span>
+                            {faq.question}
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed ml-9">{faq.answer}</p>
+                    </div>
+                ))}
+            </div>
           </section>
       )}
 
@@ -160,7 +199,7 @@ const relatedTools = allTools
     </div>
 
     <div class="space-y-8">
-      <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+      <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 sticky top-24">
         <h3 class="font-bold text-slate-900 mb-4">Tool Info</h3>
         <div class="space-y-4 text-sm">
             <div class="flex justify-between border-b border-slate-200 pb-2">
@@ -178,20 +217,24 @@ const relatedTools = allTools
                 <span class="font-medium text-slate-900">{tool.collection === 'mac' ? 'macOS' : 'Web / Cloud'}</span>
             </div>
         </div>
-      </div>
 
-      <div class="space-y-4">
-        <div class="bg-green-50 p-5 rounded-xl border border-green-100">
-            <h4 class="font-bold text-green-800 mb-3 flex items-center gap-2">Pros</h4>
-            <ul class="space-y-2 text-sm text-green-900">
-                {tool.pros && tool.pros.map(pro => <li class="flex gap-2"><span class="font-bold">⊕</span> {pro}</li>)}
-            </ul>
-        </div>
-        <div class="bg-red-50 p-5 rounded-xl border border-red-100">
-            <h4 class="font-bold text-red-800 mb-3 flex items-center gap-2">Cons</h4>
-            <ul class="space-y-2 text-sm text-red-900">
-                {tool.cons && tool.cons.map(con => <li class="flex gap-2"><span class="font-bold">⊖</span> {con}</li>)}
-            </ul>
+        <div class="mt-8 space-y-4">
+            {tool.pros && tool.pros.length > 0 && (
+                <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                    <h4 class="font-bold text-green-800 mb-2 flex items-center gap-2 text-xs uppercase tracking-wide">Pros</h4>
+                    <ul class="space-y-2 text-sm text-green-900">
+                        {tool.pros.map(pro => <li class="flex gap-2"><span class="font-bold">⊕</span> {pro}</li>)}
+                    </ul>
+                </div>
+            )}
+            {tool.cons && tool.cons.length > 0 && (
+                <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                    <h4 class="font-bold text-red-800 mb-2 flex items-center gap-2 text-xs uppercase tracking-wide">Cons</h4>
+                    <ul class="space-y-2 text-sm text-red-900">
+                        {tool.cons.map(con => <li class="flex gap-2"><span class="font-bold">⊖</span> {con}</li>)}
+                    </ul>
+                </div>
+            )}
         </div>
       </div>
     </div>
@@ -202,8 +245,8 @@ const relatedTools = allTools
         <h2 class="text-2xl font-bold mb-6">More {tool.category} Tools</h2>
         <div class="grid md:grid-cols-3 gap-6">
             {relatedTools.map(t => (
-                <a href={`/tool/${t.slug || t.name.toLowerCase().replace(/\s+/g, '-')}`} class="block p-5 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition bg-white">
-                    <h3 class="font-bold text-slate-900 mb-1">{t.name}</h3>
+                <a href={`/tool/${t.slug || t.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="block p-5 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition bg-white group">
+                    <h3 class="font-bold text-slate-900 mb-1 group-hover:text-blue-600">{t.name}</h3>
                     <p class="text-xs text-slate-500 line-clamp-2">{t.tagline}</p>
                 </a>
             ))}

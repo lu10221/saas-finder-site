@@ -108,7 +108,7 @@ async function generate() {
     }
     console.log(`📂 本地已有数据: ${database.length} 条`);
 
-    const SYSTEM_PROMPT = `
+const SYSTEM_PROMPT = `
     You are a Mac Software expert. 
     I will give you an app name and its source category. 
     Return a valid JSON object in ENGLISH.
@@ -126,7 +126,13 @@ async function generate() {
       "key_features": ["Feature 1", "Feature 2"],
       "pros": ["Pro 1"],
       "cons": ["Con 1"],
-      "alternatives": ["Alt 1"]
+      "alternatives": ["Alt 1"],
+      // 🔴 新增：FAQ 数组
+      "faqs": [
+        { "question": "Is [App Name] completely free?", "answer": "Detailed answer..." },
+        { "question": "Is [App Name] safe to use on Mac?", "answer": "Detailed answer..." },
+        { "question": "What is the best alternative to [App Name]?", "answer": "Detailed answer..." }
+      ]
     }
     `;
 
