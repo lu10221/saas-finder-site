@@ -11,7 +11,7 @@ const MODEL_ID = process.env.ENDPOINT_ID || 'ep-m-20251202215624-jz6sj'; // Endp
 
 // 2. 文件路径
 const SOURCE_URL = 'https://raw.githubusercontent.com/jaywcjlove/awesome-mac/master/README.md';
-const SAVE_FILE = 'src/data/mac_tools.json';
+const SAVE_FILE = 'public/data/mac_tools.json';
 
 // ==========================================
 // 🛡️ 安全检查
