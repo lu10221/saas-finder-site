@@ -81,4 +81,4 @@ jobs:
           
           echo "🔄 冷却结束，触发下一轮循环..."
           # 重新运行当前这个 Workflow文件 (manual-update.yml)
-          gh workflow run manual-update.yml
+          gh workflow run "${{ github.workflow }}" --ref main
