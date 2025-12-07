@@ -54810,5 +54810,309 @@
         "answer": "Yes—all themes are open-source under the MIT license, with no hidden costs. You can download, modify, or host the themes locally without restrictions, and contribute to the project via GitHub."
       }
     ]
+  },
+  {
+    "name": "BitTorrent Tracker",
+    "slug": "bittorrent-tracker",
+    "tagline": "Open-source, self-hosted BitTorrent tracker for private P2P file sharing",
+    "description": "A self-hosted, open-source BitTorrent tracker that coordinates peer-to-peer file sharing swarms. Supports HTTP/HTTPS and UDP protocols, ensuring compatibility with most BitTorrent clients. Deploy via Docker, Node.js, or pre-built binaries. Features include private tracker support (user authentication), rate limiting, real-time swarm stats (peer count, traffic), and customizable torrent policies. Ideal for private communities to avoid public tracker limitations, ensure data privacy, and control P2P transfers with minimal resource overhead.",
+    "pricing_type": "Free/Open Source",
+    "category": "File Transfer - Peer-to-peer Filesharing",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/webtorrent/bittorrent-tracker",
+    "key_features": [
+      "Supports HTTP, HTTPS, and UDP tracker protocols",
+      "Private tracker capabilities with user authentication",
+      "Real-time swarm statistics and traffic monitoring",
+      "Easy deployment via Docker or Node.js"
+    ],
+    "pros": [
+      "Full control over tracker data (privacy-focused)",
+      "No subscription fees (open-source)",
+      "Customizable for private communities",
+      "Multi-protocol support for broad client compatibility"
+    ],
+    "cons": [
+      "Requires server setup and ongoing maintenance",
+      "Technical knowledge needed for advanced configuration",
+      "Lacks built-in graphical UI (CLI/API-driven)",
+      "Port forwarding may be required for external peer access"
+    ],
+    "alternatives": [
+      "uTorrent Tracker (proprietary)",
+      "BitComet Tracker (proprietary)"
+    ],
+    "faqs": [
+      {
+        "question": "Is BitTorrent Tracker hard to install?",
+        "answer": "Docker deployment is straightforward (one command), while Node.js/binary setups require installing dependencies (like Node.js for the WebTorrent version). Most implementations have clear documentation to guide you through setup."
+      },
+      {
+        "question": "Is it a good alternative to public BitTorrent trackers?",
+        "answer": "Yes—especially for private communities. It avoids reliance on public trackers that may be blocked or unreliable, gives you full control over access, and ensures no third party has access to your swarm data."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes—open-source BitTorrent trackers like the WebTorrent implementation are free to use, modify, and self-host. You only pay for server hosting costs if you run it on a VPS or cloud instance."
+      }
+    ]
+  },
+  {
+    "name": "Webtrees",
+    "slug": "webtrees",
+    "tagline": "Open-source self-hosted genealogy software for building and sharing family trees",
+    "description": "Webtrees is an open-source, self-hosted genealogy platform that empowers users to manage their family history with full data ownership. It supports GEDCOM files (the global standard for genealogy data), offers interactive ancestor/descendant charts, timeline views, and media galleries for photos/documents. Deployable via Docker or traditional PHP/MySQL servers, it includes collaborative editing tools and customizable privacy settings to control who accesses your tree. Ideal for those seeking an alternative to cloud-based services like Ancestry, it prioritizes data security and flexibility.",
+    "pricing_type": "Free/Open Source",
+    "category": "Genealogy",
+    "collection": "selfhosted",
+    "website_url": "https://www.webtrees.net/",
+    "key_features": [
+      "GEDCOM file compatibility",
+      "Interactive family tree charts",
+      "Media (photos/docs) management"
+    ],
+    "pros": [
+      "Full data ownership and privacy",
+      "No subscription fees"
+    ],
+    "cons": [
+      "Requires server setup (PHP/MySQL)",
+      "Lacks DNA matching features of cloud services"
+    ],
+    "alternatives": [
+      "Ancestry.com",
+      "MyHeritage"
+    ],
+    "faqs": [
+      {
+        "question": "Is Webtrees hard to install?",
+        "answer": "Docker deployment is straightforward for most users (basic command-line knowledge needed). Manual installation requires a web server with PHP and MySQL, which may be technical for beginners, but detailed documentation simplifies the process."
+      },
+      {
+        "question": "Is it a good alternative to Ancestry.com?",
+        "answer": "Yes—Webtrees offers core genealogy features (charts, GEDCOM support) and full data control, unlike Ancestry’s subscription-locked model. It lacks Ancestry’s DNA matching/record databases but excels at privacy and self-hosting flexibility."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Webtrees is 100% free and open-source (GPLv3 license). There are no paid tiers, subscriptions, or hidden costs—all features are accessible to everyone."
+      }
+    ]
+  },
+  {
+    "name": "Logitech Media Server (LMS)",
+    "slug": "logitech-media-server-lms",
+    "tagline": "Open-source audio streaming server for multi-room playback",
+    "description": "Logitech Media Server (LMS) is a robust open-source audio streaming platform optimized for multi-room audio experiences. It supports a wide range of audio formats (MP3, FLAC, WAV, etc.) and integrates seamlessly with Logitech Squeezebox devices and software clients like Squeezelite. Key features include playlist management, cross-device synchronization, and a plugin ecosystem for streaming services (Spotify, Tidal) and extra functionality. Deployable via Docker, direct install on Linux/macOS/Windows, or package managers, it’s ideal for self-hosters centralizing their audio library.",
+    "pricing_type": "Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/Logitech/slimserver",
+    "key_features": [
+      "Multi-room audio synchronization across devices",
+      "Wide audio format support and streaming service integration via plugins",
+      "Web-based interface for library management and device control"
+    ],
+    "pros": [
+      "Privacy-focused (self-hosted, no third-party data collection)",
+      "No subscription fees—100% free and open-source"
+    ],
+    "cons": [
+      "Requires basic server setup knowledge (Docker or direct installation)",
+      "Dated user interface compared to modern SaaS alternatives"
+    ],
+    "alternatives": [
+      "Sonos (proprietary multi-room audio system)",
+      "Spotify Connect (proprietary streaming with multi-device support)"
+    ],
+    "faqs": [
+      {
+        "question": "Is Logitech Media Server (LMS) hard to install?",
+        "answer": "LMS is accessible for most users—options include Docker (simplest for beginners), direct downloads for Linux/macOS/Windows, or Linux package managers. The web interface guides initial setup (library scanning, device pairing) with minimal technical expertise."
+      },
+      {
+        "question": "Is it a good alternative to Sonos?",
+        "answer": "Yes—LMS offers similar multi-room functionality without Sonos’ proprietary lock-in. It works with affordable hardware (Squeezebox, Squeezelite) and supports local libraries plus streaming services via plugins, making it a cost-effective open-source alternative."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes—LMS is released under the GPL license, so all core features are free. Plugins (including Spotify/Tidal integration) are mostly free, though some require paid accounts for the streaming service itself."
+      }
+    ]
+  },
+  {
+    "name": "Music Player Daemon (MPD)",
+    "slug": "music-player-daemon-mpd",
+    "tagline": "Open-source audio streaming daemon for centralized music playback",
+    "description": "Music Player Daemon (MPD) is an open-source, server-side audio tool that runs as a background daemon. It lets you control your local music library from multiple clients (desktop, mobile, web) with support for gapless playback, diverse audio formats, and plugin integration (e.g., Spotify). Easy to install via package managers or Docker, it requires minimal configuration (setting music directories and network access) and is ideal for self-hosted setups prioritizing control and privacy over cloud-based streaming.",
+    "pricing_type": "Free/Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://www.musicpd.org/",
+    "key_features": [
+      "Centralized client-server architecture for remote control",
+      "Gapless playback and support for multiple audio formats",
+      "Extensible via plugins for services like Spotify"
+    ],
+    "pros": [
+      "Privacy-focused (no cloud dependency for your music library)",
+      "Lightweight and low-resource footprint",
+      "Wide range of compatible third-party clients"
+    ],
+    "cons": [
+      "Requires basic technical setup (configuring daemon and clients)",
+      "No built-in GUI (relies on external clients)",
+      "Remote access needs additional setup (e.g., reverse proxy)"
+    ],
+    "alternatives": [
+      "Spotify",
+      "Apple Music"
+    ],
+    "faqs": [
+      {
+        "question": "Is MPD hard to install?",
+        "answer": "MPD is easy to install via package managers (e.g., `sudo apt install mpd` on Ubuntu) or Docker. Configuration involves editing a simple text file to set your music directory and network settings, with clear documentation available on the official website."
+      },
+      {
+        "question": "Is MPD a good alternative to proprietary streaming services like Spotify?",
+        "answer": "Yes, if you want to stream your own music library. Unlike Spotify, MPD gives full control over your files and no subscriptions, though it lacks online catalogs or curated playlists."
+      },
+      {
+        "question": "Is MPD completely free?",
+        "answer": "Yes! MPD is open-source under the GPL license. It’s free to download, use, modify, and distribute without any cost."
+      }
+    ]
+  },
+  {
+    "name": "reveal.js",
+    "slug": "reveal-js",
+    "tagline": "Open-source HTML presentation framework",
+    "description": "reveal.js is an open-source framework for building interactive, responsive presentations using HTML. It supports markdown content, MathJax for equations, smooth animations, and speaker notes with a presenter view. Customize slides with CSS themes or custom JavaScript—no backend required. Deploy easily on static servers like GitHub Pages, Netlify, or your own web host. Ideal for tech users, educators, or speakers wanting full control over presentations without proprietary tools.",
+    "pricing_type": "Free/Open Source",
+    "category": "Miscellaneous",
+    "collection": "selfhosted",
+    "website_url": "https://revealjs.com",
+    "key_features": [
+      "Markdown & HTML content support",
+      "Responsive slide design for all devices",
+      "Speaker notes with presenter view",
+      "MathJax & code syntax highlighting",
+      "Customizable themes and animations"
+    ],
+    "pros": [
+      "No backend needed (static hosting)",
+      "Fully customizable with HTML/CSS/JS",
+      "Open-source (MIT license)",
+      "Works offline"
+    ],
+    "cons": [
+      "Requires basic HTML/CSS knowledge",
+      "Not intuitive for non-technical users",
+      "Limited real-time collaboration"
+    ],
+    "alternatives": [
+      "Microsoft PowerPoint",
+      "Google Slides",
+      "Apple Keynote"
+    ],
+    "faqs": [
+      {
+        "question": "Is reveal.js hard to install?",
+        "answer": "reveal.js doesn’t require installation—download source files or clone the repo, edit index.html with your content, and host on any static server (GitHub Pages, own web host). No dependencies or backend setup needed."
+      },
+      {
+        "question": "Is reveal.js completely free?",
+        "answer": "Yes for technical users: it offers code/math support and full design control. But it lacks Google Slides’ WYSIWYG editing and real-time collaboration features."
+      },
+      {
+        "answer": "Yes! reveal.js is open-source under the MIT License, so it’s free for personal, educational, or commercial use—modify and distribute it freely."
+      }
+    ]
+  },
+  {
+    "name": "Whoogle Search",
+    "slug": "whoogle-search",
+    "tagline": "Open-source, privacy-focused alternative to Google Search",
+    "description": "Whoogle Search is an open-source, privacy-respecting search engine that retrieves results from Google without tracking your activity, displaying ads, or storing personal data. It supports dark mode, can bypass certain paywalls, and works with or without JavaScript. Deployable via Docker (simplest method), Heroku, or manual installation on your server, it gives full control over your search data—no account creation required.",
+    "pricing_type": "Free/Open Source",
+    "category": "Search Engines",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/benbusby/whoogle-search",
+    "key_features": [
+      "No user tracking or targeted ads",
+      "Easy self-hosting (Docker, Heroku, manual setup)",
+      "Bypass select paywalls",
+      "Dark mode and JavaScript-free support"
+    ],
+    "pros": [
+      "100% privacy-focused (no data collection or profiling)",
+      "No subscription fees or paid tiers",
+      "Lightweight and fast performance",
+      "Customizable themes and settings"
+    ],
+    "cons": [
+      "May face rate limits from Google with heavy usage",
+      "Requires server setup for self-hosting (public instances available)",
+      "Simpler UI compared to Google Search",
+      "Limited advanced search filters"
+    ],
+    "alternatives": [
+      "Google Search",
+      "Bing Search"
+    ],
+    "faqs": [
+      {
+        "question": "Is Whoogle hard to install?",
+        "answer": "No—Whoogle can be installed in minutes using Docker (via a single command), or deployed on platforms like Heroku or Railway. If you prefer manual setup, it works on most servers. Public instances are also available if you don’t want to self-host."
+      },
+      {
+        "question": "Is it a good alternative to Google Search?",
+        "answer": "Yes—Whoogle fetches results directly from Google, so relevance is similar, but without tracking, ads, or personalized recommendations. It’s perfect for users who want Google’s result quality while protecting their privacy."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes—Whoogle is open-source under the MIT License, so it’s completely free to use, self-host, or modify. There are no hidden costs or paid features."
+      }
+    ]
+  },
+  {
+    "name": "Awesome Sysadmin",
+    "slug": "awesome-sysadmin",
+    "tagline": "Curated list of essential sysadmin resources & tools",
+    "description": "A community-curated collection of essential tools, scripts, books, and resources for system administrators. It covers key domains like monitoring, automation, security, backup, and cloud management. While not a deployable application, it serves as a trusted reference for self-hosted enthusiasts and sysadmins to find reliable open-source tools and best practices to manage their infrastructure effectively.",
+    "pricing_type": "Free",
+    "category": "External Links & Resources",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/kahun/awesome-sysadmin",
+    "key_features": [
+      "Curated, categorized sysadmin resources",
+      "Community-driven updates",
+      "Covers open-source & self-hosted tools"
+    ],
+    "pros": [
+      "Comprehensive resource list",
+      "No cost to use"
+    ],
+    "cons": [
+      "Not a deployable tool",
+      "Requires filtering for relevance"
+    ],
+    "alternatives": [
+      "TechTarget Sysadmin Resources",
+      "ZDNet Sysadmin Guides"
+    ],
+    "faqs": [
+      {
+        "question": "Is Awesome Sysadmin a deployable application?",
+        "answer": "No, it’s a curated list of resources (tools, guides, books) for system administrators, not software to install or deploy."
+      },
+      {
+        "question": "Is Awesome Sysadmin free to access?",
+        "answer": "Yes, it’s an open-source, community-driven project available for free on GitHub with no subscription fees."
+      },
+      {
+        "question": "Does it include self-hosted tools?",
+        "answer": "Yes, it features a wide range of open-source and self-hosted tools for monitoring, automation, security, and more, ideal for self-hosting enthusiasts."
+      }
+    ]
   }
 ]
