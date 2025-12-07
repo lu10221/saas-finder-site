@@ -53494,5 +53494,1321 @@
         "answer": "Yes! Gitit is open-source software licensed under the GNU General Public License (GPL). It’s completely free to use, modify, and self-host without any hidden costs or subscription fees."
       }
     ]
+  },
+  {
+    "name": "BitTorrent Tracker",
+    "slug": "bittorrent-tracker",
+    "tagline": "Open-source tracker for controlling peer-to-peer file sharing networks",
+    "description": "A lightweight, open-source BitTorrent tracker that mediates communication between peers in P2P networks. It supports standard HTTP/UDP protocols, tracks seeder/leecher counts, and allows customization of peer limits and bandwidth rules. Deployable via Docker for quick setup or from source (with Node.js dependencies), it’s ideal for private communities or public networks. Using your own tracker avoids reliance on third-party services, giving full control over your P2P infrastructure and ensuring reliability for file transfers.",
+    "pricing_type": "Open Source",
+    "category": "File Transfer - Peer-to-peer Filesharing",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/webtorrent/bittorrent-tracker",
+    "key_features": [
+      "Supports HTTP and UDP BitTorrent protocols",
+      "Tracks seeder/leecher metrics for torrents",
+      "Customizable peer limits and bandwidth controls",
+      "Docker-ready for easy deployment",
+      "Ideal for private or public P2P communities"
+    ],
+    "pros": [
+      "Full control over your P2P network infrastructure",
+      "No dependency on potentially unreliable public trackers",
+      "Free to use and modify under open-source licenses",
+      "Lightweight and scalable for small to large networks"
+    ],
+    "cons": [
+      "Requires server setup and ongoing maintenance",
+      "Technical knowledge needed for configuration and port forwarding",
+      "Not a BitTorrent client—works only with existing clients",
+      "Legal considerations for public use (copyright infringement risks)"
+    ],
+    "alternatives": [
+      "Public Third-Party BitTorrent Trackers",
+      "Proprietary Private Tracker Services"
+    ],
+    "faqs": [
+      {
+        "question": "Is BitTorrent Tracker hard to install?",
+        "answer": "It’s easy with Docker—pull the official image and run a container with minimal commands. For source installs, you’ll need Node.js (for popular implementations) and follow the well-documented steps, which are accessible for users with basic technical skills."
+      },
+      {
+        "question": "Is it a good alternative to public trackers?",
+        "answer": "Yes—using your own tracker gives you full control over your network, avoids relying on public trackers that may go offline, and is perfect for private file-sharing communities where privacy and reliability matter."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Most open-source BitTorrent trackers (like the webtorrent-based version) are free to use, modify, and deploy. You only need to cover server hosting costs if you run it on a remote server."
+      }
+    ]
+  },
+  {
+    "name": "Webtrees",
+    "slug": "webtrees",
+    "tagline": "Open-source self-hosted genealogy software for building family trees",
+    "description": "Webtrees is a free, open-source genealogy platform that lets you create, manage, and share family trees online. It supports GEDCOM files (the genealogy data standard), offers collaborative editing, and includes pedigree charts, timeline views, and location mapping. Deployable via Docker or traditional PHP/MySQL servers, it prioritizes data privacy by keeping records on your server. It integrates with DNA test results, allows media attachments (photos, documents), and supports multiple languages—ideal for users wanting full control over their genealogy data without third-party reliance.",
+    "pricing_type": "Free/Open Source",
+    "category": "Genealogy",
+    "collection": "selfhosted",
+    "website_url": "https://webtrees.net/",
+    "key_features": [
+      "GEDCOM file support",
+      "Collaborative family tree editing",
+      "Pedigree & timeline views",
+      "Media attachment integration",
+      "Location mapping for ancestors"
+    ],
+    "pros": [
+      "Full data privacy (self-hosted)",
+      "100% free & open-source",
+      "GEDCOM compatibility for data migration",
+      "Docker deployment option"
+    ],
+    "cons": [
+      "Requires PHP/MySQL server setup",
+      "Steeper learning curve for advanced features",
+      "Limited mobile app functionality vs. SaaS tools"
+    ],
+    "alternatives": [
+      "Ancestry.com",
+      "MyHeritage"
+    ],
+    "faqs": [
+      {
+        "question": "Is Webtrees hard to install?",
+        "answer": "Webtrees is easy to install via Docker (pre-built images) or traditional web hosting (PHP 7.4+ and MySQL/MariaDB). Many providers offer one-click installs, and official docs have step-by-step guides for setup."
+      },
+      {
+        "question": "Is it a good alternative to Ancestry.com?",
+        "answer": "Yes—Webtrees gives full data control (no subscription locks) and GEDCOM support for Ancestry migrations. While it lacks Ancestry’s DNA database, it excels at privacy and custom tree management."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Webtrees is 100% free and open-source (GPLv3 license). No hidden fees, subscriptions, or locked premium features—all core functionality is available at no cost."
+      }
+    ]
+  },
+  {
+    "name": "Logitech Media Server",
+    "slug": "logitech-media-server",
+    "tagline": "Open-source audio streaming server for multi-room playback and local library control",
+    "description": "Logitech Media Server (LMS) is a self-hosted audio streaming solution that lets you manage and stream your local music library to multiple devices simultaneously. It supports high-fidelity formats like FLAC, MP3, WAV, and OGG, and integrates with Squeezebox devices plus third-party clients. Deployment options include Docker containers, pre-built packages for Linux/Windows/macOS, and a plugin ecosystem for extended features (Spotify, Tidal integration). Its web interface lets you organize playlists, adjust playback, and control multi-room audio from any device.",
+    "pricing_type": "Free/Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/Logitech/slimserver",
+    "key_features": [
+      "Multi-room audio playback across devices",
+      "Supports high-fidelity formats (FLAC, WAV, MP3)",
+      "Plugin ecosystem for streaming services (Spotify, Tidal)",
+      "Web-based library management interface",
+      "Integration with Squeezebox devices and third-party clients"
+    ],
+    "pros": [
+      "Full control over your music library (no cloud lock-in)",
+      "No subscription fees for core functionality",
+      "Wide compatibility with audio formats and devices",
+      "Extensible via community plugins",
+      "Stable and long-standing open-source project"
+    ],
+    "cons": [
+      "Dated web interface design",
+      "Some setup complexity for beginners (plugin configuration)",
+      "Limited native mobile app support compared to SaaS alternatives",
+      "Requires server resources for multi-room streaming"
+    ],
+    "alternatives": [
+      "Spotify Connect",
+      "Apple Music Multi-Room",
+      "Amazon Music HD"
+    ],
+    "faqs": [
+      {
+        "question": "Is Logitech Media Server hard to install?",
+        "answer": "Installation is straightforward with Docker (using official or community images) or pre-built packages for Linux, Windows, and macOS. Beginners may need to refer to guides for plugin setup or device pairing, but core installation takes minutes."
+      },
+      {
+        "question": "Is it a good alternative to Spotify Connect?",
+        "answer": "Yes—if you want to stream your local music library (including high-fidelity formats like FLAC) across multiple rooms. It also supports plugins for Spotify integration, letting you combine local files with Spotify streams, unlike Spotify Connect which focuses solely on streaming."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Absolutely! Logitech Media Server is open-source and free to use. All core features are available without cost, and most plugins are free too. Some plugins (like Spotify) require a paid subscription to the respective service, but LMS itself has no fees."
+      }
+    ]
+  },
+  {
+    "name": "mpd (Music Player Daemon)",
+    "slug": "mpd-music-player-daemon",
+    "tagline": "Lightweight open-source audio streaming server and player daemon",
+    "description": "mpd (Music Player Daemon) is a flexible, headless audio streaming server ideal for home media setups or headless systems. It supports diverse audio formats, gapless playback, playlists, and equalization. Controlled via CLI, GUI, or mobile clients, it streams music over networks to any connected device. Deployable via package managers (Linux), binaries (macOS/Windows), or Docker. Integrates with local storage or NAS, giving full control over your personal music library.",
+    "pricing_type": "Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://www.musicpd.org/",
+    "key_features": [
+      "Headless operation for remote/headless systems",
+      "Multi-client control (CLI, GUI, mobile apps)",
+      "Wide audio format support & gapless playback"
+    ],
+    "pros": [
+      "Lightweight resource footprint",
+      "Full ownership of music library",
+      "No subscription fees or data tracking"
+    ],
+    "cons": [
+      "Requires separate client software to interact",
+      "Initial configuration may be technical for beginners",
+      "Limited built-in visualization tools"
+    ],
+    "alternatives": [
+      "Spotify Connect",
+      "Apple Music Home Sharing"
+    ],
+    "faqs": [
+      {
+        "question": "Is mpd hard to install?",
+        "answer": "Installation is straightforward: use package managers (e.g., apt install mpd on Linux) or Docker images. Config involves editing mpd.conf to set music paths and network settings—manageable with basic technical knowledge."
+      },
+      {
+        "question": "Is it a good alternative to Spotify Connect?",
+        "answer": "Yes, if you prefer streaming your own music collection over a subscription. mpd runs on your hardware, so you retain full file ownership and avoid data tracking unlike Spotify Connect."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Absolutely. mpd is open-source under the GPL license, with no paid features or restrictions—all core functionality (streaming, playback, client support) is free to use."
+      }
+    ]
+  },
+  {
+    "name": "reveal.js",
+    "slug": "reveal-js",
+    "tagline": "Open-source HTML presentation framework",
+    "description": "reveal.js is an open-source framework for building interactive, responsive presentations using HTML, CSS, and JavaScript. It supports Markdown for easy content creation, speaker notes with a presenter view, math rendering, and customizable animations/transitions. Deploying is straightforward—host static files on any server (GitHub Pages, Netlify, etc.) with no backend required. Ideal for developers, educators, or anyone wanting modern, privacy-focused slides without proprietary tools. Customize via themes or plugins to match your style.",
+    "pricing_type": "Free/Open Source",
+    "category": "Miscellaneous",
+    "collection": "selfhosted",
+    "website_url": "https://revealjs.com/",
+    "key_features": [
+      "Markdown & HTML slide authoring",
+      "Interactive transitions & animations",
+      "Speaker notes with presenter view",
+      "Responsive design for all devices",
+      "Customizable themes and plugins"
+    ],
+    "pros": [
+      "Privacy-focused (self-hosted static files)",
+      "No subscription fees (100% free)",
+      "Easy deployment to static hosts"
+    ],
+    "cons": [
+      "Requires basic HTML/Markdown skills",
+      "No built-in WYSIWYG editor",
+      "Limited real-time collaboration"
+    ],
+    "alternatives": [
+      "Microsoft PowerPoint",
+      "Google Slides",
+      "Apple Keynote"
+    ],
+    "faqs": [
+      {
+        "question": "Is reveal.js hard to set up and deploy?",
+        "answer": "No—you can start quickly by cloning the GitHub repo, using a CDN link, or downloading the zip file. To deploy, simply upload static files to any host (like GitHub Pages, Netlify) with no backend server needed. No complex setup is required for basic use."
+      },
+      {
+        "question": "Is reveal.js a good alternative to Google Slides?",
+        "answer": "Yes—it offers privacy (no third-party tracking), full customization control, and offline access. While it lacks Google Slides' real-time collaboration, it’s ideal for users who prefer open-source tools and want to avoid proprietary lock-in."
+      },
+      {
+        "question": "Is reveal.js completely free to use?",
+        "answer": "Absolutely—reveal.js is licensed under the MIT License, so it’s 100% free for personal, educational, and commercial use. You can modify and distribute it without any costs or restrictions."
+      }
+    ]
+  },
+  {
+    "name": "GRR",
+    "slug": "grr",
+    "tagline": "Open-source personal finance tracker for self-hosted budget management",
+    "description": "GRR is an open-source personal finance manager designed for self-hosted budget tracking and money management. It enables users to log income/expenses, categorize transactions, monitor spending patterns, and generate detailed financial reports. With multi-currency support and customizable budgets, it adapts to diverse needs. Deployment is straightforward via Docker containers or manual setup, ensuring full control over sensitive financial data. Its intuitive interface simplifies daily tracking, while recurring transactions and bill reminders help stay on top of finances without third-party SaaS reliance.",
+    "pricing_type": "Free/Open Source",
+    "category": "Money, Budgeting & Management",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/grr-finance/grr",
+    "key_features": [
+      "Track income & expenses with categorization",
+      "Multi-currency support for global users",
+      "Customizable budgets and financial reports",
+      "Recurring transactions and bill reminders",
+      "Docker deployment for easy self-hosting"
+    ],
+    "pros": [
+      "Full data privacy (self-hosted control)",
+      "No subscription fees or hidden costs",
+      "Open-source code for customization",
+      "Intuitive UI for daily financial tracking"
+    ],
+    "cons": [
+      "Requires basic server knowledge for manual setup",
+      "Limited automatic bank sync integrations",
+      "Smaller community compared to mainstream tools"
+    ],
+    "alternatives": [
+      "Mint",
+      "YNAB (You Need A Budget)"
+    ],
+    "faqs": [
+      {
+        "question": "Is GRR hard to install?",
+        "answer": "GRR is easy to install via Docker, which uses pre-configured containers to simplify deployment. Manual setup requires basic server skills (Python, PostgreSQL), but step-by-step documentation helps users get started quickly even with limited experience."
+      },
+      {
+        "question": "Is it a good alternative to Mint?",
+        "answer": "Yes—GRR offers core budget tracking features like Mint but with full data control (self-hosted). Unlike Mint, it avoids third-party bank syncs (ideal for privacy) and targeted ads, making it perfect for users prioritizing security over automatic integrations."
+      },
+      {
+        "question": "Is GRR completely free?",
+        "answer": "Yes—GRR is released under the MIT License, so it’s 100% free to use, modify, and self-host without any subscription fees or hidden costs."
+      }
+    ]
+  },
+  {
+    "name": "SolidInvoice",
+    "slug": "solidinvoice",
+    "tagline": "Open-source invoicing & billing solution for small businesses and freelancers",
+    "description": "SolidInvoice is an open-source invoicing and billing platform designed for small businesses, freelancers, and agencies. It simplifies financial workflows with customizable invoices, professional quotes, client management, tax automation, payment tracking, and detailed reports. Deploy via Docker (easy setup) or traditional LAMP/LEMP stacks on your own server. Integrates with Stripe, PayPal, and Braintree for seamless online payments. Additional tools include expense tracking, time logging for billable hours, and multi-currency support—ideal for self-managing finances without proprietary SaaS lock-in.",
+    "pricing_type": "Open Source",
+    "category": "Money, Budgeting & Management",
+    "collection": "selfhosted",
+    "website_url": "https://solidinvoice.co",
+    "key_features": [
+      "Customizable invoicing & quotes",
+      "Client & expense management",
+      "Multi-payment gateway integration",
+      "Tax automation & financial reporting"
+    ],
+    "pros": [
+      "Privacy-focused self-hosting",
+      "No subscription fees",
+      "Docker support for easy deployment",
+      "Open-source (modifyable code)"
+    ],
+    "cons": [
+      "Requires basic server administration skills",
+      "Fewer third-party integrations than SaaS tools",
+      "Steeper learning curve for beginners"
+    ],
+    "alternatives": [
+      "FreshBooks",
+      "QuickBooks Invoicing",
+      "Xero"
+    ],
+    "faqs": [
+      {
+        "question": "Is SolidInvoice hard to install?",
+        "answer": "SolidInvoice is easy to install via Docker (using provided compose files) for users with basic server knowledge. Traditional setup requires PHP 8.1+, MySQL/MariaDB, and web server (Apache/Nginx)—documentation guides through both methods."
+      },
+      {
+        "question": "Is it a good alternative to FreshBooks?",
+        "answer": "Yes—SolidInvoice offers core invoicing, billing, and client management features like FreshBooks but as an open-source self-hosted option. It avoids subscription costs and gives full data control, though FreshBooks has more advanced integrations and a simpler UI for new users."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "SolidInvoice is 100% free and open-source (MIT license). There are no paid tiers, hidden fees, or usage limits—you can use all features and modify the code to fit your needs without any cost."
+      }
+    ]
+  },
+  {
+    "name": "Syncloud",
+    "slug": "syncloud",
+    "tagline": "Simplify self-hosting of apps on your own hardware",
+    "description": "Syncloud is an open-source self-hosting platform designed to make deploying and managing apps easy for everyone. It supports devices like Raspberry Pi, VPS, and x86 servers, with a user-friendly dashboard for one-click app installations (e.g., Nextcloud, Matrix, Pi-hole). It handles automatic updates, secure remote access without port forwarding, and SSL certificates. Whether you want to host files, messaging apps, or ad-blockers, Syncloud eliminates complex setup steps, letting you keep data private on your own hardware.",
+    "pricing_type": "Free/Open Source (with paid optional services)",
+    "category": "Self-hosting Solutions",
+    "collection": "selfhosted",
+    "website_url": "https://syncloud.it",
+    "key_features": [
+      "One-click installation of 50+ self-hosted apps",
+      "User-friendly dashboard for app management & updates",
+      "Supports Raspberry Pi, VPS, and x86 hardware",
+      "Secure remote access without port forwarding",
+      "Automatic SSL certificate management"
+    ],
+    "pros": [
+      "Privacy-focused (data stays on your device)",
+      "Simplifies complex self-hosting setup",
+      "Supports multiple hardware/hosting options",
+      "Automatic app and security updates"
+    ],
+    "cons": [
+      "Some advanced features require paid plans (e.g., custom domains)",
+      "Limited to apps available in Syncloud’s repository",
+      "Basic hardware knowledge needed for initial setup"
+    ],
+    "alternatives": [
+      "Google Workspace",
+      "Nextcloud Hosted",
+      "Microsoft 365"
+    ],
+    "faqs": [
+      {
+        "question": "Is Syncloud hard to install?",
+        "answer": "No—Syncloud provides pre-built images for Raspberry Pi, VPS, and x86 servers that can be flashed or deployed quickly. The initial setup wizard guides you through connecting your device and accessing the dashboard, with no need for advanced technical skills."
+      },
+      {
+        "question": "Is Syncloud a good alternative to proprietary cloud services like Google Drive?",
+        "answer": "Yes—Syncloud lets you host apps like Nextcloud (a Google Drive alternative) on your own hardware, giving you full control over your data. It’s ideal if you want to avoid third-party cloud providers and keep your files private."
+      },
+      {
+        "question": "Is Syncloud completely free to use?",
+        "answer": "The core Syncloud platform is open source and free. However, optional paid services (e.g., custom domains with SSL, premium support) are available for users who want additional features or assistance."
+      }
+    ]
+  },
+  {
+    "name": "Atheos",
+    "slug": "atheos",
+    "tagline": "Open-source web-based IDE for self-hosted code development",
+    "description": "Atheos is a lightweight, open-source web-based IDE for self-hosted code editing. Forked from Codiad, it supports syntax highlighting for over 100 languages, features an extensible plugin system for custom tools, and includes built-in file management and Git integration. Deployable via Docker or manual setup (PHP 7.4+ and MySQL required), it lets developers access their codebase from any browser, edit with line numbering and code folding, and manage projects without relying on third-party cloud services. Ideal for remote developers or small teams prioritizing data control.",
+    "pricing_type": "Free/Open Source",
+    "category": "Software Development - IDE & Tools",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/Atheos/Atheos",
+    "key_features": [
+      "Browser-based access from any device",
+      "Syntax highlighting for 100+ programming languages",
+      "Extensible plugin ecosystem",
+      "Built-in Git integration and file management"
+    ],
+    "pros": [
+      "Self-hosted for full data privacy and control",
+      "Zero subscription fees or hidden costs",
+      "Lightweight resource usage for low-powered servers"
+    ],
+    "cons": [
+      "Requires basic server administration skills for setup",
+      "Lacks real-time collaborative editing features",
+      "Fewer advanced tools than desktop IDEs like VS Code"
+    ],
+    "alternatives": [
+      "GitHub Codespaces",
+      "Gitpod",
+      "Codeanywhere"
+    ],
+    "faqs": [
+      {
+        "question": "Is Atheos hard to install?",
+        "answer": "Atheos can be installed via Docker (the simplest method) or manual setup on a server with PHP 7.4+ and MySQL/MariaDB. Docker images simplify deployment for users familiar with containerization, while manual setup requires uploading files to a web server and configuring a database—basic server administration skills are helpful here."
+      },
+      {
+        "question": "Is it a good alternative to GitHub Codespaces?",
+        "answer": "Atheos is an excellent self-hosted alternative to GitHub Codespaces for users prioritizing data control and zero costs. While it lacks advanced cloud features like preconfigured workspaces, it offers core IDE functionality (code editing, Git integration) and is ideal for individual developers or small teams not needing enterprise-level tools."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes, Atheos is 100% free and open-source under the MIT License. There are no subscription plans, premium features, or hidden fees—all functionality is available to self-host and use without cost."
+      }
+    ]
+  },
+  {
+    "name": "Kallithea",
+    "slug": "kallithea",
+    "tagline": "Open-source repository management for Git and Mercurial",
+    "description": "Kallithea is an open-source repository management solution for Git and Mercurial. It provides fine-grained access control, built-in code review workflows, integration with issue trackers like Redmine, and a REST API for automation. Deployable via Docker or Python WSGI setups, it lets teams manage code securely on their infrastructure, balancing collaboration with full data privacy and control.",
+    "pricing_type": "Open Source",
+    "category": "Software Development - Project Management",
+    "collection": "selfhosted",
+    "website_url": "https://kallithea-scm.org/",
+    "key_features": [
+      "Supports Git and Mercurial repositories",
+      "Fine-grained access control and user roles",
+      "Built-in code review and pull request tools"
+    ],
+    "pros": [
+      "Privacy-focused self-hosted deployment",
+      "No licensing or subscription fees"
+    ],
+    "cons": [
+      "Smaller community compared to enterprise tools",
+      "Requires basic server administration skills"
+    ],
+    "alternatives": [
+      "GitHub Enterprise",
+      "Bitbucket Server"
+    ],
+    "faqs": [
+      {
+        "question": "Is Kallithea hard to install?",
+        "answer": "Kallithea can be installed via Docker (simplest method) or traditional Python WSGI setups. Docker images reduce setup complexity, though basic server admin knowledge helps with configuration like SSL or user management."
+      },
+      {
+        "question": "Is it a good alternative to GitHub Enterprise?",
+        "answer": "Yes—Kallithea offers core repository management features like access control and code review without enterprise licensing costs. It’s ideal for teams preferring self-hosted control over their codebase."
+      },
+      {
+        "question": "Is Kallithea completely free?",
+        "answer": "Yes—Kallithea is open source under the GPLv3 license, meaning it’s free to use, modify, and distribute for personal or commercial purposes with no hidden fees."
+      }
+    ]
+  },
+  {
+    "name": "go-doxy",
+    "slug": "go-doxy",
+    "tagline": "Lightweight, fast static web server written in Go",
+    "description": "go-doxy is a high-performance, minimalistic web server built in Go, optimized for serving static content with low resource usage. It supports gzip compression, directory listing, custom error pages, and CORS configuration. Deployed as a single binary (no external dependencies), it works across Linux, macOS, and Windows. Configure via CLI flags or YAML to set root directories, port numbers, and compression levels. Ideal for self-hosting static sites, documentation portals, or small projects without the overhead of heavier servers like Nginx.",
+    "pricing_type": "Free/Open Source",
+    "category": "Web Servers",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/knadh/go-doxy",
+    "key_features": [
+      "Single binary deployment (no dependencies)",
+      "Fast static content serving with gzip compression",
+      "Customizable (directory listing, error pages, CORS support)"
+    ],
+    "pros": [
+      "Minimal resource footprint (great for low-spec servers)",
+      "Zero dependencies for hassle-free deployment"
+    ],
+    "cons": [
+      "Limited to static content (no dynamic processing)",
+      "Less feature-rich than full-featured servers like Nginx"
+    ],
+    "alternatives": [
+      "Microsoft IIS",
+      "LiteSpeed Web Server (Proprietary Edition)"
+    ],
+    "faqs": [
+      {
+        "question": "Is go-doxy hard to install?",
+        "answer": "No—go-doxy is distributed as a single binary with no dependencies. Download the appropriate binary for your OS from the GitHub repository, make it executable, and run it with flags to specify your static content directory and port."
+      },
+      {
+        "question": "Can go-doxy handle dynamic content like PHP or Python?",
+        "answer": "No—go-doxy is designed exclusively for serving static files (HTML, CSS, JS, images, etc.). For dynamic content, you’ll need to use a dedicated backend server or a full-featured web server like Apache or Nginx."
+      },
+      {
+        "question": "Is go-doxy completely free and open source?",
+        "answer": "Yes—go-doxy is licensed under the MIT License, which means it’s free to use, modify, and distribute for both personal and commercial purposes without any cost."
+      }
+    ]
+  },
+  {
+    "name": "Varnish",
+    "slug": "varnish",
+    "tagline": "High-performance HTTP reverse proxy and caching server",
+    "description": "Varnish is an open-source reverse proxy that accelerates web content delivery by caching static and dynamic assets. It reduces origin server load, improves response times, and handles high traffic volumes efficiently. Deployable via package managers (apt, yum), Docker, or source code, it integrates seamlessly with Apache/Nginx as a backend. Customize caching rules, request routing, and invalidation using VCL (Varnish Configuration Language). Ideal for content-heavy sites, e-commerce platforms, and APIs needing speed boosts and scalability.",
+    "pricing_type": "Open Source",
+    "category": "Web Servers",
+    "collection": "selfhosted",
+    "website_url": "https://varnish-cache.org/",
+    "key_features": [
+      "High-speed HTTP caching for static/dynamic content",
+      "Customizable via VCL (Varnish Configuration Language)",
+      "Seamless integration with Apache/Nginx backends",
+      "Scalable for high-traffic workloads",
+      "Efficient cache invalidation mechanisms"
+    ],
+    "pros": [
+      "Open-source and free to use (BSD license)",
+      "Dramatically reduces origin server load",
+      "Flexible configuration for advanced use cases",
+      "Handles thousands of requests per second"
+    ],
+    "cons": [
+      "Steeper learning curve for VCL customization",
+      "Requires backend server (not a standalone web server)",
+      "Needs regular maintenance for optimal performance"
+    ],
+    "alternatives": [
+      "Cloudflare CDN",
+      "Akamai"
+    ],
+    "faqs": [
+      {
+        "question": "Is Varnish hard to install?",
+        "answer": "Varnish is easy to install via package managers (like apt on Ubuntu or yum on RHEL) or Docker for quick setup. However, mastering its VCL configuration language for advanced caching rules or request routing may take some time and practice."
+      },
+      {
+        "question": "Is it a good alternative to Cloudflare CDN?",
+        "answer": "Varnish is a great self-hosted alternative to Cloudflare's caching features. It gives you full control over your caching infrastructure (unlike Cloudflare's managed service) but requires you to handle scaling and maintenance. It's ideal if you prefer on-premise control over third-party services."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes, the core Varnish Cache is open-source under the BSD license, so it's completely free to use, modify, and distribute. Paid enterprise versions like Varnish Plus exist with additional features (e.g., WAF, advanced support), but the basic version is free."
+      }
+    ]
+  },
+  {
+    "name": "Gollum",
+    "slug": "gollum",
+    "tagline": "Open-source Git-based wiki engine",
+    "description": "Gollum is a lightweight, Git-backed wiki engine that stores content in plain text or markup files (Markdown, AsciiDoc, etc.). It integrates seamlessly with Git for version control, enabling collaborative editing with history tracking, diffs, and rollbacks. Deployable via RubyGems, Docker, or source code, it works on any system supporting Ruby. Features include page linking, search, syntax highlighting for code, and custom CSS/themes. Ideal for teams or individuals needing a simple, self-hosted wiki without complex dependencies—perfect for documentation, knowledge bases, or project notes.",
+    "pricing_type": "Free/Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/gollum/gollum",
+    "key_features": [
+      "Git-based version control for wiki pages",
+      "Supports multiple markup languages (Markdown, AsciiDoc)",
+      "Lightweight deployment via Docker or RubyGems",
+      "Built-in search and page linking",
+      "Customizable themes and CSS"
+    ],
+    "pros": [
+      "Git-integrated version control with full history tracking",
+      "Privacy-focused self-hosted solution",
+      "No subscription fees (100% open source)"
+    ],
+    "cons": [
+      "No WYSIWYG editor (relies on markup syntax)",
+      "Requires basic Ruby knowledge for manual deployment (Docker eases this)",
+      "Limited advanced features (e.g., user roles) compared to enterprise wikis"
+    ],
+    "alternatives": [
+      "Atlassian Confluence",
+      "Microsoft SharePoint Wiki",
+      "Notion (wiki features)"
+    ],
+    "faqs": [
+      {
+        "question": "Is Gollum hard to install?",
+        "answer": "Docker deployment is straightforward (pull the image and run), making it easy for most users. Manual installation requires Ruby and RubyGems, which may need basic technical knowledge, but guides are available in the documentation."
+      },
+      {
+        "question": "Is it a good alternative to Atlassian Confluence?",
+        "answer": "Yes, for small teams or individuals needing a lightweight, Git-integrated wiki with minimal overhead. However, it lacks Confluence’s advanced enterprise features like user roles, rich media embedding, or workflow tools."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Absolutely—Gollum is open source under the MIT License, so it’s free to use, modify, and self-host without any licensing or subscription costs."
+      }
+    ]
+  },
+  {
+    "name": "MediaWiki",
+    "slug": "mediawiki",
+    "tagline": "Open-source wiki platform powering Wikipedia",
+    "description": "MediaWiki is a robust, scalable open-source wiki software used globally (including Wikipedia) for collaborative content creation. It supports version control, rich text editing, and extensibility via thousands of plugins. Deployment options include self-hosting on LAMP/WAMP stacks, Docker containers, or managed hosting. Key features like granular user permissions, multilingual support, and content moderation make it ideal for teams, communities, or knowledge bases. It’s highly customizable with themes and extensions for analytics, media management, and more.",
+    "pricing_type": "Free/Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://www.mediawiki.org/",
+    "key_features": [
+      "Collaborative editing with version history",
+      "Extensible via 1000+ plugins/extensions",
+      "Multilingual support for global communities",
+      "Granular user permission controls"
+    ],
+    "pros": [
+      "Full data ownership (self-hosted)",
+      "Extensive plugin ecosystem for customization",
+      "Proven scalability (used by Wikipedia)",
+      "No subscription fees"
+    ],
+    "cons": [
+      "Requires basic server admin skills for setup",
+      "Steeper learning curve for advanced customization",
+      "Needs regular maintenance (updates, security patches)",
+      "Default UI feels outdated without themes"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Notion"
+    ],
+    "faqs": [
+      {
+        "question": "Is MediaWiki hard to install?",
+        "answer": "Installation requires a LAMP/WAMP stack or Docker. Beginners can use Docker images for simplified setup, while manual installs need basic server knowledge. Many hosting providers also offer one-click installation options to reduce complexity."
+      },
+      {
+        "question": "Is it a good alternative to Confluence?",
+        "answer": "Yes—MediaWiki is free and open-source, unlike Confluence's paid model. It’s more extensible but has a steeper learning curve for non-technical users. Ideal for teams prioritizing data ownership over Confluence’s polished UI and integration ecosystem."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "MediaWiki is 100% free under the GNU GPL license—download, use, modify, and distribute at no cost. However, self-hosting may incur server/hosting expenses, and some premium extensions or managed hosting services could have fees."
+      }
+    ]
+  },
+  {
+    "name": "Mycorrhiza Wiki",
+    "slug": "mycorrhiza-wiki",
+    "tagline": "Open-source, file-based wiki engine with Markdown and backlinks",
+    "description": "Mycorrhiza Wiki is a lightweight, self-hosted wiki engine that stores content as plain Markdown files—no databases needed. It supports backlinks, tags, and custom CSS for styling, making it ideal for personal knowledge bases or small teams. Deployment is simple: run as a single binary (no dependencies) on Linux, macOS, or Windows, or use Docker. Integrates with Git for version control, allowing collaborative edits via Git workflows. Backups are easy since files are plain text, and it prioritizes speed and minimalism over complex enterprise features.",
+    "pricing_type": "Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://mycorrhiza.wiki/",
+    "key_features": [
+      "File-based storage (no database)",
+      "Markdown support with backlinks",
+      "Single binary deployment",
+      "Git integration for version control",
+      "Custom CSS styling"
+    ],
+    "pros": [
+      "Minimal and fast",
+      "Easy to backup (plain files)",
+      "No subscription fees",
+      "Simple deployment"
+    ],
+    "cons": [
+      "No built-in WYSIWYG editor",
+      "Limited enterprise features",
+      "Requires Git knowledge for collaboration"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Notion"
+    ],
+    "faqs": [
+      {
+        "question": "Is Mycorrhiza Wiki hard to install?",
+        "answer": "No—Mycorrhiza runs as a single binary with no dependencies. Download the binary for your OS, configure a storage path, and run it. Docker images are also available for containerized deployment."
+      },
+      {
+        "question": "Is it a good alternative to Confluence?",
+        "answer": "It’s a great alternative for users wanting simplicity and control. Unlike Confluence, it’s file-based and lightweight, but lacks advanced collaboration tools like real-time editing or enterprise-grade permissions."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes—Mycorrhiza Wiki is open-source under the MIT License, so it’s free to use, modify, and self-host without any cost."
+      }
+    ]
+  },
+  {
+    "name": "Oddmuse",
+    "slug": "oddmuse",
+    "tagline": "Lightweight, file-based wiki engine written in Perl",
+    "description": "Oddmuse is a minimalist self-hosted wiki engine focused on simplicity and low maintenance. It uses flat files instead of a database, making deployment straightforward—just upload the Perl script to any web server with Perl support. Features include version control for page edits, customizable plugins to add functionality (like syntax highlighting or RSS feeds), password protection for private wikis, and support for a markdown-like markup language. Ideal for personal documentation, small team wikis, or anyone wanting a no-fuss alternative to heavyweight wiki tools.",
+    "pricing_type": "Free/Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://oddmuse.org/",
+    "key_features": [
+      "File-based storage (no database required)",
+      "Perl-powered (compatible with most web servers)",
+      "Extensible via community plugins",
+      "Built-in version control for edits",
+      "Password protection for private content"
+    ],
+    "pros": [
+      "Minimal server resource usage",
+      "Zero database maintenance",
+      "Open source with active community",
+      "Easy to deploy (single script upload)",
+      "Highly customizable for specific needs"
+    ],
+    "cons": [
+      "Perl knowledge helpful for advanced tweaks",
+      "Less modern UI compared to cloud-based wikis",
+      "Fewer out-of-the-box features than MediaWiki",
+      "Limited real-time collaboration tools"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Notion"
+    ],
+    "faqs": [
+      {
+        "question": "Is Oddmuse hard to install?",
+        "answer": "Oddmuse is extremely easy to install—simply upload the main Perl script to a web server with Perl support (most shared hosts or VPS providers offer this). No database setup is needed, and you can start creating pages immediately after deployment. Docker images are also available for containerized setups."
+      },
+      {
+        "question": "Is it a good alternative to Confluence?",
+        "answer": "Oddmuse is a great alternative for users who want a lightweight, self-hosted wiki without Confluence’s enterprise complexity or subscription costs. While it lacks Confluence’s advanced collaboration and project management features, it excels at simple, fast documentation for personal or small team use."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes, Oddmuse is 100% free and open source under the GNU General Public License (GPL). You can use it, modify it, and self-host it without any fees or restrictions."
+      }
+    ]
+  },
+  {
+    "name": "Otter Wiki",
+    "slug": "otter-wiki",
+    "tagline": "Lightweight, open-source wiki with Markdown support",
+    "description": "Otter Wiki is a minimal, self-hosted wiki platform built for simplicity and efficiency. It supports Markdown editing, file attachments, and version history to track page changes. With built-in user authentication and role-based access control, it works for personal or small team documentation. Deploy via Docker for quick setup or run directly with Python—requires minimal system resources. Its responsive design ensures accessibility across devices, making it ideal for fast knowledge sharing without the bloat of larger wiki tools.",
+    "pricing_type": "Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/robertoszek/otterwiki",
+    "key_features": [
+      "Markdown editing and preview",
+      "Page version history",
+      "File attachment support",
+      "User authentication & access control",
+      "Docker-friendly deployment"
+    ],
+    "pros": [
+      "Lightweight (low CPU/memory usage)",
+      "Straightforward installation process",
+      "Privacy-focused (self-hosted data control)",
+      "Responsive mobile interface"
+    ],
+    "cons": [
+      "Lacks advanced enterprise features (e.g., workflow automation)",
+      "Smaller community compared to popular wikis",
+      "No real-time collaborative editing"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Notion",
+      "Microsoft SharePoint"
+    ],
+    "faqs": [
+      {
+        "question": "Is Otter Wiki hard to install?",
+        "answer": "Otter Wiki is easy to install—use Docker for a one-command setup, or run it directly with Python. Official docs provide clear steps for both methods, suitable for users with basic server knowledge."
+      },
+      {
+        "question": "Is it a good alternative to Confluence?",
+        "answer": "It’s a great lightweight alternative for users avoiding Confluence’s subscription cost and bloat. It lacks complex enterprise features but excels at simple documentation and knowledge sharing."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes! Otter Wiki is open-source under the MIT License, so it’s free to use, modify, and self-host without any fees or restrictions."
+      }
+    ]
+  },
+  {
+    "name": "PmWiki",
+    "slug": "pmwiki",
+    "tagline": "Lightweight, self-hosted wiki for simple collaborative content management",
+    "description": "PmWiki is a lightweight, file-based self-hosted wiki designed for easy collaborative content management. It requires no database, making deployment straightforward: just upload files to a PHP-enabled server and configure basic settings. Key features include fine-grained access control (page/group permissions), page history with diff tracking, customizable skins, and a large library of plugins for extending functionality (e.g., forms, calendars, and search tools). Ideal for teams, personal knowledge bases, or organizational docs, it balances simplicity with flexibility for both beginners and advanced users.",
+    "pricing_type": "Free/Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://www.pmwiki.org/",
+    "key_features": [
+      "File-based storage (no database required)",
+      "Fine-grained access control (page/group permissions)",
+      "Extensible via plugins and custom skins",
+      "Page history and diff tracking",
+      "Simple PHP server deployment"
+    ],
+    "pros": [
+      "Zero database setup (low overhead)",
+      "Highly customizable with community plugins",
+      "Privacy-focused self-hosting option",
+      "Lightweight and fast for small-to-medium wikis"
+    ],
+    "cons": [
+      "Default UI feels less modern compared to newer wikis",
+      "File-based storage may not scale optimally for very large wikis",
+      "Requires basic PHP server knowledge for setup"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Notion",
+      "SharePoint Wiki"
+    ],
+    "faqs": [
+      {
+        "question": "Is PmWiki hard to install?",
+        "answer": "No—PmWiki is one of the easiest self-hosted wikis to install. It requires no database; just upload its files to a PHP-enabled web server, adjust a few configuration settings (like admin passwords), and it’s ready to use."
+      },
+      {
+        "question": "Is it a good alternative to Confluence?",
+        "answer": "Yes, for users wanting a lightweight, cost-free alternative. While it lacks Confluence’s advanced project management tools, PmWiki excels at simple knowledge base creation with minimal overhead and no subscription fees."
+      },
+      {
+        "question": "Is PmWiki completely free?",
+        "answer": "Yes—PmWiki is open source under the GNU General Public License (GPL). All core features are free, and the vast majority of community-contributed plugins and skins are also available at no cost."
+      }
+    ]
+  },
+  {
+    "name": "Raneto",
+    "slug": "raneto",
+    "tagline": "Markdown-powered open-source wiki for teams and individuals",
+    "description": "Raneto is a lightweight, database-free open-source wiki that uses plain Markdown files for content storage. It offers fast full-text search, customizable themes, multi-language support, and simple collaboration. Deployable via Docker, Node.js, or VPS, it’s ideal for internal knowledge bases, project documentation, or personal wikis without complex setup.",
+    "pricing_type": "Free/Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/gilbitron/Raneto",
+    "key_features": [
+      "Markdown content management",
+      "No database required",
+      "Fast full-text search",
+      "Customizable themes"
+    ],
+    "pros": [
+      "Privacy focused (self-hosted)",
+      "No subscription fees"
+    ],
+    "cons": [
+      "Requires Node.js server or Docker",
+      "Lacks built-in user authentication"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Notion"
+    ],
+    "faqs": [
+      {
+        "question": "Is Raneto hard to install?",
+        "answer": "Raneto is easy to install—use Docker for quick setup or Node.js by cloning the repo and running npm commands. Minimal configuration makes it accessible for users with basic server knowledge."
+      },
+      {
+        "question": "Is it a good alternative to Confluence?",
+        "answer": "Raneto is a great lightweight alternative to Confluence for simple wikis. It uses Markdown files (no database) and lower resources but lacks Confluence’s enterprise features like real-time editing."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes, Raneto is 100% free and open-source under the MIT License—no licensing fees for self-hosting or modification."
+      }
+    ]
+  },
+  {
+    "name": "TiddlyWiki",
+    "slug": "tiddlywiki",
+    "tagline": "Single-file, non-linear personal wiki for note-taking and knowledge management",
+    "description": "TiddlyWiki is a unique self-contained wiki that stores all content in one HTML file, making it highly portable and easy to deploy. It uses 'tiddlers' (small, reusable content units) for non-linear organization, supports markdown, custom plugins, and offline use. You can run it locally in a browser, host it on a server (via Node.js), or sync via cloud storage. Ideal for personal knowledge bases, project notes, or documentation without relying on external services.",
+    "pricing_type": "Free/Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://tiddlywiki.com",
+    "key_features": [
+      "Single-file portability",
+      "Non-linear content with tiddlers",
+      "Custom plugins & extensions",
+      "Offline access & cloud sync support"
+    ],
+    "pros": [
+      "No installation required (runs in browser)",
+      "100% portable (single HTML file)",
+      "Privacy-focused (no external dependencies)",
+      "Highly customizable"
+    ],
+    "cons": [
+      "Limited team collaboration features",
+      "Manual sync needed for multi-device use (without server)",
+      "Steeper learning curve for advanced customization"
+    ],
+    "alternatives": [
+      "Notion",
+      "Confluence"
+    ],
+    "faqs": [
+      {
+        "question": "Is TiddlyWiki hard to install?",
+        "answer": "No—TiddlyWiki requires no installation. You can download the single HTML file and run it directly in any modern browser. For server deployment, use the Node.js version to enable multi-user access."
+      },
+      {
+        "question": "Is it a good alternative to Notion?",
+        "answer": "Yes for personal use: it offers portability and privacy Notion lacks, but lacks Notion’s team collaboration tools and pre-built templates."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes—TiddlyWiki is open source (MIT license) with no paid tiers or hidden costs. You can use, modify, and distribute it freely."
+      }
+    ]
+  },
+  {
+    "name": "Tiki",
+    "slug": "tiki",
+    "tagline": "Open-source wiki and all-in-one content management system",
+    "description": "Tiki is an open-source, all-in-one wiki and content management system (CMS) for collaboration and knowledge sharing. It combines wiki functionality with blogs, forums, file repositories, calendars, task management, and e-commerce tools. Self-hostable via LAMP/WAMP stacks or Docker, it supports multilingual content, role-based access control, version history, and customizable themes/plugins. Ideal for teams needing a unified space to manage knowledge, projects, and communication without proprietary lock-in.",
+    "pricing_type": "Free/Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://tiki.org",
+    "key_features": [
+      "All-in-one wiki + CMS with integrated collaboration tools",
+      "Multilingual support & role-based access control",
+      "Docker deployment for simplified self-hosting",
+      "Extensible via plugins and customizable themes"
+    ],
+    "pros": [
+      "Comprehensive feature set (wiki, blogs, forums, etc.)",
+      "Fully open-source and self-hostable",
+      "No subscription fees or proprietary restrictions"
+    ],
+    "cons": [
+      "Steeper learning curve due to extensive functionality",
+      "Interface may feel cluttered for new users",
+      "Requires basic server knowledge for non-Docker setups"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Microsoft SharePoint"
+    ],
+    "faqs": [
+      {
+        "question": "Is Tiki hard to install?",
+        "answer": "Tiki can be installed via Docker (simplified for beginners) or traditional LAMP/WAMP stacks. Official documentation provides step-by-step guides for both methods, so even users with basic server knowledge can set it up successfully."
+      },
+      {
+        "question": "Is it a good alternative to Confluence?",
+        "answer": "Yes—Tiki offers core wiki and collaboration features like page versioning and team spaces, but is fully open-source and self-hostable (no subscription costs). It also includes extra tools like forums and e-commerce that Confluence lacks, though Confluence has a more modern UI for some use cases."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Tiki is 100% free under the GNU General Public License (GPL). All core features, plugins, and themes are available without any licensing fees, making it an affordable choice for self-hosting."
+      }
+    ]
+  },
+  {
+    "name": "WackoWiki",
+    "slug": "wacko-wiki",
+    "tagline": "Lightweight, file-based open-source wiki engine",
+    "description": "WackoWiki is a fast, database-free wiki engine ideal for personal or team knowledge bases. It supports markdown/Wacko markup, file attachments, version history, user permissions, and responsive design. Features include multilingual support, spam protection, customizable themes, and minimal resource usage. Deployable on any PHP 7.4+ server—no database setup needed, just upload files and run the setup script. Perfect for users seeking a simple, self-hosted alternative to heavy wiki platforms.",
+    "pricing_type": "Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://wackowiki.org/",
+    "key_features": [
+      "No database dependency (file-based storage)",
+      "Rich content support (markdown & custom Wacko markup)",
+      "Version control & user access management",
+      "Lightweight deployment on PHP servers"
+    ],
+    "pros": [
+      "Simple installation (no database setup)",
+      "Resource-efficient & fast performance",
+      "Privacy-focused (self-hosted)",
+      "Multilingual support & customizable themes"
+    ],
+    "cons": [
+      "Smaller community compared to MediaWiki",
+      "Lacks advanced collaboration tools (e.g., real-time editing)",
+      "Limited third-party plugin ecosystem"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Notion",
+      "SharePoint Wiki"
+    ],
+    "faqs": [
+      {
+        "question": "Is WackoWiki hard to install?",
+        "answer": "No—installation is straightforward: upload files to a PHP-enabled server, run the web-based setup wizard, and configure basic settings (admin user, site name). No database setup is required, making it accessible for users with basic server knowledge."
+      },
+      {
+        "question": "Is WackoWiki a good alternative to Confluence?",
+        "answer": "Yes—for teams or individuals wanting a self-hosted, cost-free alternative to Confluence. It offers core wiki features like version history and permissions, though it lacks Confluence’s advanced tools (e.g., Jira integration, real-time collaboration)."
+      },
+      {
+        "question": "Is WackoWiki completely free?",
+        "answer": "Yes—WackoWiki is open-source under the GPLv2 license. It’s free to download, use, modify, and self-host with no subscription fees or hidden costs."
+      }
+    ]
+  },
+  {
+    "name": "Wiki-Go",
+    "slug": "wiki-go",
+    "tagline": "Lightweight, self-hosted wiki built with Go",
+    "description": "Wiki-Go is a fast, open-source wiki engine written in Go, focused on simplicity and performance. It supports Markdown for content creation, page version control, file attachments, and built-in search. Deployment is hassle-free: a single binary with no external dependencies, runnable on any server or Raspberry Pi. It includes a web-based editor, customizable themes, and privacy-focused design—ideal for teams or individuals needing a minimal, bloat-free wiki without sacrificing core functionality.",
+    "pricing_type": "Free/Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/wiki-go/wiki-go",
+    "key_features": [
+      "Markdown content editing",
+      "Single binary deployment",
+      "Page version control",
+      "Built-in search",
+      "File attachments"
+    ],
+    "pros": [
+      "Privacy-focused (self-hosted)",
+      "No external dependencies",
+      "Fast performance (Go-based)",
+      "Easy setup"
+    ],
+    "cons": [
+      "Limited enterprise features",
+      "Smaller community support",
+      "Basic theme customization"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Notion",
+      "Microsoft SharePoint"
+    ],
+    "faqs": [
+      {
+        "question": "Is Wiki-Go hard to install?",
+        "answer": "No—Wiki-Go uses a single binary with no dependencies. Download the binary for your OS, run it, and access the wiki via your browser. Docker deployment is also supported for containerized setups."
+      },
+      {
+        "question": "Is it a good alternative to Confluence?",
+        "answer": "Yes for lightweight needs. It lacks Confluence’s enterprise tools but offers speed, simplicity, and privacy—perfect for small teams or personal use."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes! Wiki-Go is open-source under the MIT License, so you can use, modify, and distribute it without cost or subscriptions."
+      }
+    ]
+  },
+  {
+    "name": "Wiki.js",
+    "slug": "wiki-js",
+    "tagline": "Modern open-source wiki platform with real-time collaboration",
+    "description": "Wiki.js is a self-hosted wiki solution for teams and individuals, offering a responsive interface and robust features. It supports multiple content formats (Markdown, WYSIWYG, LaTeX), version history, role-based access control, and real-time collaboration. Deployable via Docker, Kubernetes, or traditional servers, it integrates with storage providers (AWS S3, Git) and auth methods (OAuth, LDAP, SSO). Built-in search, analytics, and customization options make it ideal for documentation, knowledge bases, or internal wikis—combining ease of use with data privacy and control.",
+    "pricing_type": "Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://js.wiki/",
+    "key_features": [
+      "Multiple content formats (Markdown, WYSIWYG, LaTeX)",
+      "Real-time collaboration & version history",
+      "Role-based access control & SSO integration",
+      "Docker/Kubernetes-ready deployment",
+      "Git-backed content storage"
+    ],
+    "pros": [
+      "Privacy-focused self-hosted solution",
+      "No subscription fees (100% open-source)",
+      "Extensive integration options (storage, auth)",
+      "User-friendly interface for non-technical users"
+    ],
+    "cons": [
+      "Requires basic server admin knowledge for setup",
+      "Advanced features need manual configuration",
+      "Initial setup may take time for custom integrations"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Microsoft SharePoint",
+      "Notion"
+    ],
+    "faqs": [
+      {
+        "question": "Is Wiki.js hard to install?",
+        "answer": "Wiki.js is easy to install via Docker (a single command) which simplifies dependencies. Beginners should use Docker; advanced users can deploy via Kubernetes or traditional methods but need to configure PostgreSQL and storage manually. Official docs provide step-by-step guides for all deployment options."
+      },
+      {
+        "question": "Is it a good alternative to Confluence?",
+        "answer": "Yes—Wiki.js offers core Confluence features (collaboration, versioning, access control) for free as open-source software. It’s lighter, more customizable, and self-hosted, making it ideal for teams avoiding subscriptions or prioritizing data privacy. Confluence has more enterprise workflow features, but Wiki.js suffices for most teams."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Wiki.js is 100% free under the MIT License. There are no premium tiers or hidden fees—all features are available to self-host users. You only pay for server/hosting costs if you deploy it yourself; no ongoing charges apply."
+      }
+    ]
+  },
+  {
+    "name": "WikiDocs",
+    "slug": "wikidocs",
+    "tagline": "Open-source wiki platform for collaborative documentation",
+    "description": "WikiDocs is an open-source, self-hosted wiki platform designed for teams to create, edit, and manage collaborative documentation. It supports markdown editing with live preview, version control for document history, role-based access permissions, and media embedding. Deploy easily via Docker (single container) or traditional Node.js/MongoDB setup, ensuring your data remains private and under your control—ideal for project docs, internal wikis, or public knowledge bases.",
+    "pricing_type": "Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/wikidocs/wikidocs",
+    "key_features": [
+      "Markdown editing with live preview",
+      "Version control for document history",
+      "Role-based access permissions",
+      "Media embedding (images, videos)"
+    ],
+    "pros": [
+      "Completely open source (MIT License)",
+      "Self-hosted (full data privacy and control)",
+      "Easy Docker deployment",
+      "Collaborative real-time editing"
+    ],
+    "cons": [
+      "Requires basic server knowledge for non-Docker setup",
+      "No native mobile app (web-responsive only)",
+      "Limited third-party integrations compared to SaaS tools"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Notion"
+    ],
+    "faqs": [
+      {
+        "question": "Is WikiDocs hard to install?",
+        "answer": "No—WikiDocs offers a Docker container for quick deployment with minimal commands. For non-Docker users, it supports Node.js and MongoDB with detailed setup guides, making it accessible for users with basic server knowledge."
+      },
+      {
+        "question": "Is it a good alternative to Confluence?",
+        "answer": "Yes—WikiDocs provides core wiki features like collaborative editing, version control, and access management, but with self-hosted privacy and no subscription fees. It’s perfect for teams wanting to avoid SaaS lock-in and keep their data on-premise."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Absolutely—WikiDocs is open source under the MIT License, so you can use, modify, and distribute it without any cost. There are no premium tiers or hidden charges."
+      }
+    ]
+  },
+  {
+    "name": "WiKiss",
+    "slug": "wikiss",
+    "tagline": "Lightweight flat-file wiki with no database required",
+    "description": "WiKiss is a minimal, self-hosted wiki designed for simplicity and quick deployment. It uses flat-file storage (no database needed) to keep content in plain text files, reducing maintenance and setup complexity. Ideal for personal notes, small team documentation, or project wikis, it supports basic markup for formatting and requires only a PHP-enabled web server to run. Setup takes minutes—just upload files to your server, and you’re ready to create and edit pages without additional configuration.",
+    "pricing_type": "Free/Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/wikiss/wikiss",
+    "key_features": [
+      "Flat-file storage (no database dependency)",
+      "Minimal PHP web server requirement",
+      "One-click deployment via file upload"
+    ],
+    "pros": [
+      "Privacy-focused (self-hosted, no third-party data sharing)",
+      "No subscription costs or premium tiers",
+      "Low resource usage for small to medium wikis"
+    ],
+    "cons": [
+      "Limited scalability for large teams or high-traffic wikis",
+      "Basic feature set compared to enterprise-grade wikis",
+      "Requires basic knowledge of PHP/web server setup"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Microsoft SharePoint Wiki"
+    ],
+    "faqs": [
+      {
+        "question": "Is WiKiss hard to install?",
+        "answer": "No—WiKiss requires no complex setup. Just upload the files to a PHP-enabled web server, and it’s ready to use. No database configuration or additional software is needed."
+      },
+      {
+        "question": "Is it a good alternative to Confluence?",
+        "answer": "WiKiss is an excellent alternative for users prioritizing simplicity over Confluence’s advanced collaboration tools. It’s perfect for small teams or personal use but lacks Confluence’s enterprise features like project management integrations or team workflows."
+      },
+      {
+        "question": "Is WiKiss completely free?",
+        "answer": "Yes—WiKiss is open source under the GNU General Public License (GPL). All features are available for free with no hidden costs or subscription fees."
+      }
+    ]
+  },
+  {
+    "name": "XWiki",
+    "slug": "xwiki",
+    "tagline": "Open-source enterprise wiki and collaborative knowledge platform",
+    "description": "XWiki is a robust open-source wiki platform for collaboration, knowledge management, and structured content creation. It supports extensions via its marketplace (1000+ add-ons), access control, versioning, and integration with LDAP, OAuth, and Jira. Deployable via Docker, WAR file (Tomcat/Jetty), or managed cloud. Ideal for teams/enterprises to build internal wikis, docs portals, or project hubs with customizable workflows and enterprise-grade security.",
+    "pricing_type": "Free/Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://www.xwiki.org",
+    "key_features": [
+      "Structured content management",
+      "Extensible via marketplace extensions",
+      "Enterprise integration & access control"
+    ],
+    "pros": [
+      "Privacy-focused self-hosting option",
+      "Highly customizable workflows",
+      "Supports large-scale collaboration"
+    ],
+    "cons": [
+      "Steeper learning curve for advanced features",
+      "Requires server setup (Docker/WAR) or technical knowledge",
+      "Premium enterprise support is paid"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Microsoft SharePoint Wiki"
+    ],
+    "faqs": [
+      {
+        "question": "Is XWiki hard to install?",
+        "answer": "XWiki is easy to install via Docker (one-line command) or as a WAR file on Java servers like Tomcat. Beginners can use Docker for quick setup; enterprise users may opt for managed cloud hosting to skip technical steps."
+      },
+      {
+        "question": "Is XWiki a good alternative to Confluence?",
+        "answer": "Yes—XWiki offers similar enterprise features (structured content, Jira integration) but is open-source and self-hostable, making it a cost-effective choice for teams prioritizing privacy and customization."
+      },
+      {
+        "question": "Is XWiki completely free?",
+        "answer": "The core XWiki software is free (GPLv2 license). Paid options include enterprise support, managed cloud hosting, and some premium extensions from XWiki SAS."
+      }
+    ]
+  },
+  {
+    "name": "Zim",
+    "slug": "zim",
+    "tagline": "Open-source desktop wiki with self-hosted sync for personal knowledge management",
+    "description": "Zim is a free, open-source desktop wiki designed for organizing notes in a hierarchical structure. It supports markdown-like formatting, task lists, image embedding, and version control via Git. While running locally, users can sync wiki files to self-hosted services (e.g., Nextcloud, Syncthing) for cross-device access. Storing data in plain text ensures full control over your information, making it a self-managed alternative to cloud-based wikis. It works on Linux, Windows, and macOS, offering a lightweight, offline-first experience.",
+    "pricing_type": "Free/Open Source",
+    "category": "Wikis",
+    "collection": "selfhosted",
+    "website_url": "https://zim-wiki.org/",
+    "key_features": [
+      "Hierarchical note organization for structured knowledge",
+      "Markdown-like formatting with task lists and image support",
+      "Plain text storage with Git integration for version control",
+      "Self-hosted sync compatibility (Nextcloud, Syncthing)"
+    ],
+    "pros": [
+      "Full data control (local storage, no cloud lock-in)",
+      "Lightweight and fast offline performance",
+      "Open-source with active community maintenance"
+    ],
+    "cons": [
+      "No native web interface (desktop-only core)",
+      "Requires manual setup for cross-device sync",
+      "Limited multi-user collaboration features"
+    ],
+    "alternatives": [
+      "Confluence",
+      "Notion",
+      "Evernote"
+    ],
+    "faqs": [
+      {
+        "question": "Is Zim hard to install?",
+        "answer": "Zim is easy to install: Linux users can use package managers like apt; Windows has an exe installer; macOS supports Homebrew or dmg files. Basic use requires no server setup—self-hosted sync needs additional tools like Nextcloud, which are straightforward to configure."
+      },
+      {
+        "question": "Is Zim a good alternative to cloud wikis like Notion?",
+        "answer": "Zim is ideal for users prioritizing data control and offline access. Unlike Notion (cloud-based), Zim stores data locally and syncs via self-hosted tools, but lacks Notion’s collaborative features and web interface."
+      },
+      {
+        "question": "Is Zim completely free?",
+        "answer": "Yes! Zim is licensed under the GNU General Public License v2 (GPLv2), so it’s fully free to use, modify, and distribute without any subscription fees or hidden costs."
+      }
+    ]
+  },
+  {
+    "name": "theme.park",
+    "slug": "theme-park",
+    "tagline": "Custom themes for popular self-hosted applications",
+    "description": "theme.park provides a curated library of custom CSS themes for over 50 self-hosted apps like Plex, Jellyfin, Sonarr, Radarr, and Emby. Themes support dark/light modes, accent color tweaks, and brand consistency. Easy to deploy—link directly to CDN-hosted CSS, use reverse proxy injectors (Traefik/Nginx), or download files for offline use. No server installation needed; integrates seamlessly with existing setups to enhance UI aesthetics without altering app functionality.",
+    "pricing_type": "Free/Open Source",
+    "category": "External Links",
+    "collection": "selfhosted",
+    "website_url": "https://themepark.dev",
+    "key_features": [
+      "Curated themes for 50+ self-hosted applications",
+      "CDN-hosted or local deployment options",
+      "Dark/light mode support and accent color customization",
+      "Reverse proxy integration (Traefik, Nginx) for easy application"
+    ],
+    "pros": [
+      "No installation required (link directly to CDN)",
+      "Regularly updated with new themes and supported apps",
+      "Open-source (MIT license) for full customization control"
+    ],
+    "cons": [
+      "Limited to UI aesthetics (no functional app changes)",
+      "Some themes may need tweaks for specific app versions",
+      "CDN dependency (mitigable by hosting files locally)",
+      "No built-in preview tool for themes"
+    ],
+    "alternatives": [
+      "Plex Premium Themes (proprietary)",
+      "Emby Premium Skins (proprietary)",
+      "Closed-source third-party theme packs for media servers"
+    ],
+    "faqs": [
+      {
+        "question": "Is theme.park hard to apply to my self-hosted apps?",
+        "answer": "No—most themes can be applied via a single CSS URL in your app’s custom CSS settings, reverse proxy middleware (like Traefik), or local CSS file. Step-by-step guides are available for each supported app on the official site."
+      },
+      {
+        "question": "Does theme.park support my favorite self-hosted app?",
+        "answer": "theme.park currently supports over 50 apps, including Plex, Jellyfin, Sonarr, Radarr, Emby, and more. Check the app list on themepark.dev—new apps are added regularly based on community requests."
+      },
+      {
+        "question": "Is theme.park completely free and open-source?",
+        "answer": "Yes—all themes are open-source under the MIT license, with no hidden costs. You can download, modify, or host the themes locally without restrictions, and contribute to the project via GitHub."
+      }
+    ]
   }
 ]
