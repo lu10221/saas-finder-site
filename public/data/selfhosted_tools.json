@@ -55390,5 +55390,182 @@
         "answer": "Yes—Whoogle is open-source under the MIT License, so it’s free to use, modify, and self-host. There are no subscription fees or paid tiers."
       }
     ]
+  },
+  {
+    "name": "webtrees",
+    "slug": "webtrees",
+    "tagline": "Open-source self-hosted genealogy platform for family history management",
+    "description": "webtrees is a free, open-source self-hosted genealogy tool that lets you create and manage family trees online. It supports GEDCOM files (the standard for genealogy data), generates interactive charts (ancestor, descendant, fan), and allows collaborative editing with role-based permissions. You can store media (photos, documents) alongside family records and integrate DNA match data. Deployable via Docker or traditional web hosting (PHP/MySQL), it prioritizes data privacy by keeping your family history on your own server, avoiding third-party platforms like Ancestry.",
+    "pricing_type": "Open Source",
+    "category": "Genealogy",
+    "collection": "selfhosted",
+    "website_url": "https://www.webtrees.net/",
+    "key_features": [
+      "GEDCOM file import/export support",
+      "Interactive family tree charts (ancestor, descendant)",
+      "Collaborative editing with role-based permissions"
+    ],
+    "pros": [
+      "Data privacy (self-hosted, no third-party access)",
+      "Open-source (free to use and customize)",
+      "Supports standard genealogy formats"
+    ],
+    "cons": [
+      "Requires web hosting (PHP/MySQL or Docker)",
+      "Advanced features may need additional plugins",
+      "Steep learning curve for beginners"
+    ],
+    "alternatives": [
+      "Ancestry.com",
+      "MyHeritage"
+    ],
+    "faqs": [
+      {
+        "question": "Is webtrees hard to install?",
+        "answer": "webtrees can be installed easily via Docker (simplest method) or traditional web hosting (requires PHP 7.4+ and MySQL/MariaDB). Docker images are readily available, making deployment quick for users familiar with containerization."
+      },
+      {
+        "question": "Is it a good alternative to Ancestry.com?",
+        "answer": "Yes—webtrees offers core genealogy features like tree building, GEDCOM support, and interactive charts while keeping your data private. It lacks Ancestry's large DNA database but is fully customizable and free of subscription fees."
+      },
+      {
+        "question": "Is webtrees completely free?",
+        "answer": "Yes—webtrees is open-source software released under the GNU GPL v3 license, so it's free to use, modify, and self-host without any hidden costs or subscriptions."
+      }
+    ]
+  },
+  {
+    "name": "Logitech Media Server",
+    "slug": "logitech-media-server",
+    "tagline": "Open-source self-hosted audio streaming server for multi-room playback",
+    "description": "Logitech Media Server (LMS) is a self-hosted audio streaming platform for multi-room audio. It supports local media libraries (MP3, FLAC, WAV, Ogg) and integrates with Squeezebox devices, Squeezelite clients, and plugins for Spotify/Tidal. Features include playlist management, library tagging, remote access, and cross-device sync. Deployment is easy via Docker, package managers (apt/yum), or direct downloads, making it accessible for beginners. Ideal for users who want full control over their audio without cloud reliance.",
+    "pricing_type": "Free/Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/Logitech/slimserver",
+    "key_features": [
+      "Multi-room audio sync support",
+      "Wide local audio format compatibility",
+      "Plugin ecosystem for third-party services (Spotify, Tidal)",
+      "Library management with tagging and search"
+    ],
+    "pros": [
+      "Privacy-focused (no cloud dependency for local media)",
+      "No subscription costs",
+      "Stable and mature open-source project"
+    ],
+    "cons": [
+      "Outdated default web interface",
+      "Limited modern smart speaker support (needs workarounds for Google Home/Alexa)",
+      "Some plugins require technical setup"
+    ],
+    "alternatives": [
+      "Spotify Connect",
+      "Apple AirPlay 2"
+    ],
+    "faqs": [
+      {
+        "question": "Is Logitech Media Server hard to install?",
+        "answer": "No—installation is simple via Docker (using official or community images), package managers (e.g., apt for Ubuntu), or direct downloads. Beginners can use Docker for quick deployment without manual configuration."
+      },
+      {
+        "question": "Is it a good alternative to Spotify Connect?",
+        "answer": "Yes—for users prioritizing self-hosted local media. It lacks Spotify’s curated content but lets you stream your own library across rooms. Third-party plugins add Spotify integration if needed."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes—LMS is open-source under the GPL license. Core features are free, and most plugins are also open-source. No hidden costs or subscriptions."
+      }
+    ]
+  },
+  {
+    "name": "Music Player Daemon (MPD)",
+    "slug": "mpd",
+    "tagline": "Lightweight open-source audio streaming daemon for remote control",
+    "description": "Music Player Daemon (MPD) is a headless, open-source audio server enabling remote control of audio playback across devices. It supports a wide range of formats (FLAC, MP3, OGG, etc.), gapless playback, metadata management, and network streaming (HTTP/RTP). Ideal for self-hosted setups (e.g., Raspberry Pi), it uses minimal resources and runs on Linux, BSD, and macOS. Users control it via hundreds of third-party clients (desktop, mobile, web) without a built-in GUI, making it flexible for personal audio libraries.",
+    "pricing_type": "Free/Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://www.musicpd.org/",
+    "key_features": [
+      "Remote control via diverse third-party clients",
+      "Supports wide range of audio formats & gapless playback",
+      "Low resource usage (ideal for headless/embedded systems)",
+      "Network streaming (HTTP, RTP) & metadata management"
+    ],
+    "pros": [
+      "100% free & open-source (GPL license)",
+      "Cross-platform (Linux, BSD, macOS)",
+      "No cloud dependency (privacy-focused)",
+      "Extensive client ecosystem for all devices"
+    ],
+    "cons": [
+      "Requires separate client for control (no built-in GUI)",
+      "Initial setup (config file editing) may be technical for beginners",
+      "Lacks built-in library organization tools (relies on client features)"
+    ],
+    "alternatives": [
+      "Spotify Connect",
+      "Apple Music Remote",
+      "Plexamp"
+    ],
+    "faqs": [
+      {
+        "question": "Is MPD hard to install?",
+        "answer": "MPD is easy to install via package managers (e.g., apt on Debian/Ubuntu, brew on macOS). Setup involves editing a config file to specify audio outputs and library paths—though this may require basic technical knowledge, many guides and client tools simplify the process."
+      },
+      {
+        "question": "Is it a good alternative to Spotify Connect?",
+        "answer": "Yes! MPD is a self-hosted alternative that lets you stream your local audio library remotely without cloud reliance. Unlike Spotify Connect, it doesn’t require a subscription and supports all your local file formats, though it lacks Spotify’s streaming catalog."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "MPD is 100% free and open-source under the GPL license. There are no premium tiers or hidden costs—all features are available for free, and you can modify its code to suit your needs."
+      }
+    ]
+  },
+  {
+    "name": "reveal.js",
+    "slug": "revealjs",
+    "tagline": "Open-source HTML presentation framework for beautiful, interactive slides",
+    "description": "reveal.js is an open-source HTML framework for building responsive, interactive presentations. It supports Markdown, animations, transitions, speaker notes, math typesetting, and integrations like LaTeX or Mermaid. Deploy easily on static hosts (GitHub Pages, Netlify), run locally, or use the online editor. Customize via pre-built themes or custom CSS; add remote control, polls, or code highlighting. Ideal for developers, educators, or anyone wanting dynamic presentations without proprietary tools—no subscriptions, fully open-source.",
+    "pricing_type": "Free/Open Source",
+    "category": "Miscellaneous",
+    "collection": "selfhosted",
+    "website_url": "https://revealjs.com",
+    "key_features": [
+      "Markdown & HTML slide creation",
+      "Interactive animations & transitions",
+      "Speaker notes & remote control support",
+      "Static deployment (GitHub Pages, Netlify)"
+    ],
+    "pros": [
+      "No proprietary software required",
+      "Fully customizable (themes, CSS)",
+      "Works offline & cross-platform"
+    ],
+    "cons": [
+      "Requires basic HTML/Markdown skills for advanced use",
+      "No built-in WYSIWYG editor (uses code or third-party tools)"
+    ],
+    "alternatives": [
+      "Microsoft PowerPoint",
+      "Google Slides",
+      "Apple Keynote"
+    ],
+    "faqs": [
+      {
+        "question": "Is reveal.js hard to install?",
+        "answer": "No—reveal.js needs no installation. Use the online editor, download source files to run locally, or clone the GitHub repo. Deploying is easy via static hosting services like GitHub Pages or Netlify."
+      },
+      {
+        "question": "Is it a good alternative to PowerPoint or Google Slides?",
+        "answer": "Yes—for users comfortable with HTML/Markdown. It offers more design control and interactivity than traditional tools, perfect for technical presentations. It lacks a WYSIWYG interface, so it’s better suited for those who prefer coding or markdown."
+      },
+      {
+        "question": "Is reveal.js completely free?",
+        "answer": "Yes—reveal.js is open-source under the MIT License, meaning it’s free to use, modify, and distribute for personal or commercial purposes with no restrictions."
+      }
+    ]
   }
 ]
