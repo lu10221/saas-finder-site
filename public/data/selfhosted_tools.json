@@ -56111,5 +56111,182 @@
         "answer": "Yes! reveal.js is open-source under the MIT License, meaning it’s 100% free to use, modify, and self-host for personal or commercial purposes with no hidden costs."
       }
     ]
+  },
+  {
+    "name": "Webtrees",
+    "slug": "webtrees",
+    "tagline": "Open-source self-hosted genealogy software for family tree management",
+    "description": "Webtrees is a free, open-source genealogy platform empowering users to build, manage, and share family trees with full data control. It supports GEDCOM files (global genealogy standard), offers collaborative editing with role-based access, and includes interactive charts (ancestor, fan, timeline) and reports. Deployable via Docker, traditional web hosting (PHP/MySQL), or one-click installs, it prioritizes privacy by keeping family history data on your server instead of third-party SaaS platforms.",
+    "pricing_type": "Free/Open Source",
+    "category": "Genealogy",
+    "collection": "selfhosted",
+    "website_url": "https://webtrees.net/",
+    "key_features": [
+      "GEDCOM file compatibility (industry standard)",
+      "Collaborative editing with privacy controls",
+      "Interactive charts and customizable reports"
+    ],
+    "pros": [
+      "Full ownership and privacy of family data",
+      "No subscription fees or hidden costs",
+      "Supports multiple users with role-based access"
+    ],
+    "cons": [
+      "Requires basic server knowledge (or Docker setup)",
+      "Lacks premium research tools like Ancestry’s record databases",
+      "Mobile access is web-based (no native app for all platforms)"
+    ],
+    "alternatives": [
+      "Ancestry.com",
+      "MyHeritage"
+    ],
+    "faqs": [
+      {
+        "question": "Is Webtrees hard to install?",
+        "answer": "Webtrees is easy to install via Docker (pre-built images) or traditional hosting (PHP 7.4+ and MySQL/MariaDB). Many providers offer one-click installs, and official docs have step-by-step guides for self-hosting."
+      },
+      {
+        "question": "Is it a good alternative to Ancestry.com?",
+        "answer": "Yes—Webtrees gives full data ownership (unlike Ancestry) and core features like tree management and GEDCOM support. It lacks Ancestry’s premium research tools but is ideal for privacy-focused users."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Webtrees is 100% free and open-source (GPLv3 license). No hidden fees, subscriptions, or premium tiers—all features are available to all users."
+      }
+    ]
+  },
+  {
+    "name": "Logitech Media Server (LMS)",
+    "slug": "logitech-media-server-lms",
+    "tagline": "Open-source self-hosted audio streaming server for multi-room playback",
+    "description": "Logitech Media Server (LMS) is a robust open-source audio streaming solution for self-hosting. It supports a wide range of formats (FLAC, MP3, WAV, etc.) and enables multi-room playback across Squeezebox devices, smartphones, or web browsers. With an intuitive web interface, users manage libraries, create playlists, and stream local files or internet radio. Deploy via Docker, pre-built packages, or source code—plus plugins add podcast support, custom skins, and more. Ideal for audiophiles prioritizing privacy and control over their audio collection.",
+    "pricing_type": "Free/Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/Logitech/slimserver",
+    "key_features": [
+      "Multi-room audio playback across compatible devices",
+      "Broad audio format support (lossless and compressed)",
+      "Extensive plugin ecosystem for customization",
+      "Web-based interface for library management",
+      "Integration with Squeezebox hardware and mobile apps"
+    ],
+    "pros": [
+      "No cloud dependency—full control over your audio library",
+      "Completely free with no subscription fees",
+      "Highly customizable via community plugins",
+      "Supports legacy Squeezebox devices"
+    ],
+    "cons": [
+      "Outdated default UI design",
+      "Limited modern smart device integrations (e.g., no native Alexa/Google Home support without plugins)",
+      "Requires basic server setup knowledge for optimal use"
+    ],
+    "alternatives": [
+      "Sonos (Proprietary)",
+      "Plexamp (Proprietary)",
+      "Spotify Connect (Proprietary)"
+    ],
+    "faqs": [
+      {
+        "question": "Is Logitech Media Server (LMS) hard to install?",
+        "answer": "LMS is easy to install with options like Docker containers (official images available), pre-built packages for Linux/macOS/Windows, or source code. Docker is recommended for quick deployment—basic server skills (port forwarding, file permissions) help but aren’t mandatory for most setups."
+      },
+      {
+        "question": "Is it a good alternative to Sonos?",
+        "answer": "Yes, for self-hosting enthusiasts. Unlike Sonos (proprietary, cloud-reliant), LMS lets you stream local files without subscriptions. It lacks Sonos’ modern smart device ecosystem but excels at multi-room playback for users with Squeezebox hardware or compatible apps."
+      },
+      {
+        "question": "Is Logitech Media Server (LMS) completely free?",
+        "answer": "Absolutely—LMS is open-source under the GPL license. All core features, plugins, and updates are free. There are no hidden costs or premium tiers, making it ideal for budget-conscious users who value privacy."
+      }
+    ]
+  },
+  {
+    "name": "Music Player Daemon",
+    "slug": "music-player-daemon",
+    "tagline": "Lightweight open-source audio streaming daemon",
+    "description": "Music Player Daemon (MPD) is a server-side audio player that runs in the background, enabling control from multiple clients (desktop, mobile, web). It supports a wide range of audio formats, gapless playback, playlist management, and network streaming. Deployable on Linux, macOS, BSD, or embedded devices, MPD integrates with clients like MPDroid, ncmpcpp, and Cantata. Ideal for self-hosting personal audio libraries, it offers low resource usage and full customization via plugins, letting users access their music from any device on the network without cloud dependencies.",
+    "pricing_type": "Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://musicpd.org/",
+    "key_features": [
+      "Multi-client control support across devices",
+      "Wide compatibility with audio formats & playlists",
+      "Gapless playback and library management",
+      "Low resource footprint for servers/embedded systems"
+    ],
+    "pros": [
+      "Privacy-focused (no cloud data sharing)",
+      "Highly customizable with plugins",
+      "Cross-platform deployment options",
+      "No subscription fees"
+    ],
+    "cons": [
+      "Requires separate client for interaction",
+      "Initial setup needs config file tuning",
+      "No built-in UI (daemon-only architecture)"
+    ],
+    "alternatives": [
+      "Plexamp (Proprietary)",
+      "Emby Audio (Proprietary)",
+      "Sonos Streaming (Proprietary)"
+    ],
+    "faqs": [
+      {
+        "question": "Is Music Player Daemon hard to install?",
+        "answer": "Installation is straightforward on most Linux distros (via package managers like apt or yum). For self-hosting, you’ll need to configure a config file (specify music directory, network settings) and set up a client. Docker images are available to simplify deployment, reducing setup complexity for beginners."
+      },
+      {
+        "question": "Is it a good alternative to Spotify?",
+        "answer": "Yes, if you prefer self-hosting your personal music library. Unlike Spotify (cloud-based), MPD streams your own collection from a server to any client. It lacks on-demand cloud content but offers full data control and no recurring costs."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Absolutely! MPD is open-source under the GPL license. All features are free to use, modify, or distribute—no hidden fees or premium tiers exist."
+      }
+    ]
+  },
+  {
+    "name": "reveal.js",
+    "slug": "reveal-js",
+    "tagline": "Open-source HTML presentation framework",
+    "description": "reveal.js is an open-source framework for building interactive, responsive presentations using HTML, CSS, and JavaScript. It supports Markdown slides, smooth animations, speaker notes with a presenter view, and export to PDF or static HTML. Deployable via any web server, Docker, or static hosting platforms like GitHub Pages or Netlify. Perfect for tech-savvy users who want full control over presentation design, offline access, and no reliance on proprietary cloud tools.",
+    "pricing_type": "Free/Open Source",
+    "category": "Miscellaneous",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/hakimel/reveal.js",
+    "key_features": [
+      "Markdown & HTML slide support",
+      "Interactive animations & presenter view",
+      "Export to PDF or static HTML"
+    ],
+    "pros": [
+      "Privacy-focused (no cloud dependency)",
+      "Fully customizable with web technologies"
+    ],
+    "cons": [
+      "Requires basic HTML/CSS knowledge",
+      "No drag-and-drop WYSIWYG editor"
+    ],
+    "alternatives": [
+      "Google Slides",
+      "Microsoft PowerPoint"
+    ],
+    "faqs": [
+      {
+        "question": "Is reveal.js hard to install?",
+        "answer": "No—you can download the source code from GitHub, use a CDN, or run via Docker. For presentations built with reveal.js, simply host the generated HTML file on any web server or static hosting service like GitHub Pages."
+      },
+      {
+        "question": "Is it a good alternative to Google Slides?",
+        "answer": "Yes, if you prefer customizable, offline-capable presentations with full design control. It’s ideal for tech users, though less suited for those who want a drag-and-drop WYSIWYG interface."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes—reveal.js is open source under the MIT License, so you can use, modify, and distribute it without any cost."
+      }
+    ]
   }
 ]
