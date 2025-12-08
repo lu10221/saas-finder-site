@@ -56288,5 +56288,185 @@
         "answer": "Yes—reveal.js is open source under the MIT License, so you can use, modify, and distribute it without any cost."
       }
     ]
+  },
+  {
+    "name": "Gramps Web",
+    "slug": "gramps-web",
+    "tagline": "Open-source self-hosted genealogy platform for family tree management",
+    "description": "Gramps Web is an open-source, self-hosted solution for building and maintaining detailed family trees. It supports GEDCOM imports/exports, collaborative editing with role-based access, and rich media integration (photos, documents, notes). Deploy via Docker or Python/Flask servers; sync seamlessly with desktop Gramps for offline work. Customizable views like pedigree charts, timelines, and descendancy trees help visualize family connections while keeping your data private and under your control.",
+    "pricing_type": "Free/Open Source",
+    "category": "Genealogy",
+    "collection": "selfhosted",
+    "website_url": "https://gramps-project.org/gramps-web/",
+    "key_features": [
+      "GEDCOM Compatibility",
+      "Collaborative Editing",
+      "Rich Media Management"
+    ],
+    "pros": [
+      "Full Data Privacy & Control",
+      "No Subscription Fees",
+      "Sync with Desktop Gramps"
+    ],
+    "cons": [
+      "Requires Basic Server Setup",
+      "Limited Record Search Integration",
+      "Steeper Learning Curve for Advanced Tools"
+    ],
+    "alternatives": [
+      "Ancestry.com",
+      "MyHeritage"
+    ],
+    "faqs": [
+      {
+        "question": "Is Gramps Web easy to install?",
+        "answer": "Gramps Web is simple to deploy via Docker (using a pre-built image or compose file), which handles dependencies. For non-Docker users, it can be set up on Python/Flask servers with basic configuration."
+      },
+      {
+        "question": "Can it replace Ancestry.com?",
+        "answer": "It covers core genealogy needs (tree building, media, GEDCOM) but lacks Ancestry's record database integration. It’s ideal if you prioritize data control over third-party record searches."
+      },
+      {
+        "question": "Is Gramps Web completely free?",
+        "answer": "Yes—Gramps Web is open-source under the GPLv3 license, with no hidden costs. You only pay for your hosting (if using a cloud server) but the software itself is free."
+      }
+    ]
+  },
+  {
+    "name": "Logitech Media Server (LMS)",
+    "slug": "logitech-media-server-lms",
+    "tagline": "Open-source audio streaming server for multi-room playback",
+    "description": "Logitech Media Server (LMS) is a robust self-hosted audio platform enabling multi-room playback across compatible devices (e.g., Squeezebox, software clients). It supports diverse formats (FLAC, MP3, WAV) and integrates with streaming services via plugins (Spotify, Tidal). Deployable via Docker or direct install on Linux/Windows/macOS, it offers a web interface for library management and playlist creation. Extensive community plugins add podcast support, equalization, and more, making it ideal for audiophiles seeking privacy and control over their music collection.",
+    "pricing_type": "Free/Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/Logitech/slimserver",
+    "key_features": [
+      "Multi-room audio playback across compatible devices",
+      "Support for high-fidelity audio formats (FLAC, WAV, MP3)",
+      "Extensive plugin ecosystem for streaming services and customization",
+      "Web-based management interface for library and playback control"
+    ],
+    "pros": [
+      "Privacy-focused (no third-party data collection)",
+      "No subscription fees",
+      "Cross-platform deployment (Docker, Linux, Windows, macOS)",
+      "Compatibility with legacy Squeezebox hardware"
+    ],
+    "cons": [
+      "Outdated default UI design",
+      "Steeper learning curve for plugin configuration",
+      "Limited support for modern smart speakers without additional tools"
+    ],
+    "alternatives": [
+      "Spotify Connect",
+      "Apple Music",
+      "Amazon Music Unlimited"
+    ],
+    "faqs": [
+      {
+        "question": "Is Logitech Media Server (LMS) hard to install?",
+        "answer": "Installation is simple—use Docker for quick deployment (with pre-built images on Docker Hub) or download binaries for Linux, Windows, or macOS. Basic setup requires pointing the server to your music library and configuring clients."
+      },
+      {
+        "question": "Is it a good alternative to Spotify Connect?",
+        "answer": "Yes—for users who want to self-host their music collection and avoid proprietary services. Plugins like Spotify for Squeezebox enable integration with Spotify, offering similar multi-room functionality with full data control."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes—LMS is open-source and free to use. All core features (library management, multi-room playback) are available without cost, and most community plugins are also free."
+      }
+    ]
+  },
+  {
+    "name": "Music Player Daemon (MPD)",
+    "slug": "music-player-daemon-mpd",
+    "tagline": "Lightweight open-source audio daemon for managing and streaming your music library",
+    "description": "Music Player Daemon (MPD) is a cross-platform, headless audio streaming server that runs as a background daemon. It lets you control your local/networked music library via multiple client apps (desktop, mobile, web) over local or remote networks. Supports FLAC, MP3, OGG, and many other formats, plus playlists, metadata tagging, and network streaming. Ideal for headless setups (Raspberry Pi, NAS) or multi-room systems. Deploy via package managers (apt, yum) or Docker with minimal resource usage, perfect for low-power devices.",
+    "pricing_type": "Free/Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://www.musicpd.org/",
+    "key_features": [
+      "Headless background operation for remote access",
+      "Multi-client support across desktop, mobile, and web platforms",
+      "Extensive audio format compatibility and metadata handling"
+    ],
+    "pros": [
+      "Privacy-focused (self-hosted, no external data sharing)",
+      "Low resource consumption (ideal for headless/low-power devices)",
+      "Flexible client ecosystem (cross-platform options)"
+    ],
+    "cons": [
+      "No native user interface (requires separate client app)",
+      "Basic technical setup for library/network configuration",
+      "Streaming service integration needs additional plugins"
+    ],
+    "alternatives": [
+      "Spotify Connect (SaaS)",
+      "Apple Music (SaaS)",
+      "Tidal Connect (SaaS)"
+    ],
+    "faqs": [
+      {
+        "question": "Is MPD hard to install?",
+        "answer": "MPD is easy to install via package managers (e.g., apt install mpd on Debian/Ubuntu) or Docker. Configuration involves editing a simple text file to set your music library path and network settings—straightforward with online guides."
+      },
+      {
+        "question": "Is MPD a good alternative to proprietary services like Spotify Connect?",
+        "answer": "Yes—MPD is a great self-hosted alternative for full control over your music library. Unlike Spotify Connect, it has no subscription fees and streams your own files, though Spotify catalog access requires additional plugins."
+      },
+      {
+        "question": "Is MPD completely free?",
+        "answer": "Yes—MPD is open-source under the GNU GPL license. It’s free to use, modify, and distribute without any hidden costs or subscriptions."
+      }
+    ]
+  },
+  {
+    "name": "reveal.js",
+    "slug": "reveal-js",
+    "tagline": "Open-source HTML presentation framework",
+    "description": "reveal.js is an open-source framework for building interactive, modern presentations using HTML. It supports Markdown content, stunning transitions, speaker notes, LaTeX math rendering, and syntax-highlighted code blocks. Deployable on any web server (static hosting works), it integrates with tools like Pandoc and allows offline use. Customize with themes, plugins, or CSS for tailored designs— ideal for tech talks, lectures, or demos without relying on proprietary tools like PowerPoint.",
+    "pricing_type": "Open Source",
+    "category": "Miscellaneous",
+    "collection": "selfhosted",
+    "website_url": "https://revealjs.com",
+    "key_features": [
+      "Markdown & HTML presentation support",
+      "Stunning transitions & animations",
+      "Speaker notes & presenter mode",
+      "Syntax-highlighted code blocks",
+      "LaTeX math rendering"
+    ],
+    "pros": [
+      "100% open-source (MIT license)",
+      "No proprietary software required",
+      "Easy to self-host (static files only)",
+      "Highly customizable with themes/plugins"
+    ],
+    "cons": [
+      "Requires basic HTML/Markdown knowledge",
+      "No built-in WYSIWYG editor",
+      "Limited real-time collaboration features"
+    ],
+    "alternatives": [
+      "Microsoft PowerPoint",
+      "Google Slides",
+      "Apple Keynote"
+    ],
+    "faqs": [
+      {
+        "question": "Is reveal.js hard to install?",
+        "answer": "reveal.js doesn’t require installation— just download the source files or clone the GitHub repo, edit the index.html (or use Markdown), and host the static files on any web server (Apache, Nginx, Netlify). No backend needed, making self-hosting extremely simple."
+      },
+      {
+        "question": "Is it a good alternative to Google Slides?",
+        "answer": "Yes— for tech-savvy users who prefer open-source control and technical presentation features (code, math). It lacks real-time collaboration but excels at customization and static hosting, unlike Google Slides which relies on cloud SaaS."
+      },
+      {
+        "question": "Is reveal.js completely free?",
+        "answer": "Absolutely— it’s licensed under MIT, so it’s free to use, modify, and distribute for personal or commercial purposes with no hidden costs."
+      }
+    ]
   }
 ]
