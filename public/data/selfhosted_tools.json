@@ -55927,5 +55927,189 @@
         "answer": "Yes! reveal.js is licensed under MIT, meaning it’s free to use, modify, and distribute without any cost or restrictions."
       }
     ]
+  },
+  {
+    "name": "Webtrees",
+    "slug": "webtrees",
+    "tagline": "Open-source self-hosted genealogy platform (alternative to Ancestry.com)",
+    "description": "Webtrees is a free, open-source genealogy tool for building and managing family trees on your own server. It supports GEDCOM files, offers collaborative editing with role-based access, interactive charts (tree, fan, timeline), media galleries for photos/documents, and DNA test result integration. Deploy via Docker, shared hosting (PHP/MySQL required), or dedicated servers—lightweight and compatible with modern browsers, it prioritizes data privacy and control over your family history.",
+    "pricing_type": "Free/Open Source",
+    "category": "Genealogy",
+    "collection": "selfhosted",
+    "website_url": "https://webtrees.net/",
+    "key_features": [
+      "GEDCOM file import/export compliance",
+      "Interactive family tree visualizations",
+      "Collaborative editing with privacy controls",
+      "Media gallery for storing family photos/documents",
+      "DNA test result integration"
+    ],
+    "pros": [
+      "Full data privacy (self-hosted, no third-party access)",
+      "No recurring subscription fees",
+      "Extensible via community plugins",
+      "Active development and community support"
+    ],
+    "cons": [
+      "Requires basic server setup (Docker or PHP/MySQL hosting)",
+      "Lacks large DNA matching databases like Ancestry.com",
+      "Mobile app is limited compared to SaaS alternatives"
+    ],
+    "alternatives": [
+      "Ancestry.com (proprietary SaaS)",
+      "MyHeritage (proprietary SaaS)",
+      "FamilySearch (free cloud-based)"
+    ],
+    "faqs": [
+      {
+        "question": "Is Webtrees hard to install?",
+        "answer": "Webtrees is straightforward to install: use Docker for a one-command setup, or traditional web hosting with PHP/MySQL. Many providers offer one-click installs, and official docs have step-by-step guides for all methods—no advanced technical skills are required for basic deployment."
+      },
+      {
+        "question": "Is it a good alternative to Ancestry.com?",
+        "answer": "Yes! Webtrees provides core genealogy features (tree building, GEDCOM support, media management) without subscription costs. While it doesn’t have Ancestry’s massive DNA database, it gives full control over your data and is customizable via plugins for advanced needs."
+      },
+      {
+        "question": "Is Webtrees completely free?",
+        "answer": "Webtrees is 100% free and open-source (GPLv3 license). All core features are available at no cost, and there are no hidden fees. Third-party plugins or paid support services exist but are optional for enhanced functionality."
+      }
+    ]
+  },
+  {
+    "name": "Logitech Media Server",
+    "slug": "logitech-media-server",
+    "tagline": "Open-source audio streaming server for multi-room playback",
+    "description": "Logitech Media Server (LMS) is a robust open-source audio streaming platform designed for multi-room audio playback. It supports a wide range of audio formats (MP3, FLAC, WAV, etc.) and integrates seamlessly with Logitech Squeezebox devices, as well as software clients like Squeezelite. With an extensive plugin ecosystem for third-party services (Spotify, Tidal), it lets you organize your local music library, create playlists, and stream to multiple rooms simultaneously. Deployment is flexible—available via Docker containers, pre-built packages for Linux/macOS/Windows, or manual installation, making it accessible for beginners and tech-savvy users alike.",
+    "pricing_type": "Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/Logitech/slimserver",
+    "key_features": [
+      "Multi-room audio playback support",
+      "Wide audio format compatibility (MP3, FLAC, WAV)",
+      "Plugin ecosystem for third-party services (Spotify, Tidal)",
+      "Integration with Squeezebox devices and software clients"
+    ],
+    "pros": [
+      "Privacy-focused (self-hosted library control)",
+      "No subscription fees",
+      "Extensible via community plugins"
+    ],
+    "cons": [
+      "Outdated web interface design",
+      "Limited modern device support (focused on Squeezebox line)",
+      "Advanced configurations require technical knowledge"
+    ],
+    "alternatives": [
+      "Spotify Connect",
+      "Apple Music",
+      "Sonos"
+    ],
+    "faqs": [
+      {
+        "question": "Is Logitech Media Server hard to install?",
+        "answer": "No—LMS offers easy deployment options: Docker containers (simplest for beginners), pre-built packages for Linux (Debian/Ubuntu), macOS, or Windows. Docker setup eliminates dependency issues and takes minutes to launch."
+      },
+      {
+        "question": "Is it a good alternative to Sonos?",
+        "answer": "Yes—for users prioritizing self-hosted control over their audio library. While Sonos has a more polished modern UI, LMS provides greater flexibility (open-source, plugins) and multi-room playback at no cost, though it lacks Sonos' latest hardware integration."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes—Logitech Media Server is open-source and 100% free to use. Third-party plugins may require paid services (e.g., Spotify Premium for streaming), but the core platform has no hidden fees or subscriptions."
+      }
+    ]
+  },
+  {
+    "name": "Music Player Daemon (MPD)",
+    "slug": "mpd",
+    "tagline": "Lightweight open-source audio streaming server and player daemon",
+    "description": "Music Player Daemon (MPD) is a lightweight, open-source client-server audio streaming server and player. It runs as a background daemon, supporting a wide range of audio formats, network streaming protocols (HTTP, RTP), gapless playback, and metadata management. Ideal for self-hosting on headless servers or embedded systems, MPD integrates with hundreds of clients (CLI, GUI, mobile) for control. Deployment options include package managers for Linux/BSD, macOS, or Docker containers for simplified setup, with customizable config files for library paths and playback settings.",
+    "pricing_type": "Free/Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://www.musicpd.org/",
+    "key_features": [
+      "Client-server architecture (multi-client support)",
+      "Wide audio format & network streaming support",
+      "Gapless playback & metadata management",
+      "Low resource footprint for headless systems"
+    ],
+    "pros": [
+      "Privacy-focused (no cloud dependency)",
+      "Highly customizable via config files",
+      "Extensive client ecosystem (CLI, GUI, mobile)",
+      "Stable and lightweight"
+    ],
+    "cons": [
+      "Requires separate client for interaction",
+      "Initial config setup may be technical for beginners",
+      "No built-in UI (daemon-only operation)"
+    ],
+    "alternatives": [
+      "Spotify Connect (proprietary)",
+      "Plex Media Server (proprietary audio streaming)",
+      "Tidal Connect (proprietary)"
+    ],
+    "faqs": [
+      {
+        "question": "Is MPD hard to install?",
+        "answer": "MPD is easy to install via package managers (apt, pacman) on Linux/BSD systems. Docker images simplify self-hosting deployment. Initial configuration (setting music directories, clients) requires editing a config file—well-documented but may take time for beginners."
+      },
+      {
+        "question": "Is it a good alternative to Spotify Connect?",
+        "answer": "Yes—MPD offers a self-hosted alternative to Spotify Connect, letting you stream your local audio library without cloud reliance. It supports multiple clients but lacks Spotify’s proprietary streaming catalog."
+      },
+      {
+        "question": "Is MPD completely free?",
+        "answer": "MPD is 100% free and open-source under the GNU General Public License (GPL). There are no subscriptions, hidden costs, or restrictions on self-hosting or personal use."
+      }
+    ]
+  },
+  {
+    "name": "reveal.js",
+    "slug": "reveal-js",
+    "tagline": "Open-source HTML presentation framework",
+    "description": "reveal.js is an open-source framework for building interactive, modern presentations using HTML. It supports Markdown for easy content creation, customizable transitions (fade, slide, zoom), animations, and speaker notes with a presenter view. You can embed multimedia (videos, images, code snippets) and use pre-built themes or custom CSS to match your style. Deployment is simple—host on any web server (Apache, Nginx), self-host on your infrastructure, or deploy static files via platforms like Netlify. Ideal for developers, educators, and professionals wanting flexible, web-native presentations.",
+    "pricing_type": "Open Source",
+    "category": "Miscellaneous",
+    "collection": "selfhosted",
+    "website_url": "https://revealjs.com",
+    "key_features": [
+      "Markdown & HTML content support",
+      "Customizable transitions and animations",
+      "Presenter view with speaker notes",
+      "Multimedia and code snippet embedding"
+    ],
+    "pros": [
+      "Privacy-focused (full control over self-hosted data)",
+      "No subscription fees",
+      "Highly extensible with plugins and custom themes",
+      "Easy static deployment to any web server"
+    ],
+    "cons": [
+      "Requires basic HTML/Markdown knowledge",
+      "No built-in WYSIWYG editor",
+      "Limited real-time collaboration (needs third-party tools)"
+    ],
+    "alternatives": [
+      "Microsoft PowerPoint",
+      "Google Slides",
+      "Apple Keynote"
+    ],
+    "faqs": [
+      {
+        "question": "Is reveal.js hard to install?",
+        "answer": "reveal.js doesn’t require traditional installation—download the source files, clone the GitHub repo, or use a CDN. To self-host, just upload static files to any web server (Apache, Nginx) or deploy via static hosting platforms like Netlify. No databases or backend setup is needed."
+      },
+      {
+        "question": "Is it a good alternative to Google Slides?",
+        "answer": "Yes, if you prefer web-native, customizable presentations. Unlike Google Slides (cloud-based), reveal.js lets you self-host and control your data, embed code snippets easily, and create interactive slides. However, it lacks WYSIWYG editing, so it’s better suited for tech-savvy users."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes! reveal.js is open-source under the MIT License, meaning it’s 100% free to use, modify, and self-host for personal or commercial purposes with no hidden costs."
+      }
+    ]
   }
 ]
