@@ -14332,5 +14332,132 @@
         "answer": "Yes, GlazeWM offers a portable executable. Download the zip from GitHub releases, extract it, and run directly without system installation."
       }
     ]
+  },
+  {
+    "name": "PartitionGuru ｜ Eassos Recovery",
+    "slug": "partitionguru-eassos-recovery",
+    "tagline": "Comprehensive data recovery & partition management tool for Windows",
+    "description": "PartitionGuru | Eassos Recovery is a versatile Windows tool combining data recovery and partition management. It recovers lost/deleted files from hard drives, SSDs, USBs, SD cards, and formatted/corrupted partitions. Supports Windows file systems (NTFS, FAT32, exFAT, HFS+) and works with GPT/MBR disks. Features include partition resize, create, delete without data loss, file preview before recovery, and RAW drive recovery. Compatible with Windows 11,10, and older versions, integrating seamlessly with Windows storage architecture for efficient operations.",
+    "pricing_type": "Freemium",
+    "category": "Data Recovery",
+    "collection": "windows",
+    "website_url": "https://www.eassos.com",
+    "key_features": [
+      "Recover data from formatted/corrupted partitions and storage devices",
+      "Manage partitions (resize, create, delete) without data loss",
+      "Preview files before recovery to confirm recoverability"
+    ],
+    "pros": [
+      "Dual functionality (data recovery + partition management)",
+      "Supports multiple file systems and disk types (GPT/MBR)",
+      "Compatible with all recent Windows versions (11/10/8/7)"
+    ],
+    "cons": [
+      "Free version has recovery size limits",
+      "Interface lacks modern design",
+      "Advanced features require a paid license"
+    ],
+    "alternatives": [
+      "Recuva",
+      "EaseUS Data Recovery Wizard",
+      "Stellar Data Recovery"
+    ],
+    "faqs": [
+      {
+        "question": "Is PartitionGuru | Eassos Recovery compatible with Windows 11?",
+        "answer": "Yes, it fully supports Windows 11, along with Windows 10, 8.1, 8,7, Vista, and XP."
+      },
+      {
+        "question": "Is it safe to install?",
+        "answer": "Yes, PartitionGuru | Eassos Recovery is a legitimate tool from Eassos Technology. Ensure you download it from the official website to avoid malicious versions."
+      },
+      {
+        "question": "Is there a portable version?",
+        "answer": "Yes, a portable version is available, allowing you to run the tool without installation on any Windows device."
+      }
+    ]
+  },
+  {
+    "name": "Nirsoft Utilities Suite",
+    "slug": "nirsoft-utilities-suite",
+    "tagline": "Comprehensive collection of free Windows system utilities",
+    "description": "Nirsoft Utilities Suite offers over 200 lightweight, ad-free tools for Windows, covering system diagnostics, network monitoring, data recovery, and password management. Tools integrate seamlessly with Windows 10/11 via native APIs, requiring no installation (portable) and avoiding bloatware. Ideal for power users and techs, utilities like ProcessActivityView (system process tracker) and Recuva alternative UndeletePlus fill gaps in default Windows tools, providing deep insights into system operations without compromising performance. Each tool is standalone, so you only use what you need.",
+    "pricing_type": "Free",
+    "category": "System Utilities",
+    "collection": "windows",
+    "website_url": "https://www.nirsoft.net/",
+    "key_features": [
+      "200+ portable, standalone tools",
+      "Covers diagnostics, recovery, and network tasks",
+      "Native Windows API integration for efficiency"
+    ],
+    "pros": [
+      "100% free with no ads/bloatware",
+      "Portable (runs from USB/folders)",
+      "Wide range of specialized utilities"
+    ],
+    "cons": [
+      "No unified launcher for all tools",
+      "Some tools have basic UI (no modern design)",
+      "Antivirus may flag tools as PUPs (false positives)"
+    ],
+    "alternatives": [
+      "Sysinternals Suite",
+      "Glary Utilities",
+      "Advanced SystemCare Free"
+    ],
+    "faqs": [
+      {
+        "question": "Is Nirsoft Utilities Suite compatible with Windows 11?",
+        "answer": "Yes, most Nirsoft tools work fully with Windows 11, as they leverage native Windows APIs supported across recent versions."
+      },
+      {
+        "question": "Is it safe to install?",
+        "answer": "Absolutely—all Nirsoft tools are malware-free. Some antivirus programs may flag them as PUPs due to their utility nature (e.g., password recovery), but they are safe to use."
+      },
+      {
+        "question": "Is there a portable version?",
+        "answer": "All Nirsoft tools are portable by default—no installation is required, and they can be run directly from a USB drive or any folder on your Windows PC."
+      }
+    ]
+  },
+  {
+    "name": "VLC Media Player",
+    "slug": "vlc-media-player",
+    "tagline": "Versatile, ad-free media player for Windows supporting all formats",
+    "description": "VLC Media Player is a free, open-source video utility for Windows that plays virtually all audio/video formats (MP4, MKV, AVI, FLAC, etc.) without extra codecs. It integrates seamlessly with Windows File Explorer (right-click playback), supports DVD/Blu-ray playback, media streaming, and subtitle sync. For Windows 10/11, it offers hardware acceleration for smooth 4K/HDR playback, customizable skins to match OS themes, and media conversion/stream recording tools. Lightweight and reliable, it’s a go-to choice for hassle-free media playback on Windows.",
+    "pricing_type": "Free",
+    "category": "Video Utilities",
+    "collection": "windows",
+    "website_url": "https://www.videolan.org/vlc/index.html",
+    "key_features": [
+      "Plays all major media formats without additional codecs",
+      "Seamless Windows integration (File Explorer context menu, hardware acceleration)",
+      "Supports streaming, DVD/Blu-ray playback, and media conversion"
+    ],
+    "pros": [
+      "100% free and open-source (no ads or malware)",
+      "Low resource usage for high-definition content",
+      "Cross-platform compatibility with Windows, macOS, and Linux"
+    ],
+    "cons": [
+      "Outdated default interface (skins available but limited)",
+      "Advanced settings may overwhelm casual users",
+      "Lacks robust built-in media library management"
+    ],
+    "faqs": [
+      {
+        "question": "Is VLC Media Player compatible with Windows 11?",
+        "answer": "Yes, VLC is fully compatible with Windows 11, including support for hardware acceleration of 4K/HDR videos and integration with the OS’s context menu and taskbar features."
+      },
+      {
+        "question": "Is it safe to install?",
+        "answer": "Absolutely. VLC is developed by the non-profit VideoLAN organization and is open-source—its code is publicly audited. Official downloads from videolan.org are free of adware, malware, or bloatware."
+      },
+      {
+        "question": "Is there a portable version?",
+        "answer": "Yes, VLC offers an official portable edition that runs directly from a USB drive without installation. It retains all core features and works on any Windows PC without leaving traces."
+      }
+    ]
   }
 ]
