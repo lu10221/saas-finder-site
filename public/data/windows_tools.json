@@ -14798,5 +14798,49 @@
         "answer": "All Nirsoft utilities are portable by default. You can run them directly from a USB drive or folder without installation."
       }
     ]
+  },
+  {
+    "name": "Nirsoft",
+    "slug": "nirsoft",
+    "tagline": "Comprehensive collection of lightweight Windows system utilities",
+    "description": "Nirsoft provides a vast library of free, portable system utilities for Windows, covering password recovery, system monitoring, network analysis, and file management. Each tool integrates seamlessly with Windows (7 to 11), requiring no installation—run directly from USB or local storage. Popular tools like ProduKey (product key viewer) and ProcessActivityView (process monitor) offer deep system insights, making Nirsoft a go-to resource for tech enthusiasts and IT pros seeking efficient, no-cost solutions for everyday system tasks.",
+    "pricing_type": "Free",
+    "category": "System Utilities",
+    "collection": "windows",
+    "website_url": "https://www.nirsoft.net/",
+    "key_features": [
+      "Portable tools (no installation required)",
+      "Wide range of utilities for system, network, and file tasks",
+      "Full compatibility with Windows 7 to 11"
+    ],
+    "pros": [
+      "100% free with no ads or hidden costs",
+      "Lightweight and low resource consumption",
+      "Direct integration with Windows OS features"
+    ],
+    "cons": [
+      "Some tools trigger antivirus false positives",
+      "No unified dashboard (standalone tools only)",
+      "Limited beginner-friendly documentation for advanced tools"
+    ],
+    "alternatives": [
+      "Sysinternals Suite",
+      "CCleaner",
+      "Glary Utilities"
+    ],
+    "faqs": [
+      {
+        "question": "Is Nirsoft compatible with Windows 11?",
+        "answer": "Yes, most Nirsoft utilities fully support Windows 11, along with older versions like Windows 10, 8, and 7."
+      },
+      {
+        "question": "Is it safe to install?",
+        "answer": "While some antivirus tools flag Nirsoft utilities (due to system-level access), they are safe if downloaded directly from the official Nirsoft website—avoid third-party sources."
+      },
+      {
+        "question": "Is there a portable version?",
+        "answer": "All Nirsoft utilities are portable; no installation is needed—run them directly from any storage device (USB, hard drive) without modifying system files."
+      }
+    ]
   }
 ]
