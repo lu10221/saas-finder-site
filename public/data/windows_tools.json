@@ -14632,5 +14632,89 @@
         "answer": "Yes, VideoLAN offers a portable edition of VLC that runs directly from USB drives without installation."
       }
     ]
+  },
+  {
+    "name": "Nirsoft System Utilities",
+    "slug": "nirsoft-system-utilities",
+    "tagline": "Free portable tools for Windows system diagnostics & recovery",
+    "description": "Nirsoft System Utilities offers over 200 lightweight, ad-free tools for Windows, covering password recovery (browsers/apps), network monitoring, system info, and file analysis. Tools integrate deeply with Windows OS components (registry, event logs, process manager) and work seamlessly with Windows 7-11 (32/64-bit). All are portable—no installation needed—making them ideal for IT pros and power users to diagnose issues, extract hidden data, and optimize system performance without cost or bloat.",
+    "pricing_type": "Free",
+    "category": "System Utilities",
+    "collection": "windows",
+    "website_url": "https://www.nirsoft.net/",
+    "key_features": [
+      "200+ portable tools for diverse system tasks",
+      "Deep Windows integration for advanced diagnostics"
+    ],
+    "pros": [
+      "100% free with no ads/bundled software",
+      "Portable (run from USB without installation)",
+      "Covers niche tasks other utilities miss"
+    ],
+    "cons": [
+      "No unified dashboard (separate executables)",
+      "Some tools require advanced technical knowledge",
+      "Antivirus false positives due to system access"
+    ],
+    "alternatives": [
+      "Sysinternals Suite (Microsoft)",
+      "CCleaner Professional Plus"
+    ],
+    "faqs": [
+      {
+        "question": "Is Nirsoft System Utilities compatible with Windows 11?",
+        "answer": "Yes—most tools are updated regularly to support Windows 11, along with Windows 10, 8, and 7 (32/64-bit versions)."
+      },
+      {
+        "question": "Is it safe to install?",
+        "answer": "Yes—all tools are malware-free and ad-free. Some antivirus may flag them as PUPs due to system-level access, but they are safe for legitimate use."
+      },
+      {
+        "question": "Is there a portable version?",
+        "answer": "All Nirsoft tools are portable by default—no installation required; run directly from any folder or USB drive."
+      }
+    ]
+  },
+  {
+    "name": "VLC",
+    "slug": "vlc",
+    "tagline": "Versatile cross-platform media player for Windows",
+    "description": "VLC is a free, open-source media player that plays nearly all audio/video formats (MP4, MKV, FLAC, etc.) without additional codecs. It integrates seamlessly with Windows shell for right-click playback, supports casting to Windows devices, and includes media library management, subtitle sync, and playback speed control. Compatible with Windows 10/11, it offers a portable version and supports streaming from URLs, local networks, or discs. No ads or hidden costs—ideal for hassle-free media playback.",
+    "pricing_type": "Free",
+    "category": "Video Utilities",
+    "collection": "windows",
+    "website_url": "https://www.videolan.org/vlc/index.html",
+    "key_features": [
+      "Plays all major media formats without extra codecs",
+      "Windows shell integration for quick file playback",
+      "Supports streaming and casting to Windows devices"
+    ],
+    "pros": [
+      "Free and open-source with no ads",
+      "Portable version available for Windows",
+      "Full compatibility with Windows 10/11"
+    ],
+    "cons": [
+      "Interface may feel outdated to some users",
+      "Advanced settings can be complex for beginners"
+    ],
+    "alternatives": [
+      "Media Player Classic Home Cinema",
+      "PotPlayer"
+    ],
+    "faqs": [
+      {
+        "question": "Is VLC compatible with Windows 11?",
+        "answer": "Yes, VLC is fully compatible with Windows 11, including native integration features like shell context menus and system-wide media controls."
+      },
+      {
+        "question": "Is it safe to install?",
+        "answer": "Absolutely—VLC is an open-source project maintained by the VideoLAN community, and downloading from its official website ensures a safe, malware-free installation."
+      },
+      {
+        "question": "Is there a portable version?",
+        "answer": "Yes, VLC offers a portable version that can be run directly from a USB drive without installing on Windows, perfect for on-the-go use."
+      }
+    ]
   }
 ]
