@@ -14755,5 +14755,48 @@
         "answer": "All Nirsoft tools are portable by default. They do not require installation and can be run directly from a USB drive or any folder on your Windows system."
       }
     ]
+  },
+  {
+    "name": "Nirsoft System Utilities",
+    "slug": "nirsoft-system-utilities",
+    "tagline": "Free, portable tools for Windows diagnostics & troubleshooting",
+    "description": "Nirsoft System Utilities is a curated set of free, lightweight tools for Windows users to troubleshoot, optimize, and analyze their systems. Each utility is standalone, portable (no installation needed), and integrates smoothly with Windows OS versions from XP to 11. Tools cover process management, registry editing, network monitoring, data recovery, and more—ideal for power users and tech support teams. All tools are ad-free, free to use, and provide deep insights into system behavior, making them essential for fixing issues or maintaining system health.",
+    "pricing_type": "Free",
+    "category": "System Utilities",
+    "collection": "windows",
+    "website_url": "https://www.nirsoft.net/",
+    "key_features": [
+      "Portable standalone tools (no installation)",
+      "Comprehensive coverage of system diagnostics & troubleshooting"
+    ],
+    "pros": [
+      "100% free with no adware/spyware",
+      "Lightweight and fast performance",
+      "Supports all modern Windows versions"
+    ],
+    "cons": [
+      "No unified dashboard (each tool is separate)",
+      "Minimal UI for some tools (beginners may struggle)",
+      "Lack of official customer support"
+    ],
+    "alternatives": [
+      "Sysinternals Suite",
+      "CCleaner Free",
+      "Advanced SystemCare Free"
+    ],
+    "faqs": [
+      {
+        "question": "Is Nirsoft compatible with Windows 11?",
+        "answer": "Yes, most Nirsoft utilities work seamlessly with Windows 11, along with Windows 10, 8.1, 7, and even older versions like XP."
+      },
+      {
+        "question": "Is it safe to install?",
+        "answer": "Yes—all Nirsoft tools are safe, ad-free, and malware-free. They are widely trusted by IT professionals and verified by security sources."
+      },
+      {
+        "question": "Is there a portable version?",
+        "answer": "All Nirsoft utilities are portable by default. You can run them directly from a USB drive or folder without installation."
+      }
+    ]
   }
 ]
