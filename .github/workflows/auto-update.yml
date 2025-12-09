@@ -37,11 +37,11 @@ jobs:
           VOLC_API_KEY: ${{ secrets.VOLC_API_KEY }}
           ENDPOINT_ID: ${{ secrets.ENDPOINT_ID }}
         run: |
-          echo "🚀 Starting Mac Script (Batch Limit: 200)..."
-          node mac-script.js
+          # echo "🚀 Starting Mac Script (Batch Limit: 200)..."
+          # node mac-script.js
           
-          echo "🚀 Starting Self-Hosted Script (Batch Limit: 200)..."
-          node selfhosted-script.js
+          # echo "🚀 Starting Self-Hosted Script (Batch Limit: 200)..."
+          # node selfhosted-script.js
 
           echo "🚀 Starting Windows Script (Batch Limit: 200)..."
           node windows-script.js
