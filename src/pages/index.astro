@@ -3,20 +3,21 @@ import Layout from '../layouts/Layout.astro';
 import fs from 'node:fs';
 import path from 'node:path';
 
-// 辅助函数：安全读取数据 (首屏直出前 36 个)
+// 辅助函数：安全读取数据
 function getInitialData(filename) {
   try {
-    // 优先找 public/data (构建环境), 其次找 src/data (开发环境)
     let filePath = path.join(process.cwd(), 'public', 'data', filename);
     if (!fs.existsSync(filePath)) filePath = path.join(process.cwd(), 'src', 'data', filename);
 
     if (fs.existsSync(filePath)) {
         const content = fs.readFileSync(filePath, 'utf-8');
         const data = JSON.parse(content);
-        // 根据文件名打标
+        
+        // 显式打标，防止逻辑错误
         let type = 'ai';
         if (filename.includes('mac')) type = 'mac';
         if (filename.includes('selfhosted')) type = 'selfhosted';
+        if (filename.includes('windows')) type = 'windows'; // 🔴
         
         return data.slice(0, 36).map(t => ({ ...t, collection: type }));
     }
@@ -24,12 +25,10 @@ function getInitialData(filename) {
   } catch (e) { return []; }
 }
 
-// 辅助函数：提取分类
 function getCategories(filename) {
     try {
         let filePath = path.join(process.cwd(), 'public', 'data', filename);
         if (!fs.existsSync(filePath)) filePath = path.join(process.cwd(), 'src', 'data', filename);
-        
         if (fs.existsSync(filePath)) {
             const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
             return [...new Set(data.map(t => t.category).filter(Boolean))].sort();
@@ -38,20 +37,22 @@ function getCategories(filename) {
     } catch (e) { return []; }
 }
 
-// 1. 读取数据
+// 1. 读取所有数据
 const initialAi = getInitialData('ai_tools.json');
 const initialMac = getInitialData('mac_tools.json');
-const initialSelfHosted = getInitialData('selfhosted_tools.json'); // 🔴 新增
+const initialSelf = getInitialData('selfhosted_tools.json');
+const initialWin = getInitialData('windows_tools.json'); // 🔴
 
-// 2. 读取分类
-const aiCategories = getCategories('ai_tools.json');
-const macCategories = getCategories('mac_tools.json');
-const selfHostedCategories = getCategories('selfhosted_tools.json'); // 🔴 新增
+// 2. 读取所有分类
+const aiCats = getCategories('ai_tools.json');
+const macCats = getCategories('mac_tools.json');
+const selfCats = getCategories('selfhosted_tools.json');
+const winCats = getCategories('windows_tools.json'); // 🔴
 ---
 
-<Layout title="ToolStock - AI, Mac & Self-Hosted Tools Directory" description="Discover the best AI tools, Mac apps, and Self-Hosted software alternatives.">
+<Layout title="ToolStock - Best Software Directory (AI, Mac, Windows & Self-Hosted)" description="Discover the best AI tools, Mac apps, Windows software, and Self-Hosted alternatives.">
   <div class="text-center mb-10">
-    <h1 class="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500">
+    <h1 class="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-sky-500">
       Find the Perfect Tool
     </h1>
     <p class="text-xl text-slate-600 mb-8">
@@ -59,15 +60,9 @@ const selfHostedCategories = getCategories('selfhosted_tools.json'); // 🔴 新
     </p>
 
     <div class="flex flex-wrap justify-center gap-2 mb-8 bg-slate-100 p-1 rounded-xl w-fit mx-auto">
-      <button class="tab-btn active px-6 py-2 rounded-lg font-bold text-sm transition-all duration-200 bg-white text-blue-600 shadow-sm ring-1 ring-slate-200" data-target="ai">
-        🤖 AI Tools
-      </button>
-      <button class="tab-btn px-6 py-2 rounded-lg font-bold text-sm transition-all duration-200 text-slate-500 hover:text-slate-700" data-target="mac">
-        🍎 Mac Apps
-      </button>
-      <button class="tab-btn px-6 py-2 rounded-lg font-bold text-sm transition-all duration-200 text-slate-500 hover:text-slate-700" data-target="selfhosted">
-        🐳 Self-Hosted
-      </button>
+      <button class="tab-btn active px-5 py-2 rounded-lg font-bold text-sm transition bg-white text-blue-600 shadow-sm" data-target="ai">🤖 AI Tools</button>
+      <button class="tab-btn px-5 py-2 rounded-lg font-bold text-sm transition text-slate-500 hover:text-slate-700" data-target="mac">🍎 Mac Apps</button>
+      <button class="tab-btn px-5 py-2 rounded-lg font-bold text-sm transition text-slate-500 hover:text-slate-700" data-target="windows">🪟 Windows</button> <button class="tab-btn px-5 py-2 rounded-lg font-bold text-sm transition text-slate-500 hover:text-slate-700" data-target="selfhosted">🐳 Self-Hosted</button>
     </div>
     
     <div class="max-w-xl mx-auto mb-8 relative">
@@ -76,17 +71,22 @@ const selfHostedCategories = getCategories('selfhosted_tools.json'); // 🔴 新
     </div>
 
     <div id="cat-ai" class="cat-container flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
-      {aiCategories.map((cat) => (
+      {aiCats.map((cat) => (
         <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-blue-600 hover:border-blue-300 transition">{cat}</a>
       ))}
     </div>
     <div id="cat-mac" class="cat-container hidden flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
-      {macCategories.map((cat) => (
+      {macCats.map((cat) => (
         <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-purple-600 hover:border-purple-300 transition">{cat}</a>
       ))}
     </div>
+    <div id="cat-windows" class="cat-container hidden flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
+      {winCats.map((cat) => (
+        <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-sky-600 hover:border-sky-300 transition">{cat}</a>
+      ))}
+    </div>
     <div id="cat-selfhosted" class="cat-container hidden flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
-      {selfHostedCategories.map((cat) => (
+      {selfCats.map((cat) => (
         <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-orange-600 hover:border-orange-300 transition">{cat}</a>
       ))}
     </div>
@@ -94,48 +94,52 @@ const selfHostedCategories = getCategories('selfhosted_tools.json'); // 🔴 新
 
   <div id="grid-ai" class="tool-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
     {initialAi.map((tool) => (
-      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} 
-         class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition">
+      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition">
         <div class="flex justify-between items-start mb-3">
             <h2 class="text-xl font-bold text-slate-900 group-hover:text-blue-600">{tool.name}</h2>
             <span class="text-[10px] uppercase font-bold px-2 py-1 bg-blue-50 text-blue-600 rounded">AI</span>
         </div>
         <p class="text-sm text-slate-500 mb-4 line-clamp-2">{tool.tagline}</p>
-        <div class="flex flex-wrap gap-2">
-           <span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600">{tool.pricing_type}</span>
-        </div>
+        <div class="flex flex-wrap gap-2"><span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600">{tool.pricing_type}</span></div>
       </a>
     ))}
   </div>
 
   <div id="grid-mac" class="tool-grid hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
     {initialMac.map((tool) => (
-      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} 
-         class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-purple-300 transition">
+      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-purple-300 transition">
         <div class="flex justify-between items-start mb-3">
             <h2 class="text-xl font-bold text-slate-900 group-hover:text-purple-600">{tool.name}</h2>
             <span class="text-[10px] uppercase font-bold px-2 py-1 bg-purple-50 text-purple-600 rounded">Mac</span>
         </div>
         <p class="text-sm text-slate-500 mb-4 line-clamp-2">{tool.tagline}</p>
-        <div class="flex flex-wrap gap-2">
-           <span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600">{tool.pricing_type}</span>
+        <div class="flex flex-wrap gap-2"><span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600">{tool.pricing_type}</span></div>
+      </a>
+    ))}
+  </div>
+
+  <div id="grid-windows" class="tool-grid hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {initialWin.map((tool) => (
+      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-sky-300 transition">
+        <div class="flex justify-between items-start mb-3">
+            <h2 class="text-xl font-bold text-slate-900 group-hover:text-sky-600">{tool.name}</h2>
+            <span class="text-[10px] uppercase font-bold px-2 py-1 bg-sky-50 text-sky-600 rounded">Windows</span>
         </div>
+        <p class="text-sm text-slate-500 mb-4 line-clamp-2">{tool.tagline}</p>
+        <div class="flex flex-wrap gap-2"><span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600">{tool.pricing_type}</span></div>
       </a>
     ))}
   </div>
 
   <div id="grid-selfhosted" class="tool-grid hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {initialSelfHosted.map((tool) => (
-      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} 
-         class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-orange-300 transition">
+    {initialSelf.map((tool) => (
+      <a href={`/tool/${tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-orange-300 transition">
         <div class="flex justify-between items-start mb-3">
             <h2 class="text-xl font-bold text-slate-900 group-hover:text-orange-600">{tool.name}</h2>
             <span class="text-[10px] uppercase font-bold px-2 py-1 bg-orange-50 text-orange-600 rounded">Self-Hosted</span>
         </div>
         <p class="text-sm text-slate-500 mb-4 line-clamp-2">{tool.tagline}</p>
-        <div class="flex flex-wrap gap-2">
-           <span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600">{tool.pricing_type}</span>
-        </div>
+        <div class="flex flex-wrap gap-2"><span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600">{tool.pricing_type}</span></div>
       </a>
     ))}
   </div>
@@ -146,9 +150,7 @@ const selfHostedCategories = getCategories('selfhosted_tools.json'); // 🔴 新
   <div id="no-results" class="hidden text-center py-12"><p class="text-lg text-slate-500">No tools found matching your search.</p></div>
 
   <script is:inline>
-    let allAiData = [];
-    let allMacData = [];
-    let allSelfHostedData = []; // 🔴 新增
+    let allAiData = [], allMacData = [], allSelfData = [], allWinData = []; // 🔴
     let isDataLoaded = false;
     let currentTab = 'ai';
 
@@ -160,20 +162,23 @@ const selfHostedCategories = getCategories('selfhosted_tools.json'); // 🔴 新
         if (isDataLoaded) return;
         loadMoreBtn.textContent = "Loading...";
         try {
-            // 🔴 增加 selfhosted 的 fetch
-            const [resAi, resMac, resSelf] = await Promise.all([
+            // 🔴 加载所有4个JSON
+            const [rAi, rMac, rSelf, rWin] = await Promise.all([
                 fetch('/data/ai_tools.json'),
                 fetch('/data/mac_tools.json'),
-                fetch('/data/selfhosted_tools.json')
+                fetch('/data/selfhosted_tools.json'),
+                fetch('/data/windows_tools.json')
             ]);
             
-            const rawAi = await resAi.json();
-            const rawMac = await resMac.json();
-            const rawSelf = await resSelf.json();
+            const dAi = await rAi.json();
+            const dMac = await rMac.json();
+            const dSelf = await rSelf.json();
+            const dWin = await rWin.json();
             
-            allAiData = rawAi.map(t => ({...t, collection: 'ai'}));
-            allMacData = rawMac.map(t => ({...t, collection: 'mac'}));
-            allSelfHostedData = rawSelf.map(t => ({...t, collection: 'selfhosted'}));
+            allAiData = dAi.map(t => ({...t, collection: 'ai'}));
+            allMacData = dMac.map(t => ({...t, collection: 'mac'}));
+            allSelfData = dSelf.map(t => ({...t, collection: 'selfhosted'}));
+            allWinData = dWin.map(t => ({...t, collection: 'windows'})); // 🔴
             
             isDataLoaded = true;
             loadMoreBtn.textContent = "Load More Tools";
@@ -183,8 +188,8 @@ const selfHostedCategories = getCategories('selfhosted_tools.json'); // 🔴 新
         }
     }
 
+    // 🔴 显式定义的颜色逻辑 (最稳妥，防止 Tailwind 丢失样式)
     function createCardHtml(tool) {
-        // 🔴 颜色逻辑升级
         let colorClass = 'text-blue-600';
         let hoverClass = 'hover:border-blue-300';
         let badgeBg = 'bg-blue-50';
@@ -200,6 +205,12 @@ const selfHostedCategories = getCategories('selfhosted_tools.json'); // 🔴 新
             hoverClass = 'hover:border-orange-300';
             badgeBg = 'bg-orange-50';
             badgeText = 'Self-Hosted';
+        } else if (tool.collection === 'windows') {
+            // 🔴 Windows 样式
+            colorClass = 'text-sky-600';
+            hoverClass = 'hover:border-sky-300';
+            badgeBg = 'bg-sky-50';
+            badgeText = 'Windows';
         }
 
         const slug = tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -221,10 +232,10 @@ const selfHostedCategories = getCategories('selfhosted_tools.json'); // 🔴 新
 
     loadMoreBtn.addEventListener('click', async () => {
         await loadAllData();
-        
         let targetData = allAiData;
         if(currentTab === 'mac') targetData = allMacData;
-        if(currentTab === 'selfhosted') targetData = allSelfHostedData; // 🔴
+        if(currentTab === 'selfhosted') targetData = allSelfData;
+        if(currentTab === 'windows') targetData = allWinData; // 🔴
 
         const targetGrid = document.getElementById(`grid-${currentTab}`);
         const currentCount = targetGrid.children.length;
@@ -236,54 +247,40 @@ const selfHostedCategories = getCategories('selfhosted_tools.json'); // 🔴 新
         loadMoreBtn.classList.add('hidden');
     });
 
-    // 搜索逻辑
     searchInput.addEventListener('input', async (e) => {
         const term = e.target.value.toLowerCase();
         if (!isDataLoaded && term.length > 0) await loadAllData();
 
         if (term.length > 0) {
             loadMoreBtn.classList.add('hidden');
-            
-            // 显示所有 Grid
-            ['ai', 'mac', 'selfhosted'].forEach(type => {
-                document.getElementById(`grid-${type}`).classList.remove('hidden');
-            });
+            ['ai', 'mac', 'selfhosted', 'windows'].forEach(t => document.getElementById(`grid-${t}`).classList.remove('hidden'));
 
-            const filterAndRender = (data, elementId) => {
-                const matches = data.filter(t => t.name.toLowerCase().includes(term));
-                document.getElementById(elementId).innerHTML = matches.map(createCardHtml).join('');
-                return matches.length;
+            const render = (data, id) => {
+                const m = data.filter(t => t.name.toLowerCase().includes(term));
+                document.getElementById(id).innerHTML = m.map(createCardHtml).join('');
+                return m.length;
             };
 
-            const countAi = filterAndRender(allAiData, 'grid-ai');
-            const countMac = filterAndRender(allMacData, 'grid-mac');
-            const countSelf = filterAndRender(allSelfHostedData, 'grid-selfhosted');
-
-            if (countAi + countMac + countSelf === 0) noResults.classList.remove('hidden');
-            else noResults.classList.add('hidden');
+            const total = render(allAiData,'grid-ai') + render(allMacData,'grid-mac') + render(allSelfData,'grid-selfhosted') + render(allWinData,'grid-windows');
+            if (total === 0) noResults.classList.remove('hidden'); else noResults.classList.add('hidden');
         } else {
             window.location.reload();
         }
     });
 
-    // Tab 切换逻辑
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            // 重置所有按钮样式
-            document.querySelectorAll('.tab-btn').forEach(t => {
-                t.className = 'tab-btn px-6 py-2 rounded-lg font-bold text-sm transition-all duration-200 text-slate-500 hover:text-slate-700';
-            });
-            // 激活当前按钮 (根据不同 Tab 给不同颜色)
+            document.querySelectorAll('.tab-btn').forEach(t => t.className = 'tab-btn px-5 py-2 rounded-lg font-bold text-sm transition text-slate-500 hover:text-slate-700');
+            
             const target = btn.dataset.target;
             let activeColor = 'text-blue-600';
             if (target === 'mac') activeColor = 'text-purple-600';
             if (target === 'selfhosted') activeColor = 'text-orange-600';
+            if (target === 'windows') activeColor = 'text-sky-600'; // 🔴
             
-            btn.className = `tab-btn active px-6 py-2 rounded-lg font-bold text-sm transition-all duration-200 bg-white ${activeColor} shadow-sm ring-1 ring-slate-200`;
-
+            btn.className = `tab-btn active px-5 py-2 rounded-lg font-bold text-sm transition bg-white ${activeColor} shadow-sm`;
             currentTab = target;
             
-            // 切换 Grid 和 分类
             document.querySelectorAll('.tool-grid').forEach(g => g.classList.add('hidden'));
             document.getElementById(`grid-${currentTab}`).classList.remove('hidden');
             

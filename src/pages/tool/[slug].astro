@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import fs from 'node:fs';
 import path from 'node:path';
 
-// 辅助函数：安全读取
+// 辅助函数：安全读取 JSON
 const getJson = (filename) => {
   try {
       let filePath = path.join(process.cwd(), 'public', 'data', filename);
@@ -21,23 +21,22 @@ export async function getStaticPaths() {
     try {
         let filePath = path.join(process.cwd(), 'public', 'data', filename);
         if (!fs.existsSync(filePath)) filePath = path.join(process.cwd(), 'src', 'data', filename);
-        
-        if (fs.existsSync(filePath)) {
-            return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-        }
+        if (fs.existsSync(filePath)) return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
         return [];
     } catch (e) { return []; }
   };
 
   const aiData = getJson('ai_tools.json');
   const macData = getJson('mac_tools.json');
-  const selfData = getJson('selfhosted_tools.json'); // 🔴 新增
+  const selfData = getJson('selfhosted_tools.json');
+  const winData = getJson('windows_tools.json'); // 🔴 新增
   
   const aiTools = aiData.map(t => ({ ...t, collection: 'ai' }));
   const macTools = macData.map(t => ({ ...t, collection: 'mac' }));
-  const selfTools = selfData.map(t => ({ ...t, collection: 'selfhosted' })); // 🔴 新增
+  const selfTools = selfData.map(t => ({ ...t, collection: 'selfhosted' }));
+  const winTools = winData.map(t => ({ ...t, collection: 'windows' })); // 🔴 新增
   
-  const all = [...aiTools, ...macTools, ...selfTools];
+  const all = [...aiTools, ...macTools, ...selfTools, ...winTools];
 
   return all.map((tool) => ({
     params: { slug: tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') },
@@ -57,8 +56,10 @@ let pageTitle = "";
 
 if (tool.collection === 'mac') {
     pageTitle = `${tool.name} for Mac: Free Download & Best Alternatives (${currentYear})`;
+} else if (tool.collection === 'windows') {
+    // 🔴 Windows 标题
+    pageTitle = `${tool.name} for Windows: Free Download, Review & Alternatives (${currentYear})`;
 } else if (tool.collection === 'selfhosted') {
-    // 🔴 Self-Hosted 专属标题
     pageTitle = `${tool.name} Self-Hosted Alternative: Deploy, Features & Comparison (${currentYear})`;
 } else if (tool.pricing_type && tool.pricing_type.toLowerCase().includes('free')) {
     pageTitle = `Is ${tool.name} Really Free? Review & Best Alternatives (${currentYear})`;
@@ -69,18 +70,43 @@ if (tool.collection === 'mac') {
 
 const pageDesc = tool.description ? tool.description.slice(0, 150) + "..." : `Check out ${tool.name} pricing, features and alternatives.`;
 
-// 颜色主题逻辑
+// 显式颜色主题逻辑 (防止 Tailwind 不识别动态类名)
 let themeColor = 'blue'; // ai default
-if (tool.collection === 'mac') themeColor = 'purple';
-if (tool.collection === 'selfhosted') themeColor = 'orange';
+let bgLight = 'bg-blue-100';
+let textDark = 'text-blue-700';
+let bgBtn = 'bg-blue-600';
+let hoverBtn = 'hover:bg-blue-700';
+let shadowColor = 'shadow-blue-200';
 
-// Schema
+if (tool.collection === 'mac') {
+    themeColor = 'purple';
+    bgLight = 'bg-purple-100';
+    textDark = 'text-purple-700';
+    bgBtn = 'bg-purple-600';
+    hoverBtn = 'hover:bg-purple-700';
+    shadowColor = 'shadow-purple-200';
+} else if (tool.collection === 'selfhosted') {
+    themeColor = 'orange';
+    bgLight = 'bg-orange-100';
+    textDark = 'text-orange-700';
+    bgBtn = 'bg-orange-600';
+    hoverBtn = 'hover:bg-orange-700';
+    shadowColor = 'shadow-orange-200';
+} else if (tool.collection === 'windows') { // 🔴 Windows
+    themeColor = 'sky';
+    bgLight = 'bg-sky-100';
+    textDark = 'text-sky-700';
+    bgBtn = 'bg-sky-600';
+    hoverBtn = 'hover:bg-sky-700';
+    shadowColor = 'shadow-sky-200';
+}
+
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": tool.name,
   "applicationCategory": tool.category || "BusinessApplication",
-  "operatingSystem": tool.collection === 'mac' ? "macOS" : "Web",
+  "operatingSystem": tool.collection === 'mac' ? "macOS" : (tool.collection === 'windows' ? "Windows" : "Web"), // 🔴
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "aggregateRating": { "@type": "AggregateRating", "ratingValue": (4 + Math.random()).toFixed(1), "ratingCount": Math.floor(Math.random() * 100) + 10 },
   "description": tool.description
@@ -109,7 +135,7 @@ const relatedTools = allTools
   <nav class="text-sm text-slate-500 mb-6 flex items-center flex-wrap gap-2">
     <a href="/" class="hover:underline hover:text-blue-600">Home</a> 
     <span>/</span>
-    <span class="capitalize">{tool.collection === 'ai' ? 'AI Tools' : (tool.collection === 'mac' ? 'Mac Apps' : 'Self-Hosted')}</span>
+    <span class="capitalize">{tool.collection === 'ai' ? 'AI Tools' : (tool.collection === 'mac' ? 'Mac Apps' : (tool.collection === 'windows' ? 'Windows' : 'Self-Hosted'))}</span>
     {tool.category && (
         <>
             <span>/</span>
@@ -125,8 +151,8 @@ const relatedTools = allTools
         <div>
             <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
                 <h1 class="text-4xl font-extrabold text-slate-900">{tool.name}</h1>
-                <span class={`px-2.5 py-0.5 bg-${themeColor}-100 text-${themeColor}-700 rounded-full text-xs font-bold uppercase tracking-wider`}>
-                    {tool.collection === 'ai' ? 'AI' : (tool.collection === 'mac' ? 'Mac' : 'Self-Hosted')}
+                <span class={`px-2.5 py-0.5 ${bgLight} ${textDark} rounded-full text-xs font-bold uppercase tracking-wider`}>
+                    {tool.collection === 'ai' ? 'AI' : (tool.collection === 'mac' ? 'Mac' : (tool.collection === 'windows' ? 'Windows' : 'Self-Hosted'))}
                 </span>
             </div>
             <p class="text-xl text-slate-600 max-w-2xl leading-relaxed">{tool.tagline}</p>
@@ -136,7 +162,7 @@ const relatedTools = allTools
            target="_blank" 
            rel="nofollow noopener"
            onclick={`gtag('event', 'click_affiliate', { 'tool_name': '${tool.name}', 'url': '${tool.website_url || "google_search"}', 'category': '${tool.collection}' });`}
-           class={`inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-bold text-white transition shadow-lg shadow-blue-500/20 transform hover:-translate-y-0.5 active:translate-y-0 ${tool.collection === 'mac' ? 'bg-purple-600 hover:bg-purple-700' : (tool.collection === 'selfhosted' ? 'bg-orange-600 hover:bg-orange-700' : 'bg-blue-600 hover:bg-blue-700')}`}>
+           class={`inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-bold text-white transition shadow-lg ${shadowColor} transform hover:-translate-y-0.5 active:translate-y-0 ${bgBtn} ${hoverBtn}`}>
            Visit Website 
            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
@@ -223,8 +249,8 @@ const relatedTools = allTools
                 </div>
             )}
             <div class="flex justify-between border-b border-slate-200 pb-2">
-                <span class="text-slate-500">Collection</span>
-                <span class="font-medium text-slate-900 capitalize">{tool.collection === 'ai' ? 'AI' : (tool.collection === 'mac' ? 'Mac' : 'Self-Hosted')}</span>
+                <span class="text-slate-500">Platform</span>
+                <span class="font-medium text-slate-900 capitalize">{tool.collection === 'ai' ? 'AI' : (tool.collection === 'mac' ? 'Mac' : (tool.collection === 'windows' ? 'Windows' : 'Self-Hosted'))}</span>
             </div>
         </div>
 

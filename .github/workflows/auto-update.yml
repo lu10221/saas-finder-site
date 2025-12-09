@@ -31,7 +31,7 @@ jobs:
           npm install
           npm install openai
 
-      # 2. 运行所有脚本
+      # 2. 运行所有脚本 (新增了 Windows)
       - name: Run All Scripts
         env:
           VOLC_API_KEY: ${{ secrets.VOLC_API_KEY }}
@@ -42,6 +42,9 @@ jobs:
           
           echo "🚀 Starting Self-Hosted Script (Batch Limit: 200)..."
           node selfhosted-script.js
+
+          echo "🚀 Starting Windows Script (Batch Limit: 200)..."
+          node windows-script.js
 
       # 3. 提交代码并设置状态变量
       - name: Check and Commit
@@ -57,7 +60,7 @@ jobs:
             echo "🎉 发现新数据，正在提交..."
             
             git add .
-            git commit -m "🤖 Batch update: Added new tools"
+            git commit -m "🤖 Batch update: Added new tools (Mac/SelfHosted/Windows)"
             
             # 解决冲突：先拉后推
             git pull --rebase --autostash origin main
@@ -80,5 +83,5 @@ jobs:
           sleep 1800  # 暂停 1800 秒 (30分钟)
           
           echo "🔄 冷却结束，触发下一轮循环..."
-          # 重新运行当前这个 Workflow文件 (manual-update.yml)
+          # 重新运行当前这个 Workflow文件
           gh workflow run "${{ github.workflow }}" --ref main
