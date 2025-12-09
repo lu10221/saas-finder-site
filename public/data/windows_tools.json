@@ -14459,5 +14459,91 @@
         "answer": "Yes, VLC offers an official portable edition that runs directly from a USB drive without installation. It retains all core features and works on any Windows PC without leaving traces."
       }
     ]
+  },
+  {
+    "name": "Nirsoft System Utilities",
+    "slug": "nirsoft-system-utilities",
+    "tagline": "Comprehensive set of free Windows system diagnostic & utility tools",
+    "description": "Nirsoft System Utilities offers a vast library of lightweight, portable tools for Windows system management, diagnostics, and recovery. Each utility integrates deeply with Windows architecture—accessing hidden registry entries, monitoring running processes, recovering lost passwords (for browsers/apps), analyzing network traffic, and managing startup programs. Compatible with Windows XP to 11, these tools require no installation (run from USB/drive) and use minimal resources, making them ideal for power users, IT admins, and tech support to troubleshoot issues and optimize performance.",
+    "pricing_type": "Free",
+    "category": "System Utilities",
+    "collection": "windows",
+    "website_url": "https://www.nirsoft.net/",
+    "key_features": [
+      "Portable, zero-install tools for immediate use",
+      "Deep Windows system access (registry, processes, network)",
+      "Specialized utilities for password recovery & diagnostics"
+    ],
+    "pros": [
+      "100% free with no ads or bundled software",
+      "Works across all Windows versions (XP to 11)",
+      "Lightweight and resource-efficient"
+    ],
+    "cons": [
+      "No unified interface (separate executables per tool)",
+      "Some antivirus tools flag as suspicious (false positives)",
+      "Non-intuitive for casual users"
+    ],
+    "alternatives": [
+      "Sysinternals Suite (Microsoft)",
+      "Glary Utilities",
+      "CCleaner Professional"
+    ],
+    "faqs": [
+      {
+        "question": "Is Nirsoft System Utilities compatible with Windows 11?",
+        "answer": "Yes, all Nirsoft tools are regularly updated to support Windows 11, along with older versions like Windows 10, 8, 7, and even XP."
+      },
+      {
+        "question": "Is it safe to install?",
+        "answer": "Yes—Nirsoft tools are 100% safe and malware-free. However, some antivirus programs may flag them as suspicious due to deep system access; whitelisting the tools resolves this issue."
+      },
+      {
+        "question": "Is there a portable version?",
+        "answer": "All Nirsoft utilities are portable by default—no installation required. You can run them directly from any folder, USB drive, or external storage device."
+      }
+    ]
+  },
+  {
+    "name": "VLC Media Player",
+    "slug": "vlc-media-player",
+    "tagline": "Free, versatile media player for all video/audio formats",
+    "description": "VLC Media Player is a free, open-source video utility that plays nearly every media format (MP4, MKV, AVI, FLAC, etc.) without extra codecs. It integrates seamlessly with Windows 10/11—supporting taskbar previews, notification controls, and context menu shortcuts for quick playback. Features include media conversion, streaming, subtitle sync, and speed adjustment. Lightweight, ad-free, and offline-capable, it’s a reliable all-in-one solution for Windows users needing robust media playback.",
+    "pricing_type": "Free",
+    "category": "Video Utilities",
+    "collection": "windows",
+    "website_url": "https://www.videolan.org/vlc/",
+    "key_features": [
+      "Plays all media formats without additional codecs",
+      "Seamless Windows integration (taskbar controls, context menus)",
+      "Supports media conversion and streaming"
+    ],
+    "pros": [
+      "Completely free and ad-free",
+      "Lightweight and offline-capable",
+      "Open-source and secure"
+    ],
+    "cons": [
+      "Outdated user interface compared to modern players",
+      "Advanced features may overwhelm new users"
+    ],
+    "alternatives": [
+      "MPC-HC",
+      "PotPlayer"
+    ],
+    "faqs": [
+      {
+        "question": "Is VLC Media Player compatible with Windows 11?",
+        "answer": "Yes, VLC fully supports Windows 11, including native taskbar media controls and high-DPI display optimization."
+      },
+      {
+        "question": "Is it safe to install?",
+        "answer": "Absolutely—VLC is open-source, developed by the non-profit VideoLAN organization, and free from malware or adware."
+      },
+      {
+        "question": "Is there a portable version?",
+        "answer": "Yes, a portable version is available on the official website, allowing you to run VLC from a USB drive without installation."
+      }
+    ]
   }
 ]
