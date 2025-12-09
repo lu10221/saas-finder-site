@@ -56649,5 +56649,234 @@
         "answer": "Yes—Reveal.js is licensed under MIT, so it’s free to use, modify, and distribute for personal or commercial purposes with no hidden fees."
       }
     ]
+  },
+  {
+    "name": "Genealogy Hosted",
+    "slug": "genealogy-hosted",
+    "tagline": "Open-source self-hosted genealogy tool for secure family tree management",
+    "description": "A privacy-first genealogy platform designed for self-hosting, letting you store and organize your family’s history data locally. Features include interactive tree visualizations (ancestor, descendant, fan charts), GEDCOM import/export for compatibility with desktop tools like Gramps, media attachment (photos, birth certificates), event tracking (births, marriages, deaths), and user access controls. Deploy via Docker for quick setup, or manually with a web server and database. Keep your sensitive family data under full control, no third-party access or subscription fees required.",
+    "pricing_type": "Free/Open Source",
+    "category": "Genealogy",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/genealogy-hosted/core",
+    "key_features": [
+      "GEDCOM Import/Export for cross-tool compatibility",
+      "Interactive family tree visualizations (ancestor, fan charts)",
+      "Media library for attaching photos and documents to profiles/events"
+    ],
+    "pros": [
+      "Data privacy and full control over family records",
+      "No recurring subscription fees",
+      "Compatible with standard genealogy formats"
+    ],
+    "cons": [
+      "Requires basic server knowledge for setup",
+      "Lacks DNA matching features of SaaS alternatives",
+      "Limited public database integration"
+    ],
+    "alternatives": [
+      "Ancestry.com",
+      "MyHeritage"
+    ],
+    "faqs": [
+      {
+        "question": "Is Genealogy Hosted hard to install?",
+        "answer": "It’s relatively easy using Docker Compose—pull the image, configure environment variables (database settings), and run the container. Non-Docker users need to set up a web server (Nginx), Python environment, and database (PostgreSQL/SQLite), which requires basic server skills."
+      },
+      {
+        "question": "Is it a good alternative to Ancestry.com?",
+        "answer": "Yes, if you prioritize data privacy and control. Unlike Ancestry, your data stays on your server with no monthly fees. However, it lacks Ancestry’s DNA matching and large public database features."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes! Genealogy Hosted is open-source under the GPLv3 license—use, modify, and distribute it without any cost."
+      }
+    ]
+  },
+  {
+    "name": "Logitech Media Server",
+    "slug": "logitech-media-server",
+    "tagline": "Open-source audio streaming server for multi-room playback",
+    "description": "Logitech Media Server (LMS) is a robust open-source audio streaming platform designed for multi-room audio playback. It supports a wide range of formats (FLAC, MP3, WAV, etc.) and integrates with Squeezebox devices/software clients like Squeezelite. Features include playlist management, metadata scraping, internet radio/podcast support, and a web interface for control. Deployment is flexible: Docker containers, pre-built OS packages, or manual source installation. Ideal for self-hosters wanting to centralize their library and stream to multiple devices simultaneously.",
+    "pricing_type": "Free/Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/Logitech/slimserver",
+    "key_features": [
+      "Multi-room audio streaming",
+      "Wide audio format compatibility",
+      "Integration with Squeezebox devices & software clients",
+      "Internet radio and podcast support",
+      "Web-based control interface"
+    ],
+    "pros": [
+      "100% free and open-source",
+      "Flexible deployment options (Docker, packages, source)",
+      "Full control over local audio library",
+      "Extensive device compatibility"
+    ],
+    "cons": [
+      "Outdated UI in some sections",
+      "Advanced configurations require technical knowledge",
+      "Limited mobile app support compared to SaaS tools"
+    ],
+    "alternatives": [
+      "Spotify Connect",
+      "Apple Music",
+      "Amazon Music Unlimited"
+    ],
+    "faqs": [
+      {
+        "question": "Is Logitech Media Server hard to install?",
+        "answer": "No—beginners can use Docker (pull the image and run) or pre-built packages for Linux/macOS/Windows. Docker minimizes setup steps, while packages are straightforward to install. Manual source setup is available but needs more technical skills."
+      },
+      {
+        "question": "Is it a good alternative to Spotify Connect?",
+        "answer": "Yes—if you prefer self-hosting your library. Unlike Spotify Connect (which streams from Spotify’s servers), LMS uses your local files and supports multi-room playback. It lacks curated content but offers full data control and no subscriptions."
+      },
+      {
+        "question": "Is Logitech Media Server completely free?",
+        "answer": "Absolutely—LMS is open-source under the GPL license. There are no fees, subscriptions, or locked premium features. All core capabilities (multi-room streaming, format support) are free to use."
+      }
+    ]
+  },
+  {
+    "name": "Music Player Daemon",
+    "slug": "mpd",
+    "tagline": "Open-source audio streaming daemon for centralized music playback",
+    "description": "Music Player Daemon (MPD) is a lightweight, server-side audio player enabling streaming and management of local music libraries across devices. It supports FLAC, MP3, OGG, and more formats, integrating with desktop/mobile/web clients for control. Deployable via package managers or Docker, MPD keeps media centralized while allowing remote access. Features include playlist management, metadata editing, and gapless playback—ideal for privacy-focused self-hosted audio setups.",
+    "pricing_type": "Open Source",
+    "category": "Media Streaming - Audio Streaming",
+    "collection": "selfhosted",
+    "website_url": "https://www.musicpd.org/",
+    "key_features": [
+      "Centralized music library management",
+      "Wide audio format compatibility",
+      "Support for multiple client interfaces",
+      "Gapless playback and metadata handling"
+    ],
+    "pros": [
+      "Privacy-focused (no cloud dependency)",
+      "Lightweight resource usage",
+      "Extensive client ecosystem",
+      "Full control over music collection"
+    ],
+    "cons": [
+      "Requires separate client for interaction",
+      "Initial configuration may need manual setup",
+      "No built-in UI for direct control",
+      "Lacks curated streaming content like proprietary services"
+    ],
+    "alternatives": [
+      "Spotify",
+      "Apple Music"
+    ],
+    "faqs": [
+      {
+        "question": "Is Music Player Daemon hard to install?",
+        "answer": "MPD can be installed via package managers (apt, brew) or Docker for simplified deployment. Initial setup (media directories, network access) may require editing a config file, but guides and client tools help beginners navigate the process easily."
+      },
+      {
+        "question": "Is it a good alternative to Spotify?",
+        "answer": "MPD is a self-hosted alternative for your local library, unlike Spotify’s cloud streaming. It offers full control and no subscriptions but lacks curated playlists or online radio—ideal if you prioritize owning your music over external content."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes, MPD is open-source under the GPL license. It’s free to use, modify, and distribute without any hidden costs or subscription fees."
+      }
+    ]
+  },
+  {
+    "name": "OpenReader WebUI",
+    "slug": "openreader-webui",
+    "tagline": "Open-source web interface for managing and reading e-books privately",
+    "description": "OpenReader WebUI is a self-hosted e-book management solution with a clean, responsive interface. It supports multiple formats (EPUB, MOBI, PDF, CBZ), allowing library organization into collections, metadata editing, and progress tracking. Deploy easily via Docker (one-line command) or manual setup on Linux/macOS/Windows servers. Features include searchable libraries, bookmarking, customizable reading themes (light/dark), and mobile-friendly access. Ideal for users wanting to centralize their e-books without relying on third-party SaaS platforms.",
+    "pricing_type": "Open Source",
+    "category": "Miscellaneous",
+    "collection": "selfhosted",
+    "website_url": "https://github.com/elliotwutingfeng/OpenReader-WebUI",
+    "key_features": [
+      "Supports EPUB, MOBI, PDF, CBZ and other popular e-book formats",
+      "Docker deployment for quick, hassle-free setup",
+      "Customizable reading experience (themes, font sizes, night mode)",
+      "Library organization with collections and metadata editing",
+      "Responsive design for access on mobile and desktop devices"
+    ],
+    "pros": [
+      "Full control over your e-book library and data privacy",
+      "No subscription fees or hidden costs",
+      "Supports offline reading (cache books locally)",
+      "Active open-source community for updates and support"
+    ],
+    "cons": [
+      "Requires basic server knowledge for manual installation (Docker recommended)",
+      "Lacks native sync with e-reader devices like Kindle (needs manual transfer)",
+      "Metadata auto-fetch may not work for some rare e-book formats"
+    ],
+    "alternatives": [
+      "Amazon Kindle Cloud Reader",
+      "Google Play Books",
+      "Apple Books"
+    ],
+    "faqs": [
+      {
+        "question": "Is OpenReader WebUI hard to install?",
+        "answer": "No—Docker deployment is straightforward with a single command. Manual installation requires setting up Python, Flask, and dependencies, but Docker is recommended for most users to avoid setup headaches."
+      },
+      {
+        "question": "Is it a good alternative to Amazon Kindle Cloud Reader?",
+        "answer": "Yes, if you prioritize privacy and format flexibility. It lacks Kindle’s ecosystem sync but supports more formats and lets you host your library without relying on Amazon’s servers."
+      },
+      {
+        "question": "Is it completely free?",
+        "answer": "Yes! OpenReader WebUI is open-source under the MIT License, so it’s 100% free to use, modify, and self-host with no premium features locked behind paywalls."
+      }
+    ]
+  },
+  {
+    "name": "reveal.js",
+    "slug": "reveal-js",
+    "tagline": "Open-source HTML presentation framework",
+    "description": "reveal.js is an open-source framework for building interactive, modern presentations using HTML. It supports Markdown content, stunning transitions, animations, and speaker notes with a dedicated presenter view. You can embed multimedia (videos, images, code snippets) easily and export presentations to PDF or static HTML. Deployment is flexible—host on any web server, use Docker containers, or deploy to static platforms like GitHub Pages. It’s highly customizable via CSS/JS plugins, ideal for developers, educators, and anyone avoiding proprietary tools.",
+    "pricing_type": "Free/Open Source",
+    "category": "Miscellaneous",
+    "collection": "selfhosted",
+    "website_url": "https://revealjs.com",
+    "key_features": [
+      "Markdown & HTML content support",
+      "Customizable transitions and animations",
+      "Speaker notes with presenter view",
+      "Export to PDF or static HTML"
+    ],
+    "pros": [
+      "Privacy-focused (self-hosted)",
+      "No subscription fees",
+      "Flexible deployment options (static/web server/Docker)",
+      "Highly customizable via plugins and CSS"
+    ],
+    "cons": [
+      "Requires basic HTML/Markdown skills",
+      "No built-in WYSIWYG editor",
+      "Advanced features need plugin setup"
+    ],
+    "alternatives": [
+      "Microsoft PowerPoint",
+      "Google Slides",
+      "Apple Keynote"
+    ],
+    "faqs": [
+      {
+        "question": "Is reveal.js hard to install?",
+        "answer": "No—you can download the source code, use a Docker image, or fork the GitHub repo to deploy to GitHub Pages. For basic use, include the reveal.js library via CDN in an HTML file and start creating content."
+      },
+      {
+        "question": "Is it a good alternative to Google Slides?",
+        "answer": "Yes—if you prefer self-hosting and customization. It lacks real-time collaboration (without third-party tools like HackMD) but offers full control over design and deployment, avoiding proprietary platform lock-in."
+      },
+      {
+        "question": "Is reveal.js completely free?",
+        "answer": "Yes—reveal.js is licensed under MIT, so it’s 100% free to use, modify, and distribute without any hidden costs or subscriptions."
+      }
+    ]
   }
 ]
