@@ -3,7 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import fs from 'node:fs';
 import path from 'node:path';
 
-// 辅助函数：安全读取数据
+// ==========================================
+// 1. 服务端数据预取 (只取前36个用于首屏渲染)
+// ==========================================
 function getInitialData(filename) {
   try {
     let filePath = path.join(process.cwd(), 'public', 'data', filename);
@@ -13,12 +15,12 @@ function getInitialData(filename) {
         const content = fs.readFileSync(filePath, 'utf-8');
         const data = JSON.parse(content);
         
-        // 显式打标，防止逻辑错误
         let type = 'ai';
         if (filename.includes('mac')) type = 'mac';
         if (filename.includes('selfhosted')) type = 'selfhosted';
-        if (filename.includes('windows')) type = 'windows'; // 🔴
+        if (filename.includes('windows')) type = 'windows';
         
+        // ✂️ 只切片前 36 个，保证 HTML 体积极小
         return data.slice(0, 36).map(t => ({ ...t, collection: type }));
     }
     return [];
@@ -37,22 +39,22 @@ function getCategories(filename) {
     } catch (e) { return []; }
 }
 
-// 1. 读取所有数据
+// 读取所有数据的"首屏切片"
 const initialAi = getInitialData('ai_tools.json');
 const initialMac = getInitialData('mac_tools.json');
+const initialWin = getInitialData('windows_tools.json');
 const initialSelf = getInitialData('selfhosted_tools.json');
-const initialWin = getInitialData('windows_tools.json'); // 🔴
 
-// 2. 读取所有分类
+// 读取分类
 const aiCats = getCategories('ai_tools.json');
 const macCats = getCategories('mac_tools.json');
+const winCats = getCategories('windows_tools.json');
 const selfCats = getCategories('selfhosted_tools.json');
-const winCats = getCategories('windows_tools.json'); // 🔴
 ---
 
 <Layout title="ToolStock - Best Software Directory (AI, Mac, Windows & Self-Hosted)" description="Discover the best AI tools, Mac apps, Windows software, and Self-Hosted alternatives.">
   <div class="text-center mb-10">
-    <h1 class="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-sky-500">
+    <h1 class="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500">
       Find the Perfect Tool
     </h1>
     <p class="text-xl text-slate-600 mb-8">
@@ -62,33 +64,29 @@ const winCats = getCategories('windows_tools.json'); // 🔴
     <div class="flex flex-wrap justify-center gap-2 mb-8 bg-slate-100 p-1 rounded-xl w-fit mx-auto">
       <button class="tab-btn active px-5 py-2 rounded-lg font-bold text-sm transition bg-white text-blue-600 shadow-sm" data-target="ai">🤖 AI Tools</button>
       <button class="tab-btn px-5 py-2 rounded-lg font-bold text-sm transition text-slate-500 hover:text-slate-700" data-target="mac">🍎 Mac Apps</button>
-      <button class="tab-btn px-5 py-2 rounded-lg font-bold text-sm transition text-slate-500 hover:text-slate-700" data-target="windows">🪟 Windows</button> <button class="tab-btn px-5 py-2 rounded-lg font-bold text-sm transition text-slate-500 hover:text-slate-700" data-target="selfhosted">🐳 Self-Hosted</button>
+      <button class="tab-btn px-5 py-2 rounded-lg font-bold text-sm transition text-slate-500 hover:text-slate-700" data-target="windows">🪟 Windows</button>
+      <button class="tab-btn px-5 py-2 rounded-lg font-bold text-sm transition text-slate-500 hover:text-slate-700" data-target="selfhosted">🐳 Self-Hosted</button>
     </div>
     
     <div class="max-w-xl mx-auto mb-8 relative">
-      <input type="text" id="search-input" placeholder="Search for tools..." class="w-full px-6 py-4 pl-12 rounded-full border border-slate-300 shadow-sm focus:ring-2 focus:ring-blue-500 outline-none text-lg transition" />
+      <input type="text" id="search-input" placeholder="Search tools..." class="w-full px-6 py-4 pl-12 rounded-full border border-slate-300 shadow-sm focus:ring-2 focus:ring-blue-500 outline-none text-lg transition" />
       <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      <div id="search-loading" class="hidden absolute right-4 top-1/2 -translate-y-1/2">
+        <svg class="animate-spin h-5 w-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+      </div>
     </div>
 
     <div id="cat-ai" class="cat-container flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
-      {aiCats.map((cat) => (
-        <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-blue-600 hover:border-blue-300 transition">{cat}</a>
-      ))}
+      {aiCats.map((cat) => <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-blue-600 hover:border-blue-300 transition">{cat}</a>)}
     </div>
     <div id="cat-mac" class="cat-container hidden flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
-      {macCats.map((cat) => (
-        <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-purple-600 hover:border-purple-300 transition">{cat}</a>
-      ))}
+      {macCats.map((cat) => <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-purple-600 hover:border-purple-300 transition">{cat}</a>)}
     </div>
     <div id="cat-windows" class="cat-container hidden flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
-      {winCats.map((cat) => (
-        <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-sky-600 hover:border-sky-300 transition">{cat}</a>
-      ))}
+      {winCats.map((cat) => <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-sky-600 hover:border-sky-300 transition">{cat}</a>)}
     </div>
     <div id="cat-selfhosted" class="cat-container hidden flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
-      {selfCats.map((cat) => (
-        <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-orange-600 hover:border-orange-300 transition">{cat}</a>
-      ))}
+      {selfCats.map((cat) => <a href={`/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-500 hover:text-orange-600 hover:border-orange-300 transition">{cat}</a>)}
     </div>
   </div>
 
@@ -150,75 +148,101 @@ const winCats = getCategories('windows_tools.json'); // 🔴
   <div id="no-results" class="hidden text-center py-12"><p class="text-lg text-slate-500">No tools found matching your search.</p></div>
 
   <script is:inline>
-    let allAiData = [], allMacData = [], allSelfData = [], allWinData = []; // 🔴
-    let isDataLoaded = false;
+    // 数据桶
+    let lightData = []; // AI, Mac, Win
+    let heavyData = []; // Self-Hosted (巨大)
+    
+    // 状态位
+    let isLightLoaded = false;
+    let isHeavyLoaded = false;
+    let isLoadingHeavy = false;
     let currentTab = 'ai';
+    let debounceTimer; // 防抖
 
     const loadMoreBtn = document.getElementById('load-more-btn');
     const searchInput = document.getElementById('search-input');
+    const searchLoading = document.getElementById('search-loading');
     const noResults = document.getElementById('no-results');
 
-    async function loadAllData() {
-        if (isDataLoaded) return;
+    // 1. 加载轻量数据 (快速)
+    async function loadLightData() {
+        if (isLightLoaded) return;
         loadMoreBtn.textContent = "Loading...";
         try {
-            // 🔴 加载所有4个JSON
-            const [rAi, rMac, rSelf, rWin] = await Promise.all([
+            const [rAi, rMac, rWin] = await Promise.all([
                 fetch('/data/ai_tools.json'),
                 fetch('/data/mac_tools.json'),
-                fetch('/data/selfhosted_tools.json'),
                 fetch('/data/windows_tools.json')
             ]);
             
             const dAi = await rAi.json();
             const dMac = await rMac.json();
-            const dSelf = await rSelf.json();
             const dWin = await rWin.json();
             
-            allAiData = dAi.map(t => ({...t, collection: 'ai'}));
-            allMacData = dMac.map(t => ({...t, collection: 'mac'}));
-            allSelfData = dSelf.map(t => ({...t, collection: 'selfhosted'}));
-            allWinData = dWin.map(t => ({...t, collection: 'windows'})); // 🔴
+            lightData = [
+                ...dAi.map(t => ({...t, collection: 'ai'})),
+                ...dMac.map(t => ({...t, collection: 'mac'})),
+                ...dWin.map(t => ({...t, collection: 'windows'}))
+            ];
             
-            isDataLoaded = true;
-            loadMoreBtn.textContent = "Load More Tools";
+            isLightLoaded = true;
+            if (currentTab !== 'selfhosted') loadMoreBtn.textContent = "Load More Tools";
         } catch (e) {
-            loadMoreBtn.textContent = "Error Loading";
-            console.error(e);
+            console.error("Light load error", e);
         }
     }
 
-    // 🔴 显式定义的颜色逻辑 (最稳妥，防止 Tailwind 丢失样式)
-    function createCardHtml(tool) {
-        let colorClass = 'text-blue-600';
-        let hoverClass = 'hover:border-blue-300';
-        let badgeBg = 'bg-blue-50';
-        let badgeText = 'AI';
+    // 2. 加载重量级数据 (只在需要时加载)
+    async function loadHeavyData() {
+        if (isHeavyLoaded || isLoadingHeavy) return;
+        isLoadingHeavy = true;
+        
+        // 只有在 Self-Hosted 标签下才显示加载提示
+        if (currentTab === 'selfhosted') loadMoreBtn.textContent = "Loading full database...";
+        if (searchInput.value.length > 0) searchLoading.classList.remove('hidden');
 
-        if (tool.collection === 'mac') {
-            colorClass = 'text-purple-600';
-            hoverClass = 'hover:border-purple-300';
-            badgeBg = 'bg-purple-50';
-            badgeText = 'Mac';
-        } else if (tool.collection === 'selfhosted') {
-            colorClass = 'text-orange-600';
-            hoverClass = 'hover:border-orange-300';
-            badgeBg = 'bg-orange-50';
-            badgeText = 'Self-Hosted';
-        } else if (tool.collection === 'windows') {
-            // 🔴 Windows 样式
-            colorClass = 'text-sky-600';
-            hoverClass = 'hover:border-sky-300';
-            badgeBg = 'bg-sky-50';
-            badgeText = 'Windows';
+        try {
+            const rSelf = await fetch('/data/selfhosted_tools.json');
+            const dSelf = await rSelf.json();
+            
+            heavyData = dSelf.map(t => ({...t, collection: 'selfhosted'}));
+            
+            isHeavyLoaded = true;
+            isLoadingHeavy = false;
+            searchLoading.classList.add('hidden');
+            
+            loadMoreBtn.textContent = "Load More Tools";
+            
+            // 如果加载完成时用户正在搜索，刷新搜索结果
+            if (searchInput.value.trim().length > 0) {
+                performSearch(searchInput.value.trim());
+            } else if (currentTab === 'selfhosted') {
+                // 如果刚好在 SelfHosted 页面，重新渲染列表以启用"加载更多"
+                // (这里简单起见，不重置 DOM，只是解锁按钮)
+            }
+
+        } catch (e) {
+            console.error("Heavy load error", e);
+            loadMoreBtn.textContent = "Load Failed";
+            isLoadingHeavy = false;
+            searchLoading.classList.add('hidden');
         }
+    }
+
+    // 卡片 HTML 生成器
+    function createCardHtml(tool) {
+        let color = 'blue', hover = 'blue', badge = 'AI';
+        
+        if (tool.collection === 'mac') { color = 'purple'; hover = 'purple'; badge = 'Mac'; }
+        if (tool.collection === 'selfhosted') { color = 'orange'; hover = 'orange'; badge = 'Self-Hosted'; }
+        if (tool.collection === 'windows') { color = 'sky'; hover = 'sky'; badge = 'Windows'; }
 
         const slug = tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
         
-        return `<a href="/tool/${slug}" class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md ${hoverClass} transition">
+        return `<a href="/tool/${slug}" class="tool-card group block bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-${hover}-300 transition">
             <div class="flex justify-between items-start mb-3">
-                <h2 class="text-xl font-bold text-slate-900 group-hover:${colorClass}">${tool.name}</h2>
-                <span class="text-[10px] uppercase font-bold px-2 py-1 ${badgeBg} ${colorClass} rounded">${badgeText}</span>
+                <h2 class="text-xl font-bold text-slate-900 group-hover:text-${color}-600">${tool.name}</h2>
+                <span class="text-[10px] uppercase font-bold px-2 py-1 bg-${color}-50 text-${color}-600 rounded">${badge}</span>
             </div>
             <p class="text-sm text-slate-500 mb-4 line-clamp-2">${tool.tagline || ''}</p>
             <div class="flex flex-wrap gap-2">
@@ -227,68 +251,126 @@ const winCats = getCategories('windows_tools.json'); // 🔴
         </a>`;
     }
 
-    searchInput.addEventListener('focus', loadAllData);
-    loadMoreBtn.addEventListener('mouseenter', loadAllData);
-
-    loadMoreBtn.addEventListener('click', async () => {
-        await loadAllData();
-        let targetData = allAiData;
-        if(currentTab === 'mac') targetData = allMacData;
-        if(currentTab === 'selfhosted') targetData = allSelfData;
-        if(currentTab === 'windows') targetData = allWinData; // 🔴
-
-        const targetGrid = document.getElementById(`grid-${currentTab}`);
-        const currentCount = targetGrid.children.length;
-        
-        if (currentCount < targetData.length) {
-            const remaining = targetData.slice(currentCount);
-            targetGrid.insertAdjacentHTML('beforeend', remaining.map(createCardHtml).join(''));
-        }
-        loadMoreBtn.classList.add('hidden');
+    // 交互触发加载
+    searchInput.addEventListener('focus', () => {
+        loadLightData();
+        loadHeavyData(); // 搜索时预加载大文件
     });
+    
+    loadMoreBtn.addEventListener('mouseenter', loadLightData);
 
-    searchInput.addEventListener('input', async (e) => {
-        const term = e.target.value.toLowerCase();
-        if (!isDataLoaded && term.length > 0) await loadAllData();
-
-        if (term.length > 0) {
-            loadMoreBtn.classList.add('hidden');
-            ['ai', 'mac', 'selfhosted', 'windows'].forEach(t => document.getElementById(`grid-${t}`).classList.remove('hidden'));
-
-            const render = (data, id) => {
-                const m = data.filter(t => t.name.toLowerCase().includes(term));
-                document.getElementById(id).innerHTML = m.map(createCardHtml).join('');
-                return m.length;
-            };
-
-            const total = render(allAiData,'grid-ai') + render(allMacData,'grid-mac') + render(allSelfData,'grid-selfhosted') + render(allWinData,'grid-windows');
-            if (total === 0) noResults.classList.remove('hidden'); else noResults.classList.add('hidden');
-        } else {
-            window.location.reload();
-        }
-    });
-
+    // Tab 切换逻辑
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
+            // UI Update
             document.querySelectorAll('.tab-btn').forEach(t => t.className = 'tab-btn px-5 py-2 rounded-lg font-bold text-sm transition text-slate-500 hover:text-slate-700');
-            
             const target = btn.dataset.target;
             let activeColor = 'text-blue-600';
             if (target === 'mac') activeColor = 'text-purple-600';
             if (target === 'selfhosted') activeColor = 'text-orange-600';
-            if (target === 'windows') activeColor = 'text-sky-600'; // 🔴
+            if (target === 'windows') activeColor = 'text-sky-600';
             
             btn.className = `tab-btn active px-5 py-2 rounded-lg font-bold text-sm transition bg-white ${activeColor} shadow-sm`;
             currentTab = target;
             
+            // Toggle Views
             document.querySelectorAll('.tool-grid').forEach(g => g.classList.add('hidden'));
             document.getElementById(`grid-${currentTab}`).classList.remove('hidden');
             
             document.querySelectorAll('.cat-container').forEach(c => c.classList.add('hidden'));
             document.getElementById(`cat-${currentTab}`).classList.remove('hidden');
             
+            // Logic: Load heavy data if clicking Self-Hosted
+            if (currentTab === 'selfhosted' && !isHeavyLoaded) {
+                loadHeavyData();
+            } else if (!isLightLoaded) {
+                loadLightData();
+            }
+            
             loadMoreBtn.classList.remove('hidden');
         });
+    });
+
+    // 加载更多逻辑
+    loadMoreBtn.addEventListener('click', async () => {
+        // 数据检查
+        if (currentTab === 'selfhosted' && !isHeavyLoaded) {
+            await loadHeavyData(); // 如果还没加载完，点击按钮先加载数据
+            return;
+        }
+        if (currentTab !== 'selfhosted' && !isLightLoaded) {
+            await loadLightData();
+        }
+        
+        let targetData = [];
+        if (currentTab === 'selfhosted') targetData = heavyData;
+        else targetData = lightData.filter(t => t.collection === currentTab);
+
+        const targetGrid = document.getElementById(`grid-${currentTab}`);
+        const currentCount = targetGrid.children.length;
+        
+        if (currentCount < targetData.length) {
+            // 每次追加 24 个
+            const remaining = targetData.slice(currentCount, currentCount + 24);
+            targetGrid.insertAdjacentHTML('beforeend', remaining.map(createCardHtml).join(''));
+        }
+        
+        if (targetGrid.children.length >= targetData.length) {
+            loadMoreBtn.classList.add('hidden');
+        }
+    });
+
+    // 搜索逻辑 (带 300ms 防抖)
+    function performSearch(term) {
+        loadMoreBtn.classList.add('hidden');
+        ['ai', 'mac', 'selfhosted', 'windows'].forEach(t => document.getElementById(`grid-${t}`).classList.remove('hidden'));
+
+        // 渲染辅助函数
+        const renderGroup = (data, id) => {
+            const matches = data.filter(t => t.name.toLowerCase().includes(term));
+            const el = document.getElementById(id);
+            // 搜索结果限制显示数量，防止渲染太多卡死
+            el.innerHTML = matches.slice(0, 12).map(createCardHtml).join('');
+            return matches.length;
+        };
+
+        const cAi = renderGroup(lightData.filter(t => t.collection === 'ai'), 'grid-ai');
+        const cMac = renderGroup(lightData.filter(t => t.collection === 'mac'), 'grid-mac');
+        const cWin = renderGroup(lightData.filter(t => t.collection === 'windows'), 'grid-windows');
+        
+        let cSelf = 0;
+        if (isHeavyLoaded) {
+            cSelf = renderGroup(heavyData, 'grid-selfhosted');
+        } else {
+            // 如果还在加载，显示提示
+            document.getElementById('grid-selfhosted').innerHTML = '<div class="col-span-full text-center text-sm text-gray-400 py-4">Searching Self-Hosted database...</div>';
+        }
+
+        if (cAi + cMac + cWin + cSelf === 0 && isHeavyLoaded) {
+            noResults.classList.remove('hidden');
+        } else {
+            noResults.classList.add('hidden');
+        }
+    }
+
+    searchInput.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        
+        // 清除旧定时器
+        clearTimeout(debounceTimer);
+
+        if (term.length === 0) {
+            window.location.reload();
+            return;
+        }
+
+        // 设置新定时器 (300ms 后执行)
+        debounceTimer = setTimeout(() => {
+            if (!isLightLoaded) loadLightData();
+            if (!isHeavyLoaded) loadHeavyData(); // 必须触发大文件加载
+            
+            performSearch(term);
+        }, 300);
     });
   </script>
 </Layout>
