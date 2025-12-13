@@ -43,8 +43,11 @@ jobs:
           # echo "🚀 Starting Self-Hosted Script (Batch Limit: 200)..."
           # node selfhosted-script.js
 
-          echo "🚀 Starting Windows Script (Batch Limit: 200)..."
-          node windows-script.js
+          # echo "🚀 Starting Windows Script (Batch Limit: 200)..."
+          # node windows-script.js
+          
+          echo "🚀 Starting Public APIs Script (Batch Limit: 200)..."
+          node publicapis-script.js
 
       # 3. 提交代码并设置状态变量
       - name: Check and Commit

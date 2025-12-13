@@ -3,15 +3,11 @@ import Layout from '../../layouts/Layout.astro';
 import fs from 'node:fs';
 import path from 'node:path';
 
-// 辅助函数：安全读取 JSON
 const getJson = (filename) => {
   try {
       let filePath = path.join(process.cwd(), 'public', 'data', filename);
       if (!fs.existsSync(filePath)) filePath = path.join(process.cwd(), 'src', 'data', filename);
-      
-      if (fs.existsSync(filePath)) {
-          return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-      }
+      if (fs.existsSync(filePath)) return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
       return [];
   } catch (e) { return []; }
 };
@@ -29,14 +25,16 @@ export async function getStaticPaths() {
   const aiData = getJson('ai_tools.json');
   const macData = getJson('mac_tools.json');
   const selfData = getJson('selfhosted_tools.json');
-  const winData = getJson('windows_tools.json'); // 🔴 新增
+  const winData = getJson('windows_tools.json');
+  const apiData = getJson('publicapis_tools.json'); // 🔴
   
   const aiTools = aiData.map(t => ({ ...t, collection: 'ai' }));
   const macTools = macData.map(t => ({ ...t, collection: 'mac' }));
   const selfTools = selfData.map(t => ({ ...t, collection: 'selfhosted' }));
-  const winTools = winData.map(t => ({ ...t, collection: 'windows' })); // 🔴 新增
+  const winTools = winData.map(t => ({ ...t, collection: 'windows' }));
+  const apiTools = apiData.map(t => ({ ...t, collection: 'publicapis' })); // 🔴
   
-  const all = [...aiTools, ...macTools, ...selfTools, ...winTools];
+  const all = [...aiTools, ...macTools, ...selfTools, ...winTools, ...apiTools];
 
   return all.map((tool) => ({
     params: { slug: tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') },
@@ -47,31 +45,29 @@ export async function getStaticPaths() {
 const { tool, allTools } = Astro.props;
 const existingSlugs = new Set(allTools.map(t => t.slug || t.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')));
 
-// ==========================================
-// 🚀 SEO 配置
-// ==========================================
-
+// SEO 逻辑
 const currentYear = new Date().getFullYear();
 let pageTitle = "";
 
 if (tool.collection === 'mac') {
     pageTitle = `${tool.name} for Mac: Free Download & Best Alternatives (${currentYear})`;
 } else if (tool.collection === 'windows') {
-    // 🔴 Windows 标题
     pageTitle = `${tool.name} for Windows: Free Download, Review & Alternatives (${currentYear})`;
 } else if (tool.collection === 'selfhosted') {
     pageTitle = `${tool.name} Self-Hosted Alternative: Deploy, Features & Comparison (${currentYear})`;
+} else if (tool.collection === 'publicapis') {
+    // 🔴 API 专属标题
+    pageTitle = `${tool.name} Public API: Documentation, Auth & Examples (${currentYear})`;
 } else if (tool.pricing_type && tool.pricing_type.toLowerCase().includes('free')) {
     pageTitle = `Is ${tool.name} Really Free? Review & Best Alternatives (${currentYear})`;
 } else {
-    const firstCompetitor = tool.alternatives?.[0] || 'Others';
-    pageTitle = `${tool.name} Pricing, Features & Top Competitors vs. ${firstCompetitor}`;
+    pageTitle = `${tool.name} Pricing, Features & Top Competitors vs. ${tool.alternatives?.[0] || 'Others'}`;
 }
 
 const pageDesc = tool.description ? tool.description.slice(0, 150) + "..." : `Check out ${tool.name} pricing, features and alternatives.`;
 
-// 显式颜色主题逻辑 (防止 Tailwind 不识别动态类名)
-let themeColor = 'blue'; // ai default
+// 显式主题色
+let themeColor = 'blue';
 let bgLight = 'bg-blue-100';
 let textDark = 'text-blue-700';
 let bgBtn = 'bg-blue-600';
@@ -92,13 +88,20 @@ if (tool.collection === 'mac') {
     bgBtn = 'bg-orange-600';
     hoverBtn = 'hover:bg-orange-700';
     shadowColor = 'shadow-orange-200';
-} else if (tool.collection === 'windows') { // 🔴 Windows
+} else if (tool.collection === 'windows') {
     themeColor = 'sky';
     bgLight = 'bg-sky-100';
     textDark = 'text-sky-700';
     bgBtn = 'bg-sky-600';
     hoverBtn = 'hover:bg-sky-700';
     shadowColor = 'shadow-sky-200';
+} else if (tool.collection === 'publicapis') { // 🔴 Green for API
+    themeColor = 'green';
+    bgLight = 'bg-green-100';
+    textDark = 'text-green-700';
+    bgBtn = 'bg-green-600';
+    hoverBtn = 'hover:bg-green-700';
+    shadowColor = 'shadow-green-200';
 }
 
 const softwareSchema = {
@@ -106,7 +109,7 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   "name": tool.name,
   "applicationCategory": tool.category || "BusinessApplication",
-  "operatingSystem": tool.collection === 'mac' ? "macOS" : (tool.collection === 'windows' ? "Windows" : "Web"), // 🔴
+  "operatingSystem": tool.collection === 'mac' ? "macOS" : (tool.collection === 'windows' ? "Windows" : "Web"),
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "aggregateRating": { "@type": "AggregateRating", "ratingValue": (4 + Math.random()).toFixed(1), "ratingCount": Math.floor(Math.random() * 100) + 10 },
   "description": tool.description
@@ -135,7 +138,7 @@ const relatedTools = allTools
   <nav class="text-sm text-slate-500 mb-6 flex items-center flex-wrap gap-2">
     <a href="/" class="hover:underline hover:text-blue-600">Home</a> 
     <span>/</span>
-    <span class="capitalize">{tool.collection === 'ai' ? 'AI Tools' : (tool.collection === 'mac' ? 'Mac Apps' : (tool.collection === 'windows' ? 'Windows' : 'Self-Hosted'))}</span>
+    <span class="capitalize">{tool.collection === 'publicapis' ? 'Public API' : (tool.collection === 'ai' ? 'AI' : (tool.collection === 'mac' ? 'Mac' : (tool.collection === 'windows' ? 'Windows' : 'Self-Hosted')))}</span>
     {tool.category && (
         <>
             <span>/</span>
@@ -152,7 +155,7 @@ const relatedTools = allTools
             <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
                 <h1 class="text-4xl font-extrabold text-slate-900">{tool.name}</h1>
                 <span class={`px-2.5 py-0.5 ${bgLight} ${textDark} rounded-full text-xs font-bold uppercase tracking-wider`}>
-                    {tool.collection === 'ai' ? 'AI' : (tool.collection === 'mac' ? 'Mac' : (tool.collection === 'windows' ? 'Windows' : 'Self-Hosted'))}
+                    {tool.collection === 'publicapis' ? 'API' : (tool.collection === 'ai' ? 'AI' : (tool.collection === 'mac' ? 'Mac' : (tool.collection === 'windows' ? 'Windows' : 'Self-Hosted')))}
                 </span>
             </div>
             <p class="text-xl text-slate-600 max-w-2xl leading-relaxed">{tool.tagline}</p>
@@ -250,7 +253,7 @@ const relatedTools = allTools
             )}
             <div class="flex justify-between border-b border-slate-200 pb-2">
                 <span class="text-slate-500">Platform</span>
-                <span class="font-medium text-slate-900 capitalize">{tool.collection === 'ai' ? 'AI' : (tool.collection === 'mac' ? 'Mac' : (tool.collection === 'windows' ? 'Windows' : 'Self-Hosted'))}</span>
+                <span class="font-medium text-slate-900 capitalize">{tool.collection === 'publicapis' ? 'Public API' : (tool.collection === 'ai' ? 'AI' : (tool.collection === 'mac' ? 'Mac' : (tool.collection === 'windows' ? 'Windows' : 'Self-Hosted')))}</span>
             </div>
         </div>
 
