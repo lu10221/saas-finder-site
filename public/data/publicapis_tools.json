@@ -83580,5 +83580,3005 @@
         "answer": "All responses are in JSON format, containing structured weather data including current conditions and forecasts."
       }
     ]
+  },
+  {
+    "name": "The Dog API",
+    "slug": "the-dog-api",
+    "tagline": "Free public API for dog breed data and high-quality images",
+    "description": "The Dog API is a RESTful service offering endpoints for dog breed details (temperament, origin, lifespan), random/filtered images, breed lists, and sub-breed info. Responses are JSON-formatted for easy integration. Key endpoints include /breeds/list, /images/random, and /images/search (filter by breed, size, orientation). Ideal for pet apps, educational tools, website widgets, or fun projects. Unauthenticated access works with rate limits; API keys unlock higher limits and premium features like favorite image management.",
+    "pricing_type": "Freemium",
+    "category": "Animals",
+    "collection": "publicapis",
+    "website_url": "https://thedogapi.com/",
+    "key_features": [
+      "RESTful architecture",
+      "JSON responses",
+      "Comprehensive breed metadata",
+      "Curated image library",
+      "Filterable searches",
+      "No auth for basic access"
+    ],
+    "pros": [
+      "Free basic tier",
+      "Easy to integrate",
+      "High-resolution images",
+      "Well-documented endpoints",
+      "Flexible filtering options"
+    ],
+    "cons": [
+      "Rate limits on free tier",
+      "Paid plans for higher usage",
+      "Advanced features require API key"
+    ],
+    "alternatives": [
+      "Dog CEO API",
+      "Random Dog API"
+    ],
+    "faqs": [
+      {
+        "question": "Is The Dog API free to use?",
+        "answer": "Yes, it offers a free tier with rate limits for basic requests. Paid plans are available for increased volumes and premium features like favorite image management."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No, unauthenticated requests work for basic access, but an API key avoids stricter rate limits and unlocks additional features."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, which is widely supported and easy to parse across most programming languages."
+      }
+    ]
+  },
+  {
+    "name": "AbstractAPI Website Screenshot API",
+    "slug": "abstractapi-website-screenshot-api",
+    "tagline": "Programmatic web page screenshot API for developers",
+    "description": "The AbstractAPI Website Screenshot API enables programmatic capture of web pages via RESTful requests. Developers specify target URLs, viewport sizes (mobile/desktop), image formats (PNG/JPG), and quality settings. Key endpoints use POST to submit parameters, returning JSON with direct image URLs or base64-encoded data. Use cases include automated UI testing, CMS previews, web content archiving, and integrating screenshots into SEO/social media tools. It handles dynamic JavaScript pages and requires no headless browser setup, simplifying integration into modern apps.",
+    "pricing_type": "Freemium",
+    "category": "Development",
+    "collection": "publicapis",
+    "website_url": "https://www.abstractapi.com/website-screenshot-api",
+    "key_features": [
+      "RESTful interface",
+      "Dynamic JavaScript rendering",
+      "Customizable viewport sizes",
+      "PNG/JPG output options",
+      "Base64 or URL responses",
+      "No headless browser setup"
+    ],
+    "pros": [
+      "Easy integration with minimal setup",
+      "Supports modern JS-heavy pages",
+      "Flexible output formats",
+      "Freemium tier available",
+      "Scalable for high-volume requests"
+    ],
+    "cons": [
+      "Rate-limited free tier",
+      "Paid plans for commercial-scale use",
+      "Potential latency for complex pages",
+      "No offline screenshot support"
+    ],
+    "faqs": [
+      {
+        "question": "Is the AbstractAPI Website Screenshot API free?",
+        "answer": "Yes, it offers a freemium model with a free tier (limited monthly requests) and paid plans for higher volumes or advanced features."
+      },
+      {
+        "question": "Does it require an API key?",
+        "answer": "Yes, you need to register for an API key from AbstractAPI to authenticate and use the service."
+      },
+      {
+        "question": "What response format does it use?",
+        "answer": "Responses are in JSON, providing either a direct image URL or base64-encoded image data in PNG/JPG format."
+      }
+    ]
+  },
+  {
+    "name": "Bitbucket API",
+    "slug": "bitbucket-api",
+    "tagline": "RESTful API for Bitbucket development workflows",
+    "description": "The Bitbucket API v2 is a RESTful interface for interacting with Bitbucket's code hosting and collaboration tools. It uses JSON for all request/response formats and provides endpoints for managing repositories, pull requests, issues, users, teams, and webhooks. Developers can automate repo creation, integrate CI/CD pipelines, handle pull request reviews, retrieve commit history, manage team permissions, and set up event-driven workflows. Ideal for building custom tools, integrating with third-party services, or streamlining internal development processes.",
+    "pricing_type": "Freemium",
+    "category": "Development",
+    "collection": "publicapis",
+    "website_url": "https://developer.atlassian.com/bitbucket/api/2/reference/",
+    "key_features": [
+      "RESTful architecture",
+      "JSON support",
+      "OAuth 2.0 authentication",
+      "Webhook integration",
+      "Comprehensive repo/pull request management",
+      "Team/user permission controls"
+    ],
+    "pros": [
+      "Integrates seamlessly with Atlassian ecosystem (Jira, Confluence)",
+      "Well-documented with interactive examples",
+      "Scalable for small to enterprise teams",
+      "Supports both Git and Mercurial repositories"
+    ],
+    "cons": [
+      "Rate limits apply to all usage tiers",
+      "Advanced features require paid Bitbucket plans",
+      "Legacy v1 API is deprecated and has limited support",
+      "Complex workflows may need multiple endpoint calls"
+    ],
+    "alternatives": [
+      "GitHub API",
+      "GitLab API",
+      "Gitea API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Bitbucket API free to use?",
+        "answer": "Yes, basic usage is free under Bitbucket's free plan; paid plans offer higher rate limits and access to advanced API features."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No—authentication uses OAuth 2.0 or personal access tokens instead of traditional API keys."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "The Bitbucket API primarily uses JSON for all request and response payloads."
+      }
+    ]
+  },
+  {
+    "name": "GitHub API",
+    "slug": "github-api",
+    "tagline": "Programmatic access to GitHub repositories, users, code, and collaboration tools",
+    "description": "The GitHub API is a RESTful interface enabling developers to interact with GitHub resources programmatically. Endpoints cover repositories (CRUD operations), user profiles, issues, pull requests, commits, webhooks, and more. Responses are JSON-formatted. Use cases include automating repo management, integrating GitHub data into CI/CD pipelines, analyzing code contributions, building custom dashboards for team activity, and creating bots to handle issues or PRs. It supports OAuth2/personal access tokens for authenticated requests to private resources.",
+    "pricing_type": "Freemium",
+    "category": "Development",
+    "collection": "publicapis",
+    "website_url": "https://docs.github.com/en/free-pro-team@latest/rest",
+    "key_features": [
+      "RESTful",
+      "JSON support",
+      "OAuth2 authentication",
+      "Webhooks integration",
+      "Comprehensive endpoint coverage",
+      "Versioned API"
+    ],
+    "pros": [
+      "Extensive documentation",
+      "Wide range of use cases",
+      "Active community support",
+      "Regular updates"
+    ],
+    "cons": [
+      "Rate-limited (stricter for unauthenticated requests)",
+      "Complex permission setup for some actions",
+      "Breaking changes in major versions"
+    ],
+    "alternatives": [
+      "GitLab API",
+      "Bitbucket API"
+    ],
+    "faqs": [
+      {
+        "question": "Is GitHub API free to use?",
+        "answer": "Yes, for public resources and limited private actions; paid plans offer higher rate limits and advanced features."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Authenticated requests (e.g., private repos) need personal access tokens or OAuth2; unauthenticated requests have stricter limits."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All endpoints return data in JSON format."
+      }
+    ]
+  },
+  {
+    "name": "Google Docs",
+    "slug": "google-docs",
+    "tagline": "API for reading, writing, and formatting Google Docs documents",
+    "description": "The Google Docs API is a RESTful interface for programmatically interacting with Google Docs documents. It uses JSON for all requests and responses. Key endpoints include retrieving document metadata/content, batch updates (text edits, formatting changes, inserting tables/images), and managing permissions. Use cases: automating report generation, syncing Docs content with third-party apps, bulk editing documents, and integrating with project management tools to streamline workflows. It offers precise control over structure and styling, suitable for small automation or enterprise solutions.",
+    "pricing_type": "Freemium",
+    "category": "Development",
+    "collection": "publicapis",
+    "website_url": "https://developers.google.com/docs/api/reference/rest",
+    "key_features": [
+      "RESTful interface",
+      "JSON support",
+      "Batch updates",
+      "Fine-grained formatting control",
+      "Permission management",
+      "Google Workspace integration"
+    ],
+    "pros": [
+      "Comprehensive document manipulation",
+      "Seamless Workspace integration",
+      "Well-documented",
+      "Scalable for enterprises"
+    ],
+    "cons": [
+      "OAuth 2.0 setup complexity",
+      "Rate-limited requests",
+      "Paid tiers for high usage",
+      "Limited advanced formatting support"
+    ],
+    "alternatives": [
+      "Microsoft Graph API (Word)",
+      "Dropbox Paper API",
+      "Notion API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Google Docs API free to use?",
+        "answer": "It offers a free tier with limited requests (e.g., 1000 batchUpdate requests/day for Workspace accounts), with paid plans for higher usage volumes."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No—authentication uses OAuth 2.0 for user data access or service accounts for server-to-server interactions."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All requests and responses use JSON format, compatible with most programming languages."
+      }
+    ]
+  },
+  {
+    "name": "Google Sheets API",
+    "slug": "google-sheets-api",
+    "tagline": "API for reading, writing, and formatting Google Sheets data",
+    "description": "The Google Sheets API is a RESTful interface for interacting with Google Sheets data. It supports endpoints like spreadsheets.values (read/write cell values), spreadsheets.batchUpdate (formatting, structural changes), and spreadsheets.get (sheet metadata). Requests and responses use JSON. Key capabilities include CRUD operations on ranges, applying cell formatting (colors, fonts, borders), managing sheet structure (add/delete rows/columns), and push notifications via Pub/Sub for real-time updates. Use cases: Automate data sync between apps and Sheets, generate dynamic reports, build custom dashboards, or integrate Sheets with CRM/ERP systems. Authentication uses OAuth 2.0 (private sheets) or API keys (public sheets). Rate limits apply based on project/user quotas.",
+    "pricing_type": "Freemium",
+    "category": "Development",
+    "collection": "publicapis",
+    "website_url": "https://developers.google.com/sheets/api/reference/rest",
+    "key_features": [
+      "RESTful API",
+      "JSON Request/Response",
+      "OAuth 2.0 Authentication",
+      "Batch Update Support",
+      "Cell Formatting Capabilities",
+      "Push Notifications (via Pub/Sub)",
+      "Range & Metadata Access"
+    ],
+    "pros": [
+      "Seamless Google Workspace Integration",
+      "Comprehensive CRUD Operations",
+      "Advanced Formatting Options",
+      "Batch Processing Efficiency",
+      "Well-Documented Resources"
+    ],
+    "cons": [
+      "OAuth Setup Required for Write Access",
+      "Rate Limits on Requests",
+      "Steep Learning Curve for Beginners",
+      "No Offline Functionality"
+    ],
+    "alternatives": [
+      "Microsoft Graph Excel API",
+      "Airtable API",
+      "Smartsheet API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Google Sheets API free to use?",
+        "answer": "Yes, it offers a free tier with generous quotas (1000 requests/100 sec per user, 50k/day per project). Paid plans are available for higher quota needs."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "For read-only access to public sheets, an API key suffices. For write operations or access to private sheets, OAuth 2.0 authentication is mandatory."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, including data values, sheet metadata, and operation statuses."
+      }
+    ]
+  },
+  {
+    "name": "Heroku",
+    "slug": "heroku",
+    "tagline": "REST API for automating Heroku platform tasks like app creation and add-on provisioning",
+    "description": "The Heroku Platform API is a RESTful interface for programmatically interacting with the Heroku cloud platform. It uses JSON for both requests and responses. Key endpoints include app management (create, list, update), add-on provisioning, dyno scaling, config var management, deployment logs access, and team collaboration settings. Use cases: Automate CI/CD pipelines to deploy apps from repositories, build custom dashboards for platform monitoring, script staging environment setup, and integrate Heroku operations into third-party dev tools.",
+    "pricing_type": "Freemium",
+    "category": "Development",
+    "collection": "publicapis",
+    "website_url": "https://devcenter.heroku.com/articles/platform-api-reference/",
+    "key_features": [
+      "RESTful architecture",
+      "JSON request/response",
+      "OAuth/API key authentication",
+      "Webhook support for event notifications",
+      "Comprehensive endpoint coverage for platform tasks"
+    ],
+    "pros": [
+      "Automates repetitive dev workflows",
+      "Seamless CI/CD integration",
+      "Extensive official documentation",
+      "Scalable for enterprise teams",
+      "Supports custom tooling integration"
+    ],
+    "cons": [
+      "Requires Heroku account (free or paid)",
+      "Rate limits for high-volume usage",
+      "Advanced features tied to paid plans",
+      "Learning curve for complex orchestration tasks"
+    ],
+    "alternatives": [
+      "AWS Elastic Beanstalk API",
+      "Google App Engine Admin API",
+      "DigitalOcean App Platform API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Heroku Platform API free to use?",
+        "answer": "Yes, API access is included with all Heroku accounts, but costs apply for resources created via the API (e.g., paid dynos, premium add-ons)."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, authentication uses either an OAuth token or a Heroku API key generated from your account settings."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, ensuring compatibility with most programming languages and development tools."
+      }
+    ]
+  },
+  {
+    "name": "Postman Public API",
+    "slug": "postman-public-api",
+    "tagline": "Free API for accessing Postman's public workspace resources and testing tools",
+    "description": "The Postman Public API enables programmatic interaction with Postman's public workspaces, collections, requests, and documentation. It follows RESTful principles, returning JSON-formatted responses. Key endpoints include fetching workspace details, listing collections, retrieving request examples, and accessing documentation. Use cases range from integrating public API examples into development projects to automating test suite runs in CI/CD pipelines. It supports seamless integration with popular tools, making it valuable for API developers and testers.",
+    "pricing_type": "Free",
+    "category": "Development",
+    "collection": "publicapis",
+    "website_url": "https://www.postman.com/postman/workspace/postman-public-workspace/documentation/12959542-c8142d51-e97c-46b6-bd77-52bb66712c9a",
+    "key_features": [
+      "RESTful architecture",
+      "JSON response format",
+      "Access to public workspaces/collections",
+      "CI/CD integration support",
+      "Comprehensive example documentation"
+    ],
+    "pros": [
+      "Free access to public resources",
+      "Easy workflow integration",
+      "Rich endpoints for testing tools",
+      "Well-maintained documentation"
+    ],
+    "cons": [
+      "Limited to public data (private needs paid plans)",
+      "Rate limits on frequent requests",
+      "Advanced features require Pro/Enterprise tiers"
+    ],
+    "alternatives": [
+      "SwaggerHub API",
+      "Insomnia Public API",
+      "RapidAPI Testing API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Postman Public API free to use?",
+        "answer": "Yes, accessing public workspace resources via the Postman Public API is free. Paid plans are required for private workspace access or advanced features."
+      },
+      {
+        "question": "Does it require authentication?",
+        "answer": "No authentication is needed for public workspace data. Private resources or advanced operations may require an API key or OAuth token."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "The Postman Public API returns responses in JSON format, compatible with most development tools and frameworks."
+      }
+    ]
+  },
+  {
+    "name": "Oxford Dictionaries API",
+    "slug": "oxford-dictionaries-api",
+    "tagline": "Comprehensive dictionary data API for word definitions, pronunciations, and linguistic metadata",
+    "description": "The Oxford Dictionaries API provides RESTful endpoints to access trusted dictionary data from Oxford University Press, including word definitions, synonyms, antonyms, etymologies, phonetic transcriptions, and audio pronunciations. Responses are formatted in JSON. Key endpoints include /entries (detailed word info), /synonyms, /antonyms, /etymologies, and /pronunciations. It supports multiple languages like English, Spanish, French, and German. Use cases include integrating into language learning apps, writing assistants, educational platforms, and content validation tools for accurate word usage.",
+    "pricing_type": "Freemium",
+    "category": "Dictionaries",
+    "collection": "publicapis",
+    "website_url": "https://developer.oxforddictionaries.com/",
+    "key_features": [
+      "RESTful API design",
+      "JSON response format",
+      "Multi-language support",
+      "Detailed word metadata (definitions, synonyms, etymologies)",
+      "Audio pronunciations",
+      "Etymology data"
+    ],
+    "pros": [
+      "Trusted Oxford University Press source",
+      "Extensive coverage of word-related data",
+      "Supports multiple languages and dialects",
+      "Well-documented API with clear examples",
+      "Audio pronunciations for enhanced user experience"
+    ],
+    "cons": [
+      "Requires API key authentication",
+      "Rate-limited free tier (limited requests per month)",
+      "Paid plans necessary for high-volume usage",
+      "Some rare languages have limited data coverage"
+    ],
+    "alternatives": [
+      "Merriam-Webster Dictionary API",
+      "Cambridge Dictionary API",
+      "Dictionary.com API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Oxford Dictionaries API free to use?",
+        "answer": "Yes, it offers a free tier with limited monthly requests. Paid plans are available for higher usage volumes and access to advanced features."
+      },
+      {
+        "question": "Does the Oxford Dictionaries API require an API key?",
+        "answer": "Yes, you need to sign up for an account on the developer portal to obtain an API key for authentication."
+      },
+      {
+        "question": "What response format does the Oxford Dictionaries API use?",
+        "answer": "The API returns responses in JSON format, which is widely supported and easy to integrate into most applications."
+      }
+    ]
+  },
+  {
+    "name": "Notion API",
+    "slug": "notion-api",
+    "tagline": "Integrate Notion's documents and productivity tools into your applications",
+    "description": "The Notion API is a RESTful interface for connecting Notion's document and productivity ecosystem to external apps. It uses JSON for all requests and responses, with endpoints to manage pages, databases, blocks, users, and workspaces. Key use cases include syncing app data with Notion databases, automating content creation workflows, building custom dashboards for team analytics, embedding Notion pages in tools, and programmatically managing tasks. It supports CRUD operations and real-time updates via webhooks, enabling developers to extend Notion's functionality seamlessly.",
+    "pricing_type": "Freemium",
+    "category": "Documents & Productivity",
+    "collection": "publicapis",
+    "website_url": "https://developers.notion.com/docs/getting-started",
+    "key_features": [
+      "RESTful Architecture",
+      "JSON Support",
+      "API Key Authentication",
+      "Database & Page Management",
+      "Webhook Notifications",
+      "Block-level Operations",
+      "Team Workspace Integration"
+    ],
+    "pros": [
+      "Comprehensive Documentation",
+      "Rich Feature Set for Productivity Workflows",
+      "Real-time Event Subscriptions",
+      "Seamless Notion Ecosystem Integration",
+      "Active Developer Community"
+    ],
+    "cons": [
+      "Rate Limits on Free Tier",
+      "Advanced Features Tied to Paid Notion Plans",
+      "Steeper Learning Curve for Complex Schemas",
+      "JSON-only Response Format"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Notion API free to use?",
+        "answer": "Yes, the Notion API offers a free tier with rate limits (e.g., 1000 requests/minute for free workspaces). Paid tiers are available for higher usage limits and access to advanced features linked to Notion's paid plans."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, authentication uses an Internal Integration Token (API key) generated from the Notion Developer Portal. You must also share target workspaces/databases with your integration to access them."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "The Notion API exclusively uses JSON for all request and response payloads, ensuring compatibility with most programming languages and tools."
+      }
+    ]
+  },
+  {
+    "name": "Clash Royale API",
+    "slug": "clash-royale-api",
+    "tagline": "Official API for Clash Royale game data",
+    "description": "The official Clash Royale API provides RESTful access to real-time game data including player profiles (stats, trophies, decks), clan details (members, wars, donations), card attributes (levels, rarities), battle histories, and tournament information. Responses are in JSON format. Key endpoints include /players/{tag} for player data, /clans/{tag} for clan stats, /cards for all game cards, and /battles for recent matches. Ideal for building clan trackers, player stat dashboards, or fan tools to analyze strategies and progress.",
+    "pricing_type": "Freemium",
+    "category": "Games & Comics",
+    "collection": "publicapis",
+    "website_url": "https://developer.clashroyale.com",
+    "key_features": [
+      "RESTful Architecture",
+      "JSON Response Format",
+      "Real-time Game Data",
+      "API Key Authentication",
+      "Endpoints for Players, Clans, Cards & Battles"
+    ],
+    "pros": [
+      "Official & Trusted Data Source",
+      "Comprehensive Endpoints",
+      "Regular Data Updates",
+      "Well-Documented"
+    ],
+    "cons": [
+      "Rate-limited Requests",
+      "Requires API Key Registration",
+      "Limited Historical Data",
+      "Strict Usage Policies"
+    ],
+    "alternatives": [
+      "Unofficial Clash Royale Stats API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Clash Royale API free to use?",
+        "answer": "Basic access is free with rate limits; higher usage tiers may require a paid plan (check the developer portal for details)."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, you need to register on the Clash Royale developer portal to obtain an API key for authentication."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, providing structured data for easy integration into applications."
+      }
+    ]
+  },
+  {
+    "name": "Dungeons and Dragons 5th Edition API",
+    "slug": "dungeons-and-dragons-5e-api",
+    "tagline": "Free REST API for Dungeons & Dragons 5th Edition reference data",
+    "description": "This RESTful API provides access to Dungeons & Dragons 5th Edition reference data including spells, classes, monsters, races, equipment, backgrounds, and more. Endpoints like /api/spells (filter by level/school) or /api/monsters (search by CR/type) support granular queries. Responses are JSON-formatted, ideal for integrating into character builders, DM tools, trivia apps, or fan websites to enhance gameplay or preparation. It offers comprehensive coverage of core 5e content with no authentication barriers.",
+    "pricing_type": "Free",
+    "category": "Games & Comics",
+    "collection": "publicapis",
+    "website_url": "https://www.dnd5eapi.co/docs/",
+    "key_features": [
+      "RESTful",
+      "JSON support",
+      "No Auth required",
+      "Filterable endpoints",
+      "Comprehensive 5e data library"
+    ],
+    "pros": [
+      "Easy to integrate",
+      "Extensive 5e content",
+      "No API key needed",
+      "Well-documented",
+      "Supports precise filtering"
+    ],
+    "cons": [
+      "Rate limited",
+      "No SLA",
+      "Limited to 5th edition",
+      "Static reference data"
+    ],
+    "alternatives": [
+      "Open5e API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Dungeons and Dragons 5th Edition API free to use?",
+        "answer": "Yes, it is free for both personal and commercial applications without subscription fees."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No, authentication or an API key is not needed to access the API endpoints."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, widely supported and easy to parse in most programming languages."
+      }
+    ]
+  },
+  {
+    "name": "Humor API",
+    "slug": "humor-api",
+    "tagline": "API for jokes, memes, and humor content integration",
+    "description": "The Humor API offers RESTful endpoints to access jokes (dad jokes, puns, one-liners), memes, and humor-related content. Key endpoints include random joke/meme retrieval, search by category/keyword, and filtering options. Responses are JSON-formatted for easy parsing. Ideal use cases: adding fun elements to chatbots, social media tools, mobile games, or educational apps to enhance user engagement and entertainment value.",
+    "pricing_type": "Freemium",
+    "category": "Games & Comics",
+    "collection": "publicapis",
+    "website_url": "https://humorapi.com",
+    "key_features": [
+      "RESTful Architecture",
+      "JSON Response Format",
+      "Joke & Meme Endpoints",
+      "Search & Filter Capabilities",
+      "No Auth for Basic Free Tier"
+    ],
+    "pros": [
+      "Easy to integrate",
+      "Diverse Humor Content Library",
+      "Flexible Endpoints",
+      "Free Tier Available"
+    ],
+    "cons": [
+      "Rate-limited Free Tier",
+      "Limited Advanced Features in Basic Plan",
+      "No SLA for Free Users"
+    ],
+    "alternatives": [
+      "JokeAPI"
+    ],
+    "faqs": [
+      {
+        "question": "Is Humor API free to use?",
+        "answer": "Yes, it has a free tier with daily request limits; paid plans unlock higher quotas and advanced features."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Free tier basic endpoints may not need an API key, but paid plans require a key for authentication and full access."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All API responses are in JSON format, which is compatible with most programming languages and applications."
+      }
+    ]
+  },
+  {
+    "name": "Steam Web API",
+    "slug": "steam-web-api",
+    "tagline": "Programmatic access to Steam's game, user, and community data",
+    "description": "The Steam Web API offers RESTful endpoints for retrieving Steam platform data, including user profiles, game libraries, achievements, store listings, and community group info. Responses are in JSON format, enabling easy integration into apps, websites, or tools. Use cases include building game stat trackers, user profile dashboards, store price comparison tools, and community hubs. Most endpoints require an API key for authentication, with rate limits to prevent abuse.",
+    "pricing_type": "Free",
+    "category": "Games & Comics",
+    "collection": "publicapis",
+    "website_url": "https://steamapi.xpaw.me/",
+    "key_features": [
+      "RESTful Architecture",
+      "JSON Responses",
+      "API Key Authentication",
+      "Comprehensive Game & User Data",
+      "Store & Community Stats Access"
+    ],
+    "pros": [
+      "Wide Range of Steam Data",
+      "Easy to Integrate",
+      "Large Developer Community",
+      "Regularly Updated Endpoints"
+    ],
+    "cons": [
+      "Rate Limitations",
+      "API Key Required for Most Calls",
+      "Some Outdated Documentation",
+      "Limited Official Support"
+    ],
+    "alternatives": [
+      "IGDB API",
+      "Xbox Live Developer API",
+      "PlayStation Network Web Services"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Steam Web API free to use?",
+        "answer": "Yes, the Steam Web API is free for both non-commercial and commercial use, though an API key from Valve is required for most endpoints."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, most endpoints (like user profiles or game data) need an API key. You can obtain one by registering a Steam developer account."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, which is widely supported and easy to parse in most programming languages."
+      }
+    ]
+  },
+  {
+    "name": "Mexico SEPOMEX Zip Codes API",
+    "slug": "mexico-sepomex-zip-codes-api",
+    "tagline": "Free RESTful API for Mexico's SEPOMEX postal and geocoding data",
+    "description": "This RESTful API provides access to Mexico’s official SEPOMEX (Mexican Postal Service) zip code data. Key endpoints include retrieving detailed location information (state, city, municipality, neighborhood, postal office) via zip code lookup. Responses are formatted in JSON for easy integration. Ideal use cases: E-commerce platforms validating Mexican shipping addresses, logistics apps calculating delivery routes, location-based services targeting Mexican users, and business tools needing accurate postal data for customer segmentation or compliance.",
+    "pricing_type": "Free",
+    "category": "Geocoding",
+    "collection": "publicapis",
+    "website_url": "https://github.com/IcaliaLabs/sepomex",
+    "key_features": [
+      "RESTful Architecture",
+      "JSON Response Format",
+      "SEPOMEX Official Data",
+      "Zip Code Lookup",
+      "No Authentication Required"
+    ],
+    "pros": [
+      "Easy to Integrate",
+      "Open Source & Free",
+      "Accurate Postal Metadata",
+      "Covers All Mexican Regions"
+    ],
+    "cons": [
+      "Requires Self-Hosting (No Public Hosted Instance)",
+      "Limited to Zip Code-Centric Queries",
+      "No SLA for Uptime"
+    ],
+    "alternatives": [
+      "Google Geocoding API",
+      "OpenStreetMap Nominatim",
+      "Here Geocoding API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Mexico SEPOMEX Zip Codes API free to use?",
+        "answer": "Yes, it is open source and free; you can deploy your own instance using the GitHub repository."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No, authentication is not required when using a self-hosted instance of the API."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, containing detailed fields like state, city, municipality, neighborhood, and postal office information."
+      }
+    ]
+  },
+  {
+    "name": "BrasilAPI",
+    "slug": "brasil-api",
+    "tagline": "Community-driven API for Brazil's public government data",
+    "description": "BrasilAPI is a RESTful, community-maintained API providing access to Brazil’s public government datasets. It offers endpoints for CEP (postal code) lookup, IBGE geographic data (states, cities), tax ID validation (CNPJ/CPF), bank details, national holidays, and more. Responses are in JSON format, enabling seamless integration with modern apps. Use cases include address verification tools, tax compliance systems, location-based logistics services, holiday calendars for HR platforms, and e-commerce checkout optimizations. It aggregates data from reliable public sources, eliminating the need for direct integration with multiple government portals.",
+    "pricing_type": "Free",
+    "category": "Government",
+    "collection": "publicapis",
+    "website_url": "https://brasilapi.com.br/",
+    "key_features": [
+      "RESTful architecture",
+      "JSON responses",
+      "No authentication required",
+      "Community-maintained",
+      "Multiple public data endpoints"
+    ],
+    "pros": [
+      "Easy to integrate",
+      "Free for all use cases",
+      "Diverse public data coverage",
+      "Active community support"
+    ],
+    "cons": [
+      "Rate limits apply",
+      "No official SLA",
+      "Data delays possible depending on source updates"
+    ],
+    "alternatives": [
+      "Brazil Government Open Data Portal API"
+    ],
+    "faqs": [
+      {
+        "question": "Is BrasilAPI free to use?",
+        "answer": "Yes, BrasilAPI is completely free for both personal and commercial use with no hidden costs."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No, most endpoints do not require authentication or an API key for access."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses from BrasilAPI are in JSON format, ensuring compatibility with most programming languages and frameworks."
+      }
+    ]
+  },
+  {
+    "name": "City of Gdynia Open Data API",
+    "slug": "city-of-gdynia-open-data-api",
+    "tagline": "Free open data API for Gdynia (Poland) municipal datasets",
+    "description": "The City of Gdynia Open Data API provides access to official public datasets from Gdynia’s municipal government. Endpoints cover domains like public transport, education, environment, waste management, and urban planning. Responses are in JSON format, supporting RESTful operations with filtering and pagination. Use cases include building civic apps for transit schedules, analyzing air quality trends, creating local service directories, or developing research projects on urban development. It enables developers, researchers, and civic tech initiatives to leverage transparent data for community solutions and policy insights.",
+    "pricing_type": "Free",
+    "category": "Government",
+    "collection": "publicapis",
+    "website_url": "http://otwartedane.gdynia.pl/en/api_doc.html",
+    "key_features": [
+      "RESTful interface",
+      "JSON response format",
+      "No authentication required",
+      "Multilingual documentation (EN/PL)",
+      "Diverse municipal datasets",
+      "Pagination support"
+    ],
+    "pros": [
+      "Free and open access",
+      "Covers diverse municipal domains",
+      "Multilingual documentation",
+      "Supports common REST operations",
+      "Facilitates civic tech innovation"
+    ],
+    "cons": [
+      "Geographically limited to Gdynia (Poland)",
+      "Potential rate limits on requests",
+      "No formal service level agreement (SLA)",
+      "Dataset update frequency varies by category"
+    ],
+    "alternatives": [
+      "Warsaw Open Data API",
+      "Krakow Municipal Open Data API",
+      "Poland Central Government Open Data Portal"
+    ],
+    "faqs": [
+      {
+        "question": "Is the City of Gdynia Open Data API free to use?",
+        "answer": "Yes, the API provides free and open access to Gdynia’s municipal datasets for both non-commercial and commercial use (subject to applicable data licensing terms)."
+      },
+      {
+        "question": "Does it require an API key?",
+        "answer": "No, the API does not require authentication or an API key for accessing public datasets."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "The API primarily returns data in JSON format, which is widely compatible with most development tools and applications."
+      }
+    ]
+  },
+  {
+    "name": "City, Lviv",
+    "slug": "city-lviv",
+    "tagline": "Open data API for Lviv (Ukraine) city government datasets",
+    "description": "The Lviv City Open Data API provides access to official government datasets for Lviv, Ukraine, including public transport schedules, urban infrastructure records, education institution details, environmental monitoring data, and municipal service statistics. Responses are available in JSON and CSV formats. Use cases include developing civic apps for citizens to locate public facilities, analyzing urban development trends, creating transparency tools for government activities, and supporting academic research on local governance and urban life.",
+    "pricing_type": "Free",
+    "category": "Government",
+    "collection": "publicapis",
+    "website_url": "https://opendata.city-adm.lviv.ua/",
+    "key_features": [
+      "RESTful endpoints",
+      "JSON/CSV support",
+      "No authentication required",
+      "Multiple civic dataset categories",
+      "Regularly updated data"
+    ],
+    "pros": [
+      "Completely free access",
+      "Wide range of urban datasets",
+      "Supports standard data formats",
+      "Promotes civic transparency"
+    ],
+    "cons": [
+      "Limited English documentation",
+      "No formal service level agreement (SLA)",
+      "Some datasets may have occasional delays in updates"
+    ],
+    "alternatives": [
+      "Kyiv Open Data API",
+      "Odesa City Open Data API"
+    ],
+    "faqs": [
+      {
+        "question": "Is City, Lviv API free to use?",
+        "answer": "Yes, the Lviv City Open Data API is completely free for public use."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No, the API does not require any authentication key to access its open datasets."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "Responses are available in common formats like JSON and CSV, depending on the specific dataset selected."
+      }
+    ]
+  },
+  {
+    "name": "Discogs API",
+    "slug": "discogs-api",
+    "tagline": "Comprehensive music database API for artists, releases, and collections",
+    "description": "The Discogs API provides RESTful access to a massive music database with endpoints for artists, releases, masters, labels, and user collections. Responses are in JSON format. Key endpoints include /artists/{id} (artist details), /releases/{id} (release metadata), /users/{username}/collection (personal collections), and /marketplace/prices (pricing data). Use cases include building music discovery apps, cataloging collections, fetching album art, retrieving discographies, and accessing marketplace price history for vinyl/CD collectors.",
+    "pricing_type": "Freemium",
+    "category": "Music",
+    "collection": "publicapis",
+    "website_url": "https://www.discogs.com/developers/",
+    "key_features": [
+      "RESTful architecture",
+      "JSON response format",
+      "OAuth2 authentication",
+      "Extensive metadata (tracklists, formats, artwork)",
+      "Marketplace price data",
+      "User collection management"
+    ],
+    "pros": [
+      "Vast database (15M+ releases)",
+      "Detailed music metadata",
+      "Supports user-specific actions",
+      "Active developer community"
+    ],
+    "cons": [
+      "Rate-limited free tier (60 requests/minute)",
+      "Requires API key for access",
+      "Advanced features behind paid plans",
+      "Steep learning curve for complex queries"
+    ],
+    "alternatives": [
+      "MusicBrainz API",
+      "Spotify Web API",
+      "Last.fm API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Discogs API free to use?",
+        "answer": "Yes, it offers a free tier with rate limits (60 requests/minute). Paid plans (Discogs Pro) provide higher limits and advanced features like bulk data access."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, most endpoints need an API key. For user-specific actions (e.g., accessing collections), OAuth2 authentication is required."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, which is widely compatible with most programming languages and applications."
+      }
+    ]
+  },
+  {
+    "name": "LastFm API",
+    "slug": "lastfm-api",
+    "tagline": "Music metadata & user listening data API for artists, tracks, and scrobbles",
+    "description": "The LastFm API provides RESTful access to extensive music metadata, user listening history, and community-driven data. Key endpoints include artist details (biography, top tracks), track info (tags, lyrics links), user scrobbles, album data, and global chart rankings. Responses are available in JSON format. Use cases include building music discovery apps, integrating personalized listening stats into services, creating custom playlists, analyzing genre trends, and adding music-related content to websites. It supports read operations (e.g., fetching stats) and write operations (e.g., scrobbling tracks). Authentication requires an API key for basic access, with OAuth for user-specific actions.",
+    "pricing_type": "Freemium",
+    "category": "Music",
+    "collection": "publicapis",
+    "website_url": "https://www.last.fm/api",
+    "key_features": [
+      "RESTful",
+      "JSON Support",
+      "OAuth Authentication",
+      "Music Metadata Access",
+      "User Listening History",
+      "Scrobbling Capability",
+      "Chart Rankings"
+    ],
+    "pros": [
+      "Extensive music database",
+      "Supports read/write operations",
+      "Well-documented with community support"
+    ],
+    "cons": [
+      "Rate-limited free tier",
+      "Commercial use requires approval",
+      "OAuth setup for user actions is complex"
+    ],
+    "alternatives": [
+      "Spotify API",
+      "Apple Music API",
+      "Deezer API"
+    ],
+    "faqs": [
+      {
+        "question": "Is LastFm API free to use?",
+        "answer": "Yes, the basic tier is free for non-commercial use with rate limits. Commercial use requires contacting LastFm for licensing."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, most endpoints need an API key (register on LastFm to get one). User-specific operations like scrobbling require OAuth 2.0 authentication."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "Responses are primarily in JSON, though some endpoints may support XML as an optional format."
+      }
+    ]
+  },
+  {
+    "name": "SoundCloud",
+    "slug": "soundcloud",
+    "tagline": "API for integrating SoundCloud content management & playback features",
+    "description": "The SoundCloud API is a RESTful interface enabling access to track metadata, user content (playlists, albums), upload management, and playback capabilities. Responses are in JSON format. It supports OAuth2 authentication for user-specific actions like posting tracks or modifying playlists. Use cases include building custom music players, integrating SoundCloud tracks into apps, automating content uploads, or creating analytics tools for artists to monitor track performance. Endpoints cover retrieving user profiles, searching for tracks, managing uploads, and accessing playback URLs.",
+    "pricing_type": "Freemium",
+    "category": "Music",
+    "collection": "publicapis",
+    "website_url": "https://developers.soundcloud.com/docs/api/guide",
+    "key_features": [
+      "RESTful architecture",
+      "JSON responses",
+      "OAuth2 authentication",
+      "Content upload/edit",
+      "Playback integration",
+      "Metadata retrieval",
+      "User analytics access"
+    ],
+    "pros": [
+      "Comprehensive documentation",
+      "Supports public & authenticated actions",
+      "Rich media playback tools",
+      "Scalable pricing tiers"
+    ],
+    "cons": [
+      "Free tier has strict rate limits",
+      "OAuth2 required for user-specific actions",
+      "Advanced features locked behind paid plans"
+    ],
+    "alternatives": [
+      "Spotify Web API",
+      "Apple Music API",
+      "Deezer API"
+    ],
+    "faqs": [
+      {
+        "question": "Is SoundCloud API free to use?",
+        "answer": "Yes, it offers a free tier with rate limits; paid plans are available for higher usage and premium features like increased upload limits."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Public endpoints need an API key, while user-specific actions (uploading tracks) require OAuth2 authentication."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All API responses are in JSON format, providing structured data for tracks, users, playlists, and other content."
+      }
+    ]
+  },
+  {
+    "name": "New York Times",
+    "slug": "new-york-times",
+    "tagline": "Access New York Times articles, books, and multimedia content via API",
+    "description": "The New York Times API provides RESTful endpoints for accessing top stories, most popular articles (by views/shares), book reviews, article archives, and more. Responses are in JSON format. Key endpoints include Top Stories (breaking news by section), Most Popular (trending content), Books API (best sellers, reviews), and Article Search (full-text search with filters like date/section). Use cases: building news aggregation apps, content research tools, personalized news feeds, or integrating NYT content into educational platforms. Authentication requires an API key with freemium rate limits.",
+    "pricing_type": "Freemium",
+    "category": "News",
+    "collection": "publicapis",
+    "website_url": "https://developer.nytimes.com/",
+    "key_features": [
+      "RESTful architecture",
+      "JSON response format",
+      "Multiple endpoints (Top Stories, Most Popular, Books)",
+      "API key authentication",
+      "Advanced filtering options"
+    ],
+    "pros": [
+      "High-quality, credible news content",
+      "Diverse content types (articles, books, multimedia)",
+      "Well-documented with tutorials",
+      "Freemium tier available"
+    ],
+    "cons": [
+      "Rate-limited free tier",
+      "Requires API key registration",
+      "Some historical content has access restrictions",
+      "Paid tiers needed for high-volume usage"
+    ],
+    "alternatives": [
+      "NewsAPI",
+      "The Guardian API",
+      "BBC News API"
+    ],
+    "faqs": [
+      {
+        "question": "Is New York Times API free to use?",
+        "answer": "Yes, it offers a free tier with rate limits (e.g., up to 1000 requests/day for most endpoints). Paid plans are available for higher usage volumes."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, all endpoints require an API key, which can be obtained by registering for a free account on the NYT Developer Network."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, which is easy to parse and integrate into web or mobile applications."
+      }
+    ]
+  },
+  {
+    "name": "News API",
+    "slug": "news-api",
+    "tagline": "Freemium JSON API for real-time global news headlines",
+    "description": "The News API offers RESTful endpoints including /v2/top-headlines (filter by country, category, or source), /v2/everything (search articles by keyword, date range, or source), and /v2/sources (list supported news outlets). Responses are JSON-formatted, containing article details like title, description, URL, published date, source info, and author. Use cases include building news aggregators, integrating real-time headlines into dashboards, content curation tools, or personal news feeds to keep users updated on global events.",
+    "pricing_type": "Freemium",
+    "category": "News",
+    "collection": "publicapis",
+    "website_url": "https://newsapi.org/",
+    "key_features": [
+      "RESTful Architecture",
+      "JSON Responses",
+      "Multiple Filter Options",
+      "Global Source Coverage",
+      "Easy-to-Use Endpoints"
+    ],
+    "pros": [
+      "Simple integration",
+      "Wide range of news sources",
+      "Flexible search parameters",
+      "Free tier available"
+    ],
+    "cons": [
+      "Requires API key",
+      "Rate limits on free tier",
+      "Full article content locked to paid tiers",
+      "Limited historical data in free tier"
+    ],
+    "alternatives": [
+      "MediaStack API",
+      "Newscatcher API",
+      "Guardian Open Platform"
+    ],
+    "faqs": [
+      {
+        "question": "Is News API free to use?",
+        "answer": "Yes, it has a free tier with 100 requests/day and 1000 requests/month; paid tiers offer higher limits and premium features like full article content."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, all requests need a valid API key obtained by signing up on the News API website."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, including details like article title, description, URL, published date, source name, and author (where available)."
+      }
+    ]
+  },
+  {
+    "name": "Kaggle API",
+    "slug": "kaggle-api",
+    "tagline": "API for accessing Kaggle datasets, notebooks, competitions, and community features",
+    "description": "The Kaggle API enables programmatic interactions with Kaggle's ecosystem: datasets (download/upload metadata/versions), notebooks (create/run/share), competitions (submit entries), and user profiles. It uses RESTful endpoints with JSON responses. Key endpoints include /datasets/list (browse datasets), /notebooks/create (initiate notebooks), /competitions/submissions (submit solutions), and /users/get (retrieve profiles). Use cases: Automate dataset ingestion into ML pipelines, script notebook execution for reproducibility, integrate Kaggle data into analytics tools, and submit competition entries programmatically. Authentication requires an API key for secure access.",
+    "pricing_type": "Free",
+    "category": "Open Data",
+    "collection": "publicapis",
+    "website_url": "https://www.kaggle.com/docs/api",
+    "key_features": [
+      "RESTful",
+      "JSON responses",
+      "API key authentication",
+      "Dataset download/upload",
+      "Notebook automation",
+      "Competition submission support"
+    ],
+    "pros": [
+      "Free to use",
+      "Comprehensive feature set",
+      "Integrates with data science workflows",
+      "Supports automation of Kaggle tasks"
+    ],
+    "cons": [
+      "Requires API key setup",
+      "Rate limits apply for frequent requests",
+      "Some advanced features need Kaggle account permissions",
+      "Limited real-time data streaming support"
+    ],
+    "alternatives": [
+      "Data.world API",
+      "Hugging Face Datasets API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Kaggle API free to use?",
+        "answer": "Yes, the Kaggle API is free for all registered users, though some datasets may have specific usage restrictions based on their licenses."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, you need to generate an API key from your Kaggle account settings (under 'Account' > 'API' section) to authenticate requests."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "Most responses from the Kaggle API are in JSON format, which is widely compatible with data science tools and scripting languages like Python."
+      }
+    ]
+  },
+  {
+    "name": "University of Oslo Open Data API",
+    "slug": "university-of-oslo-open-data-api",
+    "tagline": "Open data API for University of Oslo courses, lecture videos, and detailed course information",
+    "description": "The University of Oslo Open Data API offers access to open educational resources from Norway’s leading university, including detailed course data (syllabi, instructors, schedules), lecture video metadata, and departmental course catalogs. Endpoints support filtering by subject, department, or academic year, and retrieving lecture links. Responses are primarily JSON, with some datasets available in CSV/XML. Use cases include building study tools, integrating course data into platforms, or academic research on UIO’s offerings. It’s accessible to developers, students, and educators for easy integration.",
+    "pricing_type": "Free",
+    "category": "Open Data",
+    "collection": "publicapis",
+    "website_url": "https://data.uio.no/",
+    "key_features": [
+      "RESTful interface",
+      "JSON/CSV/XML support",
+      "No API key required",
+      "Course & lecture metadata access",
+      "Filterable datasets by subject/department"
+    ],
+    "pros": [
+      "Free open access",
+      "Rich educational resources",
+      "Multiple data formats",
+      "Easy integration",
+      "Covers diverse content (courses, videos)"
+    ],
+    "cons": [
+      "Potential rate limits",
+      "Limited to UIO-specific data",
+      "Dataset documentation varies",
+      "No formal uptime SLA"
+    ],
+    "alternatives": [
+      "University of Bergen Open Data API",
+      "NTNU Open Data API",
+      "OsloMet Open Data API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the University of Oslo Open Data API free to use?",
+        "answer": "Yes, it is completely free for both commercial and non-commercial use, adhering to open data principles."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No, the API does not require an API key for accessing public open data resources."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "Most endpoints return JSON, with select datasets available in CSV or XML formats for flexibility."
+      }
+    ]
+  },
+  {
+    "name": "Udemy Instructor API",
+    "slug": "udemy-instructor-api",
+    "tagline": "API for Udemy instructors to manage courses, students, and performance metrics",
+    "description": "The Udemy Instructor API enables instructors to manage courses, student interactions, and performance metrics programmatically. Key endpoints include course creation/update, student enrollment retrieval, lecture management, sales reporting, and progress tracking. Responses follow JSON format and RESTful principles. Use cases: Automate course updates, sync student data with CRMs, generate custom revenue reports, or integrate enrollment info with third-party tools. Authentication requires OAuth 2.0 for secure access to instructor-specific data.",
+    "pricing_type": "Free (for active Udemy instructors)",
+    "category": "Education",
+    "collection": "publicapis",
+    "website_url": "https://www.udemy.com/developers/instructor/",
+    "key_features": [
+      "RESTful Architecture",
+      "JSON Response Format",
+      "OAuth 2.0 Authentication",
+      "Course Management",
+      "Student Data Access",
+      "Revenue & Progress Analytics"
+    ],
+    "pros": [
+      "Free for eligible instructors",
+      "Comprehensive course management tools",
+      "Secure OAuth 2.0 access",
+      "Detailed performance metrics"
+    ],
+    "cons": [
+      "Rate-limited requests",
+      "Requires active Udemy instructor account",
+      "Some endpoints restricted by tier",
+      "Limited to Udemy ecosystem"
+    ],
+    "alternatives": [
+      "Teachable Instructor API",
+      "Thinkific API",
+      "Skillshare Instructor API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Udemy Instructor API free to use?",
+        "answer": "Yes, it is free for active Udemy instructors who meet the platform's usage guidelines."
+      },
+      {
+        "question": "Does it require authentication?",
+        "answer": "Yes, the API uses OAuth 2.0 authentication to ensure secure access to instructor-specific data."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, compatible with most programming languages and tools."
+      }
+    ]
+  },
+  {
+    "name": "Google Photos API",
+    "slug": "google-photos-api",
+    "tagline": "Integrate Google Photos media management & sharing into your apps",
+    "description": "The Google Photos API enables developers to integrate Google Photos' media management into apps via RESTful endpoints. Responses are JSON-formatted. Key endpoints include mediaItems (list, get, search), albums (create, add media), sharedAlbums (join, leave), and library operations. It supports filtering media by date, location, or content type, plus metadata extraction (EXIF, geotags). Use cases: build auto-backup tools, create custom photo albums, share media with users, sync photos across devices, or analyze media metadata. Authentication uses OAuth 2.0 for secure user data access.",
+    "pricing_type": "Freemium",
+    "category": "Photography",
+    "collection": "publicapis",
+    "website_url": "https://developers.google.com/photos",
+    "key_features": [
+      "RESTful Architecture",
+      "JSON Response Format",
+      "OAuth 2.0 Authentication",
+      "Media Item Management",
+      "Album Creation & Sharing",
+      "Metadata Extraction",
+      "Batch Operations"
+    ],
+    "pros": [
+      "Reliable Google Infrastructure",
+      "Comprehensive Media Tools",
+      "High-Resolution Media Support",
+      "Seamless Google Account Integration",
+      "Batch Processing for Large Datasets"
+    ],
+    "cons": [
+      "Requires OAuth 2.0 Setup",
+      "Quota Limits on Requests",
+      "No Direct Media Editing",
+      "Limited to Google Photos Ecosystem"
+    ],
+    "alternatives": [
+      "Amazon Photos API",
+      "Apple Photos API",
+      "Dropbox Media API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Google Photos API free to use?",
+        "answer": "Yes, it provides free quota tiers (e.g., up to 10,000 requests per project daily). For higher usage volumes, you can upgrade to paid plans through Google Cloud."
+      },
+      {
+        "question": "Does the Google Photos API require authentication?",
+        "answer": "Yes, it uses OAuth 2.0 to securely access user-specific Google Photos data. An API key is also needed for non-user-specific operations like checking quota."
+      },
+      {
+        "question": "What response format does the Google Photos API use?",
+        "answer": "All API responses are in JSON format, including media metadata, album details, and pagination information for large result sets."
+      }
+    ]
+  },
+  {
+    "name": "Pixabay API",
+    "slug": "pixabay-api",
+    "tagline": "Free royalty-free stock media API for photos, videos, and music",
+    "description": "The Pixabay API grants access to millions of CC0-licensed stock photos, illustrations, vectors, videos, and music tracks. Its core endpoint (/api/) allows searching media with parameters like query, media type, orientation, color, and category. Responses are JSON-formatted, including media URLs, dimensions, tags, user info, and license metadata. Ideal for integrating free, copyright-free media into websites, mobile apps, content tools, or creative projects—both commercial and non-commercial.",
+    "pricing_type": "Free",
+    "category": "Photography",
+    "collection": "publicapis",
+    "website_url": "https://pixabay.com/sk/service/about/api/",
+    "key_features": [
+      "RESTful architecture",
+      "JSON response format",
+      "CC0 licensed media",
+      "Supports photos, videos, and music",
+      "Advanced search filters",
+      "Free API key",
+      "Pagination support"
+    ],
+    "pros": [
+      "100% free for all uses",
+      "No copyright restrictions",
+      "Large media library",
+      "Easy integration",
+      "Multiple media types available"
+    ],
+    "cons": [
+      "Rate-limited free tier",
+      "Requires API key registration",
+      "Limited advanced features vs paid alternatives",
+      "Some media may lack uniqueness compared to premium sources"
+    ],
+    "alternatives": [
+      "Unsplash API",
+      "Pexels API",
+      "StockSnap API",
+      "Burst API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Pixabay API free to use?",
+        "answer": "Yes, the Pixabay API is completely free for both commercial and non-commercial purposes—only a free API key (obtained via account registration) is required."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, you need to sign up for a free Pixabay account to get an API key, which must be included in every request to the API."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses from the Pixabay API are in JSON format, providing structured data about media items such as URLs, dimensions, tags, and license details."
+      }
+    ]
+  },
+  {
+    "name": "Shutterstock API",
+    "slug": "shutterstock-api",
+    "tagline": "Access millions of stock photos, videos, and music via API",
+    "description": "The Shutterstock API offers RESTful endpoints for searching, retrieving, and licensing stock photos, videos, illustrations, and audio tracks. Key endpoints include content search (with filters like keywords, orientation, and resolution), asset details, licensing management, and user account operations. Responses are in JSON format. Use cases include integrating stock media into design tools, e-commerce platforms, CMS systems, or marketing workflows to enable on-demand access to high-quality visual and audio content for commercial or editorial projects.",
+    "pricing_type": "Freemium",
+    "category": "Photography",
+    "collection": "publicapis",
+    "website_url": "https://api-reference.shutterstock.com/",
+    "key_features": [
+      "RESTful API",
+      "JSON Responses",
+      "Advanced Search Filters",
+      "Licensing Management",
+      "Content Preview Access",
+      "OAuth 2.0 Authentication"
+    ],
+    "pros": [
+      "Vast Library of Assets",
+      "Detailed Metadata",
+      "Comprehensive Documentation",
+      "Reliable Performance"
+    ],
+    "cons": [
+      "Paid Tiers for Commercial Use",
+      "Rate Limits on Free Plans",
+      "Complex Licensing Terms"
+    ],
+    "alternatives": [
+      "Unsplash API",
+      "Pexels API",
+      "Adobe Stock API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Shutterstock API free to use?",
+        "answer": "It offers a free trial with limited requests, but commercial use requires a paid subscription plan."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, you need an API key (and OAuth 2.0 for certain operations) for authentication."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, including search results, asset details, and licensing information."
+      }
+    ]
+  },
+  {
+    "name": "arXiv",
+    "slug": "arxiv-api",
+    "tagline": "Free REST API for accessing arXiv's curated research papers",
+    "description": "The arXiv API enables programmatic access to its curated repository of research papers spanning physics, mathematics, quantitative finance, and economics. Key endpoints include search (by keywords, authors, subjects), metadata retrieval (title, abstract, authors, submission date), and batch queries. Responses are formatted in XML. Use cases include building academic research tools, citation trackers, educational platforms integrating latest papers, or analyzing research trends. It supports filtering by subject area, date ranges, and author names to refine results efficiently.",
+    "pricing_type": "Free",
+    "category": "Science & Math",
+    "collection": "publicapis",
+    "website_url": "https://arxiv.org/help/api/user-manual",
+    "key_features": [
+      "RESTful",
+      "XML response format",
+      "No authentication required",
+      "Subject area filtering",
+      "Batch query support"
+    ],
+    "pros": [
+      "Free access to curated research metadata",
+      "Covers diverse STEM/econ disciplines",
+      "No API key needed",
+      "Flexible search parameters"
+    ],
+    "cons": [
+      "XML-only responses (no JSON option)",
+      "Rate-limited to prevent abuse",
+      "No full-text paper access via API"
+    ],
+    "alternatives": [
+      "PubMed Central API",
+      "IEEE Xplore API",
+      "SpringerLink API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the arXiv API free to use?",
+        "answer": "Yes, the arXiv API is completely free for non-commercial and commercial use with no subscription fees."
+      },
+      {
+        "question": "Does the arXiv API require an API key?",
+        "answer": "No, authentication is not required—you can make requests directly without an API key."
+      },
+      {
+        "question": "What is the response format of the arXiv API?",
+        "answer": "Responses are exclusively in XML format; there is no native JSON support at this time."
+      }
+    ]
+  },
+  {
+    "name": "SpaceX API",
+    "slug": "spacex-api",
+    "tagline": "Free REST API for SpaceX company, vehicle, launchpad, and launch data",
+    "description": "The SpaceX API provides RESTful endpoints for accessing detailed data on SpaceX’s company info, rockets, capsules, launchpads, launches, and missions. Responses are in JSON format. Key endpoints include /company (organizational stats), /rockets (vehicle specs), /launchpads (site details), and /launches (filterable by past/future or rocket type). Use cases: Build space-themed apps, educational projects, data visualizations of launch history, or integrate space data into science tools. It supports GET requests with query parameters for filtering results.",
+    "pricing_type": "Free",
+    "category": "Science & Math",
+    "collection": "publicapis",
+    "website_url": "https://github.com/r-spacex/SpaceX-API",
+    "key_features": [
+      "RESTful",
+      "JSON support",
+      "No Auth required",
+      "Filterable endpoints",
+      "Comprehensive space mission data"
+    ],
+    "pros": [
+      "No API key needed",
+      "Open source maintenance",
+      "Rich dataset (company, rockets, launches)",
+      "Easy to integrate"
+    ],
+    "cons": [
+      "Rate-limited (50 requests/minute)",
+      "No official SLA",
+      "Community-maintained (occasional update delays)"
+    ],
+    "alternatives": [
+      "NASA API (for broader space-related data)"
+    ],
+    "faqs": [
+      {
+        "question": "Is SpaceX API free to use?",
+        "answer": "Yes, the SpaceX API is completely free for both personal and commercial use without any cost."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No, authentication is not required to access any endpoints of the SpaceX API."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses from the SpaceX API are in JSON format, compatible with most programming languages and tools."
+      }
+    ]
+  },
+  {
+    "name": "Discord API",
+    "slug": "discord-api",
+    "tagline": "Build bots and integrate Discord into external platforms",
+    "description": "The Discord API is a RESTful and WebSocket-powered interface for developers to create bots, integrate Discord features into external apps, and automate interactions. Key endpoints cover guild management, channel operations, message handling, user authentication (OAuth2), and webhooks. Responses are JSON-formatted. Use cases include moderation bots, music players, syncing user data with third-party services, or adding Discord login to apps. It supports real-time event streaming (e.g., message updates, user joins) via WebSockets for dynamic integrations.",
+    "pricing_type": "Free",
+    "category": "Social",
+    "collection": "publicapis",
+    "website_url": "https://discord.com/developers/docs/intro",
+    "key_features": [
+      "RESTful Endpoints",
+      "WebSocket Real-Time Events",
+      "OAuth2 Authentication",
+      "JSON Responses",
+      "Bot Development Tools",
+      "Webhook Support"
+    ],
+    "pros": [
+      "Extensive Documentation",
+      "Large Developer Community",
+      "Real-Time Interaction Capabilities",
+      "Flexible Integration Options",
+      "OAuth2 Login Support"
+    ],
+    "cons": [
+      "Strict Rate Limits",
+      "Verification Required for Large Bots",
+      "Complex WebSocket Management for Beginners",
+      "Some Features Need Approval"
+    ],
+    "alternatives": [
+      "Slack API",
+      "Telegram Bot API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Discord API free to use?",
+        "answer": "Yes, the Discord API is free for most use cases, including building bots and basic integrations. Bots in over 100 servers require verification but remain free."
+      },
+      {
+        "question": "Does the Discord API require authentication?",
+        "answer": "Yes—you need to create an application in the Discord Developer Portal to get a bot token or OAuth2 credentials for API access."
+      },
+      {
+        "question": "What response format does the Discord API use?",
+        "answer": "The Discord API primarily uses JSON for REST responses and WebSocket event payloads, which is easy to parse with most programming languages."
+      }
+    ]
+  },
+  {
+    "name": "Facebook",
+    "slug": "facebook-api",
+    "tagline": "Comprehensive API for Facebook Login, Sharing, Social Plugins & Analytics",
+    "description": "The Facebook API provides RESTful endpoints for integrating core social features into apps and websites. Key endpoints include user profile retrieval (/me), content sharing (/share), authentication (Login), and Insights for performance tracking. Responses are primarily in JSON format. Use cases range from simplifying onboarding via Facebook Login, embedding Like/Comment plugins to boost engagement, sharing content across Facebook platforms, and leveraging analytics to understand user behavior. It uses OAuth 2.0 for secure authentication and offers SDKs for iOS, Android, and Web to streamline integration.",
+    "pricing_type": "Freemium",
+    "category": "Social",
+    "collection": "publicapis",
+    "website_url": "https://developers.facebook.com/",
+    "key_features": [
+      "RESTful Architecture",
+      "JSON Response Format",
+      "OAuth 2.0 Authentication",
+      "Multi-platform SDKs",
+      "Facebook Login",
+      "Content Sharing",
+      "Social Plugins",
+      "Analytics Insights"
+    ],
+    "pros": [
+      "Easy integration via official SDKs",
+      "Diverse feature set covering login, sharing, and analytics",
+      "Extensive documentation & community support",
+      "Scalable for high-traffic applications"
+    ],
+    "cons": [
+      "Strict rate limits for free tiers",
+      "Complex app review process for advanced features",
+      "Requires compliance with data privacy laws (GDPR, CCPA)",
+      "Potential API changes disrupting existing integrations"
+    ],
+    "alternatives": [
+      "LinkedIn API",
+      "Google Sign-In API",
+      "Twitter API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Facebook API free to use?",
+        "answer": "Basic features like Login, Sharing, and Social Plugins are free; advanced features (e.g., Ads API, premium Insights) may require paid plans."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes—create an app on Facebook Developers to get an App ID and Secret for authentication."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "Most endpoints return data in JSON format for seamless integration with modern apps."
+      }
+    ]
+  },
+  {
+    "name": "Kakao Social API",
+    "slug": "kakao-social-api",
+    "tagline": "Social integration API for Kakao Login, KakaoTalk sharing, and social plugins",
+    "description": "The Kakao Social API enables developers to integrate Kakao's core social features into apps/services. Key endpoints include OAuth2-based Kakao Login (user authentication), KakaoTalk content sharing (messages, links, media), and social plugins (Like, Comment, Share buttons). Responses are in JSON format. Use cases: Authenticate users via Kakao accounts, allow sharing to KakaoTalk chats/groups, embed social interaction tools on web/mobile apps. Ideal for apps targeting Korean users (Kakao is a leading platform in South Korea). Requires app registration and API key for access.",
+    "pricing_type": "Freemium",
+    "category": "Social",
+    "collection": "publicapis",
+    "website_url": "https://developers.kakao.com/",
+    "key_features": [
+      "Kakao Login integration",
+      "KakaoTalk content sharing",
+      "Social plugins (Like, Comment)",
+      "JSON response format",
+      "OAuth2 authentication",
+      "User profile access (with consent)"
+    ],
+    "pros": [
+      "Wide reach among Korean users",
+      "Comprehensive social feature set",
+      "Well-documented developer portal",
+      "Supports web and mobile apps",
+      "Seamless KakaoTalk integration"
+    ],
+    "cons": [
+      "Primarily focused on Korean market",
+      "Requires app approval for some features",
+      "Rate limits on free tier",
+      "OAuth setup required for authentication"
+    ],
+    "alternatives": [
+      "Naver Social API",
+      "Line Social API",
+      "Facebook Graph API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Kakao Social API free to use?",
+        "answer": "Basic usage (e.g., standard login, sharing) is free, but higher volume or premium features may require paid plans."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes—you need to register an app on the Kakao Developers portal to get an API key and OAuth credentials."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "Most endpoints return data in JSON format, which is easy to parse for web and mobile applications."
+      }
+    ]
+  },
+  {
+    "name": "NAVER API",
+    "slug": "naver-api",
+    "tagline": "NAVER Social Integration API for Login, Sharing & Plugins",
+    "description": "The NAVER API provides RESTful endpoints for social integration, including Login (OAuth 2.0-based user authentication), Share (content sharing to NAVER Blog/Cafe), and Social Plugins (Like, Comment widgets). Responses are in JSON format. Use cases include integrating NAVER login into web/mobile apps for seamless onboarding, enabling users to share content to NAVER’s social platforms, and embedding interactive plugins to enhance website engagement. It supports server-side and client-side integration with detailed documentation for each endpoint.",
+    "pricing_type": "Freemium",
+    "category": "Social",
+    "collection": "publicapis",
+    "website_url": "https://developers.naver.com/main/",
+    "key_features": [
+      "RESTful endpoints",
+      "OAuth 2.0 authentication",
+      "JSON responses",
+      "Social Plugins support",
+      "Cross-platform (web/mobile)"
+    ],
+    "pros": [
+      "Seamless NAVER ecosystem integration",
+      "Comprehensive documentation",
+      "Multiple social functions",
+      "Cross-platform compatibility"
+    ],
+    "cons": [
+      "Primarily Korean user focus",
+      "Requires NAVER developer account",
+      "Rate limits on free tiers"
+    ],
+    "alternatives": [
+      "KakaoTalk API",
+      "Facebook Graph API",
+      "Google Identity Services API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the NAVER API free to use?",
+        "answer": "Basic usage tiers are free, but enterprise plans with higher rate limits and premium support are available for a fee."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, you need to register as a NAVER developer and generate an API key (plus OAuth credentials for authentication endpoints)."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "Most endpoints return data in JSON format, compatible with web and mobile applications."
+      }
+    ]
+  },
+  {
+    "name": "Tumblr",
+    "slug": "tumblr",
+    "tagline": "Read and write Tumblr content via its official RESTful API",
+    "description": "The Tumblr API enables developers to interact with Tumblr's social platform, supporting read/write operations on posts, blogs, users, and tags. Key endpoints include GET /blog/{blog-name}/posts (fetch filtered posts), GET /user/info (authenticated user details), and POST /blog/{blog-name}/post (create text/photo/video posts). Responses are JSON-formatted. Use cases range from building post schedulers and content curation tools to integrating Tumblr content into social dashboards or analyzing engagement metrics. OAuth 1.0a authenticates write operations and private data access; public reads may require an API key.",
+    "pricing_type": "Free",
+    "category": "Social",
+    "collection": "publicapis",
+    "website_url": "https://www.tumblr.com/docs/en/api/v2",
+    "key_features": [
+      "RESTful Architecture",
+      "JSON Responses",
+      "OAuth 1.0a Authentication",
+      "Read/Write Access",
+      "Multiple Post Type Support",
+      "Filterable Endpoints"
+    ],
+    "pros": [
+      "Comprehensive Documentation",
+      "Free Usage",
+      "Diverse Content Operations",
+      "Cross-Platform Integration"
+    ],
+    "cons": [
+      "OAuth 1.0a Complexity",
+      "Strict Rate Limits",
+      "Limited Commercial Permissions",
+      "No Real-Time Webhooks"
+    ],
+    "alternatives": [
+      "Instagram Graph API",
+      "X (Twitter) API",
+      "Pinterest API",
+      "Reddit API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Tumblr API free to use?",
+        "answer": "Yes, the Tumblr API is free for most non-commercial and personal use cases, though rate limits apply to ensure fair platform usage."
+      },
+      {
+        "question": "Does the Tumblr API require authentication?",
+        "answer": "Write operations (e.g., creating posts) and private data access need OAuth 1.0a authentication. Public read operations may require an API key."
+      },
+      {
+        "question": "What is the response format of the Tumblr API?",
+        "answer": "All endpoints return responses in JSON format, which is widely supported for easy parsing in applications."
+      }
+    ]
+  },
+  {
+    "name": "VK API",
+    "slug": "vk-api",
+    "tagline": "Read and write data on the VK social network",
+    "description": "The VK API enables developers to interact with VK’s social network data, offering RESTful endpoints for accessing user profiles, posts, groups, messages, photos, and more (via OAuth 2.0 authentication). Responses are in JSON format. Use cases include integrating VK social features into apps, analyzing user activity/trends, automating content posting to pages, building community chatbots, and syncing VK data with external services. It supports both client-side (for web/mobile apps) and server-side authentication flows.",
+    "pricing_type": "Freemium",
+    "category": "Social",
+    "collection": "publicapis",
+    "website_url": "https://vk.com/dev/sites",
+    "key_features": [
+      "RESTful endpoints",
+      "JSON response format",
+      "OAuth 2.0 authentication",
+      "Access to user profiles, posts, groups, and messages",
+      "Chatbot integration support"
+    ],
+    "pros": [
+      "Comprehensive access to VK social data",
+      "Well-documented developer resources",
+      "Supports client/server-side auth flows",
+      "Wide range of social integration use cases"
+    ],
+    "cons": [
+      "Requires OAuth setup and user permissions for sensitive data",
+      "Rate limits apply to free tiers",
+      "Some advanced features need enterprise plans",
+      "English docs may be less detailed than Russian"
+    ],
+    "alternatives": [
+      "Facebook Graph API",
+      "Twitter API",
+      "Instagram API"
+    ],
+    "faqs": [
+      {
+        "question": "Is VK API free to use?",
+        "answer": "Basic usage is free, but rate limits apply. Enterprise plans with higher limits and priority support are paid."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes—register an app on VK Developers portal to get client ID/secret for OAuth 2.0 authentication."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "The VK API primarily uses JSON, which is widely supported by most programming languages and frameworks."
+      }
+    ]
+  },
+  {
+    "name": "Fitbit",
+    "slug": "fitbit",
+    "tagline": "API for accessing Fitbit fitness and health data",
+    "description": "The Fitbit API is a RESTful service enabling developers to retrieve user-specific fitness and health data, including activity (steps, calories, workouts), sleep patterns, heart rate zones, weight, and nutrition. It uses OAuth 2.0 for secure authentication, with JSON-formatted responses. Use cases include building apps that sync Fitbit data to wellness platforms, generate personalized insights, track long-term progress, or integrate with health tools. Endpoints cover user profiles, activity logs, sleep stages, device info, and support historical data retrieval and real-time updates where available.",
+    "pricing_type": "Freemium",
+    "category": "Sports & Fitness",
+    "collection": "publicapis",
+    "website_url": "https://dev.fitbit.com/",
+    "key_features": [
+      "RESTful",
+      "JSON Support",
+      "OAuth 2.0 Auth",
+      "Activity & Sleep Data Access",
+      "Real-time & Historical Data",
+      "Device Integration"
+    ],
+    "pros": [
+      "Comprehensive fitness data set",
+      "Well-documented",
+      "Strong community support",
+      "Multi-data category coverage",
+      "Device sync capabilities"
+    ],
+    "cons": [
+      "OAuth 2.0 setup complexity for beginners",
+      "Rate-limited",
+      "Advanced features require paid tiers",
+      "Data access dependent on user consent",
+      "Limited real-time metrics for some data points"
+    ],
+    "alternatives": [
+      "Apple HealthKit API",
+      "Google Fit API",
+      "Strava API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Fitbit API free to use?",
+        "answer": "Yes, it offers free tiers for personal/small-scale apps; enterprise/high-volume use requires paid plans."
+      },
+      {
+        "question": "Does it require an API key?",
+        "answer": "No—uses OAuth 2.0; you need a registered app's client ID and secret for authentication."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON, ensuring easy parsing and integration into most applications."
+      }
+    ]
+  },
+  {
+    "name": "Google Cloud Natural Language",
+    "slug": "google-cloud-natural-language",
+    "tagline": "Advanced natural language understanding API for text analysis tasks",
+    "description": "Google Cloud Natural Language API provides RESTful endpoints for sentiment analysis (polarity/magnitude scoring), entity recognition (identifying people, places, organizations with metadata), syntax parsing (parts of speech, dependency trees), and content classification. Responses are in JSON format. Use cases include analyzing customer feedback to gauge sentiment, extracting key entities from news articles/documents, automating content tagging for media platforms, and enhancing search relevance by understanding text structure and meaning. It supports multiple languages and integrates with other Google Cloud services like BigQuery.",
+    "pricing_type": "Freemium",
+    "category": "Text Analysis",
+    "collection": "publicapis",
+    "website_url": "https://cloud.google.com/natural-language/docs/",
+    "key_features": [
+      "RESTful API",
+      "JSON Response Format",
+      "Sentiment Analysis",
+      "Entity Recognition",
+      "Syntax Parsing",
+      "Content Classification",
+      "Multi-language Support",
+      "Google Cloud Integration"
+    ],
+    "pros": [
+      "Highly Accurate Models",
+      "Scalable Cloud Infrastructure",
+      "Comprehensive Feature Set",
+      "Multi-language Support",
+      "Seamless Google Cloud Ecosystem Integration"
+    ],
+    "cons": [
+      "Freemium Pricing (Paid Beyond Free Tier)",
+      "Requires Google Cloud Account Setup",
+      "Complex Pricing Tiers",
+      "Rate Limits on Free Tier",
+      "Steeper Learning Curve for New Users"
+    ],
+    "alternatives": [
+      "AWS Comprehend",
+      "Azure Text Analytics",
+      "IBM Watson Natural Language Understanding"
+    ],
+    "faqs": [
+      {
+        "question": "Is Google Cloud Natural Language API free to use?",
+        "answer": "Yes, it offers a free tier (e.g., 5,000 units/month for sentiment analysis) with paid plans available for higher usage volumes."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, you need to generate an API key or use OAuth 2.0 credentials via the Google Cloud Console to authenticate requests."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All API responses are in JSON, including structured data for sentiment scores, entities with types/metadata, syntax trees, and content classification results."
+      }
+    ]
+  },
+  {
+    "name": "Boston MBTA Transit",
+    "slug": "boston-mbta-transit",
+    "tagline": "Real-time transit data for Boston MBTA stations and arrival predictions",
+    "description": "The Boston MBTA Transit V3 API provides RESTful endpoints for accessing real-time predicted arrivals, station details (including accessibility info), route schedules, and service alerts. Responses are in JSON format. Key endpoints include /stations (list with geolocation), /predictions (real-time arrival times), /routes (mode and direction details), and /alerts (service disruptions). Use cases: Build rider apps showing next train/bus times, integrate into navigation tools, analyze transit patterns, or create accessibility-focused features for commuters.",
+    "pricing_type": "Free",
+    "category": "Transportation",
+    "collection": "publicapis",
+    "website_url": "https://www.mbta.com/developers/v3-api",
+    "key_features": [
+      "RESTful",
+      "JSON support",
+      "Real-time arrival data",
+      "Station accessibility details",
+      "Route and schedule info",
+      "Service alert notifications"
+    ],
+    "pros": [
+      "Free access",
+      "Comprehensive transit data",
+      "Covers multiple modes (subway, bus, rail)",
+      "Well-documented",
+      "Regular data updates"
+    ],
+    "cons": [
+      "Requires API key",
+      "Rate-limited requests",
+      "Complex filtering for some endpoints",
+      "No official SLA"
+    ],
+    "alternatives": [
+      "Chicago CTA Transit API",
+      "New York MTA API",
+      "LA Metro API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Boston MBTA Transit API free to use?",
+        "answer": "Yes, the MBTA V3 API is free for developers, though an API key is required for access."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, you need to register on the MBTA developers portal to obtain a free API key for making requests."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses from the MBTA Transit API are in JSON format, which is easy to parse and integrate into applications."
+      }
+    ]
+  },
+  {
+    "name": "Transitland API",
+    "slug": "transitland-api",
+    "tagline": "Open API for global public transit data aggregation",
+    "description": "Transitland API provides RESTful endpoints to access standardized public transit data (static feeds: routes, stops, schedules; real-time updates where available) from global sources. Responses are JSON-formatted and GTFS-compliant. Use cases include building transit navigation apps, analyzing network coverage, integrating transit info into mapping tools, or creating commuter journey planners. It simplifies access to diverse transit data without managing individual agency feeds.",
+    "pricing_type": "Freemium",
+    "category": "Transportation",
+    "collection": "publicapis",
+    "website_url": "https://github.com/transitland/transitland-datastore/blob/master/README.md#api-endpoints",
+    "key_features": [
+      "RESTful architecture",
+      "JSON responses",
+      "Global transit coverage",
+      "Static & real-time data",
+      "GTFS-compliant format"
+    ],
+    "pros": [
+      "Unified access to multi-source transit data",
+      "Free basic tier",
+      "Well-documented endpoints",
+      "Standardized data structures",
+      "Open-source ecosystem"
+    ],
+    "cons": [
+      "Rate limits on free usage",
+      "Real-time data availability varies by region",
+      "Advanced features require payment",
+      "Data freshness depends on source feeds"
+    ],
+    "alternatives": [
+      "Google Transit API",
+      "Moovit API",
+      "OpenTripPlanner API",
+      "HERE Transit API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Transitland API free to use?",
+        "answer": "Yes, it offers a free tier for basic access; advanced features like higher rate limits or premium data require a paid plan."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Some endpoints need an API key for authentication, especially for higher usage or premium features—check documentation for specific requirements."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All API responses are in JSON format, with fields derived from GTFS (General Transit Feed Specification) standards."
+      }
+    ]
+  },
+  {
+    "name": "CTS Realtime API",
+    "slug": "cts-realtime-api",
+    "tagline": "Realtime public transport data for Strasbourg's CTS network",
+    "description": "The CTS Realtime API provides realtime and scheduled data for Strasbourg’s CTS public transport system (trams, buses, trolleybuses). Key endpoints include GET /vehicles (GPS positions, line ID, direction), GET /stops/{stopId}/departures (next departures with delays), GET /lines/{lineId} (route stops and schedules), and GET /alerts (service disruptions). Responses are JSON-formatted. Ideal for building transit tracking apps, integrating schedules into navigation tools, displaying departure info at public stops, or powering local travel services for residents and tourists.",
+    "pricing_type": "Freemium",
+    "category": "Transportation",
+    "collection": "publicapis",
+    "website_url": "https://api.cts-strasbourg.eu/",
+    "key_features": [
+      "Realtime vehicle positions",
+      "Stop departure schedules",
+      "Route details",
+      "Service alerts",
+      "JSON responses",
+      "RESTful interface"
+    ],
+    "pros": [
+      "Accurate realtime data for Strasbourg transit",
+      "Covers trams, buses, and trolleybuses",
+      "Well-documented endpoints",
+      "Supports journey planning integrations"
+    ],
+    "cons": [
+      "Requires API key authentication",
+      "Rate limits for high-volume usage",
+      "Limited to Strasbourg’s CTS network",
+      "No XML response option"
+    ],
+    "alternatives": [
+      "RATP API (Paris)",
+      "Transport for London API"
+    ],
+    "faqs": [
+      {
+        "question": "Is CTS Realtime API free to use?",
+        "answer": "It offers a freemium model—free tier for low non-commercial usage and paid plans for higher volume or commercial needs."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, you need to register via the official portal to obtain an API key for endpoint access."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, enabling easy parsing and integration into modern applications."
+      }
+    ]
+  },
+  {
+    "name": "Grab",
+    "slug": "grab",
+    "tagline": "API for integrating Grab's transportation, delivery, and payment services",
+    "description": "The Grab API provides RESTful endpoints for tracking deliveries (real-time location/status updates), calculating ride fares (estimates/breakdowns), processing payments (transactions/refunds), and managing loyalty points (balance checks/redemptions). Responses are in JSON format. Use cases include building delivery management tools, integrating ride-hailing into apps, automating payment workflows, and creating loyalty dashboards. It supports OAuth2 authentication for secure access to enterprise-grade features.",
+    "pricing_type": "Freemium",
+    "category": "Transportation",
+    "collection": "publicapis",
+    "website_url": "https://developer.grab.com/docs/",
+    "key_features": [
+      "RESTful",
+      "JSON support",
+      "Real-time tracking",
+      "Fare calculation",
+      "Payment integration",
+      "Loyalty management",
+      "OAuth2 authentication"
+    ],
+    "pros": [
+      "Comprehensive service coverage",
+      "Real-time data access",
+      "Scalable for businesses",
+      "Well-documented"
+    ],
+    "cons": [
+      "Requires OAuth2 setup",
+      "Enterprise-focused entry barriers",
+      "Rate limits apply"
+    ],
+    "faqs": [
+      {
+        "question": "Is Grab API free to use?",
+        "answer": "Grab API offers a freemium model—free tiers for testing/development, with paid plans for production based on service volume and features."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, Grab API requires an API key plus OAuth2 authentication for secure endpoint access."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "The Grab API primarily returns responses in JSON format for easy integration with modern applications."
+      }
+    ]
+  },
+  {
+    "name": "Transport for Hessen, Germany",
+    "slug": "transport-for-hessen-germany",
+    "tagline": "Free public transport data API for Hessen, Germany (RMV)",
+    "description": "The Transport for Hessen (RMV) API provides static and real-time data for public transport services in Hessen, including buses, trains, trams, and regional lines. Key endpoints cover origin-destination route planning, real-time departure/arrival updates for stops, stop location details, and timetable information. Responses are formatted in JSON for seamless integration into apps or websites. Use cases include building commuter journey planners, displaying real-time transit info on digital signage, or integrating transport data into smart city platforms. Registration for an API key is required to access the endpoints.",
+    "pricing_type": "Free",
+    "category": "Transportation",
+    "collection": "publicapis",
+    "website_url": "https://opendata.rmv.de/site/start.html",
+    "key_features": [
+      "RESTful API",
+      "JSON responses",
+      "Real-time departure/arrival data",
+      "Static timetable data",
+      "Route planning",
+      "Stop location information",
+      "Covers multiple transport modes"
+    ],
+    "pros": [
+      "Free access",
+      "Official RMV data source",
+      "Combines real-time and static data",
+      "Comprehensive Hessen coverage"
+    ],
+    "cons": [
+      "Requires API key registration",
+      "Rate limits apply",
+      "Documentation primarily in German",
+      "Region-limited to Hessen"
+    ],
+    "alternatives": [
+      "DB Open Data API",
+      "VBB API (Berlin-Brandenburg)",
+      "HVV API (Hamburg)"
+    ],
+    "faqs": [
+      {
+        "question": "Is Transport for Hessen, Germany API free to use?",
+        "answer": "Yes, the API is free for both non-commercial and commercial use, though registration for an API key via the opendata.rmv.de portal is mandatory."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, an API key is required to access all endpoints. You can obtain one by registering on the official RMV open data website."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "The API primarily returns data in JSON format, which is widely supported and easy to parse for application integration."
+      }
+    ]
+  },
+  {
+    "name": "NextBus API",
+    "slug": "nextbus-api",
+    "tagline": "Real-time public transit data API for U.S. agencies using NextBus",
+    "description": "The NextBus API provides real-time transit information (arrival predictions, routes, stops, vehicle locations) for participating U.S. public transport agencies. It uses XML as the primary response format. Key endpoints include agency-specific route lists, stop details, real-time arrival predictions, and vehicle positions. Requests are HTTP GET with parameters like agency tag, route tag, and stop tag. Use cases: Integrate into transit apps for live arrival updates, build commuter tools, or analyze transit performance.",
+    "pricing_type": "Free",
+    "category": "Transportation",
+    "collection": "publicapis",
+    "website_url": "https://retro.umoiq.com/xmlFeedDocs/NextBusXMLFeed.pdf",
+    "key_features": [
+      "Real-time transit data",
+      "XML response format",
+      "Agency-specific endpoints",
+      "Arrival predictions",
+      "Vehicle location tracking",
+      "No API key required",
+      "HTTP GET support"
+    ],
+    "pros": [
+      "Free to use",
+      "Wide coverage of U.S. transit agencies",
+      "Reliable real-time data",
+      "Simple integration with GET requests"
+    ],
+    "cons": [
+      "XML-only response (no JSON option)",
+      "Limited to NextBus-partnered agencies",
+      "No official SLA for uptime",
+      "Rate limits not explicitly documented"
+    ],
+    "alternatives": [
+      "GTFS Realtime API",
+      "Transitland API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the NextBus API free to use?",
+        "answer": "Yes, the NextBus API is free for public use without any subscription fees or hidden costs."
+      },
+      {
+        "question": "Does it require an API key?",
+        "answer": "No, the NextBus API does not require an API key to access its XML feed endpoints for basic functionality."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "The NextBus API returns data exclusively in XML format, as specified in its official documentation."
+      }
+    ]
+  },
+  {
+    "name": "Uber",
+    "slug": "uber",
+    "tagline": "API for Uber ride requests, price estimates, and transportation services",
+    "description": "The Uber API provides RESTful endpoints for ride requests, real-time price estimates, ride status tracking, and driver info retrieval. Responses are JSON-formatted. Key endpoints include /estimates/price (fare quotes), /requests (book rides), and /requests/{id} (status checks). Use cases: integrate ride-booking into travel apps, corporate tools, or local services; enable users to book rides, get cost projections, and track journeys without leaving third-party platforms. Authentication uses OAuth 2.0 for secure access.",
+    "pricing_type": "Freemium",
+    "category": "Transportation",
+    "collection": "publicapis",
+    "website_url": "https://developer.uber.com/products",
+    "key_features": [
+      "RESTful architecture",
+      "JSON response format",
+      "OAuth 2.0 authentication",
+      "Ride request functionality",
+      "Price estimation endpoints",
+      "Real-time ride status updates"
+    ],
+    "pros": [
+      "Widely recognized transportation network",
+      "Comprehensive feature set for rides",
+      "Real-time data integration",
+      "Scalable for business applications"
+    ],
+    "cons": [
+      "Requires OAuth 2.0 authentication",
+      "Rate limits on free tiers",
+      "Regional service availability constraints",
+      "Dependent on Uber's operational status"
+    ],
+    "alternatives": [
+      "Lyft API",
+      "Grab API",
+      "Ola API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Uber API free to use?",
+        "answer": "The Uber API offers a freemium model—basic access for testing and small-scale use is free, but enterprise plans with higher rate limits and advanced features require payment."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, the Uber API requires OAuth 2.0 authentication, which involves obtaining an API key and access token from the Uber Developer Portal."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses from the Uber API are in JSON format, ensuring easy integration with most programming languages and platforms."
+      }
+    ]
+  },
+  {
+    "name": "Velib Metropole (Paris, France)",
+    "slug": "velib-metropole-paris-france",
+    "tagline": "Free Open Data API for Velib Metropole bike share service in Paris, France",
+    "description": "The Velib Metropole Open Data API provides real-time and static data for Paris’s public bike share system via GBFS (General Bikeshare Feed Specification) endpoints. Key endpoints include station_status (real-time bike/dock availability), station_information (location, capacity), system_information (service details), and free_bike_status (floating bikes). Responses are in JSON format. Use cases include developing apps to locate nearby bikes/docks, integrating mobility data into navigation tools, conducting urban transport analytics, and creating commuter dashboards for eco-friendly trips.",
+    "pricing_type": "Free",
+    "category": "Transportation",
+    "collection": "publicapis",
+    "website_url": "https://www.velib-metropole.fr/donnees-open-data-gbfs-du-service-velib-metropole",
+    "key_features": [
+      "GBFS compliant",
+      "RESTful",
+      "JSON support",
+      "No authentication required",
+      "Real-time station availability data"
+    ],
+    "pros": [
+      "Easy to integrate (GBFS standard)",
+      "Free open access",
+      "Covers all Paris Velib stations"
+    ],
+    "cons": [
+      "Potential rate limits",
+      "No official SLA",
+      "Limited historical data access"
+    ],
+    "alternatives": [
+      "JCDecaux Bike Share API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Velib Metropole API free to use?",
+        "answer": "Yes, it is a free open data service provided by Velib Metropole for public access."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No, authentication is not required to access the public GBFS endpoints of the Velib Metropole API."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses follow the GBFS specification and are in JSON format."
+      }
+    ]
+  },
+  {
+    "name": "TinyURL",
+    "slug": "tinyurl",
+    "tagline": "Simple URL shortening API for compact, shareable links",
+    "description": "The TinyURL API enables programmatic URL shortening and link management. Key endpoints include POST /api-create (to generate a shortened URL from a long link) and GET /api-stats (to retrieve click metrics like total visits and geographic data for shortened links). Responses are formatted in JSON. Ideal for integrating into social media tools, email marketing platforms, content management systems, or mobile apps to reduce link length and track engagement with shared content.",
+    "pricing_type": "Freemium",
+    "category": "URL Shorteners",
+    "collection": "publicapis",
+    "website_url": "https://tinyurl.com/app/dev",
+    "key_features": [
+      "RESTful API",
+      "JSON responses",
+      "Link analytics",
+      "Custom alias support",
+      "API key authentication"
+    ],
+    "pros": [
+      "Easy integration with minimal setup",
+      "Reliable link uptime",
+      "Detailed click tracking",
+      "Option for custom shortened URLs"
+    ],
+    "cons": [
+      "Rate limits apply to free tier",
+      "Advanced features (like custom domains) require paid plans",
+      "Limited support for bulk shortening in free mode"
+    ],
+    "alternatives": [
+      "Bitly API",
+      "Rebrandly API",
+      "Short.io API"
+    ],
+    "faqs": [
+      {
+        "question": "Is TinyURL API free to use?",
+        "answer": "Yes, it offers a free tier with basic URL shortening capabilities; advanced features like custom domains and higher rate limits require a paid subscription."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, you need to register for an API key via the TinyURL developer portal to access the API endpoints."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All API responses are in JSON format, including shortened link details and analytics data."
+      }
+    ]
+  },
+  {
+    "name": "Mercedes-Benz",
+    "slug": "mercedes-benz",
+    "tagline": "Access Mercedes-Benz telematics, remote vehicle functions, configurator, and dealer locator data",
+    "description": "The Mercedes-Benz API provides RESTful endpoints for telematics data (vehicle status, fuel level, battery info), remote vehicle functions (lock/unlock doors, start climate control), car configurator tools (customize vehicle specs), and service dealer locator. Responses are in JSON format. Use cases include building connected car apps for drivers, integrating vehicle data into fleet management systems, creating interactive car configuration platforms, and helping users find nearby authorized dealers. It uses OAuth2 authentication for secure access to vehicle data.",
+    "pricing_type": "Freemium",
+    "category": "Vehicle",
+    "collection": "publicapis",
+    "website_url": "https://developer.mercedes-benz.com/apis",
+    "key_features": [
+      "RESTful",
+      "JSON support",
+      "OAuth2 Authentication",
+      "Telematics data access",
+      "Remote vehicle control",
+      "Car configurator endpoints",
+      "Dealer locator",
+      "Secure data transmission"
+    ],
+    "pros": [
+      "Official Mercedes-Benz vehicle data",
+      "Comprehensive feature set",
+      "Supports multiple use cases",
+      "Well-documented developer resources"
+    ],
+    "cons": [
+      "Requires OAuth2 authentication",
+      "Rate limits on free tiers",
+      "Limited to Mercedes-Benz vehicles",
+      "Advanced features need vehicle subscription"
+    ],
+    "faqs": [
+      {
+        "question": "Is Mercedes-Benz API free to use?",
+        "answer": "It offers a freemium model—basic access is free, while paid tiers unlock advanced features and higher rate limits."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, you need to register for an API key and use OAuth2 authentication to access the endpoints."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All API responses are in JSON format, enabling easy parsing and integration into web or mobile applications."
+      }
+    ]
+  },
+  {
+    "name": "Breaking Bad",
+    "slug": "breaking-bad",
+    "tagline": "Free API for Breaking Bad & Better Call Saul universe data",
+    "description": "The Breaking Bad API offers RESTful access to curated data from Breaking Bad and Better Call Saul. Key endpoints include /characters (detailed profiles), /episodes (air dates, titles), /quotes (iconic lines), /deaths (death stats), and /better-call-saul/quotes (spin-off quotes). Responses are JSON-formatted and support filtering (e.g., character name) and pagination. Ideal for building fan trivia apps, social media quote bots, franchise-themed websites, or integrating pop culture data into educational content.",
+    "pricing_type": "Free",
+    "category": "Video",
+    "collection": "publicapis",
+    "website_url": "https://breakingbadapi.com/documentation",
+    "key_features": [
+      "RESTful",
+      "JSON support",
+      "No Auth required",
+      "Multiple endpoints (characters, episodes, quotes)",
+      "Filtering options",
+      "Includes Better Call Saul data"
+    ],
+    "pros": [
+      "Easy to integrate (no API key)",
+      "Comprehensive franchise data",
+      "Well-documented",
+      "Free for all use cases"
+    ],
+    "cons": [
+      "Rate limited (unpublished limits)",
+      "No SLA guarantee",
+      "Niche focus",
+      "Static data (no real-time updates)"
+    ],
+    "alternatives": [
+      "Rick and Morty API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Breaking Bad API free to use?",
+        "answer": "Yes, it is completely free for both non-commercial and commercial projects."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No, authentication is not needed to access any of its endpoints."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are returned in JSON format for easy parsing and integration into applications."
+      }
+    ]
+  },
+  {
+    "name": "Dailymotion",
+    "slug": "dailymotion",
+    "tagline": "API for accessing Dailymotion's video platform content and features",
+    "description": "The Dailymotion API offers RESTful access to the platform’s video ecosystem, including endpoints for searching/retrieving video metadata, uploading content, managing user profiles/playlists, and accessing viewership analytics. Responses are in JSON format. Use cases include integrating Dailymotion videos into third-party apps, building custom players, automating creator uploads, embedding curated content on websites, and analyzing video performance trends. It supports both read and write operations to leverage the platform’s global library and community tools.",
+    "pricing_type": "Freemium",
+    "category": "Video",
+    "collection": "publicapis",
+    "website_url": "https://developer.dailymotion.com/",
+    "key_features": [
+      "RESTful",
+      "JSON support",
+      "OAuth 2.0 Auth",
+      "Video upload & management",
+      "Search & metadata retrieval",
+      "Analytics access",
+      "Playlist management"
+    ],
+    "pros": [
+      "Comprehensive video ecosystem access",
+      "Supports read/write operations",
+      "Detailed analytics endpoints",
+      "Well-documented with SDKs",
+      "Global content library"
+    ],
+    "cons": [
+      "Rate-limited free tier",
+      "OAuth required for write operations",
+      "Advanced features need paid plans",
+      "Limited to Dailymotion’s content ecosystem"
+    ],
+    "alternatives": [
+      "YouTube Data API",
+      "Vimeo API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Dailymotion API free to use?",
+        "answer": "Yes, it offers a free tier with rate limits; paid plans are available for higher usage and advanced features like increased upload quotas."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, an API key is needed for basic read operations, and OAuth 2.0 authentication is required for write actions (uploads, profile management) or user-specific data access."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All endpoints return responses in JSON format, providing structured data for videos, users, playlists, and analytics."
+      }
+    ]
+  },
+  {
+    "name": "Harry Potter Characters",
+    "slug": "harry-potter-characters",
+    "tagline": "Free Harry Potter Characters Data API with Imagery",
+    "description": "The Harry Potter Characters API provides detailed data on characters from the Harry Potter universe, including names, house affiliations, wand specs, patronus forms, and image URLs. Key endpoints include /api/characters (all characters), /api/characters/house/{house} (filter by house), /api/characters/students (student characters), and /api/characters/staff (staff members). Responses are in JSON format for easy integration. Ideal use cases: building fan websites, creating video content featuring characters, educational tools about the series, or integrating data into games/visual apps. It supports CORS for client-side web applications.",
+    "pricing_type": "Free",
+    "category": "Video",
+    "collection": "publicapis",
+    "website_url": "https://hp-api.herokuapp.com/",
+    "key_features": [
+      "RESTful HTTP API",
+      "JSON Response Format",
+      "No Authentication Required",
+      "Includes Character Imagery",
+      "Filtering by House/Student/Staff",
+      "CORS Support"
+    ],
+    "pros": [
+      "No API key needed",
+      "Comprehensive character profiles",
+      "Free unlimited usage",
+      "Easy-to-integrate endpoints",
+      "CORS enabled for client-side apps"
+    ],
+    "cons": [
+      "Potential downtime (Heroku free tier)",
+      "No official SLA",
+      "Limited to Harry Potter universe only"
+    ],
+    "alternatives": [
+      "SWAPI (Star Wars Characters API)",
+      "The One API (Tolkien Universe Data)"
+    ],
+    "faqs": [
+      {
+        "question": "Is Harry Potter Characters API free to use?",
+        "answer": "Yes, it is completely free with no usage limits or subscription fees."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No, authentication is not needed—all endpoints are accessible without a key."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, containing character details like name, house, wand specs, patronus, and image URL."
+      }
+    ]
+  },
+  {
+    "name": "IMDbOT",
+    "slug": "imdbot",
+    "tagline": "Unofficial API for IMDb movie and series information",
+    "description": "IMDbOT is an unofficial RESTful API that scrapes IMDb to provide access to movie and series data, including titles, ratings, release dates, cast/crew, plot summaries, genres, and runtime details. It supports endpoints for content search, specific title retrieval, and cast list access. Responses are formatted in JSON for seamless integration. Ideal use cases include building movie recommendation platforms, enhancing media libraries with metadata, creating trivia tools, or adding entertainment info to blogs. Note: As an unofficial tool, usage may violate IMDb’s terms of service, so users should exercise caution.",
+    "pricing_type": "Free",
+    "category": "Video",
+    "collection": "publicapis",
+    "website_url": "https://github.com/SpEcHiDe/IMDbOT",
+    "key_features": [
+      "RESTful Interface",
+      "JSON Support",
+      "Comprehensive Media Metadata",
+      "Search Functionality",
+      "Cast/Crew Details"
+    ],
+    "pros": [
+      "Free & Open-Source",
+      "No API Key Required",
+      "Easy to Integrate",
+      "Wide Range of Media Data"
+    ],
+    "cons": [
+      "Unofficial (Potential TOS Violations)",
+      "No Official Support",
+      "Scraping-Dependent Reliability",
+      "Risk of Downtime or Blocking"
+    ],
+    "alternatives": [
+      "OMDb API",
+      "TMDb API"
+    ],
+    "faqs": [
+      {
+        "question": "Is IMDbOT free to use?",
+        "answer": "Yes, IMDbOT is completely free and open-source with no usage costs."
+      },
+      {
+        "question": "Does IMDbOT require an API key?",
+        "answer": "No, IMDbOT does not require an API key for accessing its endpoints."
+      },
+      {
+        "question": "What response format does IMDbOT use?",
+        "answer": "IMDbOT returns data in JSON format, which is widely compatible for application integration."
+      }
+    ]
+  },
+  {
+    "name": "Ron Swanson Quotes",
+    "slug": "ron-swanson-quotes",
+    "tagline": "Free API for iconic Ron Swanson quotes from Parks and Recreation",
+    "description": "The Ron Swanson Quotes API provides access to memorable lines from the beloved Parks and Recreation character. It offers a simple RESTful GET endpoint to retrieve random quotes, with optional parameters for filtering (if available). Responses are structured in JSON, including the quote text and occasionally episode context. Ideal for integrating into fun projects like chatbots, social media tools, blog widgets, or educational resources teaching basic API usage. This no-auth service is lightweight and perfect for adding humor or nostalgia from the hit TV show to applications.",
+    "pricing_type": "Free",
+    "category": "Video",
+    "collection": "publicapis",
+    "website_url": "https://github.com/jamesseanwright/ron-swanson-quotes#ron-swanson-quotes-api",
+    "key_features": [
+      "RESTful API",
+      "JSON Response Format",
+      "No Authentication Required",
+      "Random Quote Endpoint",
+      "Open Source Documentation"
+    ],
+    "pros": [
+      "Easy to integrate with minimal setup",
+      "No API key needed",
+      "Lightweight JSON responses",
+      "Open source data"
+    ],
+    "cons": [
+      "Limited to Ron Swanson quotes only",
+      "No official SLA or support",
+      "Rate limits not explicitly documented"
+    ],
+    "alternatives": [
+      "Simpsons Quotes API",
+      "Friends Quote API",
+      "Seinfeld Quotes API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Ron Swanson Quotes API free to use?",
+        "answer": "Yes, it is free for both personal and non-commercial use."
+      },
+      {
+        "question": "Does this API require an API key?",
+        "answer": "No, authentication is not required—you can directly send GET requests to the endpoint."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, typically containing the quote text."
+      },
+      {
+        "question": "Can I retrieve multiple quotes at once?",
+        "answer": "Check the official documentation; some implementations support fetching multiple random quotes via query parameters like 'count'."
+      }
+    ]
+  },
+  {
+    "name": "Stream.cz API",
+    "slug": "stream-cz-api",
+    "tagline": "Free GraphQL API for Czech Internet Television, Films, Series & Online Videos",
+    "description": "The Stream.cz API is a GraphQL-based interface granting access to free Czech media content—including TV shows, films, series, and online videos. It supports queries for video metadata (titles, descriptions, genres), streaming URLs, and category listings. Responses are formatted in JSON, adhering to GraphQL standards. Use cases include building third-party apps for browsing Czech media, integrating free streams into platforms, or creating personalized discovery tools for Czech-speaking audiences. Regional restrictions may apply due to content licensing rules.",
+    "pricing_type": "Free",
+    "category": "Video",
+    "collection": "publicapis",
+    "website_url": "https://api.stream.cz/graphiql",
+    "key_features": [
+      "GraphQL-based",
+      "Free access",
+      "JSON responses",
+      "Czech media library",
+      "Metadata & stream link retrieval"
+    ],
+    "pros": [
+      "No cost to use",
+      "Extensive Czech content library",
+      "Flexible GraphQL querying",
+      "No subscription barriers"
+    ],
+    "cons": [
+      "Region-locked to Czech Republic",
+      "Limited to Czech-language content",
+      "GraphQL learning curve for new users",
+      "Potential rate limits for heavy usage"
+    ],
+    "alternatives": [
+      "iPrima API",
+      "YouTube Data API",
+      "Vimeo API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Stream.cz API free to use?",
+        "answer": "Yes, the API provides free access to Czech internet television, films, series, and online videos without subscription fees."
+      },
+      {
+        "question": "Does it require an API key?",
+        "answer": "The public GraphiQL interface does not explicitly mandate an API key, but production integrations may need authentication (refer to official guidelines for details)."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "Responses are in JSON, consistent with GraphQL API standards for structured data retrieval."
+      }
+    ]
+  },
+  {
+    "name": "The Lord of the Rings",
+    "slug": "the-lord-of-the-rings",
+    "tagline": "Comprehensive API for Lord of the Rings books, movies, characters, and quotes",
+    "description": "The Lord of the Rings API provides RESTful access to Tolkien's legendarium data, including endpoints for books, movies (with box office stats), characters, quotes, and chapters. Responses are JSON-formatted and support filtering, sorting, and pagination. Ideal for building fan websites, trivia apps, educational tools, or integrating LOTR content into games. Key endpoints: /book (list all books), /movie (film details), /character (profiles), /quote (famous lines), and /chapter (book sections). Developers can tailor results to specific needs, like fetching quotes from a particular character or filtering movies by release year.",
+    "pricing_type": "Freemium",
+    "category": "Video",
+    "collection": "publicapis",
+    "website_url": "https://the-one-api.dev/",
+    "key_features": [
+      "RESTful",
+      "JSON support",
+      "Filtering & sorting",
+      "Pagination",
+      "Covers books/movies/characters/quotes",
+      "Freemium access"
+    ],
+    "pros": [
+      "Rich Tolkien dataset",
+      "Well-documented",
+      "Easy to integrate",
+      "Supports advanced querying"
+    ],
+    "cons": [
+      "Requires API key for all requests",
+      "Rate-limited free tier",
+      "Limited data for minor characters"
+    ],
+    "alternatives": [
+      "Tolkien Gateway API"
+    ],
+    "faqs": [
+      {
+        "question": "Is The Lord of the Rings API free to use?",
+        "answer": "Yes, it offers a free tier with limited requests per minute. Paid tiers are available for higher usage limits and additional features."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, all requests need an API key, which you can obtain by registering on the official website."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses are in JSON format, compatible with most programming languages and frameworks."
+      }
+    ]
+  },
+  {
+    "name": "The Vampire Diaries API",
+    "slug": "the-vampire-diaries-api",
+    "tagline": "Free JSON API for The Vampire Diaries TV show data",
+    "description": "This RESTful API offers detailed data for The Vampire Diaries TV series, including endpoints for characters (with bios and roles), episodes (air dates, summaries, and guest stars), seasons (overview and episode counts), and memorable quotes. Responses are in JSON format, enabling seamless integration. Ideal use cases include building fan websites, trivia apps, quiz bots, or adding show-specific content to entertainment platforms.",
+    "pricing_type": "Free",
+    "category": "Video",
+    "collection": "publicapis",
+    "website_url": "https://vampire-diaries-api.netlify.app/",
+    "key_features": [
+      "RESTful architecture",
+      "JSON response format",
+      "No authentication required",
+      "Covers characters, episodes, seasons, and quotes",
+      "CORS-enabled for frontend integration"
+    ],
+    "pros": [
+      "Easy to integrate (no API key needed)",
+      "Comprehensive dataset for the entire series",
+      "Fast response times (hosted on Netlify)",
+      "Free for personal and non-commercial use"
+    ],
+    "cons": [
+      "Limited to only The Vampire Diaries show",
+      "No official SLA or uptime guarantee",
+      "May not include rare or niche data points",
+      "No rate limit documentation available"
+    ],
+    "alternatives": [
+      "TVmaze API",
+      "The Movie Database (TMDb) API"
+    ],
+    "faqs": [
+      {
+        "question": "Is The Vampire Diaries API free to use?",
+        "answer": "Yes, it is completely free for personal and non-commercial purposes with no usage fees."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "No, authentication is not required—you can send requests directly to the endpoints without an API key."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All API responses are returned in JSON format, which is lightweight and widely supported by programming languages and tools."
+      }
+    ]
+  },
+  {
+    "name": "TVDB API",
+    "slug": "tvdb-api",
+    "tagline": "Comprehensive television metadata API",
+    "description": "The TVDB API delivers JSON-formatted metadata for television shows, including episodes, seasons, cast/crew details, ratings, air dates, and high-quality images. Key endpoints include /search/shows (title-based search), /shows/{id} (show overview), /shows/{id}/episodes (episode lists), and /episodes/{id} (episode specifics). It supports use cases like powering media centers (e.g., Kodi), TV trackers, streaming platforms, or content discovery apps, offering localized content in multiple languages to enhance TV-related services with detailed, up-to-date information.",
+    "pricing_type": "Freemium",
+    "category": "Video",
+    "collection": "publicapis",
+    "website_url": "https://thetvdb.com/api-information",
+    "key_features": [
+      "RESTful",
+      "JSON support",
+      "Multi-language localized metadata",
+      "High-quality image assets",
+      "Detailed episode/season data",
+      "Cast and crew information",
+      "Advanced search capabilities"
+    ],
+    "pros": [
+      "Extensive TV show coverage (old and new)",
+      "Multi-language content support",
+      "Regular data updates",
+      "Rich image library (posters, banners)",
+      "Well-documented API"
+    ],
+    "cons": [
+      "Rate-limited free tier",
+      "Requires API key authentication",
+      "Commercial features behind paid plans",
+      "Occasional user-contributed data inconsistencies"
+    ],
+    "alternatives": [
+      "TMDB TV API",
+      "TVMaze API",
+      "IMDb API"
+    ],
+    "faqs": [
+      {
+        "question": "Is TVDB API free to use?",
+        "answer": "Yes, it offers a free tier for basic access, with paid plans available for higher rate limits, commercial use, and advanced features."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes, all requests to the TVDB API require authentication via a valid API key."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All responses from the TVDB API are in JSON format, providing structured and easy-to-integrate metadata."
+      }
+    ]
+  },
+  {
+    "name": "Vimeo Developer API",
+    "slug": "vimeo-developer-api",
+    "tagline": "API for managing, embedding, and analyzing Vimeo video content",
+    "description": "The Vimeo Developer API offers RESTful endpoints for video management tasks—uploads, playback, metadata (titles, tags, captions), playlists, comments, and performance analytics. Responses are JSON-formatted. Developers can embed custom players, automate bulk video workflows, retrieve engagement metrics (views, watch time), manage user accounts via OAuth 2.0, and integrate Vimeo content into websites/apps. It supports private/public videos, live streaming (premium tiers), and adaptive bitrate playback. Ideal for media platforms, e-learning tools, and CMS needing scalable video solutions.",
+    "pricing_type": "Freemium",
+    "category": "Video",
+    "collection": "publicapis",
+    "website_url": "https://developer.vimeo.com/",
+    "key_features": [
+      "RESTful API",
+      "JSON Responses",
+      "OAuth 2.0 Authentication",
+      "Video Upload/Management",
+      "Custom Player Embedding",
+      "Performance Analytics",
+      "Playlist Handling",
+      "Live Streaming (Premium)"
+    ],
+    "pros": [
+      "Comprehensive video tools",
+      "Detailed analytics",
+      "Customizable embeds",
+      "Reliable playback CDN",
+      "Well-documented"
+    ],
+    "cons": [
+      "Free tier limits uploads/requests",
+      "Premium plans are costly",
+      "OAuth setup required for user actions",
+      "Live streaming restricted to paid tiers"
+    ],
+    "alternatives": [
+      "YouTube Data API",
+      "Wistia API",
+      "Dailymotion Developer API"
+    ],
+    "faqs": [
+      {
+        "question": "Is Vimeo Developer API free to use?",
+        "answer": "Yes, it provides a free tier with basic access (e.g.,5GB monthly uploads,1000 daily API requests). Premium tiers offer higher limits, live streaming, and priority support."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Yes—create an app on the Vimeo Developer Portal to get an API key. Most endpoints need OAuth2.0 for user-specific actions like uploading videos."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "All API responses are in JSON format, widely supported and easy to integrate into most programming languages."
+      }
+    ]
+  },
+  {
+    "name": "YouTube API",
+    "slug": "youtube-api",
+    "tagline": "Integrate YouTube video functionality into your websites and applications",
+    "description": "The YouTube API enables developers to embed and manage YouTube content in apps/websites. Key endpoints include video search, retrieval of video/channel/playlist details, uploads, comment management, and analytics access. Responses are JSON-formatted. Use cases range from embedding custom video players, curating dynamic playlists, analyzing channel metrics (views, subscribers), to enabling direct video uploads from apps. It supports OAuth 2.0 for authenticated actions (e.g., user playlist management) and API keys for public data access.",
+    "pricing_type": "Freemium",
+    "category": "Video",
+    "collection": "publicapis",
+    "website_url": "https://developers.google.com/youtube/",
+    "key_features": [
+      "RESTful architecture",
+      "JSON response format",
+      "OAuth 2.0 authentication",
+      "Video search & retrieval",
+      "Playlist management",
+      "Video upload support",
+      "Channel analytics access"
+    ],
+    "pros": [
+      "Comprehensive video functionality",
+      "Extensive documentation",
+      "Seamless Google Cloud integration",
+      "Supports public and authenticated operations",
+      "Scalable for high traffic"
+    ],
+    "cons": [
+      "Free tier has quota limits",
+      "Requires API key/OAuth setup",
+      "Advanced features need paid plans",
+      "Strict rate limits",
+      "Policy compliance mandatory"
+    ],
+    "alternatives": [
+      "Vimeo API",
+      "Dailymotion API",
+      "Twitch API",
+      "Wistia API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the YouTube API free to use?",
+        "answer": "Yes, it offers a free tier with quota limits; paid tiers are available for higher usage beyond the free quota."
+      },
+      {
+        "question": "Does it require authentication?",
+        "answer": "Public operations (e.g., video search) need an API key; authenticated actions (e.g., uploads) require OAuth 2.0."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "The YouTube API primarily returns responses in JSON format, which is easy to parse for most applications."
+      }
+    ]
+  },
+  {
+    "name": "Hong Kong Observatory",
+    "slug": "hong-kong-observatory",
+    "tagline": "Free weather, earthquake, and climate data API for Hong Kong",
+    "description": "The Hong Kong Observatory API offers RESTful endpoints for real-time weather (current conditions, 7-day forecasts), earthquake alerts (magnitude, location), and historical climate stats (monthly temperature, rainfall). Responses are primarily JSON, with some climate datasets in CSV. Use cases include building HK weather apps, emergency earthquake alert systems, climate research on HK patterns, and enhancing travel platforms with region-specific weather info for visitors.",
+    "pricing_type": "Free",
+    "category": "Weather",
+    "collection": "publicapis",
+    "website_url": "https://www.hko.gov.hk/en/abouthko/opendata_intro.htm",
+    "key_features": [
+      "RESTful endpoints",
+      "JSON/CSV support",
+      "No API key required",
+      "Real-time earthquake alerts",
+      "Historical climate data"
+    ],
+    "pros": [
+      "Reliable government-sourced data",
+      "Comprehensive HK-specific datasets",
+      "Free access for all uses",
+      "Easy to integrate"
+    ],
+    "cons": [
+      "Limited to Hong Kong region",
+      "Rate limits for high-volume requests",
+      "Some climate datasets have delayed updates"
+    ],
+    "alternatives": [
+      "OpenWeatherMap"
+    ],
+    "faqs": [
+      {
+        "question": "Is Hong Kong Observatory API free to use?",
+        "answer": "Yes, it is completely free for public and commercial use with no subscription fees."
+      },
+      {
+        "question": "Does it require an API Key?",
+        "answer": "Most endpoints do not need an API key; direct access is permitted under the observatory’s open data terms."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "Most endpoints return JSON, while historical climate datasets are available in CSV format for analysis."
+      }
+    ]
+  },
+  {
+    "name": "Tomorrow Weather API",
+    "slug": "tomorrow-weather-api",
+    "tagline": "Proprietary Weather API for Hyper-Accurate Forecasts",
+    "description": "Tomorrow Weather API provides RESTful endpoints for real-time weather data, 7-day forecasts, historical records, severe weather alerts, and climate insights. Responses are JSON-formatted, including granular metrics like temperature, precipitation, wind speed, humidity, UV index, and air quality. Use cases span app integration, logistics route optimization, agricultural crop planning, smart home automation, and event risk mitigation. Powered by proprietary forecasting technology, it delivers hyper-accurate global weather data with high spatial resolution, enabling developers to build weather-responsive solutions efficiently.",
+    "pricing_type": "Freemium",
+    "category": "Weather",
+    "collection": "publicapis",
+    "website_url": "https://docs.tomorrow.io",
+    "key_features": [
+      "RESTful Architecture",
+      "JSON Response Format",
+      "Proprietary Forecasting Models",
+      "Real-Time Weather Data",
+      "7-Day Forecasts",
+      "Historical Weather Records",
+      "Severe Weather Alerts",
+      "Global Coverage"
+    ],
+    "pros": [
+      "Hyper-Accurate Forecasts",
+      "Comprehensive Data Metrics",
+      "Easy-to-Use Endpoints",
+      "Global Spatial Granularity",
+      "Real-Time Alert Notifications"
+    ],
+    "cons": [
+      "Freemium Tier Rate Limits",
+      "Paid Plans for High Volume",
+      "No XML Response Option",
+      "Limited Free Historical Data"
+    ],
+    "alternatives": [
+      "OpenWeatherMap API",
+      "Weatherbit API",
+      "AccuWeather API",
+      "Apple Weather API"
+    ],
+    "faqs": [
+      {
+        "question": "Is the Tomorrow Weather API free to use?",
+        "answer": "Yes, it offers a freemium plan with limited requests and core features; paid plans unlock higher limits, advanced metrics, and extended historical data access."
+      },
+      {
+        "question": "Does it require an API key?",
+        "answer": "Yes, all requests need an API key obtainable via signing up on the Tomorrow.io platform."
+      },
+      {
+        "question": "What is the response format?",
+        "answer": "The API primarily returns data in JSON format, compatible with most development frameworks and applications."
+      }
+    ]
   }
 ]
