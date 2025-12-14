@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Submit a Tool - ToolStock" description="Submit your AI, Mac, Windows, or Self-Hosted tool to our directory for free.">
+  <div class="max-w-3xl mx-auto px-4 py-12">
+    <div class="text-center mb-10">
+      <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Submit a Tool</h1>
+      <p class="text-lg text-slate-600">
+        Do you have an awesome tool that belongs on ToolStock? <br/>
+        We list AI tools, Mac Apps, Windows Software, Public APIs, and Self-Hosted solutions.
+      </p>
+    </div>
+
+    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+      <div class="space-y-6">
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+          <p class="text-sm text-blue-700">
+            <strong>🚀 Free Listing:</strong> Currently, all submissions are free. We review submissions weekly.
+          </p>
+        </div>
+
+        {/* 这里使用最简单的 Google Forms 或者 Email 方式，避免开发后端 */}
+        <div class="text-center py-8">
+            <a href="mailto:contact@toolstock.net?subject=Tool Submission&body=Tool Name:%0AWebsite URL:%0ACategory:%0ADescription:" 
+               class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+               </svg>
+               Submit via Email
+            </a>
+            <p class="mt-4 text-sm text-slate-500">
+                Or send details to <span class="font-mono text-slate-700">contact@toolstock.net</span>
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

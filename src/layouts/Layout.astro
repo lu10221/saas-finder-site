@@ -50,35 +50,40 @@ const socialImageURL = new URL(image, Astro.site);
 	<body class="bg-slate-50 text-slate-900 font-sans flex flex-col min-h-screen">
 		{/* 顶部导航栏 */}
 		<nav class="bg-white border-b border-slate-200 py-4 sticky top-0 z-50">
-			{/* 🔴 改动1：宽度从 4xl 改为 6xl，视野更开阔 */}
 			<div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
 				<a href="/" class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">ToolStock</a>
-				<div class="flex gap-6 text-sm font-medium text-slate-600">
-                    <a href="/" class="hover:text-blue-600 transition">All Tools</a>
-                    {/* 🔴 改动2：增加 Categories 入口 */}
+				
+                {/* 右侧菜单 */}
+                <div class="flex items-center gap-6 text-sm font-medium text-slate-600">
+                    <a href="/" class="hover:text-blue-600 transition hidden sm:block">All Tools</a>
                     <a href="/categories" class="hover:text-blue-600 transition">Categories</a>
-                    <a href="/about" class="hover:text-blue-600 transition">About</a>
+                    <a href="/about" class="hover:text-blue-600 transition hidden sm:block">About</a>
+                    
+                    {/* 👇 新增：Submit Tool 入口 (加粗高亮) */}
+                    <a href="/submit" class="text-blue-600 hover:text-blue-800 font-bold transition flex items-center gap-1">
+                        <span class="hidden sm:inline">+</span> Submit
+                    </a>
                 </div>
 			</div>
 		</nav>
 
 		{/* 主内容区 */}
-		{/* 🔴 改动3：宽度同步改为 6xl */}
 		<main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
 			<slot />
 		</main>
 
 		{/* 页脚 */}
 		<footer class="bg-slate-900 text-slate-400 py-10 text-center mt-auto border-t border-slate-800">
-			{/* 🔴 改动4：宽度同步改为 6xl */}
 			<div class="max-w-6xl mx-auto px-4">
 				<p class="mb-4 text-sm">&copy; {new Date().getFullYear()} ToolStock.net - Find the best software alternatives.</p>
 				
-				<div class="flex justify-center gap-6 text-xs font-medium uppercase tracking-wide">
+				<div class="flex justify-center flex-wrap gap-6 text-xs font-medium uppercase tracking-wide">
 					<a href="/" class="hover:text-white transition-colors duration-200">Home</a>
-                    {/* 🔴 改动5：底部增加 Categories 入口 (爬虫通道) */}
                     <a href="/categories" class="hover:text-white transition-colors duration-200">Categories</a>
+                    {/* 👇 新增：Submit Tool 入口 */}
+                    <a href="/submit" class="hover:text-white transition-colors duration-200 text-blue-400">Submit Tool</a>
 					<a href="/about" class="hover:text-white transition-colors duration-200">About</a>
+                    <a href="/privacy" class="hover:text-white transition-colors duration-200">Privacy</a>
 					<a href="/sitemap-index.xml" class="hover:text-white transition-colors duration-200">Sitemap</a>
 				</div>
 			</div>
