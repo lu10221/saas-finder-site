@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// 1. 读取所有数据并提取分类
+const getJson = (filename) => {
+  try {
+      let filePath = path.join(process.cwd(), 'public', 'data', filename);
+      if (!fs.existsSync(filePath)) filePath = path.join(process.cwd(), 'src', 'data', filename);
+      if (fs.existsSync(filePath)) return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      return [];
+  } catch (e) { return []; }
+};
+
+const allTools = [
+    ...getJson('ai_tools.json'),
+    ...getJson('mac_tools.json'),
+    ...getJson('selfhosted_tools.json'),
+    ...getJson('windows_tools.json'),
+    ...getJson('publicapis_tools.json')
+];
+
+// 2. 统计每个分类的工具数量
+const categoryStats = {};
+
+allTools.forEach(tool => {
+    if (tool.category) {
+        const catName = tool.category.trim();
+        const catSlug = catName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        
+        if (!categoryStats[catName]) {
+            categoryStats[catName] = { slug: catSlug, count: 0 };
+        }
+        categoryStats[catName].count++;
+    }
+});
+
+// 3. 按字母顺序排序
+const sortedCategories = Object.entries(categoryStats).sort((a, b) => a[0].localeCompare(b[0]));
+---
+
+<Layout title="All Tool Categories - ToolStock Directory" description="Browse all software categories. Find the best AI, Mac, Windows, and Self-Hosted tools organized by topic.">
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    
+    <header class="text-center mb-16">
+        <h1 class="text-4xl font-extrabold text-slate-900 mb-6">Explore All Categories</h1>
+        <p class="text-xl text-slate-600">
+            Browse <span class="font-bold text-blue-600">{sortedCategories.length}</span> curated topics across AI, Mac, Windows, APIs, and Self-Hosted software.
+        </p>
+    </header>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {sortedCategories.map(([name, data]) => (
+            <a href={`/category/${data.slug}`} class="group flex justify-between items-center p-4 bg-white border border-slate-200 rounded-xl hover:border-blue-400 hover:shadow-md transition">
+                <span class="font-semibold text-slate-700 group-hover:text-blue-600 truncate mr-2">
+                    {name}
+                </span>
+                <span class="text-xs font-bold px-2 py-1 bg-slate-100 text-slate-500 rounded-full group-hover:bg-blue-50 group-hover:text-blue-600 transition">
+                    {data.count}
+                </span>
+            </a>
+        ))}
+    </div>
+
+    <div class="mt-16 text-center border-t border-slate-200 pt-8">
+        <a href="/" class="text-blue-600 font-bold hover:underline">← Back to Home</a>
+    </div>
+
+  </div>
+</Layout>
