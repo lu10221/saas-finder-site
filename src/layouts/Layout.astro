@@ -2,17 +2,14 @@
 interface Props {
 	title: string;
 	description: string;
-    image?: string; // 新增：支持传入封面图
-    type?: string;  // 新增：页面类型 (website / article)
+    image?: string;
+    type?: string;
 }
 
 const { title, description, image = "/favicon.svg", type = "website" } = Astro.props;
 
-// 🔴 核心 SEO 优化 1：自动生成规范链接 (Canonical URL)
-// 告诉 Google：不管 URL 后面带什么参数，这个链接才是正版
+// 🔴 核心 SEO 优化：Canonical URL
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
-// 处理图片路径 (如果是相对路径，转为绝对路径，方便社交媒体抓取)
 const socialImageURL = new URL(image, Astro.site);
 ---
 
@@ -41,6 +38,7 @@ const socialImageURL = new URL(image, Astro.site);
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={socialImageURL} />
 
+        {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-808RCH7PM9"></script>
 		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
@@ -50,27 +48,37 @@ const socialImageURL = new URL(image, Astro.site);
 		</script>
 	</head>
 	<body class="bg-slate-50 text-slate-900 font-sans flex flex-col min-h-screen">
+		{/* 顶部导航栏 */}
 		<nav class="bg-white border-b border-slate-200 py-4 sticky top-0 z-50">
-			<div class="max-w-4xl mx-auto px-4 flex justify-between items-center">
+			{/* 🔴 改动1：宽度从 4xl 改为 6xl，视野更开阔 */}
+			<div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
 				<a href="/" class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">ToolStock</a>
-				<div class="flex gap-4 text-sm font-medium text-slate-600">
+				<div class="flex gap-6 text-sm font-medium text-slate-600">
                     <a href="/" class="hover:text-blue-600 transition">All Tools</a>
+                    {/* 🔴 改动2：增加 Categories 入口 */}
+                    <a href="/categories" class="hover:text-blue-600 transition">Categories</a>
                     <a href="/about" class="hover:text-blue-600 transition">About</a>
                 </div>
 			</div>
 		</nav>
 
-		<main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
+		{/* 主内容区 */}
+		{/* 🔴 改动3：宽度同步改为 6xl */}
+		<main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
 			<slot />
 		</main>
 
+		{/* 页脚 */}
 		<footer class="bg-slate-900 text-slate-400 py-10 text-center mt-auto border-t border-slate-800">
-			<div class="max-w-4xl mx-auto px-4">
+			{/* 🔴 改动4：宽度同步改为 6xl */}
+			<div class="max-w-6xl mx-auto px-4">
 				<p class="mb-4 text-sm">&copy; {new Date().getFullYear()} ToolStock.net - Find the best software alternatives.</p>
 				
 				<div class="flex justify-center gap-6 text-xs font-medium uppercase tracking-wide">
+					<a href="/" class="hover:text-white transition-colors duration-200">Home</a>
+                    {/* 🔴 改动5：底部增加 Categories 入口 (爬虫通道) */}
+                    <a href="/categories" class="hover:text-white transition-colors duration-200">Categories</a>
 					<a href="/about" class="hover:text-white transition-colors duration-200">About</a>
-					<a href="/privacy" class="hover:text-white transition-colors duration-200">Privacy</a>
 					<a href="/sitemap-index.xml" class="hover:text-white transition-colors duration-200">Sitemap</a>
 				</div>
 			</div>
