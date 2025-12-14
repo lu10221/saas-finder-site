@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+export async function getStaticPaths() {
+  const getJson = (filename) => {
+    try {
+        let filePath = path.join(process.cwd(), 'public', 'data', filename);
+        if (!fs.existsSync(filePath)) filePath = path.join(process.cwd(), 'src', 'data', filename);
+        if (fs.existsSync(filePath)) return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+        return [];
+    } catch (e) { return []; }
+  };
+
+  // 1. 加载所有 5 个数据源
+  const aiData = getJson('ai_tools.json').map(t => ({ ...t, collection: 'ai' }));
+  const macData = getJson('mac_tools.json').map(t => ({ ...t, collection: 'mac' }));
+  const selfData = getJson('selfhosted_tools.json').map(t => ({ ...t, collection: 'selfhosted' }));
+  const winData = getJson('windows_tools.json').map(t => ({ ...t, collection: 'windows' }));
+  const apiData = getJson('publicapis_tools.json').map(t => ({ ...t, collection: 'publicapis' }));
+  
+  const allTools = [...aiData, ...macData, ...selfData, ...winData, ...apiData];
+
+  // 2. 提取分类
+  const categories = new Set();
+  allTools.forEach(tool => {
+      if (tool.category) {
+          const slug = tool.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+          if (slug) categories.add(slug);
+      }
+  });
+
+  return Array.from(categories).map((catSlug) => {
+      const filteredTools = allTools.filter(t => 
+          t.category && 
+          t.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') === catSlug
+      );
+      const displayCategory = filteredTools[0]?.category || catSlug;
+
+      return {
+          params: { category: catSlug },
+          props: { categoryName: displayCategory, tools: filteredTools },
+      };
+  });
+}
+
+const { categoryName, tools } = Astro.props;
+const currentYear = new Date().getFullYear();
+
+const pageTitle = `Best ${categoryName} Tools & Software (${currentYear})`;
+const pageDesc = `Compare the best ${categoryName} software, AI tools, and APIs for Mac, Windows and Self-Hosted servers.`;
+
+// 🎨 样式工厂：完美复刻你的旧版配色逻辑，并扩展到5色
+function getStyle(col) {
+    if (col === 'mac') return { 
+        border: 'border-slate-200 hover:border-purple-300', 
+        textHover: 'group-hover:text-purple-600', 
+        badgeBg: 'bg-purple-50', 
+        badgeText: 'text-purple-600',
+        arrow: 'text-purple-600',
+        label: 'Mac'
+    };
+    if (col === 'windows') return { 
+        border: 'border-slate-200 hover:border-sky-300', 
+        textHover: 'group-hover:text-sky-600', 
+        badgeBg: 'bg-sky-50', 
+        badgeText: 'text-sky-600',
+        arrow: 'text-sky-600',
+        label: 'Win'
+    };
+    if (col === 'selfhosted') return { 
+        border: 'border-slate-200 hover:border-orange-300', 
+        textHover: 'group-hover:text-orange-600', 
+        badgeBg: 'bg-orange-50', 
+        badgeText: 'text-orange-600',
+        arrow: 'text-orange-600',
+        label: 'Self-Hosted'
+    };
+    if (col === 'publicapis') return { 
+        border: 'border-slate-200 hover:border-green-300', 
+        textHover: 'group-hover:text-green-600', 
+        badgeBg: 'bg-green-50', 
+        badgeText: 'text-green-600',
+        arrow: 'text-green-600',
+        label: 'API'
+    };
+    // Default AI (Blue)
+    return { 
+        border: 'border-slate-200 hover:border-blue-300', 
+        textHover: 'group-hover:text-blue-600', 
+        badgeBg: 'bg-blue-50', 
+        badgeText: 'text-blue-600',
+        arrow: 'text-blue-600',
+        label: 'AI'
+    };
+}
+---
+
+<Layout title={pageTitle} description={pageDesc}>
+  <div class="max-w-6xl mx-auto px-4 py-10">
+    
+    {/* 顶部简单的面包屑导航 */}
+    <div class="mb-8">
+        <a href="/" class="text-sm text-slate-500 hover:text-blue-600 hover:underline flex items-center gap-1 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Back to All Tools
+        </a>
+        <h1 class="text-4xl font-extrabold mt-4 mb-2 text-slate-900">{categoryName} Tools</h1>
+        <p class="text-xl text-slate-500">Found <span class="font-bold text-slate-800">{tools.length}</span> curated tools in this category.</p>
+    </div>
+
+    {/* 列表区域 - 使用你喜欢的旧版样式结构 */}
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {tools.map((tool) => {
+            const style = getStyle(tool.collection);
+            const slug = tool.slug || tool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            
+            return (
+                <a href={`/tool/${slug}`} class={`block bg-white p-6 rounded-xl shadow-sm border transition group hover:shadow-md ${style.border}`}>
+                    
+                    {/* 头部：标题 + Badge */}
+                    <div class="flex justify-between items-start mb-3">
+                        <h2 class={`text-xl font-bold text-slate-900 transition-colors ${style.textHover}`}>
+                            {tool.name}
+                        </h2>
+                        <span class={`text-[10px] uppercase font-bold px-2 py-1 rounded ${style.badgeBg} ${style.badgeText}`}>
+                            {style.label}
+                        </span>
+                    </div>
+                    
+                    {/* 中间：简介 */}
+                    <p class="text-sm text-slate-500 mb-4 line-clamp-2 h-10">
+                        {tool.tagline || tool.description?.slice(0, 80) + '...'}
+                    </p>
+                    
+                    {/* 底部：价格 + View Details 箭头 */}
+                    <div class="flex items-center justify-between mt-auto pt-2">
+                        <span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600 font-medium">
+                            {tool.pricing_type || 'Free'}
+                        </span>
+                        <span class={`text-xs font-bold flex items-center gap-1 transition-transform group-hover:translate-x-1 ${style.arrow}`}>
+                            View Details &rarr;
+                        </span>
+                    </div>
+                </a>
+            );
+        })}
+    </div>
+    
+    {/* 底部导航 */}
+    <div class="mt-12 pt-8 border-t border-slate-100 text-center">
+        <a href="/" class="inline-block px-6 py-2 bg-slate-50 text-slate-600 rounded-full text-sm font-semibold hover:bg-slate-100 transition">
+            Browse Other Categories
+        </a>
+    </div>
+
+  </div>
+</Layout>

@@ -25,14 +25,12 @@ export async function getStaticPaths() {
     } catch (e) { return []; }
   };
 
-  // 加载所有 5 个数据源
   const aiData = getJson('ai_tools.json');
   const macData = getJson('mac_tools.json');
   const selfData = getJson('selfhosted_tools.json');
   const winData = getJson('windows_tools.json');
   const apiData = getJson('publicapis_tools.json'); 
   
-  // 打标
   const aiTools = aiData.map(t => ({ ...t, collection: 'ai' }));
   const macTools = macData.map(t => ({ ...t, collection: 'mac' }));
   const selfTools = selfData.map(t => ({ ...t, collection: 'selfhosted' }));
@@ -51,27 +49,24 @@ const { tool, allTools } = Astro.props;
 const existingSlugs = new Set(allTools.map(t => t.slug || t.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')));
 
 // ==========================================
-// 🚀 2. 深度定制 SEO 逻辑 (真实性 + 全面性)
+// 🚀 2. 深度定制 SEO 逻辑
 // ==========================================
 
 const currentYear = new Date().getFullYear();
 let pageTitle = "";
 let pageDesc = "";
 
-// 价格清洗逻辑
+// 价格清洗
 const pType = tool.pricing_type ? tool.pricing_type.toLowerCase() : '';
 const isFullyFree = pType === 'free' || pType === 'open source' || pType === 'public';
 const isFreemium = pType.includes('freemium');
 
-// 竞品提取 (防空)
+// 竞品提取
 const firstCompetitor = (tool.alternatives && tool.alternatives.length > 0) 
     ? tool.alternatives[0] 
     : 'Popular Tools';
 
-// --- 核心分支逻辑 ---
-
 if (tool.collection === 'mac') {
-    // 🍎 Mac: 强调下载, 免费/试用, 兼容性
     if (isFullyFree) {
         pageTitle = `Download ${tool.name} for Mac (Free): Best Alternative to ${firstCompetitor}`;
     } else if (isFreemium) {
@@ -82,7 +77,6 @@ if (tool.collection === 'mac') {
     pageDesc = `Looking for ${tool.name} for macOS? Read our ${currentYear} review. A ${pType} ${tool.category} tool optimized for Apple Silicon. Compare it with ${firstCompetitor}.`;
 
 } else if (tool.collection === 'windows') {
-    // 🪟 Windows: 强调 PC, Win 10/11, 试用
     if (isFullyFree) {
         pageTitle = `Download ${tool.name} for PC (Free): Windows 10/11 Latest Version`;
     } else if (isFreemium) {
@@ -93,18 +87,15 @@ if (tool.collection === 'mac') {
     pageDesc = `Download the latest version of ${tool.name} for Windows 10/11 (64-bit). Installation guide, feature breakdown, and comparison vs ${firstCompetitor}.`;
 
 } else if (tool.collection === 'selfhosted') {
-    // 🐳 Self-Hosted: 强调部署, Docker, 开源
     pageTitle = `Deploy ${tool.name} (Self-Hosted): Docker Guide & ${firstCompetitor} Alternative`;
     pageDesc = `Self-host ${tool.name} on your server. ${currentYear} Guide: Docker Compose setup, system requirements, and why it's the best open-source alternative to ${firstCompetitor}.`;
 
 } else if (tool.collection === 'publicapis') {
-    // ⚡ API: 强调文档, 接口, 集成
     const authType = tool.key_features?.[0] || 'Auth';
     pageTitle = `${tool.name} API Documentation: Endpoints, Auth & Integration (${currentYear})`;
     pageDesc = `Complete guide for ${tool.name} Public API. Check authentication (${authType}), rate limits, and JSON response examples. Ideal for developers building ${tool.category} apps.`;
 
 } else {
-    // 🤖 AI / 通用: 强调能力和价格
     if (isFullyFree) {
         pageTitle = `${tool.name} (Free AI Tool): Features, Use Cases & Alternatives`;
     } else {
@@ -124,37 +115,17 @@ let hoverBtn = 'hover:bg-blue-700';
 let shadowColor = 'shadow-blue-200';
 
 if (tool.collection === 'mac') {
-    themeColor = 'purple';
-    bgLight = 'bg-purple-100';
-    textDark = 'text-purple-700';
-    bgBtn = 'bg-purple-600';
-    hoverBtn = 'hover:bg-purple-700';
-    shadowColor = 'shadow-purple-200';
+    themeColor = 'purple'; bgLight = 'bg-purple-100'; textDark = 'text-purple-700'; bgBtn = 'bg-purple-600'; hoverBtn = 'hover:bg-purple-700'; shadowColor = 'shadow-purple-200';
 } else if (tool.collection === 'selfhosted') {
-    themeColor = 'orange';
-    bgLight = 'bg-orange-100';
-    textDark = 'text-orange-700';
-    bgBtn = 'bg-orange-600';
-    hoverBtn = 'hover:bg-orange-700';
-    shadowColor = 'shadow-orange-200';
+    themeColor = 'orange'; bgLight = 'bg-orange-100'; textDark = 'text-orange-700'; bgBtn = 'bg-orange-600'; hoverBtn = 'hover:bg-orange-700'; shadowColor = 'shadow-orange-200';
 } else if (tool.collection === 'windows') {
-    themeColor = 'sky';
-    bgLight = 'bg-sky-100';
-    textDark = 'text-sky-700';
-    bgBtn = 'bg-sky-600';
-    hoverBtn = 'hover:bg-sky-700';
-    shadowColor = 'shadow-sky-200';
+    themeColor = 'sky'; bgLight = 'bg-sky-100'; textDark = 'text-sky-700'; bgBtn = 'bg-sky-600'; hoverBtn = 'hover:bg-sky-700'; shadowColor = 'shadow-sky-200';
 } else if (tool.collection === 'publicapis') {
-    themeColor = 'green';
-    bgLight = 'bg-green-100';
-    textDark = 'text-green-700';
-    bgBtn = 'bg-green-600';
-    hoverBtn = 'hover:bg-green-700';
-    shadowColor = 'shadow-green-200';
+    themeColor = 'green'; bgLight = 'bg-green-100'; textDark = 'text-green-700'; bgBtn = 'bg-green-600'; hoverBtn = 'hover:bg-green-700'; shadowColor = 'shadow-green-200';
 }
 
 // ==========================================
-// 4. Schema 结构化数据
+// 4. Schema
 // ==========================================
 const softwareSchema = {
   "@context": "https://schema.org",
@@ -167,7 +138,6 @@ const softwareSchema = {
   "description": tool.description
 };
 
-// 面包屑 Schema (增强 SEO 结构)
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -255,12 +225,10 @@ const relatedTools = allTools
         </div>
       </section>
 
-      {/* 🌟 Self-Hosted 信任增强版：提供资源导航，而非错误代码 */}
+      {/* Self-Hosted 信任增强模块 */}
       {tool.collection === 'selfhosted' && (
           <section>
-            <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">Self-Hosting Resources for {tool.name}</h2>
-            
-            {/* 资源链接按钮 */}
+            <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">Self-Hosting Resources</h2>
             <div class="flex flex-wrap gap-3 mb-6">
                 <a href={`https://hub.docker.com/search?q=${encodeURIComponent(tool.name)}&type=image`} target="_blank" rel="nofollow" class="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg text-sm font-bold hover:bg-blue-100 transition border border-blue-200">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m-2.954-5.43h2.119a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.186.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V3.574a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.888c0 .102.083.186.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V3.574a.185.185 0 00-.186-.185H5.136a.186.186 0 00-.186.185v1.888c0 .102.084.186.186.186m5.893 2.715h2.119a.186.186 0 00.186-.185V6.29a.186.186 0 00-.186-.186h-2.119a.186.186 0 00-.185.186v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V6.29a.185.185 0 00-.185-.186H8.1a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.186.186 0 00.185-.185V6.29a.186.186 0 00-.186-.186H5.14a.186.186 0 00-.186.186v1.888c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V6.29a.185.185 0 00-.185-.186h-2.119a.185.185 0 00-.186.186v1.888c0 .102.082.185.186.185m-2.95 5.43h2.118a.185.185 0 00.186-.185V9.006a.185.185 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.888c0 .102.082.185.185.185m5.88 0h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.186.186 0 00-.185.186v1.888c0 .102.083.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.185-.186H8.1a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.186.186 0 00.185-.185V9.006a.186.186 0 00-.186-.186H5.14a.186.186 0 00-.186.186v1.888c0 .102.084.185.186.185m5.83 5.704h2.118a.186.186 0 00.186-.186v-1.888a.186.186 0 00-.186-.185h-2.119a.186.186 0 00-.185.185v1.888c0 .102.082.186.185.186m-5.88 0h2.119a.186.186 0 00.185-.186v-1.888a.186.186 0 00-.186-.185H5.136a.186.186 0 00-.186.185v1.888c0 .102.084.186.186.186m2.96 0h2.12a.185.185 0 00.184-.186v-1.888a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.888c0 .102.083.186.185.186M23.34 9.448h-1.657v-2.07c0-.669-.54-1.213-1.205-1.213h-.914v-2.07c0-.669-.54-1.213-1.205-1.213H16.6v-1.27c0-.67-.54-1.214-1.205-1.214H1.246c-.665 0-1.205.544-1.205 1.214v15.934c0 .67.54 1.214 1.205 1.214h22.094c.665 0 1.205-.544 1.205-1.214v-6.098c0-.67-.54-1.214-1.205-1.214"/></svg>
@@ -271,11 +239,9 @@ const relatedTools = allTools
                     View Source & Docs
                 </a>
             </div>
-
-            {/* 带有明显警告的 YAML 模板 */}
             <p class="text-slate-600 mb-2 text-sm">
               Below is a <strong>reference structure</strong> for <code>docker-compose.yml</code>. 
-              <span class="text-red-600 font-bold ml-1">⚠️ Do NOT run blindly.</span> You must replace the placeholders with official values found in the links above.
+              <span class="text-red-600 font-bold ml-1">⚠️ Do NOT run blindly.</span> Replace placeholders with official values.
             </p>
             <div class="bg-slate-900 rounded-xl p-4 overflow-x-auto shadow-inner border-l-4 border-yellow-500">
                 <div class="flex justify-between items-center mb-2 text-slate-400 text-xs font-mono">
@@ -286,45 +252,31 @@ const relatedTools = allTools
 version: '3'
 services:
   {tool.slug.replace(/-/g, '_')}:
-    # 🔴 ACTION REQUIRED: Replace with official image from Docker Hub
     image: <span class="text-yellow-400">&lt;OFFICIAL_IMAGE_NAME&gt;</span>:latest
-    
     container_name: {tool.slug}
-    
-    # 🔴 ACTION REQUIRED: Check docs for internal port (e.g., 80, 3000, 8080)
     ports:
       - "8080:<span class="text-yellow-400">&lt;APP_INTERNAL_PORT&gt;</span>"
-    
     volumes:
       - ./data:/app/data
-    
-    # Check if {tool.name} requires DB_PASSWORD or other keys
-    environment:
-      - TZ=UTC
-    
     restart: unless-stopped</pre>
             </div>
           </section>
       )}
 
-      {/* 🌟 API 自动生成 Fetch 代码 */}
+      {/* API Fetch 代码模块 */}
       {tool.collection === 'publicapis' && (
           <section>
             <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">Example Integration (JavaScript)</h2>
-            <p class="text-slate-600 mb-4">
-              Quickly test the <strong>{tool.name}</strong> API using standard JavaScript fetch:
-            </p>
             <div class="bg-slate-900 rounded-xl p-4 overflow-x-auto shadow-inner">
                 <div class="flex justify-between items-center mb-2 text-slate-400 text-xs font-mono">
                     <span>script.js</span>
                     <span class="bg-slate-800 px-2 py-1 rounded">JS</span>
                 </div>
                 <pre class="text-blue-400 text-sm font-mono leading-relaxed">
-// Fetch data from {tool.name}
 fetch('{tool.website_url}')
-  .then(response => response.json())
+  .then(res => res.json())
   .then(data => console.log(data))
-  .catch(error => console.error('Error:', error));</pre>
+  .catch(err => console.error(err));</pre>
             </div>
           </section>
       )}
@@ -381,6 +333,20 @@ fetch('{tool.website_url}')
                     </div>
                 );
             })}
+        </div>
+      </section>
+
+      {/* 🚀 底部关键词裂变模块 (新增) */}
+      <section class="mt-12 pt-8 border-t border-slate-200">
+        <h3 class="text-lg font-bold text-slate-900 mb-4">People Also Ask about {tool.name}</h3>
+        <div class="flex flex-wrap gap-2">
+            {tool.alternatives && tool.alternatives.slice(0, 5).map(alt => (
+                <span class="px-3 py-1.5 bg-slate-100 text-slate-600 text-xs rounded-full border border-slate-200">{tool.name} vs {alt}</span>
+            ))}
+            <span class="px-3 py-1.5 bg-slate-100 text-slate-600 text-xs rounded-full border border-slate-200">{tool.name} {currentYear} review</span>
+            {tool.collection === 'mac' && <span class="px-3 py-1.5 bg-slate-100 text-slate-600 text-xs rounded-full border border-slate-200">{tool.name} for Apple Silicon</span>}
+            {tool.collection === 'windows' && <span class="px-3 py-1.5 bg-slate-100 text-slate-600 text-xs rounded-full border border-slate-200">{tool.name} portable version</span>}
+            {tool.collection === 'selfhosted' && <span class="px-3 py-1.5 bg-slate-100 text-slate-600 text-xs rounded-full border border-slate-200">{tool.name} docker-compose example</span>}
         </div>
       </section>
     </div>
